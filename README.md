@@ -24,9 +24,6 @@ Deploy the example using [Vercel](https://vercel.com):
 
 ## How to use
 
-1. Clone repo https://github.com/prisma-cms/nextjs:
-2. Insta
-
 ```bash
 # Clone project
 git clone https://github.com/prisma-cms/nextjs.git
@@ -58,6 +55,44 @@ yarn generate:types
 
 ```bash
 yarn dev
+```
+
+## Tests
+
+### Eslint
+
+```bash
+yarn lint
+```
+
+### TS
+
+```
+yarn types
+```
+
+### Jest unit tests
+
+**Attension!** For unit tests started server required.
+
+```bash
+# Build bundles
+yarn build
+
+# Start bundled project
+yarn start
+```
+
+After this open yet another terminal and run tests
+
+```bash
+yarn test
+```
+
+### Run all test
+
+```bash
+yarn test-all
 ```
 
 Deploy it to the cloud with [Vercel](https://vercel.com/import?filter=next.js&utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)).

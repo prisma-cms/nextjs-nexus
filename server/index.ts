@@ -1,6 +1,6 @@
-import express, { Response, Request } from 'express'
+import express from 'express'
 import next from 'next'
-const { createProxyMiddleware } = require('http-proxy-middleware')
+import { createProxyMiddleware } from 'http-proxy-middleware'
 
 const port = (process.env.PORT && parseInt(process.env.PORT, 10)) || 3000
 const dev = process.env.NODE_ENV !== 'production'
@@ -16,7 +16,7 @@ const apiPropxy = createProxyMiddleware({
   pathRewrite: {
     '^/api(/|$)': '/',
   },
-  onError: (err: Error, _req: Request, res: Response) => {
+  onError: (err, _req, res) => {
     console.error('apiPropxy onError err', err)
 
     res.writeHead(500, {

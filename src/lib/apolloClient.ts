@@ -5,8 +5,10 @@ import {
   InMemoryCache,
   NormalizedCacheObject,
 } from '@apollo/client'
+import { onError } from '@apollo/client/link/error'
 import { concatPagination } from '@apollo/client/utilities'
 import URI from 'urijs'
+import fetch from 'cross-fetch'
 
 let apolloClient: ApolloClient<NormalizedCacheObject>
 
@@ -25,14 +27,33 @@ function createApolloClient() {
     origin = `http://${hostname}:${PORT}`
   }
 
+  // const endpoint = 'https://nextjs-graphql-with-prisma-simple.vercel.app/api' || `${origin}/api/`
   const endpoint = `${origin}/api/`
+
+  const errorLink = onError((error) => {
+    const { graphQLErrors, networkError } = error
+
+    if (graphQLErrors)
+      graphQLErrors.map(({ message, locations, path }) =>
+        console.error(
+          `[GraphQL error]: Message: ${message}, Location: ${locations}, Path: ${path}`
+        )
+      )
+
+    if (networkError) {
+      console.error(`[Network error]: ${networkError}`)
+    }
+  })
+
+  const httpLink = new HttpLink({
+    fetch,
+    uri: endpoint, // Server URL (must be absolute)
+    credentials: 'same-origin', // Additional fetch() options like `credentials` or `headers`
+  })
 
   return new ApolloClient({
     ssrMode: typeof window === 'undefined',
-    link: new HttpLink({
-      uri: endpoint, // Server URL (must be absolute)
-      credentials: 'same-origin', // Additional fetch() options like `credentials` or `headers`
-    }),
+    link: errorLink.concat(httpLink),
     cache: new InMemoryCache({
       typePolicies: {
         Query: {

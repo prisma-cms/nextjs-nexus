@@ -1,5 +1,5 @@
 import { ApolloProvider } from '@apollo/client'
-import { useApollo } from '../src/lib/apolloClient'
+import { useApollo } from 'src/lib/apolloClient'
 
 export type AppProps = {
   Component: any

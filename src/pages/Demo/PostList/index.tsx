@@ -1,7 +1,10 @@
-import { useQuery, NetworkStatus } from '@apollo/client'
+import { NetworkStatus } from '@apollo/client'
 import ErrorMessage from '../ErrorMessage'
 import { PostListProps } from './interfaces'
-import { PostsDocument as ALL_POSTS_QUERY } from 'src/modules/gql/generated'
+import {
+  PostsDocument as ALL_POSTS_QUERY,
+  usePostsQuery,
+} from 'src/modules/gql/generated'
 
 export const allPostsQueryVars = {
   skip: 0,
@@ -11,19 +14,16 @@ export const allPostsQueryVars = {
 export const PostList: React.FC<PostListProps> = (props) => {
   const { variables } = props
 
-  const { loading, error, data, fetchMore, networkStatus } = useQuery(
-    ALL_POSTS_QUERY,
-    {
-      variables: {
-        ...allPostsQueryVars,
-        ...variables,
-      },
-      // Setting this value to true will make the component rerender when
-      // the "networkStatus" changes, so we are able to know if it is fetching
-      // more data
-      notifyOnNetworkStatusChange: true,
-    }
-  )
+  const { loading, error, data, fetchMore, networkStatus } = usePostsQuery({
+    variables: {
+      ...allPostsQueryVars,
+      ...variables,
+    },
+    // Setting this value to true will make the component rerender when
+    // the "networkStatus" changes, so we are able to know if it is fetching
+    // more data
+    notifyOnNetworkStatusChange: true,
+  })
 
   const loadingMorePosts = networkStatus === NetworkStatus.fetchMore
 
@@ -35,17 +35,25 @@ export const PostList: React.FC<PostListProps> = (props) => {
     })
   }
 
-  if (error) return <ErrorMessage message="Error loading posts." />
-  if (loading && !loadingMorePosts) return <div>Loading</div>
+  if (error) {
+    console.error('PostList loading error', error)
+    return <ErrorMessage message="Error loading posts." />
+  }
 
-  const { allPosts, _allPostsMeta } = data
-  const areMorePosts = allPosts.length < _allPostsMeta.count
+  if (loading && !loadingMorePosts) {
+    return <div>Loading</div>
+  }
+
+  const { allPosts = [], _allPostsMeta } = data || {}
+
+  const areMorePosts =
+    _allPostsMeta?.count && allPosts.length < _allPostsMeta?.count
 
   return (
     <section>
-      <ul>
+      <ul id="posts">
         {allPosts.map((post: any, index: number) => (
-          <li key={post.id}>
+          <li key={post.id} className="post">
             <div>
               <span>{index + 1}. </span>
               <a href={post.url}>{post.title}</a>
