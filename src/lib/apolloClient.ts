@@ -15,20 +15,28 @@ let apolloClient: ApolloClient<NormalizedCacheObject>
 function createApolloClient() {
   const uri = new URI()
 
-  let origin = uri.origin()
+  const origin = uri.origin()
 
-  if (!origin) {
-    const os = require('os')
+  let endpoint
 
-    const hostname = os.hostname()
+  if (origin) {
+    endpoint = `${origin}/api/`
+  } else {
+    /**
+     * ToDo: fix for vercel.com
+     */
 
-    const PORT = process.env.PORT || 3000
+    // const os = require('os')
 
-    origin = `http://${hostname}:${PORT}`
+    // const hostname = os.hostname()
+
+    // const PORT = process.env.PORT || 3000
+
+    // origin = `http://${hostname}:${PORT}`
+    endpoint =
+      process.env.API_ENDPOINT ||
+      'https://nextjs-graphql-with-prisma-simple.vercel.app/api'
   }
-
-  // const endpoint = 'https://nextjs-graphql-with-prisma-simple.vercel.app/api' || `${origin}/api/`
-  const endpoint = `${origin}/api/`
 
   const errorLink = onError((error) => {
     const { graphQLErrors, networkError } = error

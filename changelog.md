@@ -15,3 +15,9 @@
 
 - Code refactoring
 - Added apollo tests
+
+# 1.1.1
+
+===============================================
+
+- Fix API endpoint for vercel.com deployment
