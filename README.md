@@ -73,7 +73,13 @@ yarn types
 
 ### Jest unit tests
 
-**Attension!** For unit tests started server required.
+```
+yarn test
+```
+
+### Jest unit tests real API
+
+**Attension!** For unit tests with real API started server required.
 
 ```bash
 # Build bundles
@@ -86,13 +92,13 @@ yarn start
 After this open yet another terminal and run tests
 
 ```bash
-yarn test
+yarn test:api
 ```
 
 ### Run all test
 
 ```bash
-yarn test-all
+yarn test:all
 ```
 
 Deploy it to the cloud with [Vercel](https://vercel.com/import?filter=next.js&utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)).

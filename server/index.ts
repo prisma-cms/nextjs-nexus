@@ -1,6 +1,7 @@
 import express from 'express'
 import next from 'next'
 import { createProxyMiddleware } from 'http-proxy-middleware'
+import { endpoint } from '../src/config'
 
 const port = (process.env.PORT && parseInt(process.env.PORT, 10)) || 3000
 const dev = process.env.NODE_ENV !== 'production'
@@ -8,9 +9,7 @@ const app = next({ dev })
 const handle = app.getRequestHandler()
 
 const apiPropxy = createProxyMiddleware({
-  target:
-    process.env.API_ENDPOINT ||
-    'https://nextjs-graphql-with-prisma-simple.vercel.app/api',
+  target: endpoint,
   changeOrigin: true,
   ws: true,
   pathRewrite: {

@@ -6,9 +6,10 @@ import {
   NormalizedCacheObject,
 } from '@apollo/client'
 import { onError } from '@apollo/client/link/error'
-import { concatPagination } from '@apollo/client/utilities'
 import URI from 'urijs'
 import fetch from 'cross-fetch'
+
+// import { concatPagination } from '@apollo/client/utilities'
 
 let apolloClient: ApolloClient<NormalizedCacheObject>
 
@@ -22,9 +23,7 @@ function createApolloClient() {
   if (origin) {
     endpoint = `${origin}/api/`
   } else {
-    /**
-     * ToDo: fix for vercel.com
-     */
+    // TODO fix for vercel.com
 
     // const os = require('os')
 
@@ -33,9 +32,7 @@ function createApolloClient() {
     // const PORT = process.env.PORT || 3000
 
     // origin = `http://${hostname}:${PORT}`
-    endpoint =
-      process.env.API_ENDPOINT ||
-      'https://nextjs-graphql-with-prisma-simple.vercel.app/api'
+    endpoint = process.env.API_ENDPOINT || 'https://api.prisma-cms.com'
   }
 
   const errorLink = onError((error) => {
@@ -63,13 +60,17 @@ function createApolloClient() {
     ssrMode: typeof window === 'undefined',
     link: errorLink.concat(httpLink),
     cache: new InMemoryCache({
-      typePolicies: {
-        Query: {
-          fields: {
-            allPosts: concatPagination(),
-          },
-        },
-      },
+      /**
+       * Здесь можно прописать логику для отдельных полей объектов,
+       * к примеру, объединение данных при выполнении подгрузки.
+       */
+      // typePolicies: {
+      //   Query: {
+      //     fields: {
+      //       allPosts: concatPagination(),
+      //     },
+      //   },
+      // },
     }),
   })
 }

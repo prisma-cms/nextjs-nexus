@@ -1,0 +1,37 @@
+query commentsConnection(
+  $first: Int = 10
+  $skip: Int = 0
+  $orderBy: ResourceOrderByInput = createdAt_DESC
+) {
+  commentsConnection: resourcesConnection(
+    where: { type: Comment }
+    first: $first
+    skip: $skip
+    orderBy: $orderBy
+  ) {
+    edges {
+      node {
+        ...commentsConnectionComment
+      }
+    }
+    aggregate {
+      count
+    }
+  }
+}
+
+fragment commentsConnectionComment on Resource {
+  id
+  createdAt
+  contentText
+  CreatedBy {
+    ...commentsConnectionCommentUser
+  }
+}
+
+fragment commentsConnectionCommentUser on User {
+  id
+  username
+  fullname
+  image
+}

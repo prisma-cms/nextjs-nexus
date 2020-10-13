@@ -1,17 +1,13 @@
 import * as codegen from '@graphql-codegen/cli'
 import path from 'path'
 import { OUTPUT_PATH } from './constants'
+import { endpoint } from 'src/config'
 
 /** Функция генерирующая schema.json */
 export const generateSchema = async () => {
-  // ToDo: create getApiEndpoint method;
-  const schema =
-    process.env.API_ENDPOINT ||
-    'https://nextjs-graphql-with-prisma-simple.vercel.app/api'
-
   await codegen.generate(
     {
-      schema,
+      schema: endpoint,
       generates: {
         [path.resolve(OUTPUT_PATH, 'schema.json')]: {
           plugins: [{ introspection: {} }],
