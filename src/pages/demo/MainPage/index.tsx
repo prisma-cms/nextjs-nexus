@@ -1,16 +1,13 @@
 import { useRouter } from 'next/router'
 import Head from 'next/head'
 
-import { GetServerSideProps } from 'next'
-
-import { initializeApollo } from 'src/lib/apolloClient'
-
 import CommentsList, {
   allCommentsQueryDocument,
   allPostsQueryVars,
 } from './CommentsList'
+import { Page } from '../_App/interfaces'
 
-export const Home = (): JSX.Element => {
+export const Home: Page = () => {
   const router = useRouter()
 
   const {
@@ -40,10 +37,10 @@ export const Home = (): JSX.Element => {
   )
 }
 
-export const getServerSideProps: GetServerSideProps = async (context) => {
-  const { skip, first } = context.query
+Home.getInitialProps = async (context) => {
+  const { apolloClient, query } = context
 
-  const apolloClient = initializeApollo()
+  const { skip, first } = query
 
   await apolloClient.query({
     query: allCommentsQueryDocument,
@@ -60,15 +57,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     },
   })
 
-  const initialApolloState = apolloClient.cache.extract()
-
-  return {
-    props: {
-      initialApolloState,
-    },
-  }
+  return {}
 }
-
-export { allCommentsQueryDocument, allPostsQueryVars }
 
 export default Home

@@ -1,4 +1,4 @@
-import { NextPageContext } from 'next'
+import { NextComponentType, NextPageContext } from 'next'
 import { ApolloClient, NormalizedCacheObject } from '@apollo/client'
 
 /**
@@ -25,3 +25,10 @@ export type AppProps = {
  * API-клиент
  */
 export type ApolloClientNormolized = ApolloClient<NormalizedCacheObject>
+
+/**
+ * Страница с кастомным контекстом
+ */
+export type Page<
+  C extends NextPageContextCustom = NextPageContextCustom
+> = NextComponentType<C>
