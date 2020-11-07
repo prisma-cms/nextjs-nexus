@@ -18,4 +18,15 @@ module.exports = {
   },
   modulePaths: ['<rootDir>'],
   testURL: 'http://localhost:3000',
+  preset: 'ts-jest/presets/js-with-babel',
+  // https://github.com/facebook/jest/issues/1211#issuecomment-559561044
+  collectCoverageFrom: [
+    'src/**/*.{ts,tsx,js,jsx,d.ts,d.tsx}',
+    '!**/node_modules/**',
+    '!**.next/**',
+    '!**/dist/**',
+    '!**/coverage/**',
+    '!**/storybook-static/**',
+    '!**/generated/**',
+  ],
 }

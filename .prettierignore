@@ -6,3 +6,5 @@ public
 coverage
 dist
 generated
+.storybook
+storybook-static

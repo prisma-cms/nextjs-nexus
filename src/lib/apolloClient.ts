@@ -6,19 +6,13 @@ import {
   NormalizedCacheObject,
 } from '@apollo/client'
 import { onError } from '@apollo/client/link/error'
-import URI from 'urijs'
 import fetch from 'cross-fetch'
-
-// import { concatPagination } from '@apollo/client/utilities'
 
 let apolloClient: ApolloClient<NormalizedCacheObject>
 
 function createApolloClient() {
-  const uri = new URI()
-
-  const origin = uri.origin()
-
   let endpoint
+  const origin = global.location?.origin
 
   if (origin) {
     endpoint = `${origin}/api/`

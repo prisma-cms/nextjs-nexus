@@ -1,5 +1,13 @@
 {
   "watch": ["server"],
   "exec": "ts-node --project tsconfig.server.json server/index.ts",
-  "ext": "js ts"
+  "ext": "js ts",
+  "ignore": [
+    "*/.next/*",
+    "*/.storybook/*",
+    "*/coverage/*",
+    "*/dist/*",
+    "*/node_modules/*",
+    "*/storybook-static/*"
+  ]
 }

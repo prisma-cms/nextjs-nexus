@@ -1,30 +1,42 @@
-import { ReactElement } from 'react'
-import { render, RenderResult } from '@testing-library/react'
+import { ReactElement, useMemo } from 'react'
+import { render as baseRender, RenderResult } from '@testing-library/react'
 
 import App from 'pages/_app'
-
-// import { ThemeProvider } from "my-ui-lib"
-// import { TranslationProvider } from "my-i18n-lib"
-// import defaultStrings from "i18n/en-x-default"
-
-const AppProvider: React.FC = ({ children }: any, pageProps: any) => {
-  return <App Component={() => children} pageProps={pageProps} />
-
-  // return (
-  //   <ThemeProvider theme="light">
-  //     <TranslationProvider messages={defaultStrings}>
-  //       {children}
-  //     </TranslationProvider>
-  //   </ThemeProvider>
-  // )
-}
+import theme from 'src/theme'
+import { ThemeProvider } from 'styled-components'
 
 /**
- * Renderer for App components
+ * Base renderer from @testing-library/react
  */
-export const appRender = (ui: ReactElement) => {
-  return render(ui, { wrapper: AppProvider }) as RenderResult
-}
+export { baseRender }
 
 // re-export everything
 export * from '@testing-library/react'
+
+/**
+ * Renderer with main App
+ */
+const AppProvider: React.FC = ({ children }: any, pageProps: any) => {
+  const Component = useMemo(() => {
+    return () => children
+  }, [children])
+
+  return <App Component={Component} pageProps={pageProps} />
+}
+export const appRender = (ui: ReactElement) => {
+  return baseRender(ui, { wrapper: AppProvider }) as RenderResult
+}
+
+/**
+ * Renderer with Theme
+ */
+const WithThemeProvider: React.FC = ({ children }: any) => {
+  return (
+    <>
+      <ThemeProvider theme={theme}>{children}</ThemeProvider>
+    </>
+  )
+}
+export const render = (ui: ReactElement) => {
+  return baseRender(ui, { wrapper: WithThemeProvider }) as RenderResult
+}

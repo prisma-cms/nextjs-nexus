@@ -2,23 +2,18 @@ import React from 'react'
 import NextApp, { AppContext, AppInitialProps } from 'next/app'
 import { ApolloProvider } from '@apollo/client'
 import { ThemeProvider } from 'styled-components'
-import theme, { GlobalStyle } from './theme'
-import { NextPageContextCustom, AppProps } from './interfaces'
-
+import theme from 'src/theme'
 import { useApollo, initializeApollo } from 'src/lib/apolloClient'
+import { NextPageContextCustom, AppProps } from './interfaces'
 
 export default function App({ Component, pageProps }: AppProps) {
   const apolloClient = useApollo(pageProps.initialApolloState)
 
   return (
     <>
-      <GlobalStyle />
       <ThemeProvider theme={theme}>
         <ApolloProvider client={apolloClient}>
-          <nav></nav>
-          <main id="content">
-            <Component {...pageProps} />
-          </main>
+          <Component {...pageProps} />
         </ApolloProvider>
       </ThemeProvider>
     </>

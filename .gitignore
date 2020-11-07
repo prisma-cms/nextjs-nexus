@@ -42,3 +42,9 @@ yarn.lock
 
 # envs
 .env
+
+# storybook
+storybook-static
+
+# jest
+__snapshots__

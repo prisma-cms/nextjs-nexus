@@ -1,1 +1,1 @@
-export { default } from 'src/pages/demo/_Document'
+export { default } from 'src/pages/_Document'
