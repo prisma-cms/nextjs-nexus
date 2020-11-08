@@ -32,6 +32,9 @@ app.prepare().then(() => {
 
   server.use('/api/', apiPropxy)
 
+  // Uncomment to serve storybook-static (before should run yarn build-storybook)
+  // server.use('/storybook-static/', express.static('./storybook-static/'))
+
   server.all('*', (req, res) => {
     return handle(req, res)
   })

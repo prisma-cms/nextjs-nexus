@@ -12,4 +12,16 @@ export const MainPage: Page = () => {
   )
 }
 
+/**
+ * Example.
+ * Commit this if not needed.
+ *
+ * Get data before render page
+ */
+MainPage.getInitialProps = () => {
+  return {
+    statusCode: 200,
+  }
+}
+
 export default MainPage

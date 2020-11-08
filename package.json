@@ -2,7 +2,7 @@
   "name": "@prisma-cms/nextjs",
   "author": "@Fi1osof",
   "license": "MIT",
-  "version": "1.4.0",
+  "version": "1.5.0",
   "scripts": {
     "dev": "nodemon",
     "build": "next build && tsc --project tsconfig.server.json",

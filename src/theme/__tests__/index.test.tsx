@@ -2,7 +2,6 @@ import React from 'react'
 import { render } from 'src/tests/utils'
 // import render from 'react-test-renderer'
 import styled, { DefaultTheme } from 'styled-components'
-import 'jest-styled-components'
 import theme from '..'
 import { minWidth } from '../helpers'
 

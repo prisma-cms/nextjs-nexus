@@ -1,34 +1,64 @@
+import React from 'react'
 import { NextComponentType, NextPageContext } from 'next'
 import { ApolloClient, NormalizedCacheObject } from '@apollo/client'
+import { AppContext, AppInitialProps } from 'next/app'
 
 /**
- * Расширенный контекст страниц приложения
- */
-export interface NextPageContextCustom extends NextPageContext {
-  /**
-   * Аполло-клиент, чтобы в страницах и документе можно было
-   * получить его в getInitialProps и вызвать запросы.
-   * Надо именно так, чтобы иметь на выходе общий стейт клиента.
-   */
-  apolloClient: ApolloClientNormolized
-}
-
-/**
- * Свойства для основного приложения
- */
-export type AppProps = {
-  Component: any
-  pageProps: any
-}
-
-/**
- * API-клиент
+ * API apollo-client
  */
 export type ApolloClientNormolized = ApolloClient<NormalizedCacheObject>
 
 /**
- * Страница с кастомным контекстом
+ * Extended App context
  */
-export type Page<
-  C extends NextPageContextCustom = NextPageContextCustom
-> = NextComponentType<C>
+export interface NextPageContextCustom extends NextPageContext {
+  /**
+   * API apollo-client
+   */
+  apolloClient: ApolloClientNormolized
+}
+
+export interface PageProps extends React.PropsWithChildren<{}> {
+  initialApolloState?: any
+
+  /**
+   * Apollo-client API query result
+   */
+  queryResult?: any
+
+  /**
+   * Server-side status code
+   */
+  statusCode?: number
+}
+
+/**
+ * Main App props
+ */
+export type AppProps = {
+  Component: any
+  pageProps: PageProps
+}
+
+/**
+ * Pages custom props
+ */
+export type Page<P extends PageProps = PageProps, IP = P> = NextComponentType<
+  NextPageContextCustom,
+  IP,
+  P
+>
+
+/**
+ * App custopm initial props
+ */
+export interface AppInitialPropsCustom extends AppInitialProps {
+  pageProps: PageProps
+}
+
+/**
+ * Custom App
+ */
+export type MainApp<P = AppProps> = React.FC<P> & {
+  getInitialProps(context: AppContext): Promise<AppInitialPropsCustom>
+}

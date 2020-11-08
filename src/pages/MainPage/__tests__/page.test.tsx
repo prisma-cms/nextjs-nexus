@@ -20,6 +20,7 @@ describe('MainPage', () => {
     // eslint-disable-next-line no-console
     // console.log('MainPage tree', tree.container.outerHTML);
 
+    expect(tree.baseElement).toMatchSnapshot()
     expect(tree.container).toMatchSnapshot()
   })
 })

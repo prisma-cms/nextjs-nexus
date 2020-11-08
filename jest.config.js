@@ -26,6 +26,7 @@ module.exports = {
     '!**.next/**',
     '!**/dist/**',
     '!**/coverage/**',
+    '!**/stories/*.stories.{ts,tsx}',
     '!**/storybook-static/**',
     '!**/generated/**',
   ],

@@ -5,6 +5,33 @@ import App from 'pages/_app'
 import theme from 'src/theme'
 import { ThemeProvider } from 'styled-components'
 
+// For handle css
+import 'jest-styled-components'
+
+/**
+ * Mock html head
+ * https://github.com/vercel/next.js/discussions/11060
+ */
+jest.mock('next/head', () => {
+  const ReactDOMServer = require('react-dom/server')
+  return {
+    __esModule: true,
+    default: ({
+      children,
+    }: {
+      children: Array<React.ReactElement> | React.ReactElement | null
+    }) => {
+      if (children) {
+        global.document.head.insertAdjacentHTML(
+          'afterbegin',
+          ReactDOMServer.renderToString(children) || ''
+        )
+      }
+      return null
+    },
+  }
+})
+
 /**
  * Base renderer from @testing-library/react
  */
