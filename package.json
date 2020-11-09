@@ -2,7 +2,7 @@
   "name": "@prisma-cms/nextjs",
   "author": "@Fi1osof",
   "license": "MIT",
-  "version": "1.5.0",
+  "version": "1.5.1",
   "scripts": {
     "dev": "nodemon",
     "build": "next build && tsc --project tsconfig.server.json",
@@ -62,6 +62,7 @@
     "@types/lodash": "^4.14.161",
     "@types/node": "^13.9.5",
     "@types/react": "^16.9.27",
+    "@types/react-dom": "^16.9.9",
     "@types/styled-components": "^5.1.4",
     "@types/urijs": "^1.19.12",
     "@typescript-eslint/eslint-plugin": "^2.25.0",

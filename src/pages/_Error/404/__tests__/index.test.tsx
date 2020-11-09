@@ -1,5 +1,5 @@
 import React from 'react'
-import { baseRender } from 'src/tests/utils'
+import { render } from 'src/tests/utils'
 import Component from '..'
 
 jest.mock('next/router', () => ({
@@ -15,7 +15,7 @@ jest.mock('next/router', () => ({
 
 describe('404 Error page', () => {
   it('Render 404 Error page', () => {
-    const tree = baseRender(<Component />)
+    const tree = render(<Component />)
 
     const head = tree.baseElement.parentElement?.firstChild as HTMLHeadElement
 

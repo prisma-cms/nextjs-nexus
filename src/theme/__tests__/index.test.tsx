@@ -47,6 +47,8 @@ describe('Theme', () => {
 
     const node = tree.container.children[0]
 
+    expect(tree.baseElement.parentNode).toMatchSnapshot()
+
     expect(node).toMatchSnapshot()
 
     expect(node).toHaveStyleRule('color', theme.colors.primary)
