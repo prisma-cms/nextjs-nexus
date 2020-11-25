@@ -15,11 +15,11 @@ export type Scalars = {
   Boolean: boolean;
   Int: number;
   Float: number;
-  DateTime: string;
-  Json: any;
-  Long: any;
+  DateTime: globalThis.Date;
+  Json: globalThis.Record<string, any> | globalThis.Array<any>;
+  Long: number;
   /** The `Upload` scalar type represents a file upload. */
-  Upload: any;
+  Upload: globalThis.File;
 };
 
 export interface Query {

@@ -25,6 +25,11 @@ const TYPES_FILE_PATH = path.resolve(
   `src/modules/gql/generated/types.ts`
 )
 
+const APOLLO_HELPER_FILE_PATH = path.resolve(
+  OUTPUT_PATH,
+  `helpers/apollo-helpers.ts`
+)
+
 export {
   ROOT_DIR,
   GRAPHQL_FOLDER_PATHS,
@@ -34,6 +39,7 @@ export {
   OUTPUT_PATH,
   PACKAGE_APP_FILE_PATH,
   TYPES_FILE_PATH,
+  APOLLO_HELPER_FILE_PATH,
   TS_PATTERN,
   CREATE_REEXPORTS,
 }
