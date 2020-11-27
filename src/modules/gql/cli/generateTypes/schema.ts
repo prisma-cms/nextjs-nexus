@@ -7,7 +7,13 @@ import { endpoint } from 'src/config'
 export const generateSchema = async () => {
   await codegen.generate(
     {
-      schema: endpoint,
+      schema: {
+        [endpoint]: {
+          headers: {
+            Authorization: process.env.API_TOKEN ?? '',
+          },
+        },
+      },
       generates: {
         [path.resolve(OUTPUT_PATH, 'schema.json')]: {
           plugins: [{ introspection: {} }],

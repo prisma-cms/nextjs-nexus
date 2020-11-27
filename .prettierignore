@@ -8,3 +8,4 @@ dist
 generated
 .storybook
 storybook-static
+/packages
