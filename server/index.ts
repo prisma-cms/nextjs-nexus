@@ -8,7 +8,7 @@ const dev = process.env.NODE_ENV !== 'production'
 const app = next({ dev })
 const handle = app.getRequestHandler()
 
-const apiPropxy = createProxyMiddleware({
+const apiProxy = createProxyMiddleware({
   target: endpoint,
   changeOrigin: true,
   ws: true,
@@ -16,7 +16,7 @@ const apiPropxy = createProxyMiddleware({
     '^/api(/|$)': '',
   },
   onError: (err, _req, res) => {
-    console.error('apiPropxy onError err', err)
+    console.error('apiProxy onError err', err)
 
     res.writeHead(500, {
       'Content-Type': 'text/plain',
@@ -30,7 +30,7 @@ const apiPropxy = createProxyMiddleware({
 app.prepare().then(() => {
   const server = express()
 
-  server.use('/api/', apiPropxy)
+  server.post('/api/', apiProxy)
 
   // Uncomment to serve storybook-static (before should run yarn build-storybook)
   // server.use('/storybook-static/', express.static('./storybook-static/'))
