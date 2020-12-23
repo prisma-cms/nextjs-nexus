@@ -6,6 +6,8 @@
         "validate": false
       }
     ],
+    // Moved into next-env.d.ts
+    // "types": ["jest", "cypress"],
     "target": "esnext",
     "module": "esnext",
     "jsx": "preserve",

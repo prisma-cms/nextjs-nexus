@@ -1,0 +1,6 @@
+{
+  "baseUrl": "http://localhost:3000",
+  "integrationFolder": "./e2e",
+  "testFiles": "**/*.e2e-test.ts",
+  "projectId": "j4r8zg"
+}

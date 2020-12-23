@@ -6,3 +6,6 @@
 **/.storybook/*
 **/storybook-static/*
 /packages
+
+# cypress
+/cypress
