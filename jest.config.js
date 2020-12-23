@@ -1,7 +1,7 @@
 module.exports = {
   roots: ['<rootDir>'],
   moduleFileExtensions: ['js', 'ts', 'tsx', 'json'],
-  testMatch: ['**/__tests__/**/*test.(ts|tsx|js)'],
+  testMatch: ['**/__tests__/**/*.test.(ts|tsx|js)'],
   testPathIgnorePatterns: [
     '<rootDir>[/\\\\](node_modules|.next|packages)[/\\\\]',
   ],
@@ -16,7 +16,8 @@ module.exports = {
   watchPathIgnorePatterns: ['.*/generated/'],
   moduleNameMapper: {
     '\\.(css|less|sass|scss)$': 'identity-obj-proxy',
-    '\\.(gif|ttf|eot|svg|png|jpg|jpeg|ico)$': '<rootDir>/__tests__/__mocks__/fileMock.js',
+    '\\.(gif|ttf|eot|svg|png|jpg|jpeg|ico)$':
+      '<rootDir>/__tests__/__mocks__/fileMock.js',
   },
   modulePaths: ['<rootDir>'],
   testURL: 'http://localhost:3000',
