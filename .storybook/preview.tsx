@@ -63,6 +63,7 @@ addDecorator(makeDecorator({
           beforePopState: () => { },
           isFallback: false,
           events: {} as MittEmitter,
+          isReady: true,
         }}
       >
         {storyFn(context)}
