@@ -13,7 +13,7 @@ const apiProxy = createProxyMiddleware({
   changeOrigin: true,
   ws: true,
   pathRewrite: {
-    '^/api(/|$)': '',
+    '^/api(/|$)': '/',
   },
   onError: (err, _req, res) => {
     console.error('apiProxy onError err', err)

@@ -1,5 +1,5 @@
-import { FieldPolicy, FieldReadFunction, TypePolicies } from '@apollo/client/cache';
-export type QueryKeySpecifier = ('apiSchema' | 'galleries' | 'userGroups' | 'worlds' | 'notices' | 'notificationTypes' | 'resourceTags' | 'tags' | 'votes' | 'chatRooms' | 'games' | 'gameResults' | 'tournaments' | 'tournamentGroups' | 'tourneys' | 'ethAccounts' | 'ethContractSources' | 'ethTransactions' | 'callRequests' | 'positions' | 'projectMembers' | 'services' | 'tasks' | 'taskReactions' | 'teamMembers' | 'timers' | 'routes' | 'codeChallenges' | 'codeChallengeBlocks' | 'comments' | 'technologyLessons' | 'careers' | 'technologyLessonUsers' | 'userTechnologies' | 'tests' | 'technologies' | 'ethBlocks' | 'teams' | 'projects' | 'templates' | 'resources' | 'chatMessages' | 'users' | 'gallery' | 'world' | 'notice' | 'notificationType' | 'resourceTag' | 'tag' | 'vote' | 'chatRoom' | 'game' | 'gameResult' | 'tournament' | 'tournamentGroup' | 'tourney' | 'ethAccount' | 'ethContractSource' | 'ethTransaction' | 'position' | 'projectMember' | 'service' | 'task' | 'taskReaction' | 'teamMember' | 'timer' | 'route' | 'codeChallenge' | 'codeChallengeBlock' | 'comment' | 'technologyLesson' | 'career' | 'technologyLessonUser' | 'userTechnology' | 'test' | 'file' | 'technology' | 'ethBlock' | 'team' | 'project' | 'template' | 'resource' | 'chatMessage' | 'user' | 'galleriesConnection' | 'worldsConnection' | 'noticesConnection' | 'notificationTypesConnection' | 'resourceTagsConnection' | 'tagsConnection' | 'votesConnection' | 'chatRoomsConnection' | 'gamesConnection' | 'gameResultsConnection' | 'tournamentsConnection' | 'tournamentGroupsConnection' | 'tourneysConnection' | 'ethAccountsConnection' | 'ethContractSourcesConnection' | 'ethTransactionsConnection' | 'callRequestsConnection' | 'positionsConnection' | 'projectMembersConnection' | 'servicesConnection' | 'tasksConnection' | 'taskReactionsConnection' | 'teamMembersConnection' | 'timersConnection' | 'routesConnection' | 'codeChallengesConnection' | 'codeChallengeBlocksConnection' | 'commentsConnection' | 'technologyLessonsConnection' | 'careersConnection' | 'technologyLessonUsersConnection' | 'userTechnologiesConnection' | 'testsConnection' | 'technologiesConnection' | 'ethBlocksConnection' | 'teamsConnection' | 'projectsConnection' | 'templatesConnection' | 'resourcesConnection' | 'chatMessagesConnection' | 'usersConnection' | 'myWorlds' | 'me' | 'ethNet' | 'ethCoinbase' | 'ethPersonalAccounts' | 'ethBalance' | 'ethTransactionCount' | 'ethSyncState' | 'ethGetBlockNumber' | 'ethGetBlock' | 'ethGetBlockTransactionCount' | 'ethGetTransaction' | QueryKeySpecifier)[];
+import { FieldPolicy, FieldReadFunction, TypePolicies, TypePolicy } from '@apollo/client/cache';
+export type QueryKeySpecifier = ('apiSchema' | 'galleries' | 'userGroups' | 'worlds' | 'notices' | 'notificationTypes' | 'resourceTags' | 'tags' | 'votes' | 'chatRooms' | 'games' | 'gameResults' | 'tournaments' | 'tournamentGroups' | 'tourneys' | 'ethAccounts' | 'ethContractSources' | 'ethTransactions' | 'callRequests' | 'positions' | 'projectMembers' | 'services' | 'tasks' | 'taskReactions' | 'teamMembers' | 'timers' | 'routes' | 'codeChallenges' | 'codeChallengeBlocks' | 'codeChallengeCompletions' | 'comments' | 'technologyLessons' | 'careers' | 'technologyLessonUsers' | 'userTechnologies' | 'tests' | 'technologies' | 'ethBlocks' | 'teams' | 'projects' | 'templates' | 'resources' | 'chatMessages' | 'users' | 'gallery' | 'world' | 'notice' | 'notificationType' | 'resourceTag' | 'tag' | 'vote' | 'chatRoom' | 'game' | 'gameResult' | 'tournament' | 'tournamentGroup' | 'tourney' | 'ethAccount' | 'ethContractSource' | 'ethTransaction' | 'position' | 'projectMember' | 'service' | 'task' | 'taskReaction' | 'teamMember' | 'timer' | 'route' | 'codeChallenge' | 'codeChallengeBlock' | 'codeChallengeCompletion' | 'comment' | 'technologyLesson' | 'career' | 'technologyLessonUser' | 'userTechnology' | 'test' | 'file' | 'technology' | 'ethBlock' | 'team' | 'project' | 'template' | 'resource' | 'chatMessage' | 'user' | 'galleriesConnection' | 'worldsConnection' | 'noticesConnection' | 'notificationTypesConnection' | 'resourceTagsConnection' | 'tagsConnection' | 'votesConnection' | 'chatRoomsConnection' | 'gamesConnection' | 'gameResultsConnection' | 'tournamentsConnection' | 'tournamentGroupsConnection' | 'tourneysConnection' | 'ethAccountsConnection' | 'ethContractSourcesConnection' | 'ethTransactionsConnection' | 'callRequestsConnection' | 'positionsConnection' | 'projectMembersConnection' | 'servicesConnection' | 'tasksConnection' | 'taskReactionsConnection' | 'teamMembersConnection' | 'timersConnection' | 'routesConnection' | 'codeChallengesConnection' | 'codeChallengeBlocksConnection' | 'codeChallengeCompletionsConnection' | 'commentsConnection' | 'technologyLessonsConnection' | 'careersConnection' | 'technologyLessonUsersConnection' | 'userTechnologiesConnection' | 'testsConnection' | 'technologiesConnection' | 'ethBlocksConnection' | 'teamsConnection' | 'projectsConnection' | 'templatesConnection' | 'resourcesConnection' | 'chatMessagesConnection' | 'usersConnection' | 'myWorlds' | 'me' | 'ethNet' | 'ethCoinbase' | 'ethPersonalAccounts' | 'ethBalance' | 'ethTransactionCount' | 'ethSyncState' | 'ethGetBlockNumber' | 'ethGetBlock' | 'ethGetBlockTransactionCount' | 'ethGetTransaction' | QueryKeySpecifier)[];
 export type QueryFieldPolicy = {
 	apiSchema?: FieldPolicy<any> | FieldReadFunction<any>,
 	galleries?: FieldPolicy<any> | FieldReadFunction<any>,
@@ -30,6 +30,7 @@ export type QueryFieldPolicy = {
 	routes?: FieldPolicy<any> | FieldReadFunction<any>,
 	codeChallenges?: FieldPolicy<any> | FieldReadFunction<any>,
 	codeChallengeBlocks?: FieldPolicy<any> | FieldReadFunction<any>,
+	codeChallengeCompletions?: FieldPolicy<any> | FieldReadFunction<any>,
 	comments?: FieldPolicy<any> | FieldReadFunction<any>,
 	technologyLessons?: FieldPolicy<any> | FieldReadFunction<any>,
 	careers?: FieldPolicy<any> | FieldReadFunction<any>,
@@ -70,6 +71,7 @@ export type QueryFieldPolicy = {
 	route?: FieldPolicy<any> | FieldReadFunction<any>,
 	codeChallenge?: FieldPolicy<any> | FieldReadFunction<any>,
 	codeChallengeBlock?: FieldPolicy<any> | FieldReadFunction<any>,
+	codeChallengeCompletion?: FieldPolicy<any> | FieldReadFunction<any>,
 	comment?: FieldPolicy<any> | FieldReadFunction<any>,
 	technologyLesson?: FieldPolicy<any> | FieldReadFunction<any>,
 	career?: FieldPolicy<any> | FieldReadFunction<any>,
@@ -112,6 +114,7 @@ export type QueryFieldPolicy = {
 	routesConnection?: FieldPolicy<any> | FieldReadFunction<any>,
 	codeChallengesConnection?: FieldPolicy<any> | FieldReadFunction<any>,
 	codeChallengeBlocksConnection?: FieldPolicy<any> | FieldReadFunction<any>,
+	codeChallengeCompletionsConnection?: FieldPolicy<any> | FieldReadFunction<any>,
 	commentsConnection?: FieldPolicy<any> | FieldReadFunction<any>,
 	technologyLessonsConnection?: FieldPolicy<any> | FieldReadFunction<any>,
 	careersConnection?: FieldPolicy<any> | FieldReadFunction<any>,
@@ -170,7 +173,7 @@ export type FileFieldPolicy = {
 	CreatedBy?: FieldPolicy<any> | FieldReadFunction<any>,
 	ImageResource?: FieldPolicy<any> | FieldReadFunction<any>
 };
-export type UserKeySpecifier = ('id' | 'createdAt' | 'updatedAt' | 'username' | 'email' | 'phone' | 'showEmail' | 'showPhone' | 'password' | 'fullname' | 'image' | 'address' | 'sudo' | 'active' | 'activated' | 'deleted' | 'Groups' | 'CreatedUsers' | 'CreatedBy' | 'LogedIns' | 'Resources' | 'Votes' | 'NotificationTypes' | 'NotificationTypesCreated' | 'Tags' | 'ResourceTags' | 'EthContractSourcesCreated' | 'EthAccounts' | 'Teams' | 'TeamsCreated' | 'Projects' | 'ProjectsCreated' | 'Tasks' | 'Timers' | 'PrismaProjects' | 'hasEmail' | 'hasPhone' | 'marketplaceToken' | 'hidden' | 'EthAccountAuthed' | 'worlds' | 'settings' | UserKeySpecifier)[];
+export type UserKeySpecifier = ('id' | 'createdAt' | 'updatedAt' | 'username' | 'email' | 'phone' | 'showEmail' | 'showPhone' | 'password' | 'fullname' | 'image' | 'address' | 'sudo' | 'active' | 'activated' | 'deleted' | 'Groups' | 'CreatedUsers' | 'CreatedBy' | 'LogedIns' | 'Resources' | 'Votes' | 'NotificationTypes' | 'NotificationTypesCreated' | 'Tags' | 'ResourceTags' | 'EthContractSourcesCreated' | 'EthAccounts' | 'Teams' | 'TeamsCreated' | 'Projects' | 'ProjectsCreated' | 'Tasks' | 'Timers' | 'PrismaProjects' | 'CodeChallengeCompletions' | 'hasEmail' | 'hasPhone' | 'marketplaceToken' | 'hidden' | 'EthAccountAuthed' | 'worlds' | 'settings' | UserKeySpecifier)[];
 export type UserFieldPolicy = {
 	id?: FieldPolicy<any> | FieldReadFunction<any>,
 	createdAt?: FieldPolicy<any> | FieldReadFunction<any>,
@@ -207,6 +210,7 @@ export type UserFieldPolicy = {
 	Tasks?: FieldPolicy<any> | FieldReadFunction<any>,
 	Timers?: FieldPolicy<any> | FieldReadFunction<any>,
 	PrismaProjects?: FieldPolicy<any> | FieldReadFunction<any>,
+	CodeChallengeCompletions?: FieldPolicy<any> | FieldReadFunction<any>,
 	hasEmail?: FieldPolicy<any> | FieldReadFunction<any>,
 	hasPhone?: FieldPolicy<any> | FieldReadFunction<any>,
 	marketplaceToken?: FieldPolicy<any> | FieldReadFunction<any>,
@@ -231,7 +235,7 @@ export type LogedInFieldPolicy = {
 	User?: FieldPolicy<any> | FieldReadFunction<any>,
 	updatedAt?: FieldPolicy<any> | FieldReadFunction<any>
 };
-export type ResourceKeySpecifier = ('id' | 'createdAt' | 'updatedAt' | 'type' | 'name' | 'longtitle' | 'content' | 'components' | 'contentText' | 'published' | 'deleted' | 'hidemenu' | 'searchable' | 'uri' | 'isfolder' | 'CreatedBy' | 'Parent' | 'Childs' | 'Image' | 'rating' | 'positiveVotesCount' | 'negativeVotesCount' | 'neutralVotesCount' | 'CommentTarget' | 'Topic' | 'Comments' | 'Votes' | 'Tags' | 'oldID' | 'commentOldID' | 'Topics' | 'Blog' | 'Service' | 'Project' | 'Team' | 'class_key' | 'template' | 'mockUpdate' | 'Galleries' | ResourceKeySpecifier)[];
+export type ResourceKeySpecifier = ('id' | 'createdAt' | 'updatedAt' | 'type' | 'name' | 'longtitle' | 'content' | 'components' | 'contentText' | 'published' | 'deleted' | 'hidemenu' | 'searchable' | 'uri' | 'isfolder' | 'CreatedBy' | 'Parent' | 'Childs' | 'Image' | 'rating' | 'positiveVotesCount' | 'negativeVotesCount' | 'neutralVotesCount' | 'CommentTarget' | 'Topic' | 'Comments' | 'Votes' | 'Tags' | 'oldID' | 'commentOldID' | 'Topics' | 'Blog' | 'Service' | 'Project' | 'Team' | 'class_key' | 'template' | 'mockUpdate' | 'Galleries' | 'CodeChallenge' | ResourceKeySpecifier)[];
 export type ResourceFieldPolicy = {
 	id?: FieldPolicy<any> | FieldReadFunction<any>,
 	createdAt?: FieldPolicy<any> | FieldReadFunction<any>,
@@ -271,7 +275,8 @@ export type ResourceFieldPolicy = {
 	class_key?: FieldPolicy<any> | FieldReadFunction<any>,
 	template?: FieldPolicy<any> | FieldReadFunction<any>,
 	mockUpdate?: FieldPolicy<any> | FieldReadFunction<any>,
-	Galleries?: FieldPolicy<any> | FieldReadFunction<any>
+	Galleries?: FieldPolicy<any> | FieldReadFunction<any>,
+	CodeChallenge?: FieldPolicy<any> | FieldReadFunction<any>
 };
 export type VoteKeySpecifier = ('id' | 'createdAt' | 'updatedAt' | 'Resource' | 'User' | 'value' | VoteKeySpecifier)[];
 export type VoteFieldPolicy = {
@@ -330,7 +335,7 @@ export type ProjectMemberFieldPolicy = {
 	Services?: FieldPolicy<any> | FieldReadFunction<any>,
 	status?: FieldPolicy<any> | FieldReadFunction<any>
 };
-export type ProjectKeySpecifier = ('id' | 'name' | 'domain' | 'PrismaTemplates' | 'PrismaUsers' | 'PrismaResources' | 'createdAt' | 'updatedAt' | 'description' | 'url' | 'Members' | 'CreatedBy' | 'ProjectTasks' | 'Team' | 'Customers' | 'ChatRoom' | 'sequence' | 'content' | 'contentText' | 'status' | 'public' | 'oldID' | 'Image' | 'Resource' | 'EthAccounts' | ProjectKeySpecifier)[];
+export type ProjectKeySpecifier = ('id' | 'name' | 'domain' | 'PrismaTemplates' | 'PrismaUsers' | 'PrismaResources' | 'createdAt' | 'updatedAt' | 'description' | 'url' | 'Members' | 'CreatedBy' | 'ProjectTasks' | 'Team' | 'Customers' | 'ChatRoom' | 'sequence' | 'content' | 'contentText' | 'status' | 'public' | 'oldID' | 'Image' | 'Resource' | 'type' | 'EthAccounts' | ProjectKeySpecifier)[];
 export type ProjectFieldPolicy = {
 	id?: FieldPolicy<any> | FieldReadFunction<any>,
 	name?: FieldPolicy<any> | FieldReadFunction<any>,
@@ -356,6 +361,7 @@ export type ProjectFieldPolicy = {
 	oldID?: FieldPolicy<any> | FieldReadFunction<any>,
 	Image?: FieldPolicy<any> | FieldReadFunction<any>,
 	Resource?: FieldPolicy<any> | FieldReadFunction<any>,
+	type?: FieldPolicy<any> | FieldReadFunction<any>,
 	EthAccounts?: FieldPolicy<any> | FieldReadFunction<any>
 };
 export type TemplateKeySpecifier = ('id' | 'createdAt' | 'updatedAt' | 'externalKey' | 'name' | 'description' | 'component' | 'props' | 'components' | 'vars' | 'rank' | 'Parent' | 'CreatedBy' | 'Project' | 'PrismaProject' | TemplateKeySpecifier)[];
@@ -385,7 +391,7 @@ export type ProjectTaskFieldPolicy = {
 	Project?: FieldPolicy<any> | FieldReadFunction<any>,
 	Task?: FieldPolicy<any> | FieldReadFunction<any>
 };
-export type TaskKeySpecifier = ('id' | 'createdAt' | 'updatedAt' | 'name' | 'description' | 'content' | 'status' | 'TaskProjects' | 'CreatedBy' | 'Members' | 'Parent' | 'Childs' | 'RelatedFrom' | 'RelatedTo' | 'startDatePlaning' | 'endDatePlaning' | 'startDate' | 'endDate' | 'Timers' | 'Reactions' | 'ChatRoom' | TaskKeySpecifier)[];
+export type TaskKeySpecifier = ('id' | 'createdAt' | 'updatedAt' | 'name' | 'description' | 'content' | 'status' | 'TaskProjects' | 'CreatedBy' | 'Members' | 'Parent' | 'Childs' | 'RelatedFrom' | 'RelatedTo' | 'startDatePlaning' | 'endDatePlaning' | 'startDate' | 'endDate' | 'Timers' | 'Reactions' | 'ChatRoom' | 'CodeChallengeCompletion' | TaskKeySpecifier)[];
 export type TaskFieldPolicy = {
 	id?: FieldPolicy<any> | FieldReadFunction<any>,
 	createdAt?: FieldPolicy<any> | FieldReadFunction<any>,
@@ -407,7 +413,8 @@ export type TaskFieldPolicy = {
 	endDate?: FieldPolicy<any> | FieldReadFunction<any>,
 	Timers?: FieldPolicy<any> | FieldReadFunction<any>,
 	Reactions?: FieldPolicy<any> | FieldReadFunction<any>,
-	ChatRoom?: FieldPolicy<any> | FieldReadFunction<any>
+	ChatRoom?: FieldPolicy<any> | FieldReadFunction<any>,
+	CodeChallengeCompletion?: FieldPolicy<any> | FieldReadFunction<any>
 };
 export type TaskMemberKeySpecifier = ('id' | 'createdAt' | 'updatedAt' | 'CreatedBy' | 'Task' | 'User' | 'status' | TaskMemberKeySpecifier)[];
 export type TaskMemberFieldPolicy = {
@@ -510,6 +517,63 @@ export type CallRequestFieldPolicy = {
 	Called?: FieldPolicy<any> | FieldReadFunction<any>,
 	Caller?: FieldPolicy<any> | FieldReadFunction<any>,
 	Room?: FieldPolicy<any> | FieldReadFunction<any>
+};
+export type CodeChallengeCompletionKeySpecifier = ('id' | 'createdAt' | 'updatedAt' | 'CreatedBy' | 'CodeChallenge' | 'Task' | 'content' | 'success' | CodeChallengeCompletionKeySpecifier)[];
+export type CodeChallengeCompletionFieldPolicy = {
+	id?: FieldPolicy<any> | FieldReadFunction<any>,
+	createdAt?: FieldPolicy<any> | FieldReadFunction<any>,
+	updatedAt?: FieldPolicy<any> | FieldReadFunction<any>,
+	CreatedBy?: FieldPolicy<any> | FieldReadFunction<any>,
+	CodeChallenge?: FieldPolicy<any> | FieldReadFunction<any>,
+	Task?: FieldPolicy<any> | FieldReadFunction<any>,
+	content?: FieldPolicy<any> | FieldReadFunction<any>,
+	success?: FieldPolicy<any> | FieldReadFunction<any>
+};
+export type CodeChallengeKeySpecifier = ('id' | 'externalKey' | 'createdAt' | 'updatedAt' | 'name' | 'dashedName' | 'localeTitle' | 'description' | 'challengeType' | 'forumTopicId' | 'translations' | 'tests' | 'solutions' | 'instructions' | 'files' | 'videoUrl' | 'order' | 'superOrder' | 'challengeOrder' | 'required' | 'isRequired' | 'isPrivate' | 'isBeta' | 'template' | 'time' | 'CreatedBy' | 'rank' | 'Block' | 'Completions' | 'Topic' | CodeChallengeKeySpecifier)[];
+export type CodeChallengeFieldPolicy = {
+	id?: FieldPolicy<any> | FieldReadFunction<any>,
+	externalKey?: FieldPolicy<any> | FieldReadFunction<any>,
+	createdAt?: FieldPolicy<any> | FieldReadFunction<any>,
+	updatedAt?: FieldPolicy<any> | FieldReadFunction<any>,
+	name?: FieldPolicy<any> | FieldReadFunction<any>,
+	dashedName?: FieldPolicy<any> | FieldReadFunction<any>,
+	localeTitle?: FieldPolicy<any> | FieldReadFunction<any>,
+	description?: FieldPolicy<any> | FieldReadFunction<any>,
+	challengeType?: FieldPolicy<any> | FieldReadFunction<any>,
+	forumTopicId?: FieldPolicy<any> | FieldReadFunction<any>,
+	translations?: FieldPolicy<any> | FieldReadFunction<any>,
+	tests?: FieldPolicy<any> | FieldReadFunction<any>,
+	solutions?: FieldPolicy<any> | FieldReadFunction<any>,
+	instructions?: FieldPolicy<any> | FieldReadFunction<any>,
+	files?: FieldPolicy<any> | FieldReadFunction<any>,
+	videoUrl?: FieldPolicy<any> | FieldReadFunction<any>,
+	order?: FieldPolicy<any> | FieldReadFunction<any>,
+	superOrder?: FieldPolicy<any> | FieldReadFunction<any>,
+	challengeOrder?: FieldPolicy<any> | FieldReadFunction<any>,
+	required?: FieldPolicy<any> | FieldReadFunction<any>,
+	isRequired?: FieldPolicy<any> | FieldReadFunction<any>,
+	isPrivate?: FieldPolicy<any> | FieldReadFunction<any>,
+	isBeta?: FieldPolicy<any> | FieldReadFunction<any>,
+	template?: FieldPolicy<any> | FieldReadFunction<any>,
+	time?: FieldPolicy<any> | FieldReadFunction<any>,
+	CreatedBy?: FieldPolicy<any> | FieldReadFunction<any>,
+	rank?: FieldPolicy<any> | FieldReadFunction<any>,
+	Block?: FieldPolicy<any> | FieldReadFunction<any>,
+	Completions?: FieldPolicy<any> | FieldReadFunction<any>,
+	Topic?: FieldPolicy<any> | FieldReadFunction<any>
+};
+export type CodeChallengeBlockKeySpecifier = ('id' | 'externalKey' | 'createdAt' | 'updatedAt' | 'name' | 'rank' | 'Parent' | 'Children' | 'CreatedBy' | 'Challenges' | CodeChallengeBlockKeySpecifier)[];
+export type CodeChallengeBlockFieldPolicy = {
+	id?: FieldPolicy<any> | FieldReadFunction<any>,
+	externalKey?: FieldPolicy<any> | FieldReadFunction<any>,
+	createdAt?: FieldPolicy<any> | FieldReadFunction<any>,
+	updatedAt?: FieldPolicy<any> | FieldReadFunction<any>,
+	name?: FieldPolicy<any> | FieldReadFunction<any>,
+	rank?: FieldPolicy<any> | FieldReadFunction<any>,
+	Parent?: FieldPolicy<any> | FieldReadFunction<any>,
+	Children?: FieldPolicy<any> | FieldReadFunction<any>,
+	CreatedBy?: FieldPolicy<any> | FieldReadFunction<any>,
+	Challenges?: FieldPolicy<any> | FieldReadFunction<any>
 };
 export type TeamKeySpecifier = ('id' | 'createdAt' | 'updatedAt' | 'name' | 'Parent' | 'Childs' | 'CreatedBy' | 'Members' | 'Projects' | 'OrderedProjects' | 'status' | 'oldID' | 'address' | 'website' | 'email' | 'phone' | 'Resource' | TeamKeySpecifier)[];
 export type TeamFieldPolicy = {
@@ -801,50 +865,6 @@ export type RouteFieldPolicy = {
 	Parent?: FieldPolicy<any> | FieldReadFunction<any>,
 	Childs?: FieldPolicy<any> | FieldReadFunction<any>,
 	CreatedBy?: FieldPolicy<any> | FieldReadFunction<any>
-};
-export type CodeChallengeKeySpecifier = ('id' | 'externalKey' | 'createdAt' | 'updatedAt' | 'name' | 'dashedName' | 'localeTitle' | 'description' | 'challengeType' | 'forumTopicId' | 'translations' | 'tests' | 'solutions' | 'instructions' | 'files' | 'videoUrl' | 'order' | 'superOrder' | 'challengeOrder' | 'required' | 'isRequired' | 'isPrivate' | 'isBeta' | 'template' | 'time' | 'CreatedBy' | 'rank' | 'Block' | CodeChallengeKeySpecifier)[];
-export type CodeChallengeFieldPolicy = {
-	id?: FieldPolicy<any> | FieldReadFunction<any>,
-	externalKey?: FieldPolicy<any> | FieldReadFunction<any>,
-	createdAt?: FieldPolicy<any> | FieldReadFunction<any>,
-	updatedAt?: FieldPolicy<any> | FieldReadFunction<any>,
-	name?: FieldPolicy<any> | FieldReadFunction<any>,
-	dashedName?: FieldPolicy<any> | FieldReadFunction<any>,
-	localeTitle?: FieldPolicy<any> | FieldReadFunction<any>,
-	description?: FieldPolicy<any> | FieldReadFunction<any>,
-	challengeType?: FieldPolicy<any> | FieldReadFunction<any>,
-	forumTopicId?: FieldPolicy<any> | FieldReadFunction<any>,
-	translations?: FieldPolicy<any> | FieldReadFunction<any>,
-	tests?: FieldPolicy<any> | FieldReadFunction<any>,
-	solutions?: FieldPolicy<any> | FieldReadFunction<any>,
-	instructions?: FieldPolicy<any> | FieldReadFunction<any>,
-	files?: FieldPolicy<any> | FieldReadFunction<any>,
-	videoUrl?: FieldPolicy<any> | FieldReadFunction<any>,
-	order?: FieldPolicy<any> | FieldReadFunction<any>,
-	superOrder?: FieldPolicy<any> | FieldReadFunction<any>,
-	challengeOrder?: FieldPolicy<any> | FieldReadFunction<any>,
-	required?: FieldPolicy<any> | FieldReadFunction<any>,
-	isRequired?: FieldPolicy<any> | FieldReadFunction<any>,
-	isPrivate?: FieldPolicy<any> | FieldReadFunction<any>,
-	isBeta?: FieldPolicy<any> | FieldReadFunction<any>,
-	template?: FieldPolicy<any> | FieldReadFunction<any>,
-	time?: FieldPolicy<any> | FieldReadFunction<any>,
-	CreatedBy?: FieldPolicy<any> | FieldReadFunction<any>,
-	rank?: FieldPolicy<any> | FieldReadFunction<any>,
-	Block?: FieldPolicy<any> | FieldReadFunction<any>
-};
-export type CodeChallengeBlockKeySpecifier = ('id' | 'externalKey' | 'createdAt' | 'updatedAt' | 'name' | 'rank' | 'Parent' | 'Children' | 'CreatedBy' | 'Challenges' | CodeChallengeBlockKeySpecifier)[];
-export type CodeChallengeBlockFieldPolicy = {
-	id?: FieldPolicy<any> | FieldReadFunction<any>,
-	externalKey?: FieldPolicy<any> | FieldReadFunction<any>,
-	createdAt?: FieldPolicy<any> | FieldReadFunction<any>,
-	updatedAt?: FieldPolicy<any> | FieldReadFunction<any>,
-	name?: FieldPolicy<any> | FieldReadFunction<any>,
-	rank?: FieldPolicy<any> | FieldReadFunction<any>,
-	Parent?: FieldPolicy<any> | FieldReadFunction<any>,
-	Children?: FieldPolicy<any> | FieldReadFunction<any>,
-	CreatedBy?: FieldPolicy<any> | FieldReadFunction<any>,
-	Challenges?: FieldPolicy<any> | FieldReadFunction<any>
 };
 export type CommentKeySpecifier = ('id' | 'createdAt' | 'updatedAt' | 'components' | 'contentText' | 'CreatedBy' | 'TechnologyLesson' | CommentKeySpecifier)[];
 export type CommentFieldPolicy = {
@@ -1334,6 +1354,21 @@ export type AggregateCodeChallengeBlockKeySpecifier = ('count' | AggregateCodeCh
 export type AggregateCodeChallengeBlockFieldPolicy = {
 	count?: FieldPolicy<any> | FieldReadFunction<any>
 };
+export type CodeChallengeCompletionConnectionKeySpecifier = ('pageInfo' | 'edges' | 'aggregate' | CodeChallengeCompletionConnectionKeySpecifier)[];
+export type CodeChallengeCompletionConnectionFieldPolicy = {
+	pageInfo?: FieldPolicy<any> | FieldReadFunction<any>,
+	edges?: FieldPolicy<any> | FieldReadFunction<any>,
+	aggregate?: FieldPolicy<any> | FieldReadFunction<any>
+};
+export type CodeChallengeCompletionEdgeKeySpecifier = ('node' | 'cursor' | CodeChallengeCompletionEdgeKeySpecifier)[];
+export type CodeChallengeCompletionEdgeFieldPolicy = {
+	node?: FieldPolicy<any> | FieldReadFunction<any>,
+	cursor?: FieldPolicy<any> | FieldReadFunction<any>
+};
+export type AggregateCodeChallengeCompletionKeySpecifier = ('count' | AggregateCodeChallengeCompletionKeySpecifier)[];
+export type AggregateCodeChallengeCompletionFieldPolicy = {
+	count?: FieldPolicy<any> | FieldReadFunction<any>
+};
 export type CommentConnectionKeySpecifier = ('pageInfo' | 'edges' | 'aggregate' | CommentConnectionKeySpecifier)[];
 export type CommentConnectionFieldPolicy = {
 	pageInfo?: FieldPolicy<any> | FieldReadFunction<any>,
@@ -1564,7 +1599,7 @@ export type ethSyncStateFieldPolicy = {
 	knownStates?: FieldPolicy<any> | FieldReadFunction<any>,
 	pulledStates?: FieldPolicy<any> | FieldReadFunction<any>
 };
-export type MutationKeySpecifier = ('createBlogProcessor' | 'updateBlogProcessor' | 'createTopicProcessor' | 'updateTopicProcessor' | 'createCommentProcessor' | 'updateCommentProcessor' | 'createTestProcessor' | 'updateTestProcessor' | 'ethSigninOrSignup' | 'ethConnectAuthAccount' | 'fccImportChallengs' | 'createCareerProcessor' | 'updateCareerProcessor' | 'createUserTechnologyProcessor' | 'updateUserTechnologyProcessor' | 'createTechnologyLessonProcessor' | 'updateTechnologyLessonProcessor' | 'createTechnologyProcessor' | 'updateTechnologyProcessor' | 'createTechnologyLessonCommentProcessor' | 'updateTechnologyLessonCommentProcessor' | 'createTechnologyLessonUserProcessor' | 'updateTechnologyLessonUserProcessor' | 'createPlayer' | 'createWorld' | 'createSettings' | 'updatePlayer' | 'updateWorld' | 'updateSettings' | 'updateCallRequest' | 'deleteGallery' | 'deleteWorld' | 'deleteNotice' | 'deleteTaskReaction' | 'deleteTest' | 'deleteTemplate' | 'deleteManyNotices' | 'deleteManyTests' | 'runCommand' | 'login' | 'singleUpload' | 'multipleUpload' | 'signup' | 'signin' | 'updateUserProcessor' | 'resetPasswordProcessor' | 'createResetPasswordProcessor' | 'createTemplateProcessor' | 'updateTemplateProcessor' | 'createGalleryProcessor' | 'updateGalleryProcessor' | 'createChatRoomProcessor' | 'updateChatRoomProcessor' | 'inviteChatRoomProcessor' | 'joinChatRoom' | 'leaveChatRoom' | 'createChatMessageProcessor' | 'updateChatMessageProcessor' | 'markAsReadedChatMessage' | 'createEthAccountProcessor' | 'createEthTransactionProcessor' | 'ethRecoverPersonalSignature' | 'createCallRequestProcessor' | 'createProjectProcessor' | 'updateProjectProcessor' | 'createTaskProcessor' | 'updateTaskProcessor' | 'createTaskReactionProcessor' | 'createTimerProcessor' | 'updateTimerProcessor' | MutationKeySpecifier)[];
+export type MutationKeySpecifier = ('createBlogProcessor' | 'updateBlogProcessor' | 'createTopicProcessor' | 'updateTopicProcessor' | 'createCommentProcessor' | 'updateCommentProcessor' | 'createTestProcessor' | 'updateTestProcessor' | 'ethSigninOrSignup' | 'ethConnectAuthAccount' | 'createCodeChallengeCompletionProcessor' | 'updateCodeChallengeCompletionProcessor' | 'fccImportChallengs' | 'createCareerProcessor' | 'updateCareerProcessor' | 'createUserTechnologyProcessor' | 'updateUserTechnologyProcessor' | 'createTechnologyLessonProcessor' | 'updateTechnologyLessonProcessor' | 'createTechnologyProcessor' | 'updateTechnologyProcessor' | 'createTechnologyLessonCommentProcessor' | 'updateTechnologyLessonCommentProcessor' | 'createTechnologyLessonUserProcessor' | 'updateTechnologyLessonUserProcessor' | 'createPlayer' | 'createWorld' | 'createSettings' | 'createCallRequest' | 'createUser' | 'updatePlayer' | 'updateWorld' | 'updateSettings' | 'updateCallRequest' | 'updateUser' | 'deleteGallery' | 'deleteWorld' | 'deleteNotice' | 'deleteGame' | 'deleteGameResult' | 'deleteTournament' | 'deleteTournamentGroup' | 'deleteTourney' | 'deleteProjectMember' | 'deleteTaskReaction' | 'deleteTeamMember' | 'deleteRoute' | 'deleteCodeChallenge' | 'deleteCodeChallengeBlock' | 'deleteTechnologyLesson' | 'deleteCareer' | 'deleteTechnologyLessonUser' | 'deleteUserTechnology' | 'deleteTest' | 'deleteFile' | 'deleteTechnology' | 'deleteTemplate' | 'deleteResource' | 'deleteUser' | 'deleteManyNotices' | 'deleteManyRoutes' | 'deleteManyTests' | 'runCommand' | 'login' | 'createFileProcessor' | 'updateFileProcessor' | 'singleUpload' | 'multipleUpload' | 'createSmsMessageProcessor' | 'createSmsProviderProcessor' | 'updateSmsProviderProcessor' | 'signup' | 'signin' | 'createUserProcessor' | 'updateUserProcessor' | 'resetPasswordProcessor' | 'createResetPasswordProcessor' | 'createTemplateProcessor' | 'updateTemplateProcessor' | 'createGalleryProcessor' | 'updateGalleryProcessor' | 'createResourceProcessor' | 'updateResourceProcessor' | 'createGameProcessor' | 'updateGameProcessor' | 'createGameResultProcessor' | 'updateGameResultProcessor' | 'createTournamentProcessor' | 'updateTournamentProcessor' | 'createTournamentGroupProcessor' | 'updateTournamentGroupProcessor' | 'createTourneyProcessor' | 'updateTourneyProcessor' | 'createChatRoomProcessor' | 'updateChatRoomProcessor' | 'inviteChatRoomProcessor' | 'joinChatRoom' | 'leaveChatRoom' | 'createChatMessageReadedProcessor' | 'createChatMessageProcessor' | 'updateChatMessageProcessor' | 'markAsReadedChatMessage' | 'createEthContractSourceProcessor' | 'updateEthContractSourceProcessor' | 'ethUnlockPersonalAccount' | 'createEthAccountProcessor' | 'updateEthAccountProcessor' | 'createEthTransactionProcessor' | 'ethRecoverPersonalSignature' | 'createCallRequestProcessor' | 'createProjectProcessor' | 'updateProjectProcessor' | 'createProjectMemberProcessor' | 'updateProjectMemberProcessor' | 'createTaskProcessor' | 'updateTaskProcessor' | 'createTaskReactionProcessor' | 'updateTaskReactionProcessor' | 'createTimerProcessor' | 'updateTimerProcessor' | 'createTeamProcessor' | 'updateTeamProcessor' | 'createTeamMemberProcessor' | 'updateTeamMemberProcessor' | 'createServiceProcessor' | 'updateServiceProcessor' | 'createPositionProcessor' | 'updatePositionProcessor' | 'createRouteProcessor' | 'updateRouteProcessor' | MutationKeySpecifier)[];
 export type MutationFieldPolicy = {
 	createBlogProcessor?: FieldPolicy<any> | FieldReadFunction<any>,
 	updateBlogProcessor?: FieldPolicy<any> | FieldReadFunction<any>,
@@ -1576,6 +1611,8 @@ export type MutationFieldPolicy = {
 	updateTestProcessor?: FieldPolicy<any> | FieldReadFunction<any>,
 	ethSigninOrSignup?: FieldPolicy<any> | FieldReadFunction<any>,
 	ethConnectAuthAccount?: FieldPolicy<any> | FieldReadFunction<any>,
+	createCodeChallengeCompletionProcessor?: FieldPolicy<any> | FieldReadFunction<any>,
+	updateCodeChallengeCompletionProcessor?: FieldPolicy<any> | FieldReadFunction<any>,
 	fccImportChallengs?: FieldPolicy<any> | FieldReadFunction<any>,
 	createCareerProcessor?: FieldPolicy<any> | FieldReadFunction<any>,
 	updateCareerProcessor?: FieldPolicy<any> | FieldReadFunction<any>,
@@ -1592,24 +1629,52 @@ export type MutationFieldPolicy = {
 	createPlayer?: FieldPolicy<any> | FieldReadFunction<any>,
 	createWorld?: FieldPolicy<any> | FieldReadFunction<any>,
 	createSettings?: FieldPolicy<any> | FieldReadFunction<any>,
+	createCallRequest?: FieldPolicy<any> | FieldReadFunction<any>,
+	createUser?: FieldPolicy<any> | FieldReadFunction<any>,
 	updatePlayer?: FieldPolicy<any> | FieldReadFunction<any>,
 	updateWorld?: FieldPolicy<any> | FieldReadFunction<any>,
 	updateSettings?: FieldPolicy<any> | FieldReadFunction<any>,
 	updateCallRequest?: FieldPolicy<any> | FieldReadFunction<any>,
+	updateUser?: FieldPolicy<any> | FieldReadFunction<any>,
 	deleteGallery?: FieldPolicy<any> | FieldReadFunction<any>,
 	deleteWorld?: FieldPolicy<any> | FieldReadFunction<any>,
 	deleteNotice?: FieldPolicy<any> | FieldReadFunction<any>,
+	deleteGame?: FieldPolicy<any> | FieldReadFunction<any>,
+	deleteGameResult?: FieldPolicy<any> | FieldReadFunction<any>,
+	deleteTournament?: FieldPolicy<any> | FieldReadFunction<any>,
+	deleteTournamentGroup?: FieldPolicy<any> | FieldReadFunction<any>,
+	deleteTourney?: FieldPolicy<any> | FieldReadFunction<any>,
+	deleteProjectMember?: FieldPolicy<any> | FieldReadFunction<any>,
 	deleteTaskReaction?: FieldPolicy<any> | FieldReadFunction<any>,
+	deleteTeamMember?: FieldPolicy<any> | FieldReadFunction<any>,
+	deleteRoute?: FieldPolicy<any> | FieldReadFunction<any>,
+	deleteCodeChallenge?: FieldPolicy<any> | FieldReadFunction<any>,
+	deleteCodeChallengeBlock?: FieldPolicy<any> | FieldReadFunction<any>,
+	deleteTechnologyLesson?: FieldPolicy<any> | FieldReadFunction<any>,
+	deleteCareer?: FieldPolicy<any> | FieldReadFunction<any>,
+	deleteTechnologyLessonUser?: FieldPolicy<any> | FieldReadFunction<any>,
+	deleteUserTechnology?: FieldPolicy<any> | FieldReadFunction<any>,
 	deleteTest?: FieldPolicy<any> | FieldReadFunction<any>,
+	deleteFile?: FieldPolicy<any> | FieldReadFunction<any>,
+	deleteTechnology?: FieldPolicy<any> | FieldReadFunction<any>,
 	deleteTemplate?: FieldPolicy<any> | FieldReadFunction<any>,
+	deleteResource?: FieldPolicy<any> | FieldReadFunction<any>,
+	deleteUser?: FieldPolicy<any> | FieldReadFunction<any>,
 	deleteManyNotices?: FieldPolicy<any> | FieldReadFunction<any>,
+	deleteManyRoutes?: FieldPolicy<any> | FieldReadFunction<any>,
 	deleteManyTests?: FieldPolicy<any> | FieldReadFunction<any>,
 	runCommand?: FieldPolicy<any> | FieldReadFunction<any>,
 	login?: FieldPolicy<any> | FieldReadFunction<any>,
+	createFileProcessor?: FieldPolicy<any> | FieldReadFunction<any>,
+	updateFileProcessor?: FieldPolicy<any> | FieldReadFunction<any>,
 	singleUpload?: FieldPolicy<any> | FieldReadFunction<any>,
 	multipleUpload?: FieldPolicy<any> | FieldReadFunction<any>,
+	createSmsMessageProcessor?: FieldPolicy<any> | FieldReadFunction<any>,
+	createSmsProviderProcessor?: FieldPolicy<any> | FieldReadFunction<any>,
+	updateSmsProviderProcessor?: FieldPolicy<any> | FieldReadFunction<any>,
 	signup?: FieldPolicy<any> | FieldReadFunction<any>,
 	signin?: FieldPolicy<any> | FieldReadFunction<any>,
+	createUserProcessor?: FieldPolicy<any> | FieldReadFunction<any>,
 	updateUserProcessor?: FieldPolicy<any> | FieldReadFunction<any>,
 	resetPasswordProcessor?: FieldPolicy<any> | FieldReadFunction<any>,
 	createResetPasswordProcessor?: FieldPolicy<any> | FieldReadFunction<any>,
@@ -1617,25 +1682,55 @@ export type MutationFieldPolicy = {
 	updateTemplateProcessor?: FieldPolicy<any> | FieldReadFunction<any>,
 	createGalleryProcessor?: FieldPolicy<any> | FieldReadFunction<any>,
 	updateGalleryProcessor?: FieldPolicy<any> | FieldReadFunction<any>,
+	createResourceProcessor?: FieldPolicy<any> | FieldReadFunction<any>,
+	updateResourceProcessor?: FieldPolicy<any> | FieldReadFunction<any>,
+	createGameProcessor?: FieldPolicy<any> | FieldReadFunction<any>,
+	updateGameProcessor?: FieldPolicy<any> | FieldReadFunction<any>,
+	createGameResultProcessor?: FieldPolicy<any> | FieldReadFunction<any>,
+	updateGameResultProcessor?: FieldPolicy<any> | FieldReadFunction<any>,
+	createTournamentProcessor?: FieldPolicy<any> | FieldReadFunction<any>,
+	updateTournamentProcessor?: FieldPolicy<any> | FieldReadFunction<any>,
+	createTournamentGroupProcessor?: FieldPolicy<any> | FieldReadFunction<any>,
+	updateTournamentGroupProcessor?: FieldPolicy<any> | FieldReadFunction<any>,
+	createTourneyProcessor?: FieldPolicy<any> | FieldReadFunction<any>,
+	updateTourneyProcessor?: FieldPolicy<any> | FieldReadFunction<any>,
 	createChatRoomProcessor?: FieldPolicy<any> | FieldReadFunction<any>,
 	updateChatRoomProcessor?: FieldPolicy<any> | FieldReadFunction<any>,
 	inviteChatRoomProcessor?: FieldPolicy<any> | FieldReadFunction<any>,
 	joinChatRoom?: FieldPolicy<any> | FieldReadFunction<any>,
 	leaveChatRoom?: FieldPolicy<any> | FieldReadFunction<any>,
+	createChatMessageReadedProcessor?: FieldPolicy<any> | FieldReadFunction<any>,
 	createChatMessageProcessor?: FieldPolicy<any> | FieldReadFunction<any>,
 	updateChatMessageProcessor?: FieldPolicy<any> | FieldReadFunction<any>,
 	markAsReadedChatMessage?: FieldPolicy<any> | FieldReadFunction<any>,
+	createEthContractSourceProcessor?: FieldPolicy<any> | FieldReadFunction<any>,
+	updateEthContractSourceProcessor?: FieldPolicy<any> | FieldReadFunction<any>,
+	ethUnlockPersonalAccount?: FieldPolicy<any> | FieldReadFunction<any>,
 	createEthAccountProcessor?: FieldPolicy<any> | FieldReadFunction<any>,
+	updateEthAccountProcessor?: FieldPolicy<any> | FieldReadFunction<any>,
 	createEthTransactionProcessor?: FieldPolicy<any> | FieldReadFunction<any>,
 	ethRecoverPersonalSignature?: FieldPolicy<any> | FieldReadFunction<any>,
 	createCallRequestProcessor?: FieldPolicy<any> | FieldReadFunction<any>,
 	createProjectProcessor?: FieldPolicy<any> | FieldReadFunction<any>,
 	updateProjectProcessor?: FieldPolicy<any> | FieldReadFunction<any>,
+	createProjectMemberProcessor?: FieldPolicy<any> | FieldReadFunction<any>,
+	updateProjectMemberProcessor?: FieldPolicy<any> | FieldReadFunction<any>,
 	createTaskProcessor?: FieldPolicy<any> | FieldReadFunction<any>,
 	updateTaskProcessor?: FieldPolicy<any> | FieldReadFunction<any>,
 	createTaskReactionProcessor?: FieldPolicy<any> | FieldReadFunction<any>,
+	updateTaskReactionProcessor?: FieldPolicy<any> | FieldReadFunction<any>,
 	createTimerProcessor?: FieldPolicy<any> | FieldReadFunction<any>,
-	updateTimerProcessor?: FieldPolicy<any> | FieldReadFunction<any>
+	updateTimerProcessor?: FieldPolicy<any> | FieldReadFunction<any>,
+	createTeamProcessor?: FieldPolicy<any> | FieldReadFunction<any>,
+	updateTeamProcessor?: FieldPolicy<any> | FieldReadFunction<any>,
+	createTeamMemberProcessor?: FieldPolicy<any> | FieldReadFunction<any>,
+	updateTeamMemberProcessor?: FieldPolicy<any> | FieldReadFunction<any>,
+	createServiceProcessor?: FieldPolicy<any> | FieldReadFunction<any>,
+	updateServiceProcessor?: FieldPolicy<any> | FieldReadFunction<any>,
+	createPositionProcessor?: FieldPolicy<any> | FieldReadFunction<any>,
+	updatePositionProcessor?: FieldPolicy<any> | FieldReadFunction<any>,
+	createRouteProcessor?: FieldPolicy<any> | FieldReadFunction<any>,
+	updateRouteProcessor?: FieldPolicy<any> | FieldReadFunction<any>
 };
 export type ResourceResponseKeySpecifier = ('success' | 'message' | 'errors' | 'data' | ResourceResponseKeySpecifier)[];
 export type ResourceResponseFieldPolicy = {
@@ -1666,6 +1761,13 @@ export type AuthPayloadFieldPolicy = {
 };
 export type EthAccountResponseKeySpecifier = ('success' | 'message' | 'errors' | 'data' | EthAccountResponseKeySpecifier)[];
 export type EthAccountResponseFieldPolicy = {
+	success?: FieldPolicy<any> | FieldReadFunction<any>,
+	message?: FieldPolicy<any> | FieldReadFunction<any>,
+	errors?: FieldPolicy<any> | FieldReadFunction<any>,
+	data?: FieldPolicy<any> | FieldReadFunction<any>
+};
+export type CodeChallengeCompletionResponseKeySpecifier = ('success' | 'message' | 'errors' | 'data' | CodeChallengeCompletionResponseKeySpecifier)[];
+export type CodeChallengeCompletionResponseFieldPolicy = {
 	success?: FieldPolicy<any> | FieldReadFunction<any>,
 	message?: FieldPolicy<any> | FieldReadFunction<any>,
 	errors?: FieldPolicy<any> | FieldReadFunction<any>,
@@ -1722,6 +1824,68 @@ export type McJsAuthPayloadFieldPolicy = {
 	token?: FieldPolicy<any> | FieldReadFunction<any>,
 	user?: FieldPolicy<any> | FieldReadFunction<any>
 };
+export type FileResponseKeySpecifier = ('success' | 'message' | 'errors' | 'data' | FileResponseKeySpecifier)[];
+export type FileResponseFieldPolicy = {
+	success?: FieldPolicy<any> | FieldReadFunction<any>,
+	message?: FieldPolicy<any> | FieldReadFunction<any>,
+	errors?: FieldPolicy<any> | FieldReadFunction<any>,
+	data?: FieldPolicy<any> | FieldReadFunction<any>
+};
+export type SmsMessageResponseKeySpecifier = ('success' | 'message' | 'errors' | 'data' | SmsMessageResponseKeySpecifier)[];
+export type SmsMessageResponseFieldPolicy = {
+	success?: FieldPolicy<any> | FieldReadFunction<any>,
+	message?: FieldPolicy<any> | FieldReadFunction<any>,
+	errors?: FieldPolicy<any> | FieldReadFunction<any>,
+	data?: FieldPolicy<any> | FieldReadFunction<any>
+};
+export type SmsMessageKeySpecifier = ('id' | 'createdAt' | 'updatedAt' | 'from' | 'text' | 'recipients' | 'Provider' | 'deletOnSend' | 'CreatedBy' | 'Status' | SmsMessageKeySpecifier)[];
+export type SmsMessageFieldPolicy = {
+	id?: FieldPolicy<any> | FieldReadFunction<any>,
+	createdAt?: FieldPolicy<any> | FieldReadFunction<any>,
+	updatedAt?: FieldPolicy<any> | FieldReadFunction<any>,
+	from?: FieldPolicy<any> | FieldReadFunction<any>,
+	text?: FieldPolicy<any> | FieldReadFunction<any>,
+	recipients?: FieldPolicy<any> | FieldReadFunction<any>,
+	Provider?: FieldPolicy<any> | FieldReadFunction<any>,
+	deletOnSend?: FieldPolicy<any> | FieldReadFunction<any>,
+	CreatedBy?: FieldPolicy<any> | FieldReadFunction<any>,
+	Status?: FieldPolicy<any> | FieldReadFunction<any>
+};
+export type SmsProviderKeySpecifier = ('id' | 'createdAt' | 'updatedAt' | 'name' | 'credentials' | 'CreatedBy' | SmsProviderKeySpecifier)[];
+export type SmsProviderFieldPolicy = {
+	id?: FieldPolicy<any> | FieldReadFunction<any>,
+	createdAt?: FieldPolicy<any> | FieldReadFunction<any>,
+	updatedAt?: FieldPolicy<any> | FieldReadFunction<any>,
+	name?: FieldPolicy<any> | FieldReadFunction<any>,
+	credentials?: FieldPolicy<any> | FieldReadFunction<any>,
+	CreatedBy?: FieldPolicy<any> | FieldReadFunction<any>
+};
+export type LetsadsSmsMessageStatusKeySpecifier = ('id' | 'createdAt' | 'updatedAt' | 'name' | 'description' | 'errorCode' | 'SmsMessage' | 'Items' | LetsadsSmsMessageStatusKeySpecifier)[];
+export type LetsadsSmsMessageStatusFieldPolicy = {
+	id?: FieldPolicy<any> | FieldReadFunction<any>,
+	createdAt?: FieldPolicy<any> | FieldReadFunction<any>,
+	updatedAt?: FieldPolicy<any> | FieldReadFunction<any>,
+	name?: FieldPolicy<any> | FieldReadFunction<any>,
+	description?: FieldPolicy<any> | FieldReadFunction<any>,
+	errorCode?: FieldPolicy<any> | FieldReadFunction<any>,
+	SmsMessage?: FieldPolicy<any> | FieldReadFunction<any>,
+	Items?: FieldPolicy<any> | FieldReadFunction<any>
+};
+export type LetsadsSmsMessageStatusItemKeySpecifier = ('id' | 'createdAt' | 'updatedAt' | 'sms_id' | 'Status' | LetsadsSmsMessageStatusItemKeySpecifier)[];
+export type LetsadsSmsMessageStatusItemFieldPolicy = {
+	id?: FieldPolicy<any> | FieldReadFunction<any>,
+	createdAt?: FieldPolicy<any> | FieldReadFunction<any>,
+	updatedAt?: FieldPolicy<any> | FieldReadFunction<any>,
+	sms_id?: FieldPolicy<any> | FieldReadFunction<any>,
+	Status?: FieldPolicy<any> | FieldReadFunction<any>
+};
+export type SmsProviderResponseKeySpecifier = ('success' | 'message' | 'errors' | 'data' | SmsProviderResponseKeySpecifier)[];
+export type SmsProviderResponseFieldPolicy = {
+	success?: FieldPolicy<any> | FieldReadFunction<any>,
+	message?: FieldPolicy<any> | FieldReadFunction<any>,
+	errors?: FieldPolicy<any> | FieldReadFunction<any>,
+	data?: FieldPolicy<any> | FieldReadFunction<any>
+};
 export type UserResponseKeySpecifier = ('success' | 'message' | 'errors' | 'data' | UserResponseKeySpecifier)[];
 export type UserResponseFieldPolicy = {
 	success?: FieldPolicy<any> | FieldReadFunction<any>,
@@ -1760,6 +1924,41 @@ export type GalleryResponseFieldPolicy = {
 	errors?: FieldPolicy<any> | FieldReadFunction<any>,
 	data?: FieldPolicy<any> | FieldReadFunction<any>
 };
+export type GameResponseKeySpecifier = ('success' | 'message' | 'errors' | 'data' | GameResponseKeySpecifier)[];
+export type GameResponseFieldPolicy = {
+	success?: FieldPolicy<any> | FieldReadFunction<any>,
+	message?: FieldPolicy<any> | FieldReadFunction<any>,
+	errors?: FieldPolicy<any> | FieldReadFunction<any>,
+	data?: FieldPolicy<any> | FieldReadFunction<any>
+};
+export type GameResultResponseKeySpecifier = ('success' | 'message' | 'errors' | 'data' | GameResultResponseKeySpecifier)[];
+export type GameResultResponseFieldPolicy = {
+	success?: FieldPolicy<any> | FieldReadFunction<any>,
+	message?: FieldPolicy<any> | FieldReadFunction<any>,
+	errors?: FieldPolicy<any> | FieldReadFunction<any>,
+	data?: FieldPolicy<any> | FieldReadFunction<any>
+};
+export type TournamentResponseKeySpecifier = ('success' | 'message' | 'errors' | 'data' | TournamentResponseKeySpecifier)[];
+export type TournamentResponseFieldPolicy = {
+	success?: FieldPolicy<any> | FieldReadFunction<any>,
+	message?: FieldPolicy<any> | FieldReadFunction<any>,
+	errors?: FieldPolicy<any> | FieldReadFunction<any>,
+	data?: FieldPolicy<any> | FieldReadFunction<any>
+};
+export type TournamentGroupResponseKeySpecifier = ('success' | 'message' | 'errors' | 'data' | TournamentGroupResponseKeySpecifier)[];
+export type TournamentGroupResponseFieldPolicy = {
+	success?: FieldPolicy<any> | FieldReadFunction<any>,
+	message?: FieldPolicy<any> | FieldReadFunction<any>,
+	errors?: FieldPolicy<any> | FieldReadFunction<any>,
+	data?: FieldPolicy<any> | FieldReadFunction<any>
+};
+export type TourneyResponseKeySpecifier = ('success' | 'message' | 'errors' | 'data' | TourneyResponseKeySpecifier)[];
+export type TourneyResponseFieldPolicy = {
+	success?: FieldPolicy<any> | FieldReadFunction<any>,
+	message?: FieldPolicy<any> | FieldReadFunction<any>,
+	errors?: FieldPolicy<any> | FieldReadFunction<any>,
+	data?: FieldPolicy<any> | FieldReadFunction<any>
+};
 export type ChatRoomResponseKeySpecifier = ('success' | 'message' | 'errors' | 'data' | ChatRoomResponseKeySpecifier)[];
 export type ChatRoomResponseFieldPolicy = {
 	success?: FieldPolicy<any> | FieldReadFunction<any>,
@@ -1767,8 +1966,22 @@ export type ChatRoomResponseFieldPolicy = {
 	errors?: FieldPolicy<any> | FieldReadFunction<any>,
 	data?: FieldPolicy<any> | FieldReadFunction<any>
 };
+export type ChatMessageReadedResponseKeySpecifier = ('success' | 'message' | 'errors' | 'data' | ChatMessageReadedResponseKeySpecifier)[];
+export type ChatMessageReadedResponseFieldPolicy = {
+	success?: FieldPolicy<any> | FieldReadFunction<any>,
+	message?: FieldPolicy<any> | FieldReadFunction<any>,
+	errors?: FieldPolicy<any> | FieldReadFunction<any>,
+	data?: FieldPolicy<any> | FieldReadFunction<any>
+};
 export type ChatMessageResponseKeySpecifier = ('success' | 'message' | 'errors' | 'data' | ChatMessageResponseKeySpecifier)[];
 export type ChatMessageResponseFieldPolicy = {
+	success?: FieldPolicy<any> | FieldReadFunction<any>,
+	message?: FieldPolicy<any> | FieldReadFunction<any>,
+	errors?: FieldPolicy<any> | FieldReadFunction<any>,
+	data?: FieldPolicy<any> | FieldReadFunction<any>
+};
+export type EthContractSourceResponseKeySpecifier = ('success' | 'message' | 'errors' | 'data' | EthContractSourceResponseKeySpecifier)[];
+export type EthContractSourceResponseFieldPolicy = {
 	success?: FieldPolicy<any> | FieldReadFunction<any>,
 	message?: FieldPolicy<any> | FieldReadFunction<any>,
 	errors?: FieldPolicy<any> | FieldReadFunction<any>,
@@ -1795,6 +2008,13 @@ export type ProjectResponseFieldPolicy = {
 	errors?: FieldPolicy<any> | FieldReadFunction<any>,
 	data?: FieldPolicy<any> | FieldReadFunction<any>
 };
+export type ProjectMemberResponseKeySpecifier = ('success' | 'message' | 'errors' | 'data' | ProjectMemberResponseKeySpecifier)[];
+export type ProjectMemberResponseFieldPolicy = {
+	success?: FieldPolicy<any> | FieldReadFunction<any>,
+	message?: FieldPolicy<any> | FieldReadFunction<any>,
+	errors?: FieldPolicy<any> | FieldReadFunction<any>,
+	data?: FieldPolicy<any> | FieldReadFunction<any>
+};
 export type TaskResponseKeySpecifier = ('success' | 'message' | 'errors' | 'data' | TaskResponseKeySpecifier)[];
 export type TaskResponseFieldPolicy = {
 	success?: FieldPolicy<any> | FieldReadFunction<any>,
@@ -1811,6 +2031,41 @@ export type TaskReactionResponseFieldPolicy = {
 };
 export type TimerResponseKeySpecifier = ('success' | 'message' | 'errors' | 'data' | TimerResponseKeySpecifier)[];
 export type TimerResponseFieldPolicy = {
+	success?: FieldPolicy<any> | FieldReadFunction<any>,
+	message?: FieldPolicy<any> | FieldReadFunction<any>,
+	errors?: FieldPolicy<any> | FieldReadFunction<any>,
+	data?: FieldPolicy<any> | FieldReadFunction<any>
+};
+export type TeamResponseKeySpecifier = ('success' | 'message' | 'errors' | 'data' | TeamResponseKeySpecifier)[];
+export type TeamResponseFieldPolicy = {
+	success?: FieldPolicy<any> | FieldReadFunction<any>,
+	message?: FieldPolicy<any> | FieldReadFunction<any>,
+	errors?: FieldPolicy<any> | FieldReadFunction<any>,
+	data?: FieldPolicy<any> | FieldReadFunction<any>
+};
+export type TeamMemberResponseKeySpecifier = ('success' | 'message' | 'errors' | 'data' | TeamMemberResponseKeySpecifier)[];
+export type TeamMemberResponseFieldPolicy = {
+	success?: FieldPolicy<any> | FieldReadFunction<any>,
+	message?: FieldPolicy<any> | FieldReadFunction<any>,
+	errors?: FieldPolicy<any> | FieldReadFunction<any>,
+	data?: FieldPolicy<any> | FieldReadFunction<any>
+};
+export type ServiceResponseKeySpecifier = ('success' | 'message' | 'errors' | 'data' | ServiceResponseKeySpecifier)[];
+export type ServiceResponseFieldPolicy = {
+	success?: FieldPolicy<any> | FieldReadFunction<any>,
+	message?: FieldPolicy<any> | FieldReadFunction<any>,
+	errors?: FieldPolicy<any> | FieldReadFunction<any>,
+	data?: FieldPolicy<any> | FieldReadFunction<any>
+};
+export type PositionResponseKeySpecifier = ('success' | 'message' | 'errors' | 'data' | PositionResponseKeySpecifier)[];
+export type PositionResponseFieldPolicy = {
+	success?: FieldPolicy<any> | FieldReadFunction<any>,
+	message?: FieldPolicy<any> | FieldReadFunction<any>,
+	errors?: FieldPolicy<any> | FieldReadFunction<any>,
+	data?: FieldPolicy<any> | FieldReadFunction<any>
+};
+export type RouteResponseKeySpecifier = ('success' | 'message' | 'errors' | 'data' | RouteResponseKeySpecifier)[];
+export type RouteResponseFieldPolicy = {
 	success?: FieldPolicy<any> | FieldReadFunction<any>,
 	message?: FieldPolicy<any> | FieldReadFunction<any>,
 	errors?: FieldPolicy<any> | FieldReadFunction<any>,
@@ -2372,7 +2627,7 @@ export type ProjectSubscriptionPayloadFieldPolicy = {
 	updatedFields?: FieldPolicy<any> | FieldReadFunction<any>,
 	previousValues?: FieldPolicy<any> | FieldReadFunction<any>
 };
-export type ProjectPreviousValuesKeySpecifier = ('id' | 'name' | 'domain' | 'createdAt' | 'updatedAt' | 'description' | 'url' | 'sequence' | 'content' | 'contentText' | 'status' | 'public' | 'oldID' | ProjectPreviousValuesKeySpecifier)[];
+export type ProjectPreviousValuesKeySpecifier = ('id' | 'name' | 'domain' | 'createdAt' | 'updatedAt' | 'description' | 'url' | 'sequence' | 'content' | 'contentText' | 'status' | 'public' | 'oldID' | 'type' | ProjectPreviousValuesKeySpecifier)[];
 export type ProjectPreviousValuesFieldPolicy = {
 	id?: FieldPolicy<any> | FieldReadFunction<any>,
 	name?: FieldPolicy<any> | FieldReadFunction<any>,
@@ -2386,7 +2641,8 @@ export type ProjectPreviousValuesFieldPolicy = {
 	contentText?: FieldPolicy<any> | FieldReadFunction<any>,
 	status?: FieldPolicy<any> | FieldReadFunction<any>,
 	public?: FieldPolicy<any> | FieldReadFunction<any>,
-	oldID?: FieldPolicy<any> | FieldReadFunction<any>
+	oldID?: FieldPolicy<any> | FieldReadFunction<any>,
+	type?: FieldPolicy<any> | FieldReadFunction<any>
 };
 export type TemplateSubscriptionPayloadKeySpecifier = ('mutation' | 'node' | 'updatedFields' | 'previousValues' | TemplateSubscriptionPayloadKeySpecifier)[];
 export type TemplateSubscriptionPayloadFieldPolicy = {
@@ -2669,6 +2925,21 @@ export type ChatRoomInvitationSubscriptionPayloadFieldPolicy = {
 	updatedFields?: FieldPolicy<any> | FieldReadFunction<any>,
 	previousValues?: FieldPolicy<any> | FieldReadFunction<any>
 };
+export type CodeChallengeCompletionPreviousValuesKeySpecifier = ('id' | 'createdAt' | 'updatedAt' | 'content' | 'success' | CodeChallengeCompletionPreviousValuesKeySpecifier)[];
+export type CodeChallengeCompletionPreviousValuesFieldPolicy = {
+	id?: FieldPolicy<any> | FieldReadFunction<any>,
+	createdAt?: FieldPolicy<any> | FieldReadFunction<any>,
+	updatedAt?: FieldPolicy<any> | FieldReadFunction<any>,
+	content?: FieldPolicy<any> | FieldReadFunction<any>,
+	success?: FieldPolicy<any> | FieldReadFunction<any>
+};
+export type CodeChallengeCompletionSubscriptionPayloadKeySpecifier = ('mutation' | 'node' | 'updatedFields' | 'previousValues' | CodeChallengeCompletionSubscriptionPayloadKeySpecifier)[];
+export type CodeChallengeCompletionSubscriptionPayloadFieldPolicy = {
+	mutation?: FieldPolicy<any> | FieldReadFunction<any>,
+	node?: FieldPolicy<any> | FieldReadFunction<any>,
+	updatedFields?: FieldPolicy<any> | FieldReadFunction<any>,
+	previousValues?: FieldPolicy<any> | FieldReadFunction<any>
+};
 export type EthAccountPreviousValuesKeySpecifier = ('id' | 'createdAt' | 'updatedAt' | 'name' | 'description' | 'address' | 'type' | 'source' | 'bytecode' | 'abi' | EthAccountPreviousValuesKeySpecifier)[];
 export type EthAccountPreviousValuesFieldPolicy = {
 	id?: FieldPolicy<any> | FieldReadFunction<any>,
@@ -2831,47 +3102,6 @@ export type InventorySubscriptionPayloadFieldPolicy = {
 	node?: FieldPolicy<any> | FieldReadFunction<any>,
 	updatedFields?: FieldPolicy<any> | FieldReadFunction<any>,
 	previousValues?: FieldPolicy<any> | FieldReadFunction<any>
-};
-export type LetsadsSmsMessageStatusKeySpecifier = ('id' | 'createdAt' | 'updatedAt' | 'name' | 'description' | 'errorCode' | 'SmsMessage' | 'Items' | LetsadsSmsMessageStatusKeySpecifier)[];
-export type LetsadsSmsMessageStatusFieldPolicy = {
-	id?: FieldPolicy<any> | FieldReadFunction<any>,
-	createdAt?: FieldPolicy<any> | FieldReadFunction<any>,
-	updatedAt?: FieldPolicy<any> | FieldReadFunction<any>,
-	name?: FieldPolicy<any> | FieldReadFunction<any>,
-	description?: FieldPolicy<any> | FieldReadFunction<any>,
-	errorCode?: FieldPolicy<any> | FieldReadFunction<any>,
-	SmsMessage?: FieldPolicy<any> | FieldReadFunction<any>,
-	Items?: FieldPolicy<any> | FieldReadFunction<any>
-};
-export type SmsMessageKeySpecifier = ('id' | 'createdAt' | 'updatedAt' | 'from' | 'text' | 'recipients' | 'Provider' | 'deletOnSend' | 'CreatedBy' | 'Status' | SmsMessageKeySpecifier)[];
-export type SmsMessageFieldPolicy = {
-	id?: FieldPolicy<any> | FieldReadFunction<any>,
-	createdAt?: FieldPolicy<any> | FieldReadFunction<any>,
-	updatedAt?: FieldPolicy<any> | FieldReadFunction<any>,
-	from?: FieldPolicy<any> | FieldReadFunction<any>,
-	text?: FieldPolicy<any> | FieldReadFunction<any>,
-	recipients?: FieldPolicy<any> | FieldReadFunction<any>,
-	Provider?: FieldPolicy<any> | FieldReadFunction<any>,
-	deletOnSend?: FieldPolicy<any> | FieldReadFunction<any>,
-	CreatedBy?: FieldPolicy<any> | FieldReadFunction<any>,
-	Status?: FieldPolicy<any> | FieldReadFunction<any>
-};
-export type SmsProviderKeySpecifier = ('id' | 'createdAt' | 'updatedAt' | 'name' | 'credentials' | 'CreatedBy' | SmsProviderKeySpecifier)[];
-export type SmsProviderFieldPolicy = {
-	id?: FieldPolicy<any> | FieldReadFunction<any>,
-	createdAt?: FieldPolicy<any> | FieldReadFunction<any>,
-	updatedAt?: FieldPolicy<any> | FieldReadFunction<any>,
-	name?: FieldPolicy<any> | FieldReadFunction<any>,
-	credentials?: FieldPolicy<any> | FieldReadFunction<any>,
-	CreatedBy?: FieldPolicy<any> | FieldReadFunction<any>
-};
-export type LetsadsSmsMessageStatusItemKeySpecifier = ('id' | 'createdAt' | 'updatedAt' | 'sms_id' | 'Status' | LetsadsSmsMessageStatusItemKeySpecifier)[];
-export type LetsadsSmsMessageStatusItemFieldPolicy = {
-	id?: FieldPolicy<any> | FieldReadFunction<any>,
-	createdAt?: FieldPolicy<any> | FieldReadFunction<any>,
-	updatedAt?: FieldPolicy<any> | FieldReadFunction<any>,
-	sms_id?: FieldPolicy<any> | FieldReadFunction<any>,
-	Status?: FieldPolicy<any> | FieldReadFunction<any>
 };
 export type LetsadsSmsMessageStatusConnectionKeySpecifier = ('pageInfo' | 'edges' | 'aggregate' | LetsadsSmsMessageStatusConnectionKeySpecifier)[];
 export type LetsadsSmsMessageStatusConnectionFieldPolicy = {
@@ -3351,27 +3581,6 @@ export type VoteSubscriptionPayloadFieldPolicy = {
 	updatedFields?: FieldPolicy<any> | FieldReadFunction<any>,
 	previousValues?: FieldPolicy<any> | FieldReadFunction<any>
 };
-export type FileResponseKeySpecifier = ('success' | 'message' | 'errors' | 'data' | FileResponseKeySpecifier)[];
-export type FileResponseFieldPolicy = {
-	success?: FieldPolicy<any> | FieldReadFunction<any>,
-	message?: FieldPolicy<any> | FieldReadFunction<any>,
-	errors?: FieldPolicy<any> | FieldReadFunction<any>,
-	data?: FieldPolicy<any> | FieldReadFunction<any>
-};
-export type SmsMessageResponseKeySpecifier = ('success' | 'message' | 'errors' | 'data' | SmsMessageResponseKeySpecifier)[];
-export type SmsMessageResponseFieldPolicy = {
-	success?: FieldPolicy<any> | FieldReadFunction<any>,
-	message?: FieldPolicy<any> | FieldReadFunction<any>,
-	errors?: FieldPolicy<any> | FieldReadFunction<any>,
-	data?: FieldPolicy<any> | FieldReadFunction<any>
-};
-export type SmsProviderResponseKeySpecifier = ('success' | 'message' | 'errors' | 'data' | SmsProviderResponseKeySpecifier)[];
-export type SmsProviderResponseFieldPolicy = {
-	success?: FieldPolicy<any> | FieldReadFunction<any>,
-	message?: FieldPolicy<any> | FieldReadFunction<any>,
-	errors?: FieldPolicy<any> | FieldReadFunction<any>,
-	data?: FieldPolicy<any> | FieldReadFunction<any>
-};
 export type MarketplaceAuthResponseKeySpecifier = ('success' | 'message' | 'errors' | 'data' | MarketplaceAuthResponseKeySpecifier)[];
 export type MarketplaceAuthResponseFieldPolicy = {
 	success?: FieldPolicy<any> | FieldReadFunction<any>,
@@ -3379,57 +3588,8 @@ export type MarketplaceAuthResponseFieldPolicy = {
 	errors?: FieldPolicy<any> | FieldReadFunction<any>,
 	data?: FieldPolicy<any> | FieldReadFunction<any>
 };
-export type GameResponseKeySpecifier = ('success' | 'message' | 'errors' | 'data' | GameResponseKeySpecifier)[];
-export type GameResponseFieldPolicy = {
-	success?: FieldPolicy<any> | FieldReadFunction<any>,
-	message?: FieldPolicy<any> | FieldReadFunction<any>,
-	errors?: FieldPolicy<any> | FieldReadFunction<any>,
-	data?: FieldPolicy<any> | FieldReadFunction<any>
-};
-export type GameResultResponseKeySpecifier = ('success' | 'message' | 'errors' | 'data' | GameResultResponseKeySpecifier)[];
-export type GameResultResponseFieldPolicy = {
-	success?: FieldPolicy<any> | FieldReadFunction<any>,
-	message?: FieldPolicy<any> | FieldReadFunction<any>,
-	errors?: FieldPolicy<any> | FieldReadFunction<any>,
-	data?: FieldPolicy<any> | FieldReadFunction<any>
-};
-export type TournamentResponseKeySpecifier = ('success' | 'message' | 'errors' | 'data' | TournamentResponseKeySpecifier)[];
-export type TournamentResponseFieldPolicy = {
-	success?: FieldPolicy<any> | FieldReadFunction<any>,
-	message?: FieldPolicy<any> | FieldReadFunction<any>,
-	errors?: FieldPolicy<any> | FieldReadFunction<any>,
-	data?: FieldPolicy<any> | FieldReadFunction<any>
-};
-export type TournamentGroupResponseKeySpecifier = ('success' | 'message' | 'errors' | 'data' | TournamentGroupResponseKeySpecifier)[];
-export type TournamentGroupResponseFieldPolicy = {
-	success?: FieldPolicy<any> | FieldReadFunction<any>,
-	message?: FieldPolicy<any> | FieldReadFunction<any>,
-	errors?: FieldPolicy<any> | FieldReadFunction<any>,
-	data?: FieldPolicy<any> | FieldReadFunction<any>
-};
-export type TourneyResponseKeySpecifier = ('success' | 'message' | 'errors' | 'data' | TourneyResponseKeySpecifier)[];
-export type TourneyResponseFieldPolicy = {
-	success?: FieldPolicy<any> | FieldReadFunction<any>,
-	message?: FieldPolicy<any> | FieldReadFunction<any>,
-	errors?: FieldPolicy<any> | FieldReadFunction<any>,
-	data?: FieldPolicy<any> | FieldReadFunction<any>
-};
-export type ChatMessageReadedResponseKeySpecifier = ('success' | 'message' | 'errors' | 'data' | ChatMessageReadedResponseKeySpecifier)[];
-export type ChatMessageReadedResponseFieldPolicy = {
-	success?: FieldPolicy<any> | FieldReadFunction<any>,
-	message?: FieldPolicy<any> | FieldReadFunction<any>,
-	errors?: FieldPolicy<any> | FieldReadFunction<any>,
-	data?: FieldPolicy<any> | FieldReadFunction<any>
-};
 export type EthBlockResponseKeySpecifier = ('success' | 'message' | 'errors' | 'data' | EthBlockResponseKeySpecifier)[];
 export type EthBlockResponseFieldPolicy = {
-	success?: FieldPolicy<any> | FieldReadFunction<any>,
-	message?: FieldPolicy<any> | FieldReadFunction<any>,
-	errors?: FieldPolicy<any> | FieldReadFunction<any>,
-	data?: FieldPolicy<any> | FieldReadFunction<any>
-};
-export type EthContractSourceResponseKeySpecifier = ('success' | 'message' | 'errors' | 'data' | EthContractSourceResponseKeySpecifier)[];
-export type EthContractSourceResponseFieldPolicy = {
 	success?: FieldPolicy<any> | FieldReadFunction<any>,
 	message?: FieldPolicy<any> | FieldReadFunction<any>,
 	errors?: FieldPolicy<any> | FieldReadFunction<any>,
@@ -3449,27 +3609,6 @@ export type IceCandidateFieldPolicy = {
 	sdp?: FieldPolicy<any> | FieldReadFunction<any>,
 	callRequestId?: FieldPolicy<any> | FieldReadFunction<any>
 };
-export type PositionResponseKeySpecifier = ('success' | 'message' | 'errors' | 'data' | PositionResponseKeySpecifier)[];
-export type PositionResponseFieldPolicy = {
-	success?: FieldPolicy<any> | FieldReadFunction<any>,
-	message?: FieldPolicy<any> | FieldReadFunction<any>,
-	errors?: FieldPolicy<any> | FieldReadFunction<any>,
-	data?: FieldPolicy<any> | FieldReadFunction<any>
-};
-export type ProjectMemberResponseKeySpecifier = ('success' | 'message' | 'errors' | 'data' | ProjectMemberResponseKeySpecifier)[];
-export type ProjectMemberResponseFieldPolicy = {
-	success?: FieldPolicy<any> | FieldReadFunction<any>,
-	message?: FieldPolicy<any> | FieldReadFunction<any>,
-	errors?: FieldPolicy<any> | FieldReadFunction<any>,
-	data?: FieldPolicy<any> | FieldReadFunction<any>
-};
-export type ServiceResponseKeySpecifier = ('success' | 'message' | 'errors' | 'data' | ServiceResponseKeySpecifier)[];
-export type ServiceResponseFieldPolicy = {
-	success?: FieldPolicy<any> | FieldReadFunction<any>,
-	message?: FieldPolicy<any> | FieldReadFunction<any>,
-	errors?: FieldPolicy<any> | FieldReadFunction<any>,
-	data?: FieldPolicy<any> | FieldReadFunction<any>
-};
 export type ServiceCategoryResponseKeySpecifier = ('success' | 'message' | 'errors' | 'data' | ServiceCategoryResponseKeySpecifier)[];
 export type ServiceCategoryResponseFieldPolicy = {
 	success?: FieldPolicy<any> | FieldReadFunction<any>,
@@ -3477,3057 +3616,1765 @@ export type ServiceCategoryResponseFieldPolicy = {
 	errors?: FieldPolicy<any> | FieldReadFunction<any>,
 	data?: FieldPolicy<any> | FieldReadFunction<any>
 };
-export type TeamResponseKeySpecifier = ('success' | 'message' | 'errors' | 'data' | TeamResponseKeySpecifier)[];
-export type TeamResponseFieldPolicy = {
-	success?: FieldPolicy<any> | FieldReadFunction<any>,
-	message?: FieldPolicy<any> | FieldReadFunction<any>,
-	errors?: FieldPolicy<any> | FieldReadFunction<any>,
-	data?: FieldPolicy<any> | FieldReadFunction<any>
-};
-export type TeamMemberResponseKeySpecifier = ('success' | 'message' | 'errors' | 'data' | TeamMemberResponseKeySpecifier)[];
-export type TeamMemberResponseFieldPolicy = {
-	success?: FieldPolicy<any> | FieldReadFunction<any>,
-	message?: FieldPolicy<any> | FieldReadFunction<any>,
-	errors?: FieldPolicy<any> | FieldReadFunction<any>,
-	data?: FieldPolicy<any> | FieldReadFunction<any>
-};
-export type RouteResponseKeySpecifier = ('success' | 'message' | 'errors' | 'data' | RouteResponseKeySpecifier)[];
-export type RouteResponseFieldPolicy = {
-	success?: FieldPolicy<any> | FieldReadFunction<any>,
-	message?: FieldPolicy<any> | FieldReadFunction<any>,
-	errors?: FieldPolicy<any> | FieldReadFunction<any>,
-	data?: FieldPolicy<any> | FieldReadFunction<any>
-};
 export type TypedTypePolicies = TypePolicies & {
-	Query?: {
+	Query?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | QueryKeySpecifier | (() => undefined | QueryKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
 		fields?: QueryFieldPolicy,
 	},
-	Gallery?: {
+	Gallery?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | GalleryKeySpecifier | (() => undefined | GalleryKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
 		fields?: GalleryFieldPolicy,
 	},
-	Node?: {
+	Node?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | NodeKeySpecifier | (() => undefined | NodeKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
 		fields?: NodeFieldPolicy,
 	},
-	File?: {
+	File?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | FileKeySpecifier | (() => undefined | FileKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
 		fields?: FileFieldPolicy,
 	},
-	User?: {
+	User?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | UserKeySpecifier | (() => undefined | UserKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
 		fields?: UserFieldPolicy,
 	},
-	UserGroup?: {
+	UserGroup?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | UserGroupKeySpecifier | (() => undefined | UserGroupKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
 		fields?: UserGroupFieldPolicy,
 	},
-	LogedIn?: {
+	LogedIn?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | LogedInKeySpecifier | (() => undefined | LogedInKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
 		fields?: LogedInFieldPolicy,
 	},
-	Resource?: {
+	Resource?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | ResourceKeySpecifier | (() => undefined | ResourceKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
 		fields?: ResourceFieldPolicy,
 	},
-	Vote?: {
+	Vote?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | VoteKeySpecifier | (() => undefined | VoteKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
 		fields?: VoteFieldPolicy,
 	},
-	ResourceTag?: {
+	ResourceTag?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | ResourceTagKeySpecifier | (() => undefined | ResourceTagKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
 		fields?: ResourceTagFieldPolicy,
 	},
-	Tag?: {
+	Tag?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | TagKeySpecifier | (() => undefined | TagKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
 		fields?: TagFieldPolicy,
 	},
-	Service?: {
+	Service?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | ServiceKeySpecifier | (() => undefined | ServiceKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
 		fields?: ServiceFieldPolicy,
 	},
-	ProjectMember?: {
+	ProjectMember?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | ProjectMemberKeySpecifier | (() => undefined | ProjectMemberKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
 		fields?: ProjectMemberFieldPolicy,
 	},
-	Project?: {
+	Project?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | ProjectKeySpecifier | (() => undefined | ProjectKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
 		fields?: ProjectFieldPolicy,
 	},
-	Template?: {
+	Template?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | TemplateKeySpecifier | (() => undefined | TemplateKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
 		fields?: TemplateFieldPolicy,
 	},
-	ProjectTask?: {
+	ProjectTask?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | ProjectTaskKeySpecifier | (() => undefined | ProjectTaskKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
 		fields?: ProjectTaskFieldPolicy,
 	},
-	Task?: {
+	Task?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | TaskKeySpecifier | (() => undefined | TaskKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
 		fields?: TaskFieldPolicy,
 	},
-	TaskMember?: {
+	TaskMember?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | TaskMemberKeySpecifier | (() => undefined | TaskMemberKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
 		fields?: TaskMemberFieldPolicy,
 	},
-	Timer?: {
+	Timer?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | TimerKeySpecifier | (() => undefined | TimerKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
 		fields?: TimerFieldPolicy,
 	},
-	TaskReaction?: {
+	TaskReaction?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | TaskReactionKeySpecifier | (() => undefined | TaskReactionKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
 		fields?: TaskReactionFieldPolicy,
 	},
-	ChatRoom?: {
+	ChatRoom?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | ChatRoomKeySpecifier | (() => undefined | ChatRoomKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
 		fields?: ChatRoomFieldPolicy,
 	},
-	ChatMessage?: {
+	ChatMessage?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | ChatMessageKeySpecifier | (() => undefined | ChatMessageKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
 		fields?: ChatMessageFieldPolicy,
 	},
-	ChatMessageReaded?: {
+	ChatMessageReaded?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | ChatMessageReadedKeySpecifier | (() => undefined | ChatMessageReadedKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
 		fields?: ChatMessageReadedFieldPolicy,
 	},
-	ChatRoomInvitation?: {
+	ChatRoomInvitation?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | ChatRoomInvitationKeySpecifier | (() => undefined | ChatRoomInvitationKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
 		fields?: ChatRoomInvitationFieldPolicy,
 	},
-	Notice?: {
+	Notice?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | NoticeKeySpecifier | (() => undefined | NoticeKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
 		fields?: NoticeFieldPolicy,
 	},
-	CallRequest?: {
+	CallRequest?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | CallRequestKeySpecifier | (() => undefined | CallRequestKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
 		fields?: CallRequestFieldPolicy,
 	},
-	Team?: {
-		keyFields?: false | TeamKeySpecifier | (() => undefined | TeamKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: TeamFieldPolicy,
+	CodeChallengeCompletion?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | CodeChallengeCompletionKeySpecifier | (() => undefined | CodeChallengeCompletionKeySpecifier),
+		fields?: CodeChallengeCompletionFieldPolicy,
 	},
-	TeamMember?: {
-		keyFields?: false | TeamMemberKeySpecifier | (() => undefined | TeamMemberKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: TeamMemberFieldPolicy,
-	},
-	EthAccount?: {
-		keyFields?: false | EthAccountKeySpecifier | (() => undefined | EthAccountKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: EthAccountFieldPolicy,
-	},
-	EthTransaction?: {
-		keyFields?: false | EthTransactionKeySpecifier | (() => undefined | EthTransactionKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: EthTransactionFieldPolicy,
-	},
-	EthBlock?: {
-		keyFields?: false | EthBlockKeySpecifier | (() => undefined | EthBlockKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: EthBlockFieldPolicy,
-	},
-	EthContractSource?: {
-		keyFields?: false | EthContractSourceKeySpecifier | (() => undefined | EthContractSourceKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: EthContractSourceFieldPolicy,
-	},
-	ServiceCategory?: {
-		keyFields?: false | ServiceCategoryKeySpecifier | (() => undefined | ServiceCategoryKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: ServiceCategoryFieldPolicy,
-	},
-	NotificationType?: {
-		keyFields?: false | NotificationTypeKeySpecifier | (() => undefined | NotificationTypeKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: NotificationTypeFieldPolicy,
-	},
-	World?: {
-		keyFields?: false | WorldKeySpecifier | (() => undefined | WorldKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: WorldFieldPolicy,
-	},
-	Block?: {
-		keyFields?: false | BlockKeySpecifier | (() => undefined | BlockKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: BlockFieldPolicy,
-	},
-	Player?: {
-		keyFields?: false | PlayerKeySpecifier | (() => undefined | PlayerKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: PlayerFieldPolicy,
-	},
-	Inventory?: {
-		keyFields?: false | InventoryKeySpecifier | (() => undefined | InventoryKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: InventoryFieldPolicy,
-	},
-	Message?: {
-		keyFields?: false | MessageKeySpecifier | (() => undefined | MessageKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: MessageFieldPolicy,
-	},
-	Settings?: {
-		keyFields?: false | SettingsKeySpecifier | (() => undefined | SettingsKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: SettingsFieldPolicy,
-	},
-	Game?: {
-		keyFields?: false | GameKeySpecifier | (() => undefined | GameKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: GameFieldPolicy,
-	},
-	Tourney?: {
-		keyFields?: false | TourneyKeySpecifier | (() => undefined | TourneyKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: TourneyFieldPolicy,
-	},
-	Tournament?: {
-		keyFields?: false | TournamentKeySpecifier | (() => undefined | TournamentKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: TournamentFieldPolicy,
-	},
-	TournamentGroup?: {
-		keyFields?: false | TournamentGroupKeySpecifier | (() => undefined | TournamentGroupKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: TournamentGroupFieldPolicy,
-	},
-	TourneyPlayer?: {
-		keyFields?: false | TourneyPlayerKeySpecifier | (() => undefined | TourneyPlayerKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: TourneyPlayerFieldPolicy,
-	},
-	GameResult?: {
-		keyFields?: false | GameResultKeySpecifier | (() => undefined | GameResultKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: GameResultFieldPolicy,
-	},
-	Position?: {
-		keyFields?: false | PositionKeySpecifier | (() => undefined | PositionKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: PositionFieldPolicy,
-	},
-	Route?: {
-		keyFields?: false | RouteKeySpecifier | (() => undefined | RouteKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: RouteFieldPolicy,
-	},
-	CodeChallenge?: {
+	CodeChallenge?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | CodeChallengeKeySpecifier | (() => undefined | CodeChallengeKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
 		fields?: CodeChallengeFieldPolicy,
 	},
-	CodeChallengeBlock?: {
+	CodeChallengeBlock?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | CodeChallengeBlockKeySpecifier | (() => undefined | CodeChallengeBlockKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
 		fields?: CodeChallengeBlockFieldPolicy,
 	},
-	Comment?: {
+	Team?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | TeamKeySpecifier | (() => undefined | TeamKeySpecifier),
+		fields?: TeamFieldPolicy,
+	},
+	TeamMember?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | TeamMemberKeySpecifier | (() => undefined | TeamMemberKeySpecifier),
+		fields?: TeamMemberFieldPolicy,
+	},
+	EthAccount?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | EthAccountKeySpecifier | (() => undefined | EthAccountKeySpecifier),
+		fields?: EthAccountFieldPolicy,
+	},
+	EthTransaction?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | EthTransactionKeySpecifier | (() => undefined | EthTransactionKeySpecifier),
+		fields?: EthTransactionFieldPolicy,
+	},
+	EthBlock?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | EthBlockKeySpecifier | (() => undefined | EthBlockKeySpecifier),
+		fields?: EthBlockFieldPolicy,
+	},
+	EthContractSource?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | EthContractSourceKeySpecifier | (() => undefined | EthContractSourceKeySpecifier),
+		fields?: EthContractSourceFieldPolicy,
+	},
+	ServiceCategory?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | ServiceCategoryKeySpecifier | (() => undefined | ServiceCategoryKeySpecifier),
+		fields?: ServiceCategoryFieldPolicy,
+	},
+	NotificationType?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | NotificationTypeKeySpecifier | (() => undefined | NotificationTypeKeySpecifier),
+		fields?: NotificationTypeFieldPolicy,
+	},
+	World?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | WorldKeySpecifier | (() => undefined | WorldKeySpecifier),
+		fields?: WorldFieldPolicy,
+	},
+	Block?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | BlockKeySpecifier | (() => undefined | BlockKeySpecifier),
+		fields?: BlockFieldPolicy,
+	},
+	Player?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | PlayerKeySpecifier | (() => undefined | PlayerKeySpecifier),
+		fields?: PlayerFieldPolicy,
+	},
+	Inventory?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | InventoryKeySpecifier | (() => undefined | InventoryKeySpecifier),
+		fields?: InventoryFieldPolicy,
+	},
+	Message?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | MessageKeySpecifier | (() => undefined | MessageKeySpecifier),
+		fields?: MessageFieldPolicy,
+	},
+	Settings?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | SettingsKeySpecifier | (() => undefined | SettingsKeySpecifier),
+		fields?: SettingsFieldPolicy,
+	},
+	Game?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | GameKeySpecifier | (() => undefined | GameKeySpecifier),
+		fields?: GameFieldPolicy,
+	},
+	Tourney?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | TourneyKeySpecifier | (() => undefined | TourneyKeySpecifier),
+		fields?: TourneyFieldPolicy,
+	},
+	Tournament?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | TournamentKeySpecifier | (() => undefined | TournamentKeySpecifier),
+		fields?: TournamentFieldPolicy,
+	},
+	TournamentGroup?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | TournamentGroupKeySpecifier | (() => undefined | TournamentGroupKeySpecifier),
+		fields?: TournamentGroupFieldPolicy,
+	},
+	TourneyPlayer?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | TourneyPlayerKeySpecifier | (() => undefined | TourneyPlayerKeySpecifier),
+		fields?: TourneyPlayerFieldPolicy,
+	},
+	GameResult?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | GameResultKeySpecifier | (() => undefined | GameResultKeySpecifier),
+		fields?: GameResultFieldPolicy,
+	},
+	Position?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | PositionKeySpecifier | (() => undefined | PositionKeySpecifier),
+		fields?: PositionFieldPolicy,
+	},
+	Route?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | RouteKeySpecifier | (() => undefined | RouteKeySpecifier),
+		fields?: RouteFieldPolicy,
+	},
+	Comment?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | CommentKeySpecifier | (() => undefined | CommentKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
 		fields?: CommentFieldPolicy,
 	},
-	TechnologyLesson?: {
+	TechnologyLesson?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | TechnologyLessonKeySpecifier | (() => undefined | TechnologyLessonKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
 		fields?: TechnologyLessonFieldPolicy,
 	},
-	Technology?: {
+	Technology?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | TechnologyKeySpecifier | (() => undefined | TechnologyKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
 		fields?: TechnologyFieldPolicy,
 	},
-	UserTechnology?: {
+	UserTechnology?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | UserTechnologyKeySpecifier | (() => undefined | UserTechnologyKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
 		fields?: UserTechnologyFieldPolicy,
 	},
-	TechnologyLessonUser?: {
+	TechnologyLessonUser?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | TechnologyLessonUserKeySpecifier | (() => undefined | TechnologyLessonUserKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
 		fields?: TechnologyLessonUserFieldPolicy,
 	},
-	Career?: {
+	Career?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | CareerKeySpecifier | (() => undefined | CareerKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
 		fields?: CareerFieldPolicy,
 	},
-	Test?: {
+	Test?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | TestKeySpecifier | (() => undefined | TestKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
 		fields?: TestFieldPolicy,
 	},
-	GalleryConnection?: {
+	GalleryConnection?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | GalleryConnectionKeySpecifier | (() => undefined | GalleryConnectionKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
 		fields?: GalleryConnectionFieldPolicy,
 	},
-	PageInfo?: {
+	PageInfo?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | PageInfoKeySpecifier | (() => undefined | PageInfoKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
 		fields?: PageInfoFieldPolicy,
 	},
-	GalleryEdge?: {
+	GalleryEdge?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | GalleryEdgeKeySpecifier | (() => undefined | GalleryEdgeKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
 		fields?: GalleryEdgeFieldPolicy,
 	},
-	AggregateGallery?: {
+	AggregateGallery?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | AggregateGalleryKeySpecifier | (() => undefined | AggregateGalleryKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
 		fields?: AggregateGalleryFieldPolicy,
 	},
-	WorldConnection?: {
+	WorldConnection?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | WorldConnectionKeySpecifier | (() => undefined | WorldConnectionKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
 		fields?: WorldConnectionFieldPolicy,
 	},
-	WorldEdge?: {
+	WorldEdge?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | WorldEdgeKeySpecifier | (() => undefined | WorldEdgeKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
 		fields?: WorldEdgeFieldPolicy,
 	},
-	AggregateWorld?: {
+	AggregateWorld?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | AggregateWorldKeySpecifier | (() => undefined | AggregateWorldKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
 		fields?: AggregateWorldFieldPolicy,
 	},
-	NoticeConnection?: {
+	NoticeConnection?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | NoticeConnectionKeySpecifier | (() => undefined | NoticeConnectionKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
 		fields?: NoticeConnectionFieldPolicy,
 	},
-	NoticeEdge?: {
+	NoticeEdge?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | NoticeEdgeKeySpecifier | (() => undefined | NoticeEdgeKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
 		fields?: NoticeEdgeFieldPolicy,
 	},
-	AggregateNotice?: {
+	AggregateNotice?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | AggregateNoticeKeySpecifier | (() => undefined | AggregateNoticeKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
 		fields?: AggregateNoticeFieldPolicy,
 	},
-	NotificationTypeConnection?: {
+	NotificationTypeConnection?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | NotificationTypeConnectionKeySpecifier | (() => undefined | NotificationTypeConnectionKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
 		fields?: NotificationTypeConnectionFieldPolicy,
 	},
-	NotificationTypeEdge?: {
+	NotificationTypeEdge?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | NotificationTypeEdgeKeySpecifier | (() => undefined | NotificationTypeEdgeKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
 		fields?: NotificationTypeEdgeFieldPolicy,
 	},
-	AggregateNotificationType?: {
+	AggregateNotificationType?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | AggregateNotificationTypeKeySpecifier | (() => undefined | AggregateNotificationTypeKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
 		fields?: AggregateNotificationTypeFieldPolicy,
 	},
-	ResourceTagConnection?: {
+	ResourceTagConnection?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | ResourceTagConnectionKeySpecifier | (() => undefined | ResourceTagConnectionKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
 		fields?: ResourceTagConnectionFieldPolicy,
 	},
-	ResourceTagEdge?: {
+	ResourceTagEdge?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | ResourceTagEdgeKeySpecifier | (() => undefined | ResourceTagEdgeKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
 		fields?: ResourceTagEdgeFieldPolicy,
 	},
-	AggregateResourceTag?: {
+	AggregateResourceTag?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | AggregateResourceTagKeySpecifier | (() => undefined | AggregateResourceTagKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
 		fields?: AggregateResourceTagFieldPolicy,
 	},
-	TagConnection?: {
+	TagConnection?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | TagConnectionKeySpecifier | (() => undefined | TagConnectionKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
 		fields?: TagConnectionFieldPolicy,
 	},
-	TagEdge?: {
+	TagEdge?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | TagEdgeKeySpecifier | (() => undefined | TagEdgeKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
 		fields?: TagEdgeFieldPolicy,
 	},
-	AggregateTag?: {
+	AggregateTag?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | AggregateTagKeySpecifier | (() => undefined | AggregateTagKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
 		fields?: AggregateTagFieldPolicy,
 	},
-	VoteConnection?: {
+	VoteConnection?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | VoteConnectionKeySpecifier | (() => undefined | VoteConnectionKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
 		fields?: VoteConnectionFieldPolicy,
 	},
-	VoteEdge?: {
+	VoteEdge?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | VoteEdgeKeySpecifier | (() => undefined | VoteEdgeKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
 		fields?: VoteEdgeFieldPolicy,
 	},
-	AggregateVote?: {
+	AggregateVote?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | AggregateVoteKeySpecifier | (() => undefined | AggregateVoteKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
 		fields?: AggregateVoteFieldPolicy,
 	},
-	ChatRoomConnection?: {
+	ChatRoomConnection?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | ChatRoomConnectionKeySpecifier | (() => undefined | ChatRoomConnectionKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
 		fields?: ChatRoomConnectionFieldPolicy,
 	},
-	ChatRoomEdge?: {
+	ChatRoomEdge?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | ChatRoomEdgeKeySpecifier | (() => undefined | ChatRoomEdgeKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
 		fields?: ChatRoomEdgeFieldPolicy,
 	},
-	AggregateChatRoom?: {
+	AggregateChatRoom?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | AggregateChatRoomKeySpecifier | (() => undefined | AggregateChatRoomKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
 		fields?: AggregateChatRoomFieldPolicy,
 	},
-	GameConnection?: {
+	GameConnection?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | GameConnectionKeySpecifier | (() => undefined | GameConnectionKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
 		fields?: GameConnectionFieldPolicy,
 	},
-	GameEdge?: {
+	GameEdge?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | GameEdgeKeySpecifier | (() => undefined | GameEdgeKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
 		fields?: GameEdgeFieldPolicy,
 	},
-	AggregateGame?: {
+	AggregateGame?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | AggregateGameKeySpecifier | (() => undefined | AggregateGameKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
 		fields?: AggregateGameFieldPolicy,
 	},
-	GameResultConnection?: {
+	GameResultConnection?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | GameResultConnectionKeySpecifier | (() => undefined | GameResultConnectionKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
 		fields?: GameResultConnectionFieldPolicy,
 	},
-	GameResultEdge?: {
+	GameResultEdge?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | GameResultEdgeKeySpecifier | (() => undefined | GameResultEdgeKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
 		fields?: GameResultEdgeFieldPolicy,
 	},
-	AggregateGameResult?: {
+	AggregateGameResult?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | AggregateGameResultKeySpecifier | (() => undefined | AggregateGameResultKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
 		fields?: AggregateGameResultFieldPolicy,
 	},
-	TournamentConnection?: {
+	TournamentConnection?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | TournamentConnectionKeySpecifier | (() => undefined | TournamentConnectionKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
 		fields?: TournamentConnectionFieldPolicy,
 	},
-	TournamentEdge?: {
+	TournamentEdge?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | TournamentEdgeKeySpecifier | (() => undefined | TournamentEdgeKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
 		fields?: TournamentEdgeFieldPolicy,
 	},
-	AggregateTournament?: {
+	AggregateTournament?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | AggregateTournamentKeySpecifier | (() => undefined | AggregateTournamentKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
 		fields?: AggregateTournamentFieldPolicy,
 	},
-	TournamentGroupConnection?: {
+	TournamentGroupConnection?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | TournamentGroupConnectionKeySpecifier | (() => undefined | TournamentGroupConnectionKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
 		fields?: TournamentGroupConnectionFieldPolicy,
 	},
-	TournamentGroupEdge?: {
+	TournamentGroupEdge?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | TournamentGroupEdgeKeySpecifier | (() => undefined | TournamentGroupEdgeKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
 		fields?: TournamentGroupEdgeFieldPolicy,
 	},
-	AggregateTournamentGroup?: {
+	AggregateTournamentGroup?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | AggregateTournamentGroupKeySpecifier | (() => undefined | AggregateTournamentGroupKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
 		fields?: AggregateTournamentGroupFieldPolicy,
 	},
-	TourneyConnection?: {
+	TourneyConnection?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | TourneyConnectionKeySpecifier | (() => undefined | TourneyConnectionKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
 		fields?: TourneyConnectionFieldPolicy,
 	},
-	TourneyEdge?: {
+	TourneyEdge?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | TourneyEdgeKeySpecifier | (() => undefined | TourneyEdgeKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
 		fields?: TourneyEdgeFieldPolicy,
 	},
-	AggregateTourney?: {
+	AggregateTourney?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | AggregateTourneyKeySpecifier | (() => undefined | AggregateTourneyKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
 		fields?: AggregateTourneyFieldPolicy,
 	},
-	EthAccountConnection?: {
+	EthAccountConnection?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | EthAccountConnectionKeySpecifier | (() => undefined | EthAccountConnectionKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
 		fields?: EthAccountConnectionFieldPolicy,
 	},
-	EthAccountEdge?: {
+	EthAccountEdge?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | EthAccountEdgeKeySpecifier | (() => undefined | EthAccountEdgeKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
 		fields?: EthAccountEdgeFieldPolicy,
 	},
-	AggregateEthAccount?: {
+	AggregateEthAccount?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | AggregateEthAccountKeySpecifier | (() => undefined | AggregateEthAccountKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
 		fields?: AggregateEthAccountFieldPolicy,
 	},
-	EthContractSourceConnection?: {
+	EthContractSourceConnection?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | EthContractSourceConnectionKeySpecifier | (() => undefined | EthContractSourceConnectionKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
 		fields?: EthContractSourceConnectionFieldPolicy,
 	},
-	EthContractSourceEdge?: {
+	EthContractSourceEdge?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | EthContractSourceEdgeKeySpecifier | (() => undefined | EthContractSourceEdgeKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
 		fields?: EthContractSourceEdgeFieldPolicy,
 	},
-	AggregateEthContractSource?: {
+	AggregateEthContractSource?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | AggregateEthContractSourceKeySpecifier | (() => undefined | AggregateEthContractSourceKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
 		fields?: AggregateEthContractSourceFieldPolicy,
 	},
-	EthTransactionConnection?: {
+	EthTransactionConnection?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | EthTransactionConnectionKeySpecifier | (() => undefined | EthTransactionConnectionKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
 		fields?: EthTransactionConnectionFieldPolicy,
 	},
-	EthTransactionEdge?: {
+	EthTransactionEdge?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | EthTransactionEdgeKeySpecifier | (() => undefined | EthTransactionEdgeKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
 		fields?: EthTransactionEdgeFieldPolicy,
 	},
-	AggregateEthTransaction?: {
+	AggregateEthTransaction?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | AggregateEthTransactionKeySpecifier | (() => undefined | AggregateEthTransactionKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
 		fields?: AggregateEthTransactionFieldPolicy,
 	},
-	CallRequestConnection?: {
+	CallRequestConnection?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | CallRequestConnectionKeySpecifier | (() => undefined | CallRequestConnectionKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
 		fields?: CallRequestConnectionFieldPolicy,
 	},
-	CallRequestEdge?: {
+	CallRequestEdge?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | CallRequestEdgeKeySpecifier | (() => undefined | CallRequestEdgeKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
 		fields?: CallRequestEdgeFieldPolicy,
 	},
-	AggregateCallRequest?: {
+	AggregateCallRequest?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | AggregateCallRequestKeySpecifier | (() => undefined | AggregateCallRequestKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
 		fields?: AggregateCallRequestFieldPolicy,
 	},
-	PositionConnection?: {
+	PositionConnection?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | PositionConnectionKeySpecifier | (() => undefined | PositionConnectionKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
 		fields?: PositionConnectionFieldPolicy,
 	},
-	PositionEdge?: {
+	PositionEdge?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | PositionEdgeKeySpecifier | (() => undefined | PositionEdgeKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
 		fields?: PositionEdgeFieldPolicy,
 	},
-	AggregatePosition?: {
+	AggregatePosition?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | AggregatePositionKeySpecifier | (() => undefined | AggregatePositionKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
 		fields?: AggregatePositionFieldPolicy,
 	},
-	ProjectMemberConnection?: {
+	ProjectMemberConnection?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | ProjectMemberConnectionKeySpecifier | (() => undefined | ProjectMemberConnectionKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
 		fields?: ProjectMemberConnectionFieldPolicy,
 	},
-	ProjectMemberEdge?: {
+	ProjectMemberEdge?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | ProjectMemberEdgeKeySpecifier | (() => undefined | ProjectMemberEdgeKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
 		fields?: ProjectMemberEdgeFieldPolicy,
 	},
-	AggregateProjectMember?: {
+	AggregateProjectMember?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | AggregateProjectMemberKeySpecifier | (() => undefined | AggregateProjectMemberKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
 		fields?: AggregateProjectMemberFieldPolicy,
 	},
-	ServiceConnection?: {
+	ServiceConnection?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | ServiceConnectionKeySpecifier | (() => undefined | ServiceConnectionKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
 		fields?: ServiceConnectionFieldPolicy,
 	},
-	ServiceEdge?: {
+	ServiceEdge?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | ServiceEdgeKeySpecifier | (() => undefined | ServiceEdgeKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
 		fields?: ServiceEdgeFieldPolicy,
 	},
-	AggregateService?: {
+	AggregateService?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | AggregateServiceKeySpecifier | (() => undefined | AggregateServiceKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
 		fields?: AggregateServiceFieldPolicy,
 	},
-	TaskConnection?: {
+	TaskConnection?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | TaskConnectionKeySpecifier | (() => undefined | TaskConnectionKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
 		fields?: TaskConnectionFieldPolicy,
 	},
-	TaskEdge?: {
+	TaskEdge?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | TaskEdgeKeySpecifier | (() => undefined | TaskEdgeKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
 		fields?: TaskEdgeFieldPolicy,
 	},
-	AggregateTask?: {
+	AggregateTask?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | AggregateTaskKeySpecifier | (() => undefined | AggregateTaskKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
 		fields?: AggregateTaskFieldPolicy,
 	},
-	TaskReactionConnection?: {
+	TaskReactionConnection?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | TaskReactionConnectionKeySpecifier | (() => undefined | TaskReactionConnectionKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
 		fields?: TaskReactionConnectionFieldPolicy,
 	},
-	TaskReactionEdge?: {
+	TaskReactionEdge?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | TaskReactionEdgeKeySpecifier | (() => undefined | TaskReactionEdgeKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
 		fields?: TaskReactionEdgeFieldPolicy,
 	},
-	AggregateTaskReaction?: {
+	AggregateTaskReaction?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | AggregateTaskReactionKeySpecifier | (() => undefined | AggregateTaskReactionKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
 		fields?: AggregateTaskReactionFieldPolicy,
 	},
-	TeamMemberConnection?: {
+	TeamMemberConnection?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | TeamMemberConnectionKeySpecifier | (() => undefined | TeamMemberConnectionKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
 		fields?: TeamMemberConnectionFieldPolicy,
 	},
-	TeamMemberEdge?: {
+	TeamMemberEdge?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | TeamMemberEdgeKeySpecifier | (() => undefined | TeamMemberEdgeKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
 		fields?: TeamMemberEdgeFieldPolicy,
 	},
-	AggregateTeamMember?: {
+	AggregateTeamMember?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | AggregateTeamMemberKeySpecifier | (() => undefined | AggregateTeamMemberKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
 		fields?: AggregateTeamMemberFieldPolicy,
 	},
-	TimerConnection?: {
+	TimerConnection?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | TimerConnectionKeySpecifier | (() => undefined | TimerConnectionKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
 		fields?: TimerConnectionFieldPolicy,
 	},
-	TimerEdge?: {
+	TimerEdge?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | TimerEdgeKeySpecifier | (() => undefined | TimerEdgeKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
 		fields?: TimerEdgeFieldPolicy,
 	},
-	AggregateTimer?: {
+	AggregateTimer?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | AggregateTimerKeySpecifier | (() => undefined | AggregateTimerKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
 		fields?: AggregateTimerFieldPolicy,
 	},
-	RouteConnection?: {
+	RouteConnection?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | RouteConnectionKeySpecifier | (() => undefined | RouteConnectionKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
 		fields?: RouteConnectionFieldPolicy,
 	},
-	RouteEdge?: {
+	RouteEdge?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | RouteEdgeKeySpecifier | (() => undefined | RouteEdgeKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
 		fields?: RouteEdgeFieldPolicy,
 	},
-	AggregateRoute?: {
+	AggregateRoute?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | AggregateRouteKeySpecifier | (() => undefined | AggregateRouteKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
 		fields?: AggregateRouteFieldPolicy,
 	},
-	CodeChallengeConnection?: {
+	CodeChallengeConnection?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | CodeChallengeConnectionKeySpecifier | (() => undefined | CodeChallengeConnectionKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
 		fields?: CodeChallengeConnectionFieldPolicy,
 	},
-	CodeChallengeEdge?: {
+	CodeChallengeEdge?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | CodeChallengeEdgeKeySpecifier | (() => undefined | CodeChallengeEdgeKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
 		fields?: CodeChallengeEdgeFieldPolicy,
 	},
-	AggregateCodeChallenge?: {
+	AggregateCodeChallenge?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | AggregateCodeChallengeKeySpecifier | (() => undefined | AggregateCodeChallengeKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
 		fields?: AggregateCodeChallengeFieldPolicy,
 	},
-	CodeChallengeBlockConnection?: {
+	CodeChallengeBlockConnection?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | CodeChallengeBlockConnectionKeySpecifier | (() => undefined | CodeChallengeBlockConnectionKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
 		fields?: CodeChallengeBlockConnectionFieldPolicy,
 	},
-	CodeChallengeBlockEdge?: {
+	CodeChallengeBlockEdge?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | CodeChallengeBlockEdgeKeySpecifier | (() => undefined | CodeChallengeBlockEdgeKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
 		fields?: CodeChallengeBlockEdgeFieldPolicy,
 	},
-	AggregateCodeChallengeBlock?: {
+	AggregateCodeChallengeBlock?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | AggregateCodeChallengeBlockKeySpecifier | (() => undefined | AggregateCodeChallengeBlockKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
 		fields?: AggregateCodeChallengeBlockFieldPolicy,
 	},
-	CommentConnection?: {
+	CodeChallengeCompletionConnection?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | CodeChallengeCompletionConnectionKeySpecifier | (() => undefined | CodeChallengeCompletionConnectionKeySpecifier),
+		fields?: CodeChallengeCompletionConnectionFieldPolicy,
+	},
+	CodeChallengeCompletionEdge?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | CodeChallengeCompletionEdgeKeySpecifier | (() => undefined | CodeChallengeCompletionEdgeKeySpecifier),
+		fields?: CodeChallengeCompletionEdgeFieldPolicy,
+	},
+	AggregateCodeChallengeCompletion?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | AggregateCodeChallengeCompletionKeySpecifier | (() => undefined | AggregateCodeChallengeCompletionKeySpecifier),
+		fields?: AggregateCodeChallengeCompletionFieldPolicy,
+	},
+	CommentConnection?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | CommentConnectionKeySpecifier | (() => undefined | CommentConnectionKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
 		fields?: CommentConnectionFieldPolicy,
 	},
-	CommentEdge?: {
+	CommentEdge?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | CommentEdgeKeySpecifier | (() => undefined | CommentEdgeKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
 		fields?: CommentEdgeFieldPolicy,
 	},
-	AggregateComment?: {
+	AggregateComment?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | AggregateCommentKeySpecifier | (() => undefined | AggregateCommentKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
 		fields?: AggregateCommentFieldPolicy,
 	},
-	TechnologyLessonConnection?: {
+	TechnologyLessonConnection?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | TechnologyLessonConnectionKeySpecifier | (() => undefined | TechnologyLessonConnectionKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
 		fields?: TechnologyLessonConnectionFieldPolicy,
 	},
-	TechnologyLessonEdge?: {
+	TechnologyLessonEdge?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | TechnologyLessonEdgeKeySpecifier | (() => undefined | TechnologyLessonEdgeKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
 		fields?: TechnologyLessonEdgeFieldPolicy,
 	},
-	AggregateTechnologyLesson?: {
+	AggregateTechnologyLesson?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | AggregateTechnologyLessonKeySpecifier | (() => undefined | AggregateTechnologyLessonKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
 		fields?: AggregateTechnologyLessonFieldPolicy,
 	},
-	CareerConnection?: {
+	CareerConnection?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | CareerConnectionKeySpecifier | (() => undefined | CareerConnectionKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
 		fields?: CareerConnectionFieldPolicy,
 	},
-	CareerEdge?: {
+	CareerEdge?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | CareerEdgeKeySpecifier | (() => undefined | CareerEdgeKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
 		fields?: CareerEdgeFieldPolicy,
 	},
-	AggregateCareer?: {
+	AggregateCareer?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | AggregateCareerKeySpecifier | (() => undefined | AggregateCareerKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
 		fields?: AggregateCareerFieldPolicy,
 	},
-	TechnologyLessonUserConnection?: {
+	TechnologyLessonUserConnection?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | TechnologyLessonUserConnectionKeySpecifier | (() => undefined | TechnologyLessonUserConnectionKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
 		fields?: TechnologyLessonUserConnectionFieldPolicy,
 	},
-	TechnologyLessonUserEdge?: {
+	TechnologyLessonUserEdge?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | TechnologyLessonUserEdgeKeySpecifier | (() => undefined | TechnologyLessonUserEdgeKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
 		fields?: TechnologyLessonUserEdgeFieldPolicy,
 	},
-	AggregateTechnologyLessonUser?: {
+	AggregateTechnologyLessonUser?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | AggregateTechnologyLessonUserKeySpecifier | (() => undefined | AggregateTechnologyLessonUserKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
 		fields?: AggregateTechnologyLessonUserFieldPolicy,
 	},
-	UserTechnologyConnection?: {
+	UserTechnologyConnection?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | UserTechnologyConnectionKeySpecifier | (() => undefined | UserTechnologyConnectionKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
 		fields?: UserTechnologyConnectionFieldPolicy,
 	},
-	UserTechnologyEdge?: {
+	UserTechnologyEdge?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | UserTechnologyEdgeKeySpecifier | (() => undefined | UserTechnologyEdgeKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
 		fields?: UserTechnologyEdgeFieldPolicy,
 	},
-	AggregateUserTechnology?: {
+	AggregateUserTechnology?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | AggregateUserTechnologyKeySpecifier | (() => undefined | AggregateUserTechnologyKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
 		fields?: AggregateUserTechnologyFieldPolicy,
 	},
-	TestConnection?: {
+	TestConnection?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | TestConnectionKeySpecifier | (() => undefined | TestConnectionKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
 		fields?: TestConnectionFieldPolicy,
 	},
-	TestEdge?: {
+	TestEdge?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | TestEdgeKeySpecifier | (() => undefined | TestEdgeKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
 		fields?: TestEdgeFieldPolicy,
 	},
-	AggregateTest?: {
+	AggregateTest?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | AggregateTestKeySpecifier | (() => undefined | AggregateTestKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
 		fields?: AggregateTestFieldPolicy,
 	},
-	TechnologyConnection?: {
+	TechnologyConnection?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | TechnologyConnectionKeySpecifier | (() => undefined | TechnologyConnectionKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
 		fields?: TechnologyConnectionFieldPolicy,
 	},
-	TechnologyEdge?: {
+	TechnologyEdge?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | TechnologyEdgeKeySpecifier | (() => undefined | TechnologyEdgeKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
 		fields?: TechnologyEdgeFieldPolicy,
 	},
-	AggregateTechnology?: {
+	AggregateTechnology?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | AggregateTechnologyKeySpecifier | (() => undefined | AggregateTechnologyKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
 		fields?: AggregateTechnologyFieldPolicy,
 	},
-	EthBlockConnection?: {
+	EthBlockConnection?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | EthBlockConnectionKeySpecifier | (() => undefined | EthBlockConnectionKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
 		fields?: EthBlockConnectionFieldPolicy,
 	},
-	EthBlockEdge?: {
+	EthBlockEdge?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | EthBlockEdgeKeySpecifier | (() => undefined | EthBlockEdgeKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
 		fields?: EthBlockEdgeFieldPolicy,
 	},
-	AggregateEthBlock?: {
+	AggregateEthBlock?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | AggregateEthBlockKeySpecifier | (() => undefined | AggregateEthBlockKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
 		fields?: AggregateEthBlockFieldPolicy,
 	},
-	TeamConnection?: {
+	TeamConnection?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | TeamConnectionKeySpecifier | (() => undefined | TeamConnectionKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
 		fields?: TeamConnectionFieldPolicy,
 	},
-	TeamEdge?: {
+	TeamEdge?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | TeamEdgeKeySpecifier | (() => undefined | TeamEdgeKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
 		fields?: TeamEdgeFieldPolicy,
 	},
-	AggregateTeam?: {
+	AggregateTeam?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | AggregateTeamKeySpecifier | (() => undefined | AggregateTeamKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
 		fields?: AggregateTeamFieldPolicy,
 	},
-	ProjectConnection?: {
+	ProjectConnection?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | ProjectConnectionKeySpecifier | (() => undefined | ProjectConnectionKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
 		fields?: ProjectConnectionFieldPolicy,
 	},
-	ProjectEdge?: {
+	ProjectEdge?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | ProjectEdgeKeySpecifier | (() => undefined | ProjectEdgeKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
 		fields?: ProjectEdgeFieldPolicy,
 	},
-	AggregateProject?: {
+	AggregateProject?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | AggregateProjectKeySpecifier | (() => undefined | AggregateProjectKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
 		fields?: AggregateProjectFieldPolicy,
 	},
-	TemplateConnection?: {
+	TemplateConnection?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | TemplateConnectionKeySpecifier | (() => undefined | TemplateConnectionKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
 		fields?: TemplateConnectionFieldPolicy,
 	},
-	TemplateEdge?: {
+	TemplateEdge?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | TemplateEdgeKeySpecifier | (() => undefined | TemplateEdgeKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
 		fields?: TemplateEdgeFieldPolicy,
 	},
-	AggregateTemplate?: {
+	AggregateTemplate?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | AggregateTemplateKeySpecifier | (() => undefined | AggregateTemplateKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
 		fields?: AggregateTemplateFieldPolicy,
 	},
-	ResourceConnection?: {
+	ResourceConnection?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | ResourceConnectionKeySpecifier | (() => undefined | ResourceConnectionKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
 		fields?: ResourceConnectionFieldPolicy,
 	},
-	ResourceEdge?: {
+	ResourceEdge?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | ResourceEdgeKeySpecifier | (() => undefined | ResourceEdgeKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
 		fields?: ResourceEdgeFieldPolicy,
 	},
-	AggregateResource?: {
+	AggregateResource?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | AggregateResourceKeySpecifier | (() => undefined | AggregateResourceKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
 		fields?: AggregateResourceFieldPolicy,
 	},
-	ChatMessageConnection?: {
+	ChatMessageConnection?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | ChatMessageConnectionKeySpecifier | (() => undefined | ChatMessageConnectionKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
 		fields?: ChatMessageConnectionFieldPolicy,
 	},
-	ChatMessageEdge?: {
+	ChatMessageEdge?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | ChatMessageEdgeKeySpecifier | (() => undefined | ChatMessageEdgeKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
 		fields?: ChatMessageEdgeFieldPolicy,
 	},
-	AggregateChatMessage?: {
+	AggregateChatMessage?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | AggregateChatMessageKeySpecifier | (() => undefined | AggregateChatMessageKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
 		fields?: AggregateChatMessageFieldPolicy,
 	},
-	UserConnection?: {
+	UserConnection?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | UserConnectionKeySpecifier | (() => undefined | UserConnectionKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
 		fields?: UserConnectionFieldPolicy,
 	},
-	UserEdge?: {
+	UserEdge?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | UserEdgeKeySpecifier | (() => undefined | UserEdgeKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
 		fields?: UserEdgeFieldPolicy,
 	},
-	AggregateUser?: {
+	AggregateUser?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | AggregateUserKeySpecifier | (() => undefined | AggregateUserKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
 		fields?: AggregateUserFieldPolicy,
 	},
-	ethNet?: {
+	ethNet?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | ethNetKeySpecifier | (() => undefined | ethNetKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
 		fields?: ethNetFieldPolicy,
 	},
-	EthPersonalAccount?: {
+	EthPersonalAccount?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | EthPersonalAccountKeySpecifier | (() => undefined | EthPersonalAccountKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
 		fields?: EthPersonalAccountFieldPolicy,
 	},
-	ethSyncState?: {
+	ethSyncState?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | ethSyncStateKeySpecifier | (() => undefined | ethSyncStateKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
 		fields?: ethSyncStateFieldPolicy,
 	},
-	Mutation?: {
+	Mutation?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | MutationKeySpecifier | (() => undefined | MutationKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
 		fields?: MutationFieldPolicy,
 	},
-	ResourceResponse?: {
+	ResourceResponse?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | ResourceResponseKeySpecifier | (() => undefined | ResourceResponseKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
 		fields?: ResourceResponseFieldPolicy,
 	},
-	Error?: {
+	Error?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | ErrorKeySpecifier | (() => undefined | ErrorKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
 		fields?: ErrorFieldPolicy,
 	},
-	TestResponse?: {
+	TestResponse?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | TestResponseKeySpecifier | (() => undefined | TestResponseKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
 		fields?: TestResponseFieldPolicy,
 	},
-	AuthPayload?: {
+	AuthPayload?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | AuthPayloadKeySpecifier | (() => undefined | AuthPayloadKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
 		fields?: AuthPayloadFieldPolicy,
 	},
-	EthAccountResponse?: {
+	EthAccountResponse?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | EthAccountResponseKeySpecifier | (() => undefined | EthAccountResponseKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
 		fields?: EthAccountResponseFieldPolicy,
 	},
-	CareerResponse?: {
+	CodeChallengeCompletionResponse?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | CodeChallengeCompletionResponseKeySpecifier | (() => undefined | CodeChallengeCompletionResponseKeySpecifier),
+		fields?: CodeChallengeCompletionResponseFieldPolicy,
+	},
+	CareerResponse?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | CareerResponseKeySpecifier | (() => undefined | CareerResponseKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
 		fields?: CareerResponseFieldPolicy,
 	},
-	UserTechnologyResponse?: {
+	UserTechnologyResponse?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | UserTechnologyResponseKeySpecifier | (() => undefined | UserTechnologyResponseKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
 		fields?: UserTechnologyResponseFieldPolicy,
 	},
-	TechnologyLessonResponse?: {
+	TechnologyLessonResponse?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | TechnologyLessonResponseKeySpecifier | (() => undefined | TechnologyLessonResponseKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
 		fields?: TechnologyLessonResponseFieldPolicy,
 	},
-	TechnologyResponse?: {
+	TechnologyResponse?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | TechnologyResponseKeySpecifier | (() => undefined | TechnologyResponseKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
 		fields?: TechnologyResponseFieldPolicy,
 	},
-	CommentResponse?: {
+	CommentResponse?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | CommentResponseKeySpecifier | (() => undefined | CommentResponseKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
 		fields?: CommentResponseFieldPolicy,
 	},
-	TechnologyLessonUserResponse?: {
+	TechnologyLessonUserResponse?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | TechnologyLessonUserResponseKeySpecifier | (() => undefined | TechnologyLessonUserResponseKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
 		fields?: TechnologyLessonUserResponseFieldPolicy,
 	},
-	BatchPayload?: {
+	BatchPayload?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | BatchPayloadKeySpecifier | (() => undefined | BatchPayloadKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
 		fields?: BatchPayloadFieldPolicy,
 	},
-	McJsAuthPayload?: {
+	McJsAuthPayload?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | McJsAuthPayloadKeySpecifier | (() => undefined | McJsAuthPayloadKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
 		fields?: McJsAuthPayloadFieldPolicy,
 	},
-	UserResponse?: {
-		keyFields?: false | UserResponseKeySpecifier | (() => undefined | UserResponseKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: UserResponseFieldPolicy,
-	},
-	ResetPasswordResponse?: {
-		keyFields?: false | ResetPasswordResponseKeySpecifier | (() => undefined | ResetPasswordResponseKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: ResetPasswordResponseFieldPolicy,
-	},
-	ResetPassword?: {
-		keyFields?: false | ResetPasswordKeySpecifier | (() => undefined | ResetPasswordKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: ResetPasswordFieldPolicy,
-	},
-	TemplateResponse?: {
-		keyFields?: false | TemplateResponseKeySpecifier | (() => undefined | TemplateResponseKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: TemplateResponseFieldPolicy,
-	},
-	GalleryResponse?: {
-		keyFields?: false | GalleryResponseKeySpecifier | (() => undefined | GalleryResponseKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: GalleryResponseFieldPolicy,
-	},
-	ChatRoomResponse?: {
-		keyFields?: false | ChatRoomResponseKeySpecifier | (() => undefined | ChatRoomResponseKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: ChatRoomResponseFieldPolicy,
-	},
-	ChatMessageResponse?: {
-		keyFields?: false | ChatMessageResponseKeySpecifier | (() => undefined | ChatMessageResponseKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: ChatMessageResponseFieldPolicy,
-	},
-	EthTransactionResponse?: {
-		keyFields?: false | EthTransactionResponseKeySpecifier | (() => undefined | EthTransactionResponseKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: EthTransactionResponseFieldPolicy,
-	},
-	CallRequestResponse?: {
-		keyFields?: false | CallRequestResponseKeySpecifier | (() => undefined | CallRequestResponseKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: CallRequestResponseFieldPolicy,
-	},
-	ProjectResponse?: {
-		keyFields?: false | ProjectResponseKeySpecifier | (() => undefined | ProjectResponseKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: ProjectResponseFieldPolicy,
-	},
-	TaskResponse?: {
-		keyFields?: false | TaskResponseKeySpecifier | (() => undefined | TaskResponseKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: TaskResponseFieldPolicy,
-	},
-	TaskReactionResponse?: {
-		keyFields?: false | TaskReactionResponseKeySpecifier | (() => undefined | TaskReactionResponseKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: TaskReactionResponseFieldPolicy,
-	},
-	TimerResponse?: {
-		keyFields?: false | TimerResponseKeySpecifier | (() => undefined | TimerResponseKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: TimerResponseFieldPolicy,
-	},
-	Subscription?: {
-		keyFields?: false | SubscriptionKeySpecifier | (() => undefined | SubscriptionKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: SubscriptionFieldPolicy,
-	},
-	GallerySubscriptionPayload?: {
-		keyFields?: false | GallerySubscriptionPayloadKeySpecifier | (() => undefined | GallerySubscriptionPayloadKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: GallerySubscriptionPayloadFieldPolicy,
-	},
-	GalleryPreviousValues?: {
-		keyFields?: false | GalleryPreviousValuesKeySpecifier | (() => undefined | GalleryPreviousValuesKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: GalleryPreviousValuesFieldPolicy,
-	},
-	PlayerSubscriptionPayload?: {
-		keyFields?: false | PlayerSubscriptionPayloadKeySpecifier | (() => undefined | PlayerSubscriptionPayloadKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: PlayerSubscriptionPayloadFieldPolicy,
-	},
-	PlayerPreviousValues?: {
-		keyFields?: false | PlayerPreviousValuesKeySpecifier | (() => undefined | PlayerPreviousValuesKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: PlayerPreviousValuesFieldPolicy,
-	},
-	WorldSubscriptionPayload?: {
-		keyFields?: false | WorldSubscriptionPayloadKeySpecifier | (() => undefined | WorldSubscriptionPayloadKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: WorldSubscriptionPayloadFieldPolicy,
-	},
-	WorldPreviousValues?: {
-		keyFields?: false | WorldPreviousValuesKeySpecifier | (() => undefined | WorldPreviousValuesKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: WorldPreviousValuesFieldPolicy,
-	},
-	MessageSubscriptionPayload?: {
-		keyFields?: false | MessageSubscriptionPayloadKeySpecifier | (() => undefined | MessageSubscriptionPayloadKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: MessageSubscriptionPayloadFieldPolicy,
-	},
-	MessagePreviousValues?: {
-		keyFields?: false | MessagePreviousValuesKeySpecifier | (() => undefined | MessagePreviousValuesKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: MessagePreviousValuesFieldPolicy,
-	},
-	NoticeSubscriptionPayload?: {
-		keyFields?: false | NoticeSubscriptionPayloadKeySpecifier | (() => undefined | NoticeSubscriptionPayloadKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: NoticeSubscriptionPayloadFieldPolicy,
-	},
-	NoticePreviousValues?: {
-		keyFields?: false | NoticePreviousValuesKeySpecifier | (() => undefined | NoticePreviousValuesKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: NoticePreviousValuesFieldPolicy,
-	},
-	ChatMessageReadedSubscriptionPayload?: {
-		keyFields?: false | ChatMessageReadedSubscriptionPayloadKeySpecifier | (() => undefined | ChatMessageReadedSubscriptionPayloadKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: ChatMessageReadedSubscriptionPayloadFieldPolicy,
-	},
-	ChatMessageReadedPreviousValues?: {
-		keyFields?: false | ChatMessageReadedPreviousValuesKeySpecifier | (() => undefined | ChatMessageReadedPreviousValuesKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: ChatMessageReadedPreviousValuesFieldPolicy,
-	},
-	ChatRoomSubscriptionPayload?: {
-		keyFields?: false | ChatRoomSubscriptionPayloadKeySpecifier | (() => undefined | ChatRoomSubscriptionPayloadKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: ChatRoomSubscriptionPayloadFieldPolicy,
-	},
-	ChatRoomPreviousValues?: {
-		keyFields?: false | ChatRoomPreviousValuesKeySpecifier | (() => undefined | ChatRoomPreviousValuesKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: ChatRoomPreviousValuesFieldPolicy,
-	},
-	GameSubscriptionPayload?: {
-		keyFields?: false | GameSubscriptionPayloadKeySpecifier | (() => undefined | GameSubscriptionPayloadKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: GameSubscriptionPayloadFieldPolicy,
-	},
-	GamePreviousValues?: {
-		keyFields?: false | GamePreviousValuesKeySpecifier | (() => undefined | GamePreviousValuesKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: GamePreviousValuesFieldPolicy,
-	},
-	GameResultSubscriptionPayload?: {
-		keyFields?: false | GameResultSubscriptionPayloadKeySpecifier | (() => undefined | GameResultSubscriptionPayloadKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: GameResultSubscriptionPayloadFieldPolicy,
-	},
-	GameResultPreviousValues?: {
-		keyFields?: false | GameResultPreviousValuesKeySpecifier | (() => undefined | GameResultPreviousValuesKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: GameResultPreviousValuesFieldPolicy,
-	},
-	TournamentSubscriptionPayload?: {
-		keyFields?: false | TournamentSubscriptionPayloadKeySpecifier | (() => undefined | TournamentSubscriptionPayloadKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: TournamentSubscriptionPayloadFieldPolicy,
-	},
-	TournamentPreviousValues?: {
-		keyFields?: false | TournamentPreviousValuesKeySpecifier | (() => undefined | TournamentPreviousValuesKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: TournamentPreviousValuesFieldPolicy,
-	},
-	TournamentGroupSubscriptionPayload?: {
-		keyFields?: false | TournamentGroupSubscriptionPayloadKeySpecifier | (() => undefined | TournamentGroupSubscriptionPayloadKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: TournamentGroupSubscriptionPayloadFieldPolicy,
-	},
-	TournamentGroupPreviousValues?: {
-		keyFields?: false | TournamentGroupPreviousValuesKeySpecifier | (() => undefined | TournamentGroupPreviousValuesKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: TournamentGroupPreviousValuesFieldPolicy,
-	},
-	TourneySubscriptionPayload?: {
-		keyFields?: false | TourneySubscriptionPayloadKeySpecifier | (() => undefined | TourneySubscriptionPayloadKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: TourneySubscriptionPayloadFieldPolicy,
-	},
-	TourneyPreviousValues?: {
-		keyFields?: false | TourneyPreviousValuesKeySpecifier | (() => undefined | TourneyPreviousValuesKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: TourneyPreviousValuesFieldPolicy,
-	},
-	EthTransactionSubscriptionPayload?: {
-		keyFields?: false | EthTransactionSubscriptionPayloadKeySpecifier | (() => undefined | EthTransactionSubscriptionPayloadKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: EthTransactionSubscriptionPayloadFieldPolicy,
-	},
-	CallRequestSubscriptionPayload?: {
-		keyFields?: false | CallRequestSubscriptionPayloadKeySpecifier | (() => undefined | CallRequestSubscriptionPayloadKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: CallRequestSubscriptionPayloadFieldPolicy,
-	},
-	CallRequestPreviousValues?: {
-		keyFields?: false | CallRequestPreviousValuesKeySpecifier | (() => undefined | CallRequestPreviousValuesKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: CallRequestPreviousValuesFieldPolicy,
-	},
-	PositionSubscriptionPayload?: {
-		keyFields?: false | PositionSubscriptionPayloadKeySpecifier | (() => undefined | PositionSubscriptionPayloadKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: PositionSubscriptionPayloadFieldPolicy,
-	},
-	PositionPreviousValues?: {
-		keyFields?: false | PositionPreviousValuesKeySpecifier | (() => undefined | PositionPreviousValuesKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: PositionPreviousValuesFieldPolicy,
-	},
-	ProjectMemberSubscriptionPayload?: {
-		keyFields?: false | ProjectMemberSubscriptionPayloadKeySpecifier | (() => undefined | ProjectMemberSubscriptionPayloadKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: ProjectMemberSubscriptionPayloadFieldPolicy,
-	},
-	ProjectMemberPreviousValues?: {
-		keyFields?: false | ProjectMemberPreviousValuesKeySpecifier | (() => undefined | ProjectMemberPreviousValuesKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: ProjectMemberPreviousValuesFieldPolicy,
-	},
-	ServiceSubscriptionPayload?: {
-		keyFields?: false | ServiceSubscriptionPayloadKeySpecifier | (() => undefined | ServiceSubscriptionPayloadKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: ServiceSubscriptionPayloadFieldPolicy,
-	},
-	ServicePreviousValues?: {
-		keyFields?: false | ServicePreviousValuesKeySpecifier | (() => undefined | ServicePreviousValuesKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: ServicePreviousValuesFieldPolicy,
-	},
-	TaskSubscriptionPayload?: {
-		keyFields?: false | TaskSubscriptionPayloadKeySpecifier | (() => undefined | TaskSubscriptionPayloadKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: TaskSubscriptionPayloadFieldPolicy,
-	},
-	TaskPreviousValues?: {
-		keyFields?: false | TaskPreviousValuesKeySpecifier | (() => undefined | TaskPreviousValuesKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: TaskPreviousValuesFieldPolicy,
-	},
-	TaskReactionSubscriptionPayload?: {
-		keyFields?: false | TaskReactionSubscriptionPayloadKeySpecifier | (() => undefined | TaskReactionSubscriptionPayloadKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: TaskReactionSubscriptionPayloadFieldPolicy,
-	},
-	TaskReactionPreviousValues?: {
-		keyFields?: false | TaskReactionPreviousValuesKeySpecifier | (() => undefined | TaskReactionPreviousValuesKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: TaskReactionPreviousValuesFieldPolicy,
-	},
-	TeamMemberSubscriptionPayload?: {
-		keyFields?: false | TeamMemberSubscriptionPayloadKeySpecifier | (() => undefined | TeamMemberSubscriptionPayloadKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: TeamMemberSubscriptionPayloadFieldPolicy,
-	},
-	TeamMemberPreviousValues?: {
-		keyFields?: false | TeamMemberPreviousValuesKeySpecifier | (() => undefined | TeamMemberPreviousValuesKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: TeamMemberPreviousValuesFieldPolicy,
-	},
-	TimerSubscriptionPayload?: {
-		keyFields?: false | TimerSubscriptionPayloadKeySpecifier | (() => undefined | TimerSubscriptionPayloadKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: TimerSubscriptionPayloadFieldPolicy,
-	},
-	TimerPreviousValues?: {
-		keyFields?: false | TimerPreviousValuesKeySpecifier | (() => undefined | TimerPreviousValuesKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: TimerPreviousValuesFieldPolicy,
-	},
-	RouteSubscriptionPayload?: {
-		keyFields?: false | RouteSubscriptionPayloadKeySpecifier | (() => undefined | RouteSubscriptionPayloadKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: RouteSubscriptionPayloadFieldPolicy,
-	},
-	RoutePreviousValues?: {
-		keyFields?: false | RoutePreviousValuesKeySpecifier | (() => undefined | RoutePreviousValuesKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: RoutePreviousValuesFieldPolicy,
-	},
-	CodeChallengeSubscriptionPayload?: {
-		keyFields?: false | CodeChallengeSubscriptionPayloadKeySpecifier | (() => undefined | CodeChallengeSubscriptionPayloadKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: CodeChallengeSubscriptionPayloadFieldPolicy,
-	},
-	CodeChallengePreviousValues?: {
-		keyFields?: false | CodeChallengePreviousValuesKeySpecifier | (() => undefined | CodeChallengePreviousValuesKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: CodeChallengePreviousValuesFieldPolicy,
-	},
-	CodeChallengeBlockSubscriptionPayload?: {
-		keyFields?: false | CodeChallengeBlockSubscriptionPayloadKeySpecifier | (() => undefined | CodeChallengeBlockSubscriptionPayloadKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: CodeChallengeBlockSubscriptionPayloadFieldPolicy,
-	},
-	CodeChallengeBlockPreviousValues?: {
-		keyFields?: false | CodeChallengeBlockPreviousValuesKeySpecifier | (() => undefined | CodeChallengeBlockPreviousValuesKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: CodeChallengeBlockPreviousValuesFieldPolicy,
-	},
-	CommentSubscriptionPayload?: {
-		keyFields?: false | CommentSubscriptionPayloadKeySpecifier | (() => undefined | CommentSubscriptionPayloadKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: CommentSubscriptionPayloadFieldPolicy,
-	},
-	CommentPreviousValues?: {
-		keyFields?: false | CommentPreviousValuesKeySpecifier | (() => undefined | CommentPreviousValuesKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: CommentPreviousValuesFieldPolicy,
-	},
-	TechnologyLessonSubscriptionPayload?: {
-		keyFields?: false | TechnologyLessonSubscriptionPayloadKeySpecifier | (() => undefined | TechnologyLessonSubscriptionPayloadKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: TechnologyLessonSubscriptionPayloadFieldPolicy,
-	},
-	TechnologyLessonPreviousValues?: {
-		keyFields?: false | TechnologyLessonPreviousValuesKeySpecifier | (() => undefined | TechnologyLessonPreviousValuesKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: TechnologyLessonPreviousValuesFieldPolicy,
-	},
-	CareerSubscriptionPayload?: {
-		keyFields?: false | CareerSubscriptionPayloadKeySpecifier | (() => undefined | CareerSubscriptionPayloadKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: CareerSubscriptionPayloadFieldPolicy,
-	},
-	CareerPreviousValues?: {
-		keyFields?: false | CareerPreviousValuesKeySpecifier | (() => undefined | CareerPreviousValuesKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: CareerPreviousValuesFieldPolicy,
-	},
-	TechnologyLessonUserSubscriptionPayload?: {
-		keyFields?: false | TechnologyLessonUserSubscriptionPayloadKeySpecifier | (() => undefined | TechnologyLessonUserSubscriptionPayloadKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: TechnologyLessonUserSubscriptionPayloadFieldPolicy,
-	},
-	TechnologyLessonUserPreviousValues?: {
-		keyFields?: false | TechnologyLessonUserPreviousValuesKeySpecifier | (() => undefined | TechnologyLessonUserPreviousValuesKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: TechnologyLessonUserPreviousValuesFieldPolicy,
-	},
-	UserTechnologySubscriptionPayload?: {
-		keyFields?: false | UserTechnologySubscriptionPayloadKeySpecifier | (() => undefined | UserTechnologySubscriptionPayloadKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: UserTechnologySubscriptionPayloadFieldPolicy,
-	},
-	UserTechnologyPreviousValues?: {
-		keyFields?: false | UserTechnologyPreviousValuesKeySpecifier | (() => undefined | UserTechnologyPreviousValuesKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: UserTechnologyPreviousValuesFieldPolicy,
-	},
-	TechnologySubscriptionPayload?: {
-		keyFields?: false | TechnologySubscriptionPayloadKeySpecifier | (() => undefined | TechnologySubscriptionPayloadKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: TechnologySubscriptionPayloadFieldPolicy,
-	},
-	TechnologyPreviousValues?: {
-		keyFields?: false | TechnologyPreviousValuesKeySpecifier | (() => undefined | TechnologyPreviousValuesKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: TechnologyPreviousValuesFieldPolicy,
-	},
-	TeamSubscriptionPayload?: {
-		keyFields?: false | TeamSubscriptionPayloadKeySpecifier | (() => undefined | TeamSubscriptionPayloadKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: TeamSubscriptionPayloadFieldPolicy,
-	},
-	TeamPreviousValues?: {
-		keyFields?: false | TeamPreviousValuesKeySpecifier | (() => undefined | TeamPreviousValuesKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: TeamPreviousValuesFieldPolicy,
-	},
-	ProjectSubscriptionPayload?: {
-		keyFields?: false | ProjectSubscriptionPayloadKeySpecifier | (() => undefined | ProjectSubscriptionPayloadKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: ProjectSubscriptionPayloadFieldPolicy,
-	},
-	ProjectPreviousValues?: {
-		keyFields?: false | ProjectPreviousValuesKeySpecifier | (() => undefined | ProjectPreviousValuesKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: ProjectPreviousValuesFieldPolicy,
-	},
-	TemplateSubscriptionPayload?: {
-		keyFields?: false | TemplateSubscriptionPayloadKeySpecifier | (() => undefined | TemplateSubscriptionPayloadKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: TemplateSubscriptionPayloadFieldPolicy,
-	},
-	TemplatePreviousValues?: {
-		keyFields?: false | TemplatePreviousValuesKeySpecifier | (() => undefined | TemplatePreviousValuesKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: TemplatePreviousValuesFieldPolicy,
-	},
-	ResourceSubscriptionPayload?: {
-		keyFields?: false | ResourceSubscriptionPayloadKeySpecifier | (() => undefined | ResourceSubscriptionPayloadKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: ResourceSubscriptionPayloadFieldPolicy,
-	},
-	ResourcePreviousValues?: {
-		keyFields?: false | ResourcePreviousValuesKeySpecifier | (() => undefined | ResourcePreviousValuesKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: ResourcePreviousValuesFieldPolicy,
-	},
-	ChatMessageSubscriptionPayload?: {
-		keyFields?: false | ChatMessageSubscriptionPayloadKeySpecifier | (() => undefined | ChatMessageSubscriptionPayloadKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: ChatMessageSubscriptionPayloadFieldPolicy,
-	},
-	ChatMessagePreviousValues?: {
-		keyFields?: false | ChatMessagePreviousValuesKeySpecifier | (() => undefined | ChatMessagePreviousValuesKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: ChatMessagePreviousValuesFieldPolicy,
-	},
-	UserSubscriptionPayload?: {
-		keyFields?: false | UserSubscriptionPayloadKeySpecifier | (() => undefined | UserSubscriptionPayloadKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: UserSubscriptionPayloadFieldPolicy,
-	},
-	UserPreviousValues?: {
-		keyFields?: false | UserPreviousValuesKeySpecifier | (() => undefined | UserPreviousValuesKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: UserPreviousValuesFieldPolicy,
-	},
-	ImportResponse?: {
-		keyFields?: false | ImportResponseKeySpecifier | (() => undefined | ImportResponseKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: ImportResponseFieldPolicy,
-	},
-	Import?: {
-		keyFields?: false | ImportKeySpecifier | (() => undefined | ImportKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: ImportFieldPolicy,
-	},
-	Log?: {
-		keyFields?: false | LogKeySpecifier | (() => undefined | LogKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: LogFieldPolicy,
-	},
-	AggregateBlock?: {
-		keyFields?: false | AggregateBlockKeySpecifier | (() => undefined | AggregateBlockKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: AggregateBlockFieldPolicy,
-	},
-	AggregateChatMessageReaded?: {
-		keyFields?: false | AggregateChatMessageReadedKeySpecifier | (() => undefined | AggregateChatMessageReadedKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: AggregateChatMessageReadedFieldPolicy,
-	},
-	AggregateChatRoomInvitation?: {
-		keyFields?: false | AggregateChatRoomInvitationKeySpecifier | (() => undefined | AggregateChatRoomInvitationKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: AggregateChatRoomInvitationFieldPolicy,
-	},
-	AggregateFile?: {
-		keyFields?: false | AggregateFileKeySpecifier | (() => undefined | AggregateFileKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: AggregateFileFieldPolicy,
-	},
-	AggregateImport?: {
-		keyFields?: false | AggregateImportKeySpecifier | (() => undefined | AggregateImportKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: AggregateImportFieldPolicy,
-	},
-	AggregateInventory?: {
-		keyFields?: false | AggregateInventoryKeySpecifier | (() => undefined | AggregateInventoryKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: AggregateInventoryFieldPolicy,
-	},
-	AggregateLetsadsSmsMessageStatus?: {
-		keyFields?: false | AggregateLetsadsSmsMessageStatusKeySpecifier | (() => undefined | AggregateLetsadsSmsMessageStatusKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: AggregateLetsadsSmsMessageStatusFieldPolicy,
-	},
-	AggregateLetsadsSmsMessageStatusItem?: {
-		keyFields?: false | AggregateLetsadsSmsMessageStatusItemKeySpecifier | (() => undefined | AggregateLetsadsSmsMessageStatusItemKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: AggregateLetsadsSmsMessageStatusItemFieldPolicy,
-	},
-	AggregateLetter?: {
-		keyFields?: false | AggregateLetterKeySpecifier | (() => undefined | AggregateLetterKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: AggregateLetterFieldPolicy,
-	},
-	AggregateLog?: {
-		keyFields?: false | AggregateLogKeySpecifier | (() => undefined | AggregateLogKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: AggregateLogFieldPolicy,
-	},
-	AggregateLogedIn?: {
-		keyFields?: false | AggregateLogedInKeySpecifier | (() => undefined | AggregateLogedInKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: AggregateLogedInFieldPolicy,
-	},
-	AggregateMessage?: {
-		keyFields?: false | AggregateMessageKeySpecifier | (() => undefined | AggregateMessageKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: AggregateMessageFieldPolicy,
-	},
-	AggregatePlayer?: {
-		keyFields?: false | AggregatePlayerKeySpecifier | (() => undefined | AggregatePlayerKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: AggregatePlayerFieldPolicy,
-	},
-	AggregateProjectTask?: {
-		keyFields?: false | AggregateProjectTaskKeySpecifier | (() => undefined | AggregateProjectTaskKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: AggregateProjectTaskFieldPolicy,
-	},
-	AggregateResetPassword?: {
-		keyFields?: false | AggregateResetPasswordKeySpecifier | (() => undefined | AggregateResetPasswordKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: AggregateResetPasswordFieldPolicy,
-	},
-	AggregateServiceCategory?: {
-		keyFields?: false | AggregateServiceCategoryKeySpecifier | (() => undefined | AggregateServiceCategoryKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: AggregateServiceCategoryFieldPolicy,
-	},
-	AggregateSettings?: {
-		keyFields?: false | AggregateSettingsKeySpecifier | (() => undefined | AggregateSettingsKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: AggregateSettingsFieldPolicy,
-	},
-	AggregateSmsMessage?: {
-		keyFields?: false | AggregateSmsMessageKeySpecifier | (() => undefined | AggregateSmsMessageKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: AggregateSmsMessageFieldPolicy,
-	},
-	AggregateSmsProvider?: {
-		keyFields?: false | AggregateSmsProviderKeySpecifier | (() => undefined | AggregateSmsProviderKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: AggregateSmsProviderFieldPolicy,
-	},
-	AggregateTaskMember?: {
-		keyFields?: false | AggregateTaskMemberKeySpecifier | (() => undefined | AggregateTaskMemberKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: AggregateTaskMemberFieldPolicy,
-	},
-	AggregateTourneyPlayer?: {
-		keyFields?: false | AggregateTourneyPlayerKeySpecifier | (() => undefined | AggregateTourneyPlayerKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: AggregateTourneyPlayerFieldPolicy,
-	},
-	AggregateUserGroup?: {
-		keyFields?: false | AggregateUserGroupKeySpecifier | (() => undefined | AggregateUserGroupKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: AggregateUserGroupFieldPolicy,
-	},
-	BlockConnection?: {
-		keyFields?: false | BlockConnectionKeySpecifier | (() => undefined | BlockConnectionKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: BlockConnectionFieldPolicy,
-	},
-	BlockEdge?: {
-		keyFields?: false | BlockEdgeKeySpecifier | (() => undefined | BlockEdgeKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: BlockEdgeFieldPolicy,
-	},
-	BlockPreviousValues?: {
-		keyFields?: false | BlockPreviousValuesKeySpecifier | (() => undefined | BlockPreviousValuesKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: BlockPreviousValuesFieldPolicy,
-	},
-	BlockSubscriptionPayload?: {
-		keyFields?: false | BlockSubscriptionPayloadKeySpecifier | (() => undefined | BlockSubscriptionPayloadKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: BlockSubscriptionPayloadFieldPolicy,
-	},
-	ChatMessageReadedConnection?: {
-		keyFields?: false | ChatMessageReadedConnectionKeySpecifier | (() => undefined | ChatMessageReadedConnectionKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: ChatMessageReadedConnectionFieldPolicy,
-	},
-	ChatMessageReadedEdge?: {
-		keyFields?: false | ChatMessageReadedEdgeKeySpecifier | (() => undefined | ChatMessageReadedEdgeKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: ChatMessageReadedEdgeFieldPolicy,
-	},
-	ChatRoomInvitationConnection?: {
-		keyFields?: false | ChatRoomInvitationConnectionKeySpecifier | (() => undefined | ChatRoomInvitationConnectionKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: ChatRoomInvitationConnectionFieldPolicy,
-	},
-	ChatRoomInvitationEdge?: {
-		keyFields?: false | ChatRoomInvitationEdgeKeySpecifier | (() => undefined | ChatRoomInvitationEdgeKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: ChatRoomInvitationEdgeFieldPolicy,
-	},
-	ChatRoomInvitationPreviousValues?: {
-		keyFields?: false | ChatRoomInvitationPreviousValuesKeySpecifier | (() => undefined | ChatRoomInvitationPreviousValuesKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: ChatRoomInvitationPreviousValuesFieldPolicy,
-	},
-	ChatRoomInvitationSubscriptionPayload?: {
-		keyFields?: false | ChatRoomInvitationSubscriptionPayloadKeySpecifier | (() => undefined | ChatRoomInvitationSubscriptionPayloadKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: ChatRoomInvitationSubscriptionPayloadFieldPolicy,
-	},
-	EthAccountPreviousValues?: {
-		keyFields?: false | EthAccountPreviousValuesKeySpecifier | (() => undefined | EthAccountPreviousValuesKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: EthAccountPreviousValuesFieldPolicy,
-	},
-	EthAccountSubscriptionPayload?: {
-		keyFields?: false | EthAccountSubscriptionPayloadKeySpecifier | (() => undefined | EthAccountSubscriptionPayloadKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: EthAccountSubscriptionPayloadFieldPolicy,
-	},
-	EthBlockPreviousValues?: {
-		keyFields?: false | EthBlockPreviousValuesKeySpecifier | (() => undefined | EthBlockPreviousValuesKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: EthBlockPreviousValuesFieldPolicy,
-	},
-	EthBlockSubscriptionPayload?: {
-		keyFields?: false | EthBlockSubscriptionPayloadKeySpecifier | (() => undefined | EthBlockSubscriptionPayloadKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: EthBlockSubscriptionPayloadFieldPolicy,
-	},
-	EthContractSourcePreviousValues?: {
-		keyFields?: false | EthContractSourcePreviousValuesKeySpecifier | (() => undefined | EthContractSourcePreviousValuesKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: EthContractSourcePreviousValuesFieldPolicy,
-	},
-	EthContractSourceSubscriptionPayload?: {
-		keyFields?: false | EthContractSourceSubscriptionPayloadKeySpecifier | (() => undefined | EthContractSourceSubscriptionPayloadKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: EthContractSourceSubscriptionPayloadFieldPolicy,
-	},
-	EthTransactionPreviousValues?: {
-		keyFields?: false | EthTransactionPreviousValuesKeySpecifier | (() => undefined | EthTransactionPreviousValuesKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: EthTransactionPreviousValuesFieldPolicy,
-	},
-	FileConnection?: {
-		keyFields?: false | FileConnectionKeySpecifier | (() => undefined | FileConnectionKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: FileConnectionFieldPolicy,
-	},
-	FileEdge?: {
-		keyFields?: false | FileEdgeKeySpecifier | (() => undefined | FileEdgeKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: FileEdgeFieldPolicy,
-	},
-	FilePreviousValues?: {
-		keyFields?: false | FilePreviousValuesKeySpecifier | (() => undefined | FilePreviousValuesKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: FilePreviousValuesFieldPolicy,
-	},
-	FileSubscriptionPayload?: {
-		keyFields?: false | FileSubscriptionPayloadKeySpecifier | (() => undefined | FileSubscriptionPayloadKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: FileSubscriptionPayloadFieldPolicy,
-	},
-	ImportConnection?: {
-		keyFields?: false | ImportConnectionKeySpecifier | (() => undefined | ImportConnectionKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: ImportConnectionFieldPolicy,
-	},
-	ImportEdge?: {
-		keyFields?: false | ImportEdgeKeySpecifier | (() => undefined | ImportEdgeKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: ImportEdgeFieldPolicy,
-	},
-	ImportPreviousValues?: {
-		keyFields?: false | ImportPreviousValuesKeySpecifier | (() => undefined | ImportPreviousValuesKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: ImportPreviousValuesFieldPolicy,
-	},
-	ImportSubscriptionPayload?: {
-		keyFields?: false | ImportSubscriptionPayloadKeySpecifier | (() => undefined | ImportSubscriptionPayloadKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: ImportSubscriptionPayloadFieldPolicy,
-	},
-	InventoryConnection?: {
-		keyFields?: false | InventoryConnectionKeySpecifier | (() => undefined | InventoryConnectionKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: InventoryConnectionFieldPolicy,
-	},
-	InventoryEdge?: {
-		keyFields?: false | InventoryEdgeKeySpecifier | (() => undefined | InventoryEdgeKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: InventoryEdgeFieldPolicy,
-	},
-	InventoryPreviousValues?: {
-		keyFields?: false | InventoryPreviousValuesKeySpecifier | (() => undefined | InventoryPreviousValuesKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: InventoryPreviousValuesFieldPolicy,
-	},
-	InventorySubscriptionPayload?: {
-		keyFields?: false | InventorySubscriptionPayloadKeySpecifier | (() => undefined | InventorySubscriptionPayloadKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: InventorySubscriptionPayloadFieldPolicy,
-	},
-	LetsadsSmsMessageStatus?: {
-		keyFields?: false | LetsadsSmsMessageStatusKeySpecifier | (() => undefined | LetsadsSmsMessageStatusKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: LetsadsSmsMessageStatusFieldPolicy,
-	},
-	SmsMessage?: {
-		keyFields?: false | SmsMessageKeySpecifier | (() => undefined | SmsMessageKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: SmsMessageFieldPolicy,
-	},
-	SmsProvider?: {
-		keyFields?: false | SmsProviderKeySpecifier | (() => undefined | SmsProviderKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: SmsProviderFieldPolicy,
-	},
-	LetsadsSmsMessageStatusItem?: {
-		keyFields?: false | LetsadsSmsMessageStatusItemKeySpecifier | (() => undefined | LetsadsSmsMessageStatusItemKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: LetsadsSmsMessageStatusItemFieldPolicy,
-	},
-	LetsadsSmsMessageStatusConnection?: {
-		keyFields?: false | LetsadsSmsMessageStatusConnectionKeySpecifier | (() => undefined | LetsadsSmsMessageStatusConnectionKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: LetsadsSmsMessageStatusConnectionFieldPolicy,
-	},
-	LetsadsSmsMessageStatusEdge?: {
-		keyFields?: false | LetsadsSmsMessageStatusEdgeKeySpecifier | (() => undefined | LetsadsSmsMessageStatusEdgeKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: LetsadsSmsMessageStatusEdgeFieldPolicy,
-	},
-	LetsadsSmsMessageStatusItemConnection?: {
-		keyFields?: false | LetsadsSmsMessageStatusItemConnectionKeySpecifier | (() => undefined | LetsadsSmsMessageStatusItemConnectionKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: LetsadsSmsMessageStatusItemConnectionFieldPolicy,
-	},
-	LetsadsSmsMessageStatusItemEdge?: {
-		keyFields?: false | LetsadsSmsMessageStatusItemEdgeKeySpecifier | (() => undefined | LetsadsSmsMessageStatusItemEdgeKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: LetsadsSmsMessageStatusItemEdgeFieldPolicy,
-	},
-	LetsadsSmsMessageStatusItemPreviousValues?: {
-		keyFields?: false | LetsadsSmsMessageStatusItemPreviousValuesKeySpecifier | (() => undefined | LetsadsSmsMessageStatusItemPreviousValuesKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: LetsadsSmsMessageStatusItemPreviousValuesFieldPolicy,
-	},
-	LetsadsSmsMessageStatusItemSubscriptionPayload?: {
-		keyFields?: false | LetsadsSmsMessageStatusItemSubscriptionPayloadKeySpecifier | (() => undefined | LetsadsSmsMessageStatusItemSubscriptionPayloadKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: LetsadsSmsMessageStatusItemSubscriptionPayloadFieldPolicy,
-	},
-	LetsadsSmsMessageStatusPreviousValues?: {
-		keyFields?: false | LetsadsSmsMessageStatusPreviousValuesKeySpecifier | (() => undefined | LetsadsSmsMessageStatusPreviousValuesKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: LetsadsSmsMessageStatusPreviousValuesFieldPolicy,
-	},
-	LetsadsSmsMessageStatusSubscriptionPayload?: {
-		keyFields?: false | LetsadsSmsMessageStatusSubscriptionPayloadKeySpecifier | (() => undefined | LetsadsSmsMessageStatusSubscriptionPayloadKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: LetsadsSmsMessageStatusSubscriptionPayloadFieldPolicy,
-	},
-	Letter?: {
-		keyFields?: false | LetterKeySpecifier | (() => undefined | LetterKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: LetterFieldPolicy,
-	},
-	LetterConnection?: {
-		keyFields?: false | LetterConnectionKeySpecifier | (() => undefined | LetterConnectionKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: LetterConnectionFieldPolicy,
-	},
-	LetterEdge?: {
-		keyFields?: false | LetterEdgeKeySpecifier | (() => undefined | LetterEdgeKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: LetterEdgeFieldPolicy,
-	},
-	LetterPreviousValues?: {
-		keyFields?: false | LetterPreviousValuesKeySpecifier | (() => undefined | LetterPreviousValuesKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: LetterPreviousValuesFieldPolicy,
-	},
-	LetterSubscriptionPayload?: {
-		keyFields?: false | LetterSubscriptionPayloadKeySpecifier | (() => undefined | LetterSubscriptionPayloadKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: LetterSubscriptionPayloadFieldPolicy,
-	},
-	LogConnection?: {
-		keyFields?: false | LogConnectionKeySpecifier | (() => undefined | LogConnectionKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: LogConnectionFieldPolicy,
-	},
-	LogEdge?: {
-		keyFields?: false | LogEdgeKeySpecifier | (() => undefined | LogEdgeKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: LogEdgeFieldPolicy,
-	},
-	LogedInConnection?: {
-		keyFields?: false | LogedInConnectionKeySpecifier | (() => undefined | LogedInConnectionKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: LogedInConnectionFieldPolicy,
-	},
-	LogedInEdge?: {
-		keyFields?: false | LogedInEdgeKeySpecifier | (() => undefined | LogedInEdgeKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: LogedInEdgeFieldPolicy,
-	},
-	LogedInPreviousValues?: {
-		keyFields?: false | LogedInPreviousValuesKeySpecifier | (() => undefined | LogedInPreviousValuesKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: LogedInPreviousValuesFieldPolicy,
-	},
-	LogedInSubscriptionPayload?: {
-		keyFields?: false | LogedInSubscriptionPayloadKeySpecifier | (() => undefined | LogedInSubscriptionPayloadKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: LogedInSubscriptionPayloadFieldPolicy,
-	},
-	LogPreviousValues?: {
-		keyFields?: false | LogPreviousValuesKeySpecifier | (() => undefined | LogPreviousValuesKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: LogPreviousValuesFieldPolicy,
-	},
-	LogSubscriptionPayload?: {
-		keyFields?: false | LogSubscriptionPayloadKeySpecifier | (() => undefined | LogSubscriptionPayloadKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: LogSubscriptionPayloadFieldPolicy,
-	},
-	MessageConnection?: {
-		keyFields?: false | MessageConnectionKeySpecifier | (() => undefined | MessageConnectionKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: MessageConnectionFieldPolicy,
-	},
-	MessageEdge?: {
-		keyFields?: false | MessageEdgeKeySpecifier | (() => undefined | MessageEdgeKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: MessageEdgeFieldPolicy,
-	},
-	NotificationTypePreviousValues?: {
-		keyFields?: false | NotificationTypePreviousValuesKeySpecifier | (() => undefined | NotificationTypePreviousValuesKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: NotificationTypePreviousValuesFieldPolicy,
-	},
-	NotificationTypeSubscriptionPayload?: {
-		keyFields?: false | NotificationTypeSubscriptionPayloadKeySpecifier | (() => undefined | NotificationTypeSubscriptionPayloadKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: NotificationTypeSubscriptionPayloadFieldPolicy,
-	},
-	PlayerConnection?: {
-		keyFields?: false | PlayerConnectionKeySpecifier | (() => undefined | PlayerConnectionKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: PlayerConnectionFieldPolicy,
-	},
-	PlayerEdge?: {
-		keyFields?: false | PlayerEdgeKeySpecifier | (() => undefined | PlayerEdgeKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: PlayerEdgeFieldPolicy,
-	},
-	ProjectTaskConnection?: {
-		keyFields?: false | ProjectTaskConnectionKeySpecifier | (() => undefined | ProjectTaskConnectionKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: ProjectTaskConnectionFieldPolicy,
-	},
-	ProjectTaskEdge?: {
-		keyFields?: false | ProjectTaskEdgeKeySpecifier | (() => undefined | ProjectTaskEdgeKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: ProjectTaskEdgeFieldPolicy,
-	},
-	ProjectTaskPreviousValues?: {
-		keyFields?: false | ProjectTaskPreviousValuesKeySpecifier | (() => undefined | ProjectTaskPreviousValuesKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: ProjectTaskPreviousValuesFieldPolicy,
-	},
-	ProjectTaskSubscriptionPayload?: {
-		keyFields?: false | ProjectTaskSubscriptionPayloadKeySpecifier | (() => undefined | ProjectTaskSubscriptionPayloadKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: ProjectTaskSubscriptionPayloadFieldPolicy,
-	},
-	ResetPasswordConnection?: {
-		keyFields?: false | ResetPasswordConnectionKeySpecifier | (() => undefined | ResetPasswordConnectionKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: ResetPasswordConnectionFieldPolicy,
-	},
-	ResetPasswordEdge?: {
-		keyFields?: false | ResetPasswordEdgeKeySpecifier | (() => undefined | ResetPasswordEdgeKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: ResetPasswordEdgeFieldPolicy,
-	},
-	ResetPasswordPreviousValues?: {
-		keyFields?: false | ResetPasswordPreviousValuesKeySpecifier | (() => undefined | ResetPasswordPreviousValuesKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: ResetPasswordPreviousValuesFieldPolicy,
-	},
-	ResetPasswordSubscriptionPayload?: {
-		keyFields?: false | ResetPasswordSubscriptionPayloadKeySpecifier | (() => undefined | ResetPasswordSubscriptionPayloadKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: ResetPasswordSubscriptionPayloadFieldPolicy,
-	},
-	ResourceTagPreviousValues?: {
-		keyFields?: false | ResourceTagPreviousValuesKeySpecifier | (() => undefined | ResourceTagPreviousValuesKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: ResourceTagPreviousValuesFieldPolicy,
-	},
-	ResourceTagSubscriptionPayload?: {
-		keyFields?: false | ResourceTagSubscriptionPayloadKeySpecifier | (() => undefined | ResourceTagSubscriptionPayloadKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: ResourceTagSubscriptionPayloadFieldPolicy,
-	},
-	ServiceCategoryConnection?: {
-		keyFields?: false | ServiceCategoryConnectionKeySpecifier | (() => undefined | ServiceCategoryConnectionKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: ServiceCategoryConnectionFieldPolicy,
-	},
-	ServiceCategoryEdge?: {
-		keyFields?: false | ServiceCategoryEdgeKeySpecifier | (() => undefined | ServiceCategoryEdgeKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: ServiceCategoryEdgeFieldPolicy,
-	},
-	ServiceCategoryPreviousValues?: {
-		keyFields?: false | ServiceCategoryPreviousValuesKeySpecifier | (() => undefined | ServiceCategoryPreviousValuesKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: ServiceCategoryPreviousValuesFieldPolicy,
-	},
-	ServiceCategorySubscriptionPayload?: {
-		keyFields?: false | ServiceCategorySubscriptionPayloadKeySpecifier | (() => undefined | ServiceCategorySubscriptionPayloadKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: ServiceCategorySubscriptionPayloadFieldPolicy,
-	},
-	SettingsConnection?: {
-		keyFields?: false | SettingsConnectionKeySpecifier | (() => undefined | SettingsConnectionKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: SettingsConnectionFieldPolicy,
-	},
-	SettingsEdge?: {
-		keyFields?: false | SettingsEdgeKeySpecifier | (() => undefined | SettingsEdgeKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: SettingsEdgeFieldPolicy,
-	},
-	SettingsPreviousValues?: {
-		keyFields?: false | SettingsPreviousValuesKeySpecifier | (() => undefined | SettingsPreviousValuesKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: SettingsPreviousValuesFieldPolicy,
-	},
-	SettingsSubscriptionPayload?: {
-		keyFields?: false | SettingsSubscriptionPayloadKeySpecifier | (() => undefined | SettingsSubscriptionPayloadKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: SettingsSubscriptionPayloadFieldPolicy,
-	},
-	SmsMessageConnection?: {
-		keyFields?: false | SmsMessageConnectionKeySpecifier | (() => undefined | SmsMessageConnectionKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: SmsMessageConnectionFieldPolicy,
-	},
-	SmsMessageEdge?: {
-		keyFields?: false | SmsMessageEdgeKeySpecifier | (() => undefined | SmsMessageEdgeKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: SmsMessageEdgeFieldPolicy,
-	},
-	SmsMessagePreviousValues?: {
-		keyFields?: false | SmsMessagePreviousValuesKeySpecifier | (() => undefined | SmsMessagePreviousValuesKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: SmsMessagePreviousValuesFieldPolicy,
-	},
-	SmsMessageSubscriptionPayload?: {
-		keyFields?: false | SmsMessageSubscriptionPayloadKeySpecifier | (() => undefined | SmsMessageSubscriptionPayloadKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: SmsMessageSubscriptionPayloadFieldPolicy,
-	},
-	SmsProviderConnection?: {
-		keyFields?: false | SmsProviderConnectionKeySpecifier | (() => undefined | SmsProviderConnectionKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: SmsProviderConnectionFieldPolicy,
-	},
-	SmsProviderEdge?: {
-		keyFields?: false | SmsProviderEdgeKeySpecifier | (() => undefined | SmsProviderEdgeKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: SmsProviderEdgeFieldPolicy,
-	},
-	SmsProviderPreviousValues?: {
-		keyFields?: false | SmsProviderPreviousValuesKeySpecifier | (() => undefined | SmsProviderPreviousValuesKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: SmsProviderPreviousValuesFieldPolicy,
-	},
-	SmsProviderSubscriptionPayload?: {
-		keyFields?: false | SmsProviderSubscriptionPayloadKeySpecifier | (() => undefined | SmsProviderSubscriptionPayloadKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: SmsProviderSubscriptionPayloadFieldPolicy,
-	},
-	TagPreviousValues?: {
-		keyFields?: false | TagPreviousValuesKeySpecifier | (() => undefined | TagPreviousValuesKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: TagPreviousValuesFieldPolicy,
-	},
-	TagSubscriptionPayload?: {
-		keyFields?: false | TagSubscriptionPayloadKeySpecifier | (() => undefined | TagSubscriptionPayloadKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: TagSubscriptionPayloadFieldPolicy,
-	},
-	TaskMemberConnection?: {
-		keyFields?: false | TaskMemberConnectionKeySpecifier | (() => undefined | TaskMemberConnectionKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: TaskMemberConnectionFieldPolicy,
-	},
-	TaskMemberEdge?: {
-		keyFields?: false | TaskMemberEdgeKeySpecifier | (() => undefined | TaskMemberEdgeKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: TaskMemberEdgeFieldPolicy,
-	},
-	TaskMemberPreviousValues?: {
-		keyFields?: false | TaskMemberPreviousValuesKeySpecifier | (() => undefined | TaskMemberPreviousValuesKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: TaskMemberPreviousValuesFieldPolicy,
-	},
-	TaskMemberSubscriptionPayload?: {
-		keyFields?: false | TaskMemberSubscriptionPayloadKeySpecifier | (() => undefined | TaskMemberSubscriptionPayloadKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: TaskMemberSubscriptionPayloadFieldPolicy,
-	},
-	TestPreviousValues?: {
-		keyFields?: false | TestPreviousValuesKeySpecifier | (() => undefined | TestPreviousValuesKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: TestPreviousValuesFieldPolicy,
-	},
-	TestSubscriptionPayload?: {
-		keyFields?: false | TestSubscriptionPayloadKeySpecifier | (() => undefined | TestSubscriptionPayloadKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: TestSubscriptionPayloadFieldPolicy,
-	},
-	TourneyPlayerConnection?: {
-		keyFields?: false | TourneyPlayerConnectionKeySpecifier | (() => undefined | TourneyPlayerConnectionKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: TourneyPlayerConnectionFieldPolicy,
-	},
-	TourneyPlayerEdge?: {
-		keyFields?: false | TourneyPlayerEdgeKeySpecifier | (() => undefined | TourneyPlayerEdgeKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: TourneyPlayerEdgeFieldPolicy,
-	},
-	TourneyPlayerPreviousValues?: {
-		keyFields?: false | TourneyPlayerPreviousValuesKeySpecifier | (() => undefined | TourneyPlayerPreviousValuesKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: TourneyPlayerPreviousValuesFieldPolicy,
-	},
-	TourneyPlayerSubscriptionPayload?: {
-		keyFields?: false | TourneyPlayerSubscriptionPayloadKeySpecifier | (() => undefined | TourneyPlayerSubscriptionPayloadKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: TourneyPlayerSubscriptionPayloadFieldPolicy,
-	},
-	UserGroupConnection?: {
-		keyFields?: false | UserGroupConnectionKeySpecifier | (() => undefined | UserGroupConnectionKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: UserGroupConnectionFieldPolicy,
-	},
-	UserGroupEdge?: {
-		keyFields?: false | UserGroupEdgeKeySpecifier | (() => undefined | UserGroupEdgeKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: UserGroupEdgeFieldPolicy,
-	},
-	UserGroupPreviousValues?: {
-		keyFields?: false | UserGroupPreviousValuesKeySpecifier | (() => undefined | UserGroupPreviousValuesKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: UserGroupPreviousValuesFieldPolicy,
-	},
-	UserGroupSubscriptionPayload?: {
-		keyFields?: false | UserGroupSubscriptionPayloadKeySpecifier | (() => undefined | UserGroupSubscriptionPayloadKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: UserGroupSubscriptionPayloadFieldPolicy,
-	},
-	VotePreviousValues?: {
-		keyFields?: false | VotePreviousValuesKeySpecifier | (() => undefined | VotePreviousValuesKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: VotePreviousValuesFieldPolicy,
-	},
-	VoteSubscriptionPayload?: {
-		keyFields?: false | VoteSubscriptionPayloadKeySpecifier | (() => undefined | VoteSubscriptionPayloadKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: VoteSubscriptionPayloadFieldPolicy,
-	},
-	FileResponse?: {
+	FileResponse?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | FileResponseKeySpecifier | (() => undefined | FileResponseKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
 		fields?: FileResponseFieldPolicy,
 	},
-	SmsMessageResponse?: {
+	SmsMessageResponse?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | SmsMessageResponseKeySpecifier | (() => undefined | SmsMessageResponseKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
 		fields?: SmsMessageResponseFieldPolicy,
 	},
-	SmsProviderResponse?: {
+	SmsMessage?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | SmsMessageKeySpecifier | (() => undefined | SmsMessageKeySpecifier),
+		fields?: SmsMessageFieldPolicy,
+	},
+	SmsProvider?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | SmsProviderKeySpecifier | (() => undefined | SmsProviderKeySpecifier),
+		fields?: SmsProviderFieldPolicy,
+	},
+	LetsadsSmsMessageStatus?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | LetsadsSmsMessageStatusKeySpecifier | (() => undefined | LetsadsSmsMessageStatusKeySpecifier),
+		fields?: LetsadsSmsMessageStatusFieldPolicy,
+	},
+	LetsadsSmsMessageStatusItem?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | LetsadsSmsMessageStatusItemKeySpecifier | (() => undefined | LetsadsSmsMessageStatusItemKeySpecifier),
+		fields?: LetsadsSmsMessageStatusItemFieldPolicy,
+	},
+	SmsProviderResponse?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | SmsProviderResponseKeySpecifier | (() => undefined | SmsProviderResponseKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
 		fields?: SmsProviderResponseFieldPolicy,
 	},
-	MarketplaceAuthResponse?: {
-		keyFields?: false | MarketplaceAuthResponseKeySpecifier | (() => undefined | MarketplaceAuthResponseKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: MarketplaceAuthResponseFieldPolicy,
+	UserResponse?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | UserResponseKeySpecifier | (() => undefined | UserResponseKeySpecifier),
+		fields?: UserResponseFieldPolicy,
 	},
-	GameResponse?: {
+	ResetPasswordResponse?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | ResetPasswordResponseKeySpecifier | (() => undefined | ResetPasswordResponseKeySpecifier),
+		fields?: ResetPasswordResponseFieldPolicy,
+	},
+	ResetPassword?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | ResetPasswordKeySpecifier | (() => undefined | ResetPasswordKeySpecifier),
+		fields?: ResetPasswordFieldPolicy,
+	},
+	TemplateResponse?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | TemplateResponseKeySpecifier | (() => undefined | TemplateResponseKeySpecifier),
+		fields?: TemplateResponseFieldPolicy,
+	},
+	GalleryResponse?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | GalleryResponseKeySpecifier | (() => undefined | GalleryResponseKeySpecifier),
+		fields?: GalleryResponseFieldPolicy,
+	},
+	GameResponse?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | GameResponseKeySpecifier | (() => undefined | GameResponseKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
 		fields?: GameResponseFieldPolicy,
 	},
-	GameResultResponse?: {
+	GameResultResponse?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | GameResultResponseKeySpecifier | (() => undefined | GameResultResponseKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
 		fields?: GameResultResponseFieldPolicy,
 	},
-	TournamentResponse?: {
+	TournamentResponse?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | TournamentResponseKeySpecifier | (() => undefined | TournamentResponseKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
 		fields?: TournamentResponseFieldPolicy,
 	},
-	TournamentGroupResponse?: {
+	TournamentGroupResponse?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | TournamentGroupResponseKeySpecifier | (() => undefined | TournamentGroupResponseKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
 		fields?: TournamentGroupResponseFieldPolicy,
 	},
-	TourneyResponse?: {
+	TourneyResponse?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | TourneyResponseKeySpecifier | (() => undefined | TourneyResponseKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
 		fields?: TourneyResponseFieldPolicy,
 	},
-	ChatMessageReadedResponse?: {
+	ChatRoomResponse?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | ChatRoomResponseKeySpecifier | (() => undefined | ChatRoomResponseKeySpecifier),
+		fields?: ChatRoomResponseFieldPolicy,
+	},
+	ChatMessageReadedResponse?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | ChatMessageReadedResponseKeySpecifier | (() => undefined | ChatMessageReadedResponseKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
 		fields?: ChatMessageReadedResponseFieldPolicy,
 	},
-	EthBlockResponse?: {
-		keyFields?: false | EthBlockResponseKeySpecifier | (() => undefined | EthBlockResponseKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: EthBlockResponseFieldPolicy,
+	ChatMessageResponse?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | ChatMessageResponseKeySpecifier | (() => undefined | ChatMessageResponseKeySpecifier),
+		fields?: ChatMessageResponseFieldPolicy,
 	},
-	EthContractSourceResponse?: {
+	EthContractSourceResponse?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | EthContractSourceResponseKeySpecifier | (() => undefined | EthContractSourceResponseKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
 		fields?: EthContractSourceResponseFieldPolicy,
 	},
-	EthPersonalAccountResponse?: {
-		keyFields?: false | EthPersonalAccountResponseKeySpecifier | (() => undefined | EthPersonalAccountResponseKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: EthPersonalAccountResponseFieldPolicy,
+	EthTransactionResponse?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | EthTransactionResponseKeySpecifier | (() => undefined | EthTransactionResponseKeySpecifier),
+		fields?: EthTransactionResponseFieldPolicy,
 	},
-	IceCandidate?: {
-		keyFields?: false | IceCandidateKeySpecifier | (() => undefined | IceCandidateKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: IceCandidateFieldPolicy,
+	CallRequestResponse?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | CallRequestResponseKeySpecifier | (() => undefined | CallRequestResponseKeySpecifier),
+		fields?: CallRequestResponseFieldPolicy,
 	},
-	PositionResponse?: {
-		keyFields?: false | PositionResponseKeySpecifier | (() => undefined | PositionResponseKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: PositionResponseFieldPolicy,
+	ProjectResponse?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | ProjectResponseKeySpecifier | (() => undefined | ProjectResponseKeySpecifier),
+		fields?: ProjectResponseFieldPolicy,
 	},
-	ProjectMemberResponse?: {
+	ProjectMemberResponse?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | ProjectMemberResponseKeySpecifier | (() => undefined | ProjectMemberResponseKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
 		fields?: ProjectMemberResponseFieldPolicy,
 	},
-	ServiceResponse?: {
-		keyFields?: false | ServiceResponseKeySpecifier | (() => undefined | ServiceResponseKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: ServiceResponseFieldPolicy,
+	TaskResponse?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | TaskResponseKeySpecifier | (() => undefined | TaskResponseKeySpecifier),
+		fields?: TaskResponseFieldPolicy,
 	},
-	ServiceCategoryResponse?: {
-		keyFields?: false | ServiceCategoryResponseKeySpecifier | (() => undefined | ServiceCategoryResponseKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
-		fields?: ServiceCategoryResponseFieldPolicy,
+	TaskReactionResponse?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | TaskReactionResponseKeySpecifier | (() => undefined | TaskReactionResponseKeySpecifier),
+		fields?: TaskReactionResponseFieldPolicy,
 	},
-	TeamResponse?: {
+	TimerResponse?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | TimerResponseKeySpecifier | (() => undefined | TimerResponseKeySpecifier),
+		fields?: TimerResponseFieldPolicy,
+	},
+	TeamResponse?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | TeamResponseKeySpecifier | (() => undefined | TeamResponseKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
 		fields?: TeamResponseFieldPolicy,
 	},
-	TeamMemberResponse?: {
+	TeamMemberResponse?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | TeamMemberResponseKeySpecifier | (() => undefined | TeamMemberResponseKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
 		fields?: TeamMemberResponseFieldPolicy,
 	},
-	RouteResponse?: {
+	ServiceResponse?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | ServiceResponseKeySpecifier | (() => undefined | ServiceResponseKeySpecifier),
+		fields?: ServiceResponseFieldPolicy,
+	},
+	PositionResponse?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | PositionResponseKeySpecifier | (() => undefined | PositionResponseKeySpecifier),
+		fields?: PositionResponseFieldPolicy,
+	},
+	RouteResponse?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | RouteResponseKeySpecifier | (() => undefined | RouteResponseKeySpecifier),
-		queryType?: true,
-		mutationType?: true,
-		subscriptionType?: true,
 		fields?: RouteResponseFieldPolicy,
+	},
+	Subscription?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | SubscriptionKeySpecifier | (() => undefined | SubscriptionKeySpecifier),
+		fields?: SubscriptionFieldPolicy,
+	},
+	GallerySubscriptionPayload?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | GallerySubscriptionPayloadKeySpecifier | (() => undefined | GallerySubscriptionPayloadKeySpecifier),
+		fields?: GallerySubscriptionPayloadFieldPolicy,
+	},
+	GalleryPreviousValues?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | GalleryPreviousValuesKeySpecifier | (() => undefined | GalleryPreviousValuesKeySpecifier),
+		fields?: GalleryPreviousValuesFieldPolicy,
+	},
+	PlayerSubscriptionPayload?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | PlayerSubscriptionPayloadKeySpecifier | (() => undefined | PlayerSubscriptionPayloadKeySpecifier),
+		fields?: PlayerSubscriptionPayloadFieldPolicy,
+	},
+	PlayerPreviousValues?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | PlayerPreviousValuesKeySpecifier | (() => undefined | PlayerPreviousValuesKeySpecifier),
+		fields?: PlayerPreviousValuesFieldPolicy,
+	},
+	WorldSubscriptionPayload?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | WorldSubscriptionPayloadKeySpecifier | (() => undefined | WorldSubscriptionPayloadKeySpecifier),
+		fields?: WorldSubscriptionPayloadFieldPolicy,
+	},
+	WorldPreviousValues?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | WorldPreviousValuesKeySpecifier | (() => undefined | WorldPreviousValuesKeySpecifier),
+		fields?: WorldPreviousValuesFieldPolicy,
+	},
+	MessageSubscriptionPayload?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | MessageSubscriptionPayloadKeySpecifier | (() => undefined | MessageSubscriptionPayloadKeySpecifier),
+		fields?: MessageSubscriptionPayloadFieldPolicy,
+	},
+	MessagePreviousValues?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | MessagePreviousValuesKeySpecifier | (() => undefined | MessagePreviousValuesKeySpecifier),
+		fields?: MessagePreviousValuesFieldPolicy,
+	},
+	NoticeSubscriptionPayload?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | NoticeSubscriptionPayloadKeySpecifier | (() => undefined | NoticeSubscriptionPayloadKeySpecifier),
+		fields?: NoticeSubscriptionPayloadFieldPolicy,
+	},
+	NoticePreviousValues?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | NoticePreviousValuesKeySpecifier | (() => undefined | NoticePreviousValuesKeySpecifier),
+		fields?: NoticePreviousValuesFieldPolicy,
+	},
+	ChatMessageReadedSubscriptionPayload?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | ChatMessageReadedSubscriptionPayloadKeySpecifier | (() => undefined | ChatMessageReadedSubscriptionPayloadKeySpecifier),
+		fields?: ChatMessageReadedSubscriptionPayloadFieldPolicy,
+	},
+	ChatMessageReadedPreviousValues?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | ChatMessageReadedPreviousValuesKeySpecifier | (() => undefined | ChatMessageReadedPreviousValuesKeySpecifier),
+		fields?: ChatMessageReadedPreviousValuesFieldPolicy,
+	},
+	ChatRoomSubscriptionPayload?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | ChatRoomSubscriptionPayloadKeySpecifier | (() => undefined | ChatRoomSubscriptionPayloadKeySpecifier),
+		fields?: ChatRoomSubscriptionPayloadFieldPolicy,
+	},
+	ChatRoomPreviousValues?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | ChatRoomPreviousValuesKeySpecifier | (() => undefined | ChatRoomPreviousValuesKeySpecifier),
+		fields?: ChatRoomPreviousValuesFieldPolicy,
+	},
+	GameSubscriptionPayload?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | GameSubscriptionPayloadKeySpecifier | (() => undefined | GameSubscriptionPayloadKeySpecifier),
+		fields?: GameSubscriptionPayloadFieldPolicy,
+	},
+	GamePreviousValues?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | GamePreviousValuesKeySpecifier | (() => undefined | GamePreviousValuesKeySpecifier),
+		fields?: GamePreviousValuesFieldPolicy,
+	},
+	GameResultSubscriptionPayload?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | GameResultSubscriptionPayloadKeySpecifier | (() => undefined | GameResultSubscriptionPayloadKeySpecifier),
+		fields?: GameResultSubscriptionPayloadFieldPolicy,
+	},
+	GameResultPreviousValues?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | GameResultPreviousValuesKeySpecifier | (() => undefined | GameResultPreviousValuesKeySpecifier),
+		fields?: GameResultPreviousValuesFieldPolicy,
+	},
+	TournamentSubscriptionPayload?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | TournamentSubscriptionPayloadKeySpecifier | (() => undefined | TournamentSubscriptionPayloadKeySpecifier),
+		fields?: TournamentSubscriptionPayloadFieldPolicy,
+	},
+	TournamentPreviousValues?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | TournamentPreviousValuesKeySpecifier | (() => undefined | TournamentPreviousValuesKeySpecifier),
+		fields?: TournamentPreviousValuesFieldPolicy,
+	},
+	TournamentGroupSubscriptionPayload?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | TournamentGroupSubscriptionPayloadKeySpecifier | (() => undefined | TournamentGroupSubscriptionPayloadKeySpecifier),
+		fields?: TournamentGroupSubscriptionPayloadFieldPolicy,
+	},
+	TournamentGroupPreviousValues?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | TournamentGroupPreviousValuesKeySpecifier | (() => undefined | TournamentGroupPreviousValuesKeySpecifier),
+		fields?: TournamentGroupPreviousValuesFieldPolicy,
+	},
+	TourneySubscriptionPayload?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | TourneySubscriptionPayloadKeySpecifier | (() => undefined | TourneySubscriptionPayloadKeySpecifier),
+		fields?: TourneySubscriptionPayloadFieldPolicy,
+	},
+	TourneyPreviousValues?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | TourneyPreviousValuesKeySpecifier | (() => undefined | TourneyPreviousValuesKeySpecifier),
+		fields?: TourneyPreviousValuesFieldPolicy,
+	},
+	EthTransactionSubscriptionPayload?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | EthTransactionSubscriptionPayloadKeySpecifier | (() => undefined | EthTransactionSubscriptionPayloadKeySpecifier),
+		fields?: EthTransactionSubscriptionPayloadFieldPolicy,
+	},
+	CallRequestSubscriptionPayload?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | CallRequestSubscriptionPayloadKeySpecifier | (() => undefined | CallRequestSubscriptionPayloadKeySpecifier),
+		fields?: CallRequestSubscriptionPayloadFieldPolicy,
+	},
+	CallRequestPreviousValues?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | CallRequestPreviousValuesKeySpecifier | (() => undefined | CallRequestPreviousValuesKeySpecifier),
+		fields?: CallRequestPreviousValuesFieldPolicy,
+	},
+	PositionSubscriptionPayload?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | PositionSubscriptionPayloadKeySpecifier | (() => undefined | PositionSubscriptionPayloadKeySpecifier),
+		fields?: PositionSubscriptionPayloadFieldPolicy,
+	},
+	PositionPreviousValues?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | PositionPreviousValuesKeySpecifier | (() => undefined | PositionPreviousValuesKeySpecifier),
+		fields?: PositionPreviousValuesFieldPolicy,
+	},
+	ProjectMemberSubscriptionPayload?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | ProjectMemberSubscriptionPayloadKeySpecifier | (() => undefined | ProjectMemberSubscriptionPayloadKeySpecifier),
+		fields?: ProjectMemberSubscriptionPayloadFieldPolicy,
+	},
+	ProjectMemberPreviousValues?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | ProjectMemberPreviousValuesKeySpecifier | (() => undefined | ProjectMemberPreviousValuesKeySpecifier),
+		fields?: ProjectMemberPreviousValuesFieldPolicy,
+	},
+	ServiceSubscriptionPayload?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | ServiceSubscriptionPayloadKeySpecifier | (() => undefined | ServiceSubscriptionPayloadKeySpecifier),
+		fields?: ServiceSubscriptionPayloadFieldPolicy,
+	},
+	ServicePreviousValues?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | ServicePreviousValuesKeySpecifier | (() => undefined | ServicePreviousValuesKeySpecifier),
+		fields?: ServicePreviousValuesFieldPolicy,
+	},
+	TaskSubscriptionPayload?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | TaskSubscriptionPayloadKeySpecifier | (() => undefined | TaskSubscriptionPayloadKeySpecifier),
+		fields?: TaskSubscriptionPayloadFieldPolicy,
+	},
+	TaskPreviousValues?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | TaskPreviousValuesKeySpecifier | (() => undefined | TaskPreviousValuesKeySpecifier),
+		fields?: TaskPreviousValuesFieldPolicy,
+	},
+	TaskReactionSubscriptionPayload?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | TaskReactionSubscriptionPayloadKeySpecifier | (() => undefined | TaskReactionSubscriptionPayloadKeySpecifier),
+		fields?: TaskReactionSubscriptionPayloadFieldPolicy,
+	},
+	TaskReactionPreviousValues?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | TaskReactionPreviousValuesKeySpecifier | (() => undefined | TaskReactionPreviousValuesKeySpecifier),
+		fields?: TaskReactionPreviousValuesFieldPolicy,
+	},
+	TeamMemberSubscriptionPayload?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | TeamMemberSubscriptionPayloadKeySpecifier | (() => undefined | TeamMemberSubscriptionPayloadKeySpecifier),
+		fields?: TeamMemberSubscriptionPayloadFieldPolicy,
+	},
+	TeamMemberPreviousValues?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | TeamMemberPreviousValuesKeySpecifier | (() => undefined | TeamMemberPreviousValuesKeySpecifier),
+		fields?: TeamMemberPreviousValuesFieldPolicy,
+	},
+	TimerSubscriptionPayload?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | TimerSubscriptionPayloadKeySpecifier | (() => undefined | TimerSubscriptionPayloadKeySpecifier),
+		fields?: TimerSubscriptionPayloadFieldPolicy,
+	},
+	TimerPreviousValues?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | TimerPreviousValuesKeySpecifier | (() => undefined | TimerPreviousValuesKeySpecifier),
+		fields?: TimerPreviousValuesFieldPolicy,
+	},
+	RouteSubscriptionPayload?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | RouteSubscriptionPayloadKeySpecifier | (() => undefined | RouteSubscriptionPayloadKeySpecifier),
+		fields?: RouteSubscriptionPayloadFieldPolicy,
+	},
+	RoutePreviousValues?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | RoutePreviousValuesKeySpecifier | (() => undefined | RoutePreviousValuesKeySpecifier),
+		fields?: RoutePreviousValuesFieldPolicy,
+	},
+	CodeChallengeSubscriptionPayload?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | CodeChallengeSubscriptionPayloadKeySpecifier | (() => undefined | CodeChallengeSubscriptionPayloadKeySpecifier),
+		fields?: CodeChallengeSubscriptionPayloadFieldPolicy,
+	},
+	CodeChallengePreviousValues?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | CodeChallengePreviousValuesKeySpecifier | (() => undefined | CodeChallengePreviousValuesKeySpecifier),
+		fields?: CodeChallengePreviousValuesFieldPolicy,
+	},
+	CodeChallengeBlockSubscriptionPayload?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | CodeChallengeBlockSubscriptionPayloadKeySpecifier | (() => undefined | CodeChallengeBlockSubscriptionPayloadKeySpecifier),
+		fields?: CodeChallengeBlockSubscriptionPayloadFieldPolicy,
+	},
+	CodeChallengeBlockPreviousValues?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | CodeChallengeBlockPreviousValuesKeySpecifier | (() => undefined | CodeChallengeBlockPreviousValuesKeySpecifier),
+		fields?: CodeChallengeBlockPreviousValuesFieldPolicy,
+	},
+	CommentSubscriptionPayload?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | CommentSubscriptionPayloadKeySpecifier | (() => undefined | CommentSubscriptionPayloadKeySpecifier),
+		fields?: CommentSubscriptionPayloadFieldPolicy,
+	},
+	CommentPreviousValues?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | CommentPreviousValuesKeySpecifier | (() => undefined | CommentPreviousValuesKeySpecifier),
+		fields?: CommentPreviousValuesFieldPolicy,
+	},
+	TechnologyLessonSubscriptionPayload?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | TechnologyLessonSubscriptionPayloadKeySpecifier | (() => undefined | TechnologyLessonSubscriptionPayloadKeySpecifier),
+		fields?: TechnologyLessonSubscriptionPayloadFieldPolicy,
+	},
+	TechnologyLessonPreviousValues?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | TechnologyLessonPreviousValuesKeySpecifier | (() => undefined | TechnologyLessonPreviousValuesKeySpecifier),
+		fields?: TechnologyLessonPreviousValuesFieldPolicy,
+	},
+	CareerSubscriptionPayload?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | CareerSubscriptionPayloadKeySpecifier | (() => undefined | CareerSubscriptionPayloadKeySpecifier),
+		fields?: CareerSubscriptionPayloadFieldPolicy,
+	},
+	CareerPreviousValues?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | CareerPreviousValuesKeySpecifier | (() => undefined | CareerPreviousValuesKeySpecifier),
+		fields?: CareerPreviousValuesFieldPolicy,
+	},
+	TechnologyLessonUserSubscriptionPayload?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | TechnologyLessonUserSubscriptionPayloadKeySpecifier | (() => undefined | TechnologyLessonUserSubscriptionPayloadKeySpecifier),
+		fields?: TechnologyLessonUserSubscriptionPayloadFieldPolicy,
+	},
+	TechnologyLessonUserPreviousValues?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | TechnologyLessonUserPreviousValuesKeySpecifier | (() => undefined | TechnologyLessonUserPreviousValuesKeySpecifier),
+		fields?: TechnologyLessonUserPreviousValuesFieldPolicy,
+	},
+	UserTechnologySubscriptionPayload?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | UserTechnologySubscriptionPayloadKeySpecifier | (() => undefined | UserTechnologySubscriptionPayloadKeySpecifier),
+		fields?: UserTechnologySubscriptionPayloadFieldPolicy,
+	},
+	UserTechnologyPreviousValues?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | UserTechnologyPreviousValuesKeySpecifier | (() => undefined | UserTechnologyPreviousValuesKeySpecifier),
+		fields?: UserTechnologyPreviousValuesFieldPolicy,
+	},
+	TechnologySubscriptionPayload?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | TechnologySubscriptionPayloadKeySpecifier | (() => undefined | TechnologySubscriptionPayloadKeySpecifier),
+		fields?: TechnologySubscriptionPayloadFieldPolicy,
+	},
+	TechnologyPreviousValues?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | TechnologyPreviousValuesKeySpecifier | (() => undefined | TechnologyPreviousValuesKeySpecifier),
+		fields?: TechnologyPreviousValuesFieldPolicy,
+	},
+	TeamSubscriptionPayload?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | TeamSubscriptionPayloadKeySpecifier | (() => undefined | TeamSubscriptionPayloadKeySpecifier),
+		fields?: TeamSubscriptionPayloadFieldPolicy,
+	},
+	TeamPreviousValues?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | TeamPreviousValuesKeySpecifier | (() => undefined | TeamPreviousValuesKeySpecifier),
+		fields?: TeamPreviousValuesFieldPolicy,
+	},
+	ProjectSubscriptionPayload?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | ProjectSubscriptionPayloadKeySpecifier | (() => undefined | ProjectSubscriptionPayloadKeySpecifier),
+		fields?: ProjectSubscriptionPayloadFieldPolicy,
+	},
+	ProjectPreviousValues?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | ProjectPreviousValuesKeySpecifier | (() => undefined | ProjectPreviousValuesKeySpecifier),
+		fields?: ProjectPreviousValuesFieldPolicy,
+	},
+	TemplateSubscriptionPayload?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | TemplateSubscriptionPayloadKeySpecifier | (() => undefined | TemplateSubscriptionPayloadKeySpecifier),
+		fields?: TemplateSubscriptionPayloadFieldPolicy,
+	},
+	TemplatePreviousValues?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | TemplatePreviousValuesKeySpecifier | (() => undefined | TemplatePreviousValuesKeySpecifier),
+		fields?: TemplatePreviousValuesFieldPolicy,
+	},
+	ResourceSubscriptionPayload?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | ResourceSubscriptionPayloadKeySpecifier | (() => undefined | ResourceSubscriptionPayloadKeySpecifier),
+		fields?: ResourceSubscriptionPayloadFieldPolicy,
+	},
+	ResourcePreviousValues?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | ResourcePreviousValuesKeySpecifier | (() => undefined | ResourcePreviousValuesKeySpecifier),
+		fields?: ResourcePreviousValuesFieldPolicy,
+	},
+	ChatMessageSubscriptionPayload?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | ChatMessageSubscriptionPayloadKeySpecifier | (() => undefined | ChatMessageSubscriptionPayloadKeySpecifier),
+		fields?: ChatMessageSubscriptionPayloadFieldPolicy,
+	},
+	ChatMessagePreviousValues?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | ChatMessagePreviousValuesKeySpecifier | (() => undefined | ChatMessagePreviousValuesKeySpecifier),
+		fields?: ChatMessagePreviousValuesFieldPolicy,
+	},
+	UserSubscriptionPayload?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | UserSubscriptionPayloadKeySpecifier | (() => undefined | UserSubscriptionPayloadKeySpecifier),
+		fields?: UserSubscriptionPayloadFieldPolicy,
+	},
+	UserPreviousValues?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | UserPreviousValuesKeySpecifier | (() => undefined | UserPreviousValuesKeySpecifier),
+		fields?: UserPreviousValuesFieldPolicy,
+	},
+	ImportResponse?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | ImportResponseKeySpecifier | (() => undefined | ImportResponseKeySpecifier),
+		fields?: ImportResponseFieldPolicy,
+	},
+	Import?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | ImportKeySpecifier | (() => undefined | ImportKeySpecifier),
+		fields?: ImportFieldPolicy,
+	},
+	Log?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | LogKeySpecifier | (() => undefined | LogKeySpecifier),
+		fields?: LogFieldPolicy,
+	},
+	AggregateBlock?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | AggregateBlockKeySpecifier | (() => undefined | AggregateBlockKeySpecifier),
+		fields?: AggregateBlockFieldPolicy,
+	},
+	AggregateChatMessageReaded?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | AggregateChatMessageReadedKeySpecifier | (() => undefined | AggregateChatMessageReadedKeySpecifier),
+		fields?: AggregateChatMessageReadedFieldPolicy,
+	},
+	AggregateChatRoomInvitation?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | AggregateChatRoomInvitationKeySpecifier | (() => undefined | AggregateChatRoomInvitationKeySpecifier),
+		fields?: AggregateChatRoomInvitationFieldPolicy,
+	},
+	AggregateFile?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | AggregateFileKeySpecifier | (() => undefined | AggregateFileKeySpecifier),
+		fields?: AggregateFileFieldPolicy,
+	},
+	AggregateImport?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | AggregateImportKeySpecifier | (() => undefined | AggregateImportKeySpecifier),
+		fields?: AggregateImportFieldPolicy,
+	},
+	AggregateInventory?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | AggregateInventoryKeySpecifier | (() => undefined | AggregateInventoryKeySpecifier),
+		fields?: AggregateInventoryFieldPolicy,
+	},
+	AggregateLetsadsSmsMessageStatus?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | AggregateLetsadsSmsMessageStatusKeySpecifier | (() => undefined | AggregateLetsadsSmsMessageStatusKeySpecifier),
+		fields?: AggregateLetsadsSmsMessageStatusFieldPolicy,
+	},
+	AggregateLetsadsSmsMessageStatusItem?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | AggregateLetsadsSmsMessageStatusItemKeySpecifier | (() => undefined | AggregateLetsadsSmsMessageStatusItemKeySpecifier),
+		fields?: AggregateLetsadsSmsMessageStatusItemFieldPolicy,
+	},
+	AggregateLetter?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | AggregateLetterKeySpecifier | (() => undefined | AggregateLetterKeySpecifier),
+		fields?: AggregateLetterFieldPolicy,
+	},
+	AggregateLog?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | AggregateLogKeySpecifier | (() => undefined | AggregateLogKeySpecifier),
+		fields?: AggregateLogFieldPolicy,
+	},
+	AggregateLogedIn?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | AggregateLogedInKeySpecifier | (() => undefined | AggregateLogedInKeySpecifier),
+		fields?: AggregateLogedInFieldPolicy,
+	},
+	AggregateMessage?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | AggregateMessageKeySpecifier | (() => undefined | AggregateMessageKeySpecifier),
+		fields?: AggregateMessageFieldPolicy,
+	},
+	AggregatePlayer?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | AggregatePlayerKeySpecifier | (() => undefined | AggregatePlayerKeySpecifier),
+		fields?: AggregatePlayerFieldPolicy,
+	},
+	AggregateProjectTask?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | AggregateProjectTaskKeySpecifier | (() => undefined | AggregateProjectTaskKeySpecifier),
+		fields?: AggregateProjectTaskFieldPolicy,
+	},
+	AggregateResetPassword?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | AggregateResetPasswordKeySpecifier | (() => undefined | AggregateResetPasswordKeySpecifier),
+		fields?: AggregateResetPasswordFieldPolicy,
+	},
+	AggregateServiceCategory?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | AggregateServiceCategoryKeySpecifier | (() => undefined | AggregateServiceCategoryKeySpecifier),
+		fields?: AggregateServiceCategoryFieldPolicy,
+	},
+	AggregateSettings?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | AggregateSettingsKeySpecifier | (() => undefined | AggregateSettingsKeySpecifier),
+		fields?: AggregateSettingsFieldPolicy,
+	},
+	AggregateSmsMessage?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | AggregateSmsMessageKeySpecifier | (() => undefined | AggregateSmsMessageKeySpecifier),
+		fields?: AggregateSmsMessageFieldPolicy,
+	},
+	AggregateSmsProvider?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | AggregateSmsProviderKeySpecifier | (() => undefined | AggregateSmsProviderKeySpecifier),
+		fields?: AggregateSmsProviderFieldPolicy,
+	},
+	AggregateTaskMember?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | AggregateTaskMemberKeySpecifier | (() => undefined | AggregateTaskMemberKeySpecifier),
+		fields?: AggregateTaskMemberFieldPolicy,
+	},
+	AggregateTourneyPlayer?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | AggregateTourneyPlayerKeySpecifier | (() => undefined | AggregateTourneyPlayerKeySpecifier),
+		fields?: AggregateTourneyPlayerFieldPolicy,
+	},
+	AggregateUserGroup?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | AggregateUserGroupKeySpecifier | (() => undefined | AggregateUserGroupKeySpecifier),
+		fields?: AggregateUserGroupFieldPolicy,
+	},
+	BlockConnection?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | BlockConnectionKeySpecifier | (() => undefined | BlockConnectionKeySpecifier),
+		fields?: BlockConnectionFieldPolicy,
+	},
+	BlockEdge?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | BlockEdgeKeySpecifier | (() => undefined | BlockEdgeKeySpecifier),
+		fields?: BlockEdgeFieldPolicy,
+	},
+	BlockPreviousValues?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | BlockPreviousValuesKeySpecifier | (() => undefined | BlockPreviousValuesKeySpecifier),
+		fields?: BlockPreviousValuesFieldPolicy,
+	},
+	BlockSubscriptionPayload?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | BlockSubscriptionPayloadKeySpecifier | (() => undefined | BlockSubscriptionPayloadKeySpecifier),
+		fields?: BlockSubscriptionPayloadFieldPolicy,
+	},
+	ChatMessageReadedConnection?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | ChatMessageReadedConnectionKeySpecifier | (() => undefined | ChatMessageReadedConnectionKeySpecifier),
+		fields?: ChatMessageReadedConnectionFieldPolicy,
+	},
+	ChatMessageReadedEdge?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | ChatMessageReadedEdgeKeySpecifier | (() => undefined | ChatMessageReadedEdgeKeySpecifier),
+		fields?: ChatMessageReadedEdgeFieldPolicy,
+	},
+	ChatRoomInvitationConnection?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | ChatRoomInvitationConnectionKeySpecifier | (() => undefined | ChatRoomInvitationConnectionKeySpecifier),
+		fields?: ChatRoomInvitationConnectionFieldPolicy,
+	},
+	ChatRoomInvitationEdge?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | ChatRoomInvitationEdgeKeySpecifier | (() => undefined | ChatRoomInvitationEdgeKeySpecifier),
+		fields?: ChatRoomInvitationEdgeFieldPolicy,
+	},
+	ChatRoomInvitationPreviousValues?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | ChatRoomInvitationPreviousValuesKeySpecifier | (() => undefined | ChatRoomInvitationPreviousValuesKeySpecifier),
+		fields?: ChatRoomInvitationPreviousValuesFieldPolicy,
+	},
+	ChatRoomInvitationSubscriptionPayload?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | ChatRoomInvitationSubscriptionPayloadKeySpecifier | (() => undefined | ChatRoomInvitationSubscriptionPayloadKeySpecifier),
+		fields?: ChatRoomInvitationSubscriptionPayloadFieldPolicy,
+	},
+	CodeChallengeCompletionPreviousValues?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | CodeChallengeCompletionPreviousValuesKeySpecifier | (() => undefined | CodeChallengeCompletionPreviousValuesKeySpecifier),
+		fields?: CodeChallengeCompletionPreviousValuesFieldPolicy,
+	},
+	CodeChallengeCompletionSubscriptionPayload?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | CodeChallengeCompletionSubscriptionPayloadKeySpecifier | (() => undefined | CodeChallengeCompletionSubscriptionPayloadKeySpecifier),
+		fields?: CodeChallengeCompletionSubscriptionPayloadFieldPolicy,
+	},
+	EthAccountPreviousValues?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | EthAccountPreviousValuesKeySpecifier | (() => undefined | EthAccountPreviousValuesKeySpecifier),
+		fields?: EthAccountPreviousValuesFieldPolicy,
+	},
+	EthAccountSubscriptionPayload?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | EthAccountSubscriptionPayloadKeySpecifier | (() => undefined | EthAccountSubscriptionPayloadKeySpecifier),
+		fields?: EthAccountSubscriptionPayloadFieldPolicy,
+	},
+	EthBlockPreviousValues?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | EthBlockPreviousValuesKeySpecifier | (() => undefined | EthBlockPreviousValuesKeySpecifier),
+		fields?: EthBlockPreviousValuesFieldPolicy,
+	},
+	EthBlockSubscriptionPayload?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | EthBlockSubscriptionPayloadKeySpecifier | (() => undefined | EthBlockSubscriptionPayloadKeySpecifier),
+		fields?: EthBlockSubscriptionPayloadFieldPolicy,
+	},
+	EthContractSourcePreviousValues?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | EthContractSourcePreviousValuesKeySpecifier | (() => undefined | EthContractSourcePreviousValuesKeySpecifier),
+		fields?: EthContractSourcePreviousValuesFieldPolicy,
+	},
+	EthContractSourceSubscriptionPayload?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | EthContractSourceSubscriptionPayloadKeySpecifier | (() => undefined | EthContractSourceSubscriptionPayloadKeySpecifier),
+		fields?: EthContractSourceSubscriptionPayloadFieldPolicy,
+	},
+	EthTransactionPreviousValues?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | EthTransactionPreviousValuesKeySpecifier | (() => undefined | EthTransactionPreviousValuesKeySpecifier),
+		fields?: EthTransactionPreviousValuesFieldPolicy,
+	},
+	FileConnection?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | FileConnectionKeySpecifier | (() => undefined | FileConnectionKeySpecifier),
+		fields?: FileConnectionFieldPolicy,
+	},
+	FileEdge?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | FileEdgeKeySpecifier | (() => undefined | FileEdgeKeySpecifier),
+		fields?: FileEdgeFieldPolicy,
+	},
+	FilePreviousValues?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | FilePreviousValuesKeySpecifier | (() => undefined | FilePreviousValuesKeySpecifier),
+		fields?: FilePreviousValuesFieldPolicy,
+	},
+	FileSubscriptionPayload?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | FileSubscriptionPayloadKeySpecifier | (() => undefined | FileSubscriptionPayloadKeySpecifier),
+		fields?: FileSubscriptionPayloadFieldPolicy,
+	},
+	ImportConnection?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | ImportConnectionKeySpecifier | (() => undefined | ImportConnectionKeySpecifier),
+		fields?: ImportConnectionFieldPolicy,
+	},
+	ImportEdge?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | ImportEdgeKeySpecifier | (() => undefined | ImportEdgeKeySpecifier),
+		fields?: ImportEdgeFieldPolicy,
+	},
+	ImportPreviousValues?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | ImportPreviousValuesKeySpecifier | (() => undefined | ImportPreviousValuesKeySpecifier),
+		fields?: ImportPreviousValuesFieldPolicy,
+	},
+	ImportSubscriptionPayload?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | ImportSubscriptionPayloadKeySpecifier | (() => undefined | ImportSubscriptionPayloadKeySpecifier),
+		fields?: ImportSubscriptionPayloadFieldPolicy,
+	},
+	InventoryConnection?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | InventoryConnectionKeySpecifier | (() => undefined | InventoryConnectionKeySpecifier),
+		fields?: InventoryConnectionFieldPolicy,
+	},
+	InventoryEdge?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | InventoryEdgeKeySpecifier | (() => undefined | InventoryEdgeKeySpecifier),
+		fields?: InventoryEdgeFieldPolicy,
+	},
+	InventoryPreviousValues?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | InventoryPreviousValuesKeySpecifier | (() => undefined | InventoryPreviousValuesKeySpecifier),
+		fields?: InventoryPreviousValuesFieldPolicy,
+	},
+	InventorySubscriptionPayload?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | InventorySubscriptionPayloadKeySpecifier | (() => undefined | InventorySubscriptionPayloadKeySpecifier),
+		fields?: InventorySubscriptionPayloadFieldPolicy,
+	},
+	LetsadsSmsMessageStatusConnection?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | LetsadsSmsMessageStatusConnectionKeySpecifier | (() => undefined | LetsadsSmsMessageStatusConnectionKeySpecifier),
+		fields?: LetsadsSmsMessageStatusConnectionFieldPolicy,
+	},
+	LetsadsSmsMessageStatusEdge?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | LetsadsSmsMessageStatusEdgeKeySpecifier | (() => undefined | LetsadsSmsMessageStatusEdgeKeySpecifier),
+		fields?: LetsadsSmsMessageStatusEdgeFieldPolicy,
+	},
+	LetsadsSmsMessageStatusItemConnection?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | LetsadsSmsMessageStatusItemConnectionKeySpecifier | (() => undefined | LetsadsSmsMessageStatusItemConnectionKeySpecifier),
+		fields?: LetsadsSmsMessageStatusItemConnectionFieldPolicy,
+	},
+	LetsadsSmsMessageStatusItemEdge?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | LetsadsSmsMessageStatusItemEdgeKeySpecifier | (() => undefined | LetsadsSmsMessageStatusItemEdgeKeySpecifier),
+		fields?: LetsadsSmsMessageStatusItemEdgeFieldPolicy,
+	},
+	LetsadsSmsMessageStatusItemPreviousValues?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | LetsadsSmsMessageStatusItemPreviousValuesKeySpecifier | (() => undefined | LetsadsSmsMessageStatusItemPreviousValuesKeySpecifier),
+		fields?: LetsadsSmsMessageStatusItemPreviousValuesFieldPolicy,
+	},
+	LetsadsSmsMessageStatusItemSubscriptionPayload?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | LetsadsSmsMessageStatusItemSubscriptionPayloadKeySpecifier | (() => undefined | LetsadsSmsMessageStatusItemSubscriptionPayloadKeySpecifier),
+		fields?: LetsadsSmsMessageStatusItemSubscriptionPayloadFieldPolicy,
+	},
+	LetsadsSmsMessageStatusPreviousValues?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | LetsadsSmsMessageStatusPreviousValuesKeySpecifier | (() => undefined | LetsadsSmsMessageStatusPreviousValuesKeySpecifier),
+		fields?: LetsadsSmsMessageStatusPreviousValuesFieldPolicy,
+	},
+	LetsadsSmsMessageStatusSubscriptionPayload?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | LetsadsSmsMessageStatusSubscriptionPayloadKeySpecifier | (() => undefined | LetsadsSmsMessageStatusSubscriptionPayloadKeySpecifier),
+		fields?: LetsadsSmsMessageStatusSubscriptionPayloadFieldPolicy,
+	},
+	Letter?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | LetterKeySpecifier | (() => undefined | LetterKeySpecifier),
+		fields?: LetterFieldPolicy,
+	},
+	LetterConnection?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | LetterConnectionKeySpecifier | (() => undefined | LetterConnectionKeySpecifier),
+		fields?: LetterConnectionFieldPolicy,
+	},
+	LetterEdge?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | LetterEdgeKeySpecifier | (() => undefined | LetterEdgeKeySpecifier),
+		fields?: LetterEdgeFieldPolicy,
+	},
+	LetterPreviousValues?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | LetterPreviousValuesKeySpecifier | (() => undefined | LetterPreviousValuesKeySpecifier),
+		fields?: LetterPreviousValuesFieldPolicy,
+	},
+	LetterSubscriptionPayload?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | LetterSubscriptionPayloadKeySpecifier | (() => undefined | LetterSubscriptionPayloadKeySpecifier),
+		fields?: LetterSubscriptionPayloadFieldPolicy,
+	},
+	LogConnection?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | LogConnectionKeySpecifier | (() => undefined | LogConnectionKeySpecifier),
+		fields?: LogConnectionFieldPolicy,
+	},
+	LogEdge?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | LogEdgeKeySpecifier | (() => undefined | LogEdgeKeySpecifier),
+		fields?: LogEdgeFieldPolicy,
+	},
+	LogedInConnection?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | LogedInConnectionKeySpecifier | (() => undefined | LogedInConnectionKeySpecifier),
+		fields?: LogedInConnectionFieldPolicy,
+	},
+	LogedInEdge?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | LogedInEdgeKeySpecifier | (() => undefined | LogedInEdgeKeySpecifier),
+		fields?: LogedInEdgeFieldPolicy,
+	},
+	LogedInPreviousValues?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | LogedInPreviousValuesKeySpecifier | (() => undefined | LogedInPreviousValuesKeySpecifier),
+		fields?: LogedInPreviousValuesFieldPolicy,
+	},
+	LogedInSubscriptionPayload?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | LogedInSubscriptionPayloadKeySpecifier | (() => undefined | LogedInSubscriptionPayloadKeySpecifier),
+		fields?: LogedInSubscriptionPayloadFieldPolicy,
+	},
+	LogPreviousValues?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | LogPreviousValuesKeySpecifier | (() => undefined | LogPreviousValuesKeySpecifier),
+		fields?: LogPreviousValuesFieldPolicy,
+	},
+	LogSubscriptionPayload?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | LogSubscriptionPayloadKeySpecifier | (() => undefined | LogSubscriptionPayloadKeySpecifier),
+		fields?: LogSubscriptionPayloadFieldPolicy,
+	},
+	MessageConnection?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | MessageConnectionKeySpecifier | (() => undefined | MessageConnectionKeySpecifier),
+		fields?: MessageConnectionFieldPolicy,
+	},
+	MessageEdge?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | MessageEdgeKeySpecifier | (() => undefined | MessageEdgeKeySpecifier),
+		fields?: MessageEdgeFieldPolicy,
+	},
+	NotificationTypePreviousValues?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | NotificationTypePreviousValuesKeySpecifier | (() => undefined | NotificationTypePreviousValuesKeySpecifier),
+		fields?: NotificationTypePreviousValuesFieldPolicy,
+	},
+	NotificationTypeSubscriptionPayload?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | NotificationTypeSubscriptionPayloadKeySpecifier | (() => undefined | NotificationTypeSubscriptionPayloadKeySpecifier),
+		fields?: NotificationTypeSubscriptionPayloadFieldPolicy,
+	},
+	PlayerConnection?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | PlayerConnectionKeySpecifier | (() => undefined | PlayerConnectionKeySpecifier),
+		fields?: PlayerConnectionFieldPolicy,
+	},
+	PlayerEdge?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | PlayerEdgeKeySpecifier | (() => undefined | PlayerEdgeKeySpecifier),
+		fields?: PlayerEdgeFieldPolicy,
+	},
+	ProjectTaskConnection?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | ProjectTaskConnectionKeySpecifier | (() => undefined | ProjectTaskConnectionKeySpecifier),
+		fields?: ProjectTaskConnectionFieldPolicy,
+	},
+	ProjectTaskEdge?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | ProjectTaskEdgeKeySpecifier | (() => undefined | ProjectTaskEdgeKeySpecifier),
+		fields?: ProjectTaskEdgeFieldPolicy,
+	},
+	ProjectTaskPreviousValues?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | ProjectTaskPreviousValuesKeySpecifier | (() => undefined | ProjectTaskPreviousValuesKeySpecifier),
+		fields?: ProjectTaskPreviousValuesFieldPolicy,
+	},
+	ProjectTaskSubscriptionPayload?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | ProjectTaskSubscriptionPayloadKeySpecifier | (() => undefined | ProjectTaskSubscriptionPayloadKeySpecifier),
+		fields?: ProjectTaskSubscriptionPayloadFieldPolicy,
+	},
+	ResetPasswordConnection?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | ResetPasswordConnectionKeySpecifier | (() => undefined | ResetPasswordConnectionKeySpecifier),
+		fields?: ResetPasswordConnectionFieldPolicy,
+	},
+	ResetPasswordEdge?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | ResetPasswordEdgeKeySpecifier | (() => undefined | ResetPasswordEdgeKeySpecifier),
+		fields?: ResetPasswordEdgeFieldPolicy,
+	},
+	ResetPasswordPreviousValues?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | ResetPasswordPreviousValuesKeySpecifier | (() => undefined | ResetPasswordPreviousValuesKeySpecifier),
+		fields?: ResetPasswordPreviousValuesFieldPolicy,
+	},
+	ResetPasswordSubscriptionPayload?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | ResetPasswordSubscriptionPayloadKeySpecifier | (() => undefined | ResetPasswordSubscriptionPayloadKeySpecifier),
+		fields?: ResetPasswordSubscriptionPayloadFieldPolicy,
+	},
+	ResourceTagPreviousValues?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | ResourceTagPreviousValuesKeySpecifier | (() => undefined | ResourceTagPreviousValuesKeySpecifier),
+		fields?: ResourceTagPreviousValuesFieldPolicy,
+	},
+	ResourceTagSubscriptionPayload?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | ResourceTagSubscriptionPayloadKeySpecifier | (() => undefined | ResourceTagSubscriptionPayloadKeySpecifier),
+		fields?: ResourceTagSubscriptionPayloadFieldPolicy,
+	},
+	ServiceCategoryConnection?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | ServiceCategoryConnectionKeySpecifier | (() => undefined | ServiceCategoryConnectionKeySpecifier),
+		fields?: ServiceCategoryConnectionFieldPolicy,
+	},
+	ServiceCategoryEdge?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | ServiceCategoryEdgeKeySpecifier | (() => undefined | ServiceCategoryEdgeKeySpecifier),
+		fields?: ServiceCategoryEdgeFieldPolicy,
+	},
+	ServiceCategoryPreviousValues?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | ServiceCategoryPreviousValuesKeySpecifier | (() => undefined | ServiceCategoryPreviousValuesKeySpecifier),
+		fields?: ServiceCategoryPreviousValuesFieldPolicy,
+	},
+	ServiceCategorySubscriptionPayload?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | ServiceCategorySubscriptionPayloadKeySpecifier | (() => undefined | ServiceCategorySubscriptionPayloadKeySpecifier),
+		fields?: ServiceCategorySubscriptionPayloadFieldPolicy,
+	},
+	SettingsConnection?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | SettingsConnectionKeySpecifier | (() => undefined | SettingsConnectionKeySpecifier),
+		fields?: SettingsConnectionFieldPolicy,
+	},
+	SettingsEdge?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | SettingsEdgeKeySpecifier | (() => undefined | SettingsEdgeKeySpecifier),
+		fields?: SettingsEdgeFieldPolicy,
+	},
+	SettingsPreviousValues?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | SettingsPreviousValuesKeySpecifier | (() => undefined | SettingsPreviousValuesKeySpecifier),
+		fields?: SettingsPreviousValuesFieldPolicy,
+	},
+	SettingsSubscriptionPayload?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | SettingsSubscriptionPayloadKeySpecifier | (() => undefined | SettingsSubscriptionPayloadKeySpecifier),
+		fields?: SettingsSubscriptionPayloadFieldPolicy,
+	},
+	SmsMessageConnection?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | SmsMessageConnectionKeySpecifier | (() => undefined | SmsMessageConnectionKeySpecifier),
+		fields?: SmsMessageConnectionFieldPolicy,
+	},
+	SmsMessageEdge?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | SmsMessageEdgeKeySpecifier | (() => undefined | SmsMessageEdgeKeySpecifier),
+		fields?: SmsMessageEdgeFieldPolicy,
+	},
+	SmsMessagePreviousValues?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | SmsMessagePreviousValuesKeySpecifier | (() => undefined | SmsMessagePreviousValuesKeySpecifier),
+		fields?: SmsMessagePreviousValuesFieldPolicy,
+	},
+	SmsMessageSubscriptionPayload?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | SmsMessageSubscriptionPayloadKeySpecifier | (() => undefined | SmsMessageSubscriptionPayloadKeySpecifier),
+		fields?: SmsMessageSubscriptionPayloadFieldPolicy,
+	},
+	SmsProviderConnection?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | SmsProviderConnectionKeySpecifier | (() => undefined | SmsProviderConnectionKeySpecifier),
+		fields?: SmsProviderConnectionFieldPolicy,
+	},
+	SmsProviderEdge?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | SmsProviderEdgeKeySpecifier | (() => undefined | SmsProviderEdgeKeySpecifier),
+		fields?: SmsProviderEdgeFieldPolicy,
+	},
+	SmsProviderPreviousValues?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | SmsProviderPreviousValuesKeySpecifier | (() => undefined | SmsProviderPreviousValuesKeySpecifier),
+		fields?: SmsProviderPreviousValuesFieldPolicy,
+	},
+	SmsProviderSubscriptionPayload?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | SmsProviderSubscriptionPayloadKeySpecifier | (() => undefined | SmsProviderSubscriptionPayloadKeySpecifier),
+		fields?: SmsProviderSubscriptionPayloadFieldPolicy,
+	},
+	TagPreviousValues?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | TagPreviousValuesKeySpecifier | (() => undefined | TagPreviousValuesKeySpecifier),
+		fields?: TagPreviousValuesFieldPolicy,
+	},
+	TagSubscriptionPayload?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | TagSubscriptionPayloadKeySpecifier | (() => undefined | TagSubscriptionPayloadKeySpecifier),
+		fields?: TagSubscriptionPayloadFieldPolicy,
+	},
+	TaskMemberConnection?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | TaskMemberConnectionKeySpecifier | (() => undefined | TaskMemberConnectionKeySpecifier),
+		fields?: TaskMemberConnectionFieldPolicy,
+	},
+	TaskMemberEdge?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | TaskMemberEdgeKeySpecifier | (() => undefined | TaskMemberEdgeKeySpecifier),
+		fields?: TaskMemberEdgeFieldPolicy,
+	},
+	TaskMemberPreviousValues?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | TaskMemberPreviousValuesKeySpecifier | (() => undefined | TaskMemberPreviousValuesKeySpecifier),
+		fields?: TaskMemberPreviousValuesFieldPolicy,
+	},
+	TaskMemberSubscriptionPayload?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | TaskMemberSubscriptionPayloadKeySpecifier | (() => undefined | TaskMemberSubscriptionPayloadKeySpecifier),
+		fields?: TaskMemberSubscriptionPayloadFieldPolicy,
+	},
+	TestPreviousValues?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | TestPreviousValuesKeySpecifier | (() => undefined | TestPreviousValuesKeySpecifier),
+		fields?: TestPreviousValuesFieldPolicy,
+	},
+	TestSubscriptionPayload?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | TestSubscriptionPayloadKeySpecifier | (() => undefined | TestSubscriptionPayloadKeySpecifier),
+		fields?: TestSubscriptionPayloadFieldPolicy,
+	},
+	TourneyPlayerConnection?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | TourneyPlayerConnectionKeySpecifier | (() => undefined | TourneyPlayerConnectionKeySpecifier),
+		fields?: TourneyPlayerConnectionFieldPolicy,
+	},
+	TourneyPlayerEdge?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | TourneyPlayerEdgeKeySpecifier | (() => undefined | TourneyPlayerEdgeKeySpecifier),
+		fields?: TourneyPlayerEdgeFieldPolicy,
+	},
+	TourneyPlayerPreviousValues?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | TourneyPlayerPreviousValuesKeySpecifier | (() => undefined | TourneyPlayerPreviousValuesKeySpecifier),
+		fields?: TourneyPlayerPreviousValuesFieldPolicy,
+	},
+	TourneyPlayerSubscriptionPayload?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | TourneyPlayerSubscriptionPayloadKeySpecifier | (() => undefined | TourneyPlayerSubscriptionPayloadKeySpecifier),
+		fields?: TourneyPlayerSubscriptionPayloadFieldPolicy,
+	},
+	UserGroupConnection?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | UserGroupConnectionKeySpecifier | (() => undefined | UserGroupConnectionKeySpecifier),
+		fields?: UserGroupConnectionFieldPolicy,
+	},
+	UserGroupEdge?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | UserGroupEdgeKeySpecifier | (() => undefined | UserGroupEdgeKeySpecifier),
+		fields?: UserGroupEdgeFieldPolicy,
+	},
+	UserGroupPreviousValues?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | UserGroupPreviousValuesKeySpecifier | (() => undefined | UserGroupPreviousValuesKeySpecifier),
+		fields?: UserGroupPreviousValuesFieldPolicy,
+	},
+	UserGroupSubscriptionPayload?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | UserGroupSubscriptionPayloadKeySpecifier | (() => undefined | UserGroupSubscriptionPayloadKeySpecifier),
+		fields?: UserGroupSubscriptionPayloadFieldPolicy,
+	},
+	VotePreviousValues?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | VotePreviousValuesKeySpecifier | (() => undefined | VotePreviousValuesKeySpecifier),
+		fields?: VotePreviousValuesFieldPolicy,
+	},
+	VoteSubscriptionPayload?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | VoteSubscriptionPayloadKeySpecifier | (() => undefined | VoteSubscriptionPayloadKeySpecifier),
+		fields?: VoteSubscriptionPayloadFieldPolicy,
+	},
+	MarketplaceAuthResponse?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | MarketplaceAuthResponseKeySpecifier | (() => undefined | MarketplaceAuthResponseKeySpecifier),
+		fields?: MarketplaceAuthResponseFieldPolicy,
+	},
+	EthBlockResponse?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | EthBlockResponseKeySpecifier | (() => undefined | EthBlockResponseKeySpecifier),
+		fields?: EthBlockResponseFieldPolicy,
+	},
+	EthPersonalAccountResponse?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | EthPersonalAccountResponseKeySpecifier | (() => undefined | EthPersonalAccountResponseKeySpecifier),
+		fields?: EthPersonalAccountResponseFieldPolicy,
+	},
+	IceCandidate?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | IceCandidateKeySpecifier | (() => undefined | IceCandidateKeySpecifier),
+		fields?: IceCandidateFieldPolicy,
+	},
+	ServiceCategoryResponse?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | ServiceCategoryResponseKeySpecifier | (() => undefined | ServiceCategoryResponseKeySpecifier),
+		fields?: ServiceCategoryResponseFieldPolicy,
 	}
 };

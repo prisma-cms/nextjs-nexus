@@ -2,18 +2,19 @@ import { useMemo } from 'react'
 import {
   ApolloClient,
   ApolloLink,
-  HttpLink,
   InMemoryCache,
   NormalizedCacheObject,
   from,
   split,
 } from '@apollo/client'
+import { createUploadLink } from 'apollo-upload-client'
 import { onError } from '@apollo/client/link/error'
 import { WebSocketLink } from '@apollo/client/link/ws'
 import { SubscriptionClient } from 'subscriptions-transport-ws'
-import fetch from 'cross-fetch'
 import { getMainDefinition } from '@apollo/client/utilities'
 import { OperationDefinitionNode } from 'graphql'
+
+import { typePolicies } from './typePolicies'
 
 let apolloClient: ApolloClient<NormalizedCacheObject> | undefined
 
@@ -118,7 +119,7 @@ export function getWsLink() {
   return wsLink
 }
 
-function createApolloClient() {
+function createApolloClient(withWs: boolean) {
   const endpoint = getEndpoint()
 
   const errorLink = onError((error) => {
@@ -136,11 +137,11 @@ function createApolloClient() {
     }
   })
 
-  const httpLink = new HttpLink({
-    fetch,
-    uri: endpoint, // Server URL (must be absolute)
-    credentials: 'same-origin', // Additional fetch() options like `credentials` or `headers`
+  const uploadLink = createUploadLink({
+    uri: endpoint,
   })
+
+  const httpLink = uploadLink
 
   const authMiddleware = new ApolloLink((operation, forward) => {
     // add the authorization to the headers
@@ -161,7 +162,7 @@ function createApolloClient() {
 
   let wsHttpLink: ApolloLink = httpLink
 
-  const wsLink = getWsLink()
+  const wsLink = withWs ? getWsLink() : undefined
 
   if (wsLink) {
     wsHttpLink = split(
@@ -184,29 +185,25 @@ function createApolloClient() {
 
   const client = new ApolloClient({
     ssrMode: typeof window === 'undefined',
-    // link: errorLink.concat(link),
-
-    link: from([authMiddleware, link]),
+    link: from([
+      authMiddleware,
+      link,
+      // uploadLink,
+    ]),
     cache: new InMemoryCache({
       /**
        * Здесь можно прописать логику для отдельных полей объектов,
        * к примеру, объединение данных при выполнении подгрузки.
        */
-      // typePolicies: {
-      //   Query: {
-      //     fields: {
-      //       allPosts: concatPagination(),
-      //     },
-      //   },
-      // },
+      typePolicies,
     }),
   })
 
   return client
 }
 
-export function initializeApollo(initialState?: any) {
-  const _apolloClient = apolloClient ?? createApolloClient()
+export function initializeApollo(initialState: any, withWs: boolean) {
+  const _apolloClient = apolloClient ?? createApolloClient(withWs)
 
   // If your page has Next.js data fetching methods that use Apollo Client, the initial state
   // gets hydrated here
@@ -228,7 +225,10 @@ export function initializeApollo(initialState?: any) {
   return _apolloClient
 }
 
-export function useApollo(initialState: any) {
-  const store = useMemo(() => initializeApollo(initialState), [initialState])
+export function useApollo(initialState: any, withWs: boolean) {
+  const store = useMemo(() => initializeApollo(initialState, withWs), [
+    initialState,
+    withWs,
+  ])
   return store
 }

@@ -14,8 +14,10 @@ import { NextSeo, NextSeoProps } from 'next-seo'
 import Page404 from '../_Error/404'
 import ErrorPage from '../_Error'
 
+const withWs = true
+
 const App: MainApp<AppProps> = ({ Component, pageProps }) => {
-  const apolloClient = useApollo(pageProps.initialApolloState)
+  const apolloClient = useApollo(pageProps.initialApolloState, true)
 
   const { statusCode } = pageProps
 
@@ -75,7 +77,7 @@ App.getInitialProps = async (appContext: AppContext) => {
    * Initialize apollo-client and path into page props for collect
    * all data in cache.
    */
-  const apolloClient = initializeApollo()
+  const apolloClient = initializeApollo(undefined, withWs)
 
   /**
    * Передаваемый далее в страницу контекст
