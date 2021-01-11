@@ -2,13 +2,15 @@ node_modules
 .next
 yarn.lock
 package-lock.json
-public
 coverage
 dist
 generated
 .storybook
 storybook-static
+/.vscode
 /packages
+/public
+/shared
 
 # cypress
 /cypress

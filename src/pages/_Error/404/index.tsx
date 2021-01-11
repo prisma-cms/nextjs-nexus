@@ -4,7 +4,7 @@ import { Page } from 'src/pages/_App/interfaces'
 const Page404: Page = () => {
   return (
     <>
-      <NextSeo noindex title="Page Not Found" description="" />
+      <NextSeo noindex nofollow title="Page Not Found" description="" />
       <h2>404 - Page Not Found</h2>
     </>
   )

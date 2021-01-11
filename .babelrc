@@ -1,4 +1,18 @@
 {
   "presets": ["next/babel"],
-  "plugins": [["styled-components", { "ssr": true }]]
+  "plugins": [
+    [
+      // https://github.com/facebook/create-react-app/issues/8918
+      "@babel/plugin-transform-typescript",
+      {
+        "allowDeclareFields": true
+      }
+    ],
+    [
+      "styled-components",
+      {
+        "ssr": true
+      }
+    ]
+  ]
 }

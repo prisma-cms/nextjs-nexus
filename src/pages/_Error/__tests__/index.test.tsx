@@ -26,12 +26,12 @@ describe('Error page', () => {
       head
         .querySelector('meta[name=robots]')
         ?.attributes.getNamedItem('content')?.value
-    ).toBe('noindex,follow')
+    ).toBe('noindex,nofollow')
 
     expect(
       head
         .querySelector('meta[name=googlebot]')
         ?.attributes.getNamedItem('content')?.value
-    ).toBe('noindex,follow')
+    ).toBe('noindex,nofollow')
   })
 })

@@ -1,6 +1,6 @@
 {
   "parser": "@typescript-eslint/parser",
-  "plugins": ["@typescript-eslint", "react-hooks", "cypress"],
+  "plugins": ["@typescript-eslint", "react-hooks", "deprecate", "cypress"],
   "extends": [
     "plugin:cypress/recommended",
     "eslint:recommended",
@@ -19,7 +19,7 @@
   },
   "overrides": [
     {
-      "files": ["*.{ts,tsx}"],
+      "files": ["src/**/*.{ts,tsx}"],
       "rules": {
         // Deny use require
         "no-restricted-modules": [

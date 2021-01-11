@@ -3,6 +3,8 @@ import next from 'next'
 import { createProxyMiddleware } from 'http-proxy-middleware'
 import { endpoint } from '../src/config'
 
+const cwd = process.cwd()
+
 const port = (process.env.PORT && parseInt(process.env.PORT, 10)) || 3000
 const dev = process.env.NODE_ENV !== 'production'
 const app = next({ dev })
@@ -29,6 +31,8 @@ const apiProxy = createProxyMiddleware({
 
 app.prepare().then(() => {
   const server = express()
+
+  server.use(express.static(cwd + '/shared'))
 
   server.post('/api/', apiProxy)
 
