@@ -80,9 +80,15 @@ export function getSubscriptionClient() {
      */
     subscriptionClient = new SubscriptionClient(wsUri.toString(), {
       reconnect: true,
-      connectionParams: () => ({
-        Authorization: (localStorage && localStorage.token) || undefined,
-      }),
+      connectionParams: () => {
+        const params: { Authorization?: string } = {}
+
+        if (localStorage && localStorage.token) {
+          params.Authorization = localStorage.token
+        }
+
+        return params
+      },
     })
   }
 
@@ -147,13 +153,18 @@ function createApolloClient(withWs: boolean) {
     // add the authorization to the headers
 
     operation.setContext(({ headers }: { headers?: any }) => {
-      return {
-        headers: {
+      const authorization =
+        (global.localStorage && global.localStorage.getItem('token')) || null
+
+      if (authorization) {
+        headers = {
           ...headers,
-          authorization:
-            (global.localStorage && global.localStorage.getItem('token')) ||
-            undefined,
-        },
+          authorization,
+        }
+      }
+
+      return {
+        headers,
       }
     })
 
