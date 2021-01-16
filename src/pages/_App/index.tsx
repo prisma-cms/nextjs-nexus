@@ -13,6 +13,7 @@ import {
 import { NextSeo, NextSeoProps } from 'next-seo'
 import Page404 from '../_Error/404'
 import ErrorPage from '../_Error'
+import { GlobalStyle } from 'src/theme/GlobalStyle'
 
 const withWs = true
 
@@ -59,6 +60,7 @@ const App: MainApp<AppProps> = ({ Component, pageProps }) => {
 
   return (
     <>
+      <GlobalStyle />
       <ThemeProvider theme={theme}>
         <ApolloProvider client={apolloClient}>{content}</ApolloProvider>
       </ThemeProvider>

@@ -7,8 +7,6 @@ import { linkTo } from '@storybook/addon-links'
 import { RouterContext } from 'next/dist/next-server/lib/router-context'
 import { MittEmitter } from 'next/dist/next-server/lib/mitt';
 
-import '../src/styles/styles.scss';
-
 export const parameters = {
   options: {
     storySort: (a: any, b: any) => {
