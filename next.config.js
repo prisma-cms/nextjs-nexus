@@ -1,14 +1,9 @@
-const withBundleAnalyzer = require('@next/bundle-analyzer')({
-  enabled: process.env.ANALYZE === 'true',
-})
-
-const MomentLocalesPlugin = require('moment-locales-webpack-plugin')
 
 const webpack = (config, options) => {
   // Note: we provide webpack above so you should not `require` it
   // Perform customizations to webpack config
 
-  // console.log('config', config);
+  const MomentLocalesPlugin = require('moment-locales-webpack-plugin')
 
   /**
    * Fix locales issue
@@ -96,9 +91,20 @@ const webpack = (config, options) => {
   // }
 }
 
-const config = withBundleAnalyzer({
+let config = {
   webpack,
-})
+}
+
+/**
+ * Do not run this in production
+ */
+if (process.env.ANALYZE) {
+  const withBundleAnalyzer = require('@next/bundle-analyzer')({
+    enabled: true,
+  })
+
+  config = withBundleAnalyzer(config);
+}
 
 module.exports = {
   ...config,
