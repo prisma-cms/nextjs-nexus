@@ -90,21 +90,19 @@ const webpack = (config, options) => {
   // }
 }
 
-let config = {
-  webpack,
-}
 
-/**
- * Do not run this in production
- */
-if (process.env.ANALYZE) {
-  const withBundleAnalyzer = require('@next/bundle-analyzer')({
-    enabled: true,
-  })
+module.exports = (phase, defaultConfig) => {
+  // if(phase === "phase-development-server") {
+  if (phase !== 'phase-production-server') {
+    const withBundleAnalyzer = require('@next/bundle-analyzer')({
+      enabled: process.env.ANALYZE === 'true',
+    })
 
-  config = withBundleAnalyzer(config)
-}
+    return withBundleAnalyzer({
+      webpack,
+    });
+  }
 
-module.exports = {
-  ...config,
+  // else
+  return defaultConfig
 }
