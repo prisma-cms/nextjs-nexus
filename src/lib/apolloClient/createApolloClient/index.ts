@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import { createUploadLink } from 'apollo-upload-client'
 import { onError } from '@apollo/client/link/error'
 import { getMainDefinition } from '@apollo/client/utilities'
@@ -150,13 +149,6 @@ function createApolloClient({ withWs, appContext }: createApolloClientProps) {
     // add the authorization to the headers
 
     operation.setContext(({ headers }: { headers?: any }) => {
-      console.log(
-        'createApolloClient appContext headers',
-        appContext?.ctx.req?.headers
-      )
-
-      console.log('authMiddleware headers', headers)
-
       /**
        * Если заголовки отсутствуют и есть серверные заголовки, подставляем их.
        * Это надо для запросов в режиме SSR
@@ -164,8 +156,6 @@ function createApolloClient({ withWs, appContext }: createApolloClientProps) {
       if (!headers && appContext?.ctx.req?.headers) {
         headers = { ...appContext?.ctx.req?.headers }
       }
-
-      console.log('authMiddleware headers 2', headers)
 
       const authorization =
         (global.localStorage && global.localStorage.getItem('token')) || null
