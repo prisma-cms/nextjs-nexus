@@ -1,4 +1,3 @@
-
 const webpack = (config, options) => {
   // Note: we provide webpack above so you should not `require` it
   // Perform customizations to webpack config
@@ -103,7 +102,7 @@ if (process.env.ANALYZE) {
     enabled: true,
   })
 
-  config = withBundleAnalyzer(config);
+  config = withBundleAnalyzer(config)
 }
 
 module.exports = {

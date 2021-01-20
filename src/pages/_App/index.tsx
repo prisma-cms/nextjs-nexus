@@ -79,7 +79,10 @@ App.getInitialProps = async (appContext: AppContext) => {
    * Initialize apollo-client and path into page props for collect
    * all data in cache.
    */
-  const apolloClient = initializeApollo(undefined, withWs)
+  const apolloClient = initializeApollo({
+    withWs,
+    appContext,
+  })
 
   /**
    * Передаваемый далее в страницу контекст

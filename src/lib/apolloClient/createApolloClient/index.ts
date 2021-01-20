@@ -1,22 +1,24 @@
-import { useMemo } from 'react'
+/* eslint-disable no-console */
+import { createUploadLink } from 'apollo-upload-client'
+import { onError } from '@apollo/client/link/error'
+import { getMainDefinition } from '@apollo/client/utilities'
+import { OperationDefinitionNode } from 'graphql'
+import { WebSocketLink } from '@apollo/client/link/ws'
+import { SubscriptionClient } from 'subscriptions-transport-ws'
 import {
   ApolloClient,
   ApolloLink,
   InMemoryCache,
-  NormalizedCacheObject,
   from,
   split,
 } from '@apollo/client'
-import { createUploadLink } from 'apollo-upload-client'
-import { onError } from '@apollo/client/link/error'
-import { WebSocketLink } from '@apollo/client/link/ws'
-import { SubscriptionClient } from 'subscriptions-transport-ws'
-import { getMainDefinition } from '@apollo/client/utilities'
-import { OperationDefinitionNode } from 'graphql'
 
 import { typePolicies } from './typePolicies'
+import { createApolloClientProps } from './interfaces'
 
-let apolloClient: ApolloClient<NormalizedCacheObject> | undefined
+export * from './interfaces'
+
+let wsLink: WebSocketLink | undefined
 
 function getEndpoint() {
   let endpoint
@@ -27,20 +29,15 @@ function getEndpoint() {
   } else {
     // TODO fix for vercel.com
 
-    // const os = require('os')
-
-    // const hostname = os.hostname()
-
-    // const PORT = process.env.PORT || 3000
-
-    // origin = `http://${hostname}:${PORT}`
-    endpoint = process.env.API_ENDPOINT || 'https://api.prisma-cms.com'
+    // eslint-disable-next-line no-restricted-modules
+    const os = require('os')
+    const hostname = os.hostname()
+    const PORT = (process.env.PORT && parseInt(process.env.PORT, 10)) || 3000
+    endpoint = `http://${hostname}:${PORT}/api/`
   }
 
   return endpoint
 }
-
-let wsLink: WebSocketLink | undefined
 
 let subscriptionClient: SubscriptionClient | undefined
 
@@ -125,7 +122,7 @@ export function getWsLink() {
   return wsLink
 }
 
-function createApolloClient(withWs: boolean) {
+function createApolloClient({ withWs, appContext }: createApolloClientProps) {
   const endpoint = getEndpoint()
 
   const errorLink = onError((error) => {
@@ -153,6 +150,23 @@ function createApolloClient(withWs: boolean) {
     // add the authorization to the headers
 
     operation.setContext(({ headers }: { headers?: any }) => {
+      console.log(
+        'createApolloClient appContext headers',
+        appContext?.ctx.req?.headers
+      )
+
+      console.log('authMiddleware headers', headers)
+
+      /**
+       * Если заголовки отсутствуют и есть серверные заголовки, подставляем их.
+       * Это надо для запросов в режиме SSR
+       */
+      if (!headers && appContext?.ctx.req?.headers) {
+        headers = { ...appContext?.ctx.req?.headers }
+      }
+
+      console.log('authMiddleware headers 2', headers)
+
       const authorization =
         (global.localStorage && global.localStorage.getItem('token')) || null
 
@@ -213,33 +227,4 @@ function createApolloClient(withWs: boolean) {
   return client
 }
 
-export function initializeApollo(initialState: any, withWs: boolean) {
-  const _apolloClient = apolloClient ?? createApolloClient(withWs)
-
-  // If your page has Next.js data fetching methods that use Apollo Client, the initial state
-  // gets hydrated here
-  if (initialState) {
-    // Get existing cache, loaded during client side data fetching
-    const existingCache = _apolloClient.extract()
-    // Restore the cache using the data passed from getStaticProps/getServerSideProps
-    // combined with the existing cached data
-    _apolloClient.cache.restore({ ...existingCache, ...initialState })
-  }
-  // For SSG and SSR always create a new Apollo Client
-  if (typeof window === 'undefined') {
-    return _apolloClient
-  }
-
-  // Create the Apollo Client once in the client
-  if (!apolloClient) apolloClient = _apolloClient
-
-  return _apolloClient
-}
-
-export function useApollo(initialState: any, withWs: boolean) {
-  const store = useMemo(() => initializeApollo(initialState, withWs), [
-    initialState,
-    withWs,
-  ])
-  return store
-}
+export default createApolloClient

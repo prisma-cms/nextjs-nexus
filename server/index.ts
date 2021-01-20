@@ -27,6 +27,13 @@ const apiProxy = createProxyMiddleware({
       'Something went wrong. And we are reporting a custom error message.'
     )
   },
+  router: (req) => {
+    if (!req.headers.referer && req.headers.host) {
+      req.headers.referer = `http://${req.headers.host}`
+    }
+
+    return endpoint
+  },
 })
 
 app.prepare().then(() => {
