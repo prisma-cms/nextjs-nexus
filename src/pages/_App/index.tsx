@@ -60,8 +60,8 @@ const App: MainApp<AppProps> = ({ Component, pageProps }) => {
 
   return (
     <>
-      <GlobalStyle />
       <ThemeProvider theme={theme}>
+        <GlobalStyle />
         <ApolloProvider client={apolloClient}>{content}</ApolloProvider>
       </ThemeProvider>
     </>

@@ -14,6 +14,7 @@ import {
 
 import { typePolicies } from './typePolicies'
 import { createApolloClientProps } from './interfaces'
+import { IncomingHttpHeaders } from 'http'
 
 export * from './interfaces'
 
@@ -148,7 +149,7 @@ function createApolloClient({ withWs, appContext }: createApolloClientProps) {
   const authMiddleware = new ApolloLink((operation, forward) => {
     // add the authorization to the headers
 
-    operation.setContext(({ headers }: { headers?: any }) => {
+    operation.setContext(({ headers }: { headers?: IncomingHttpHeaders }) => {
       /**
        * Если заголовки отсутствуют и есть серверные заголовки, подставляем их.
        * Это надо для запросов в режиме SSR

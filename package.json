@@ -10,6 +10,7 @@
     "start": "cross-env NODE_ENV=production node dist/server/index.js",
     "generate:types": "cross-env NODE_PATH=. ts-node -P tsconfig.server.json src/modules/gql/cli/generateTypes/run",
     "types": "tsc --pretty --noEmit",
+    "types:server": "yarn types -P tsconfig.server.json",
     "format": "prettier --write .",
     "lint": "eslint . --ext ts --ext tsx --ext js",
     "storybook": "start-storybook -p 6006",
@@ -102,7 +103,7 @@
     "sass-loader": "^10.0.5",
     "ts-jest": "^26.4.3",
     "ts-node": "^9.0.0",
-    "typescript": "^3.8.3",
+    "typescript": "^4.1.2",
     "typescript-styled-plugin": "^0.15.0"
   },
   "description": "Bootstrap a developer-friendly NextJS app",

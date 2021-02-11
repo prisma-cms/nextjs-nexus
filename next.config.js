@@ -90,7 +90,6 @@ const webpack = (config, options) => {
   // }
 }
 
-
 module.exports = (phase, defaultConfig) => {
   // if(phase === "phase-development-server") {
   if (phase !== 'phase-production-server') {
@@ -100,7 +99,7 @@ module.exports = (phase, defaultConfig) => {
 
     return withBundleAnalyzer({
       webpack,
-    });
+    })
   }
 
   // else

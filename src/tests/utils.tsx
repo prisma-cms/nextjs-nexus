@@ -11,6 +11,7 @@ import { ThemeProvider } from 'styled-components'
 import 'jest-styled-components'
 
 import { HeadManagerContext } from 'next/dist/next-server/lib/head-manager-context'
+import { Page, PageProps } from 'src/pages/_App/interfaces'
 
 /**
  * Base renderer from @testing-library/react
@@ -51,9 +52,9 @@ const HeadProvider: React.FC = ({ children }) => {
 /**
  * Renderer with main App
  */
-const AppProvider: React.FC = ({ children }: any, pageProps: any) => {
-  const Component = useMemo(() => {
-    return () => children
+const AppProvider: React.FC = ({ children }, pageProps: PageProps) => {
+  const Component: Page = useMemo(() => {
+    return () => <>{children}</>
   }, [children])
 
   return (
@@ -69,7 +70,7 @@ export const appRender = (ui: ReactElement) => {
 /**
  * Renderer with Theme
  */
-const WithThemeProvider: React.FC = ({ children }: any) => {
+const WithThemeProvider: React.FC = ({ children }) => {
   return (
     <HeadProvider>
       <ThemeProvider theme={theme}>{children}</ThemeProvider>

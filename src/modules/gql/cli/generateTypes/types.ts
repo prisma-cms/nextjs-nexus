@@ -61,7 +61,7 @@ export const typescriptPluginConfig: TypeScriptPluginConfig = {
   },
 }
 
-function createQueriesMap(filesMap: any) {
+function createQueriesMap(filesMap: Map<string, string>) {
   let documentsString = ''
   for (const contents of filesMap.values()) {
     documentsString += contents + '\n'
@@ -157,6 +157,8 @@ async function generateTypesFromMap() {
 
   const loader = { loader: loaderFunction }
 
+  // const documents: Types.Config["documents"] = {}
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const documents: any = {}
 
   for (const name of queriesMap.keys()) {

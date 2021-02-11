@@ -3,6 +3,7 @@ import theme from '..'
 
 export type BreakpointsKey = keyof typeof theme['breakpoints']
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export type MinWidth = Record<BreakpointsKey, (args: any) => any>
 
 // TODO: Проработать типы https://github.com/styled-components/styled-components/issues/430
