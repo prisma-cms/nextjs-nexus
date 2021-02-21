@@ -192,14 +192,10 @@ async function generateTypesFromMap() {
     },
   }
 
-  const config: TypeScriptPluginConfig = {
-    scalars,
-  }
-
   const input: Types.Config = {
     schema: path.join(OUTPUT_PATH, 'schema.json'),
     documents,
-    config,
+    config: typescriptPluginConfig,
     generates: {
       types: codegenConfig,
     },
