@@ -38,7 +38,7 @@ yarn-error.log*
 .vscode
 
 # yarn
-yarn.lock
+# yarn.lock
 
 # envs
 .env
