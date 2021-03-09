@@ -48,12 +48,13 @@ const webpack = (config, options) => {
 
   // https://github.com/vercel/next.js/issues/11164#issuecomment-602204795
   config.module.rules.push({
-    test: /\.(png|jpe?g|gif)$/i,
+    // test: /\.(png|jpe?g|gif)$/i,
+    test: /\.(png|jpe?g|gif|svg|eot|ttf|woff|woff2)$/,
     // loader: 'url-loader',
-    issuer: {
-      // nextjs already handles url() in css/sass/scss files
-      test: /\.\w+(?<!(s?c|sa)ss)$/i,
-    },
+    // issuer: {
+    //   // nextjs already handles url() in css/sass/scss files
+    //   test: /\.\w+(?<!(s?c|sa)ss)$/i,
+    // },
     use: [
       {
         loader: 'url-loader',
