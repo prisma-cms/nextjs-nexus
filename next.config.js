@@ -15,22 +15,6 @@ const webpack = (config, options) => {
   )
 
   config.module.rules.push({
-    test: /\.svg/,
-    use: [
-      options.defaultLoaders.babel,
-      {
-        loader: 'file-loader',
-        options: {
-          limit: 1000,
-          name: '[name]_[hash].[ext]',
-          publicPath: `/_next/static/svg`,
-          outputPath: 'static/svg',
-        },
-      },
-    ],
-  })
-
-  config.module.rules.push({
     test: /\.pdf/,
     use: [
       options.defaultLoaders.babel,

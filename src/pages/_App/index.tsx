@@ -5,10 +5,10 @@ import { ThemeProvider } from 'styled-components'
 import theme from 'src/theme'
 import { useApollo, initializeApollo } from 'src/lib/apolloClient'
 import {
-  NextPageContextCustom,
   AppProps,
   MainApp,
   AppInitialPropsCustom,
+  NextPageContextCustom,
 } from './interfaces'
 import { NextSeo, NextSeoProps } from 'next-seo'
 import Page404 from '../_Error/404'
@@ -87,12 +87,14 @@ App.getInitialProps = async (appContext: AppContext) => {
   /**
    * Передаваемый далее в страницу контекст
    */
+  const ctx: NextPageContextCustom = {
+    ...appContext.ctx,
+    apolloClient,
+  }
+
   const newAppContext = {
     ...appContext,
-    ctx: {
-      ...appContext.ctx,
-      apolloClient,
-    } as NextPageContextCustom,
+    ctx,
   }
 
   /**
