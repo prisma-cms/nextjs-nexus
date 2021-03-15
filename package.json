@@ -4,7 +4,7 @@
   "license": "MIT",
   "version": "1.6.0",
   "scripts": {
-    "dev": "nodemon",
+    "dev": "cross-env NODE_ENV=development TS_NODE_PROJECT=tsconfig.server.json ts-node-dev --ignore-watch .next --rs --no-notify --respawn --transpile-only server",
     "build": "next build && tsc --project tsconfig.server.json",
     "build:analyze": "cross-env ANALYZE=true yarn build",
     "start": "cross-env NODE_ENV=production node dist/server/index.js",
@@ -43,7 +43,7 @@
     "express": "^4.17.1",
     "graphql": "^15.3.0",
     "http-proxy-middleware": "^1.0.5",
-    "next": "^10.0.5",
+    "next": "^10.0.8",
     "next-seo": "^4.17.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
@@ -103,6 +103,7 @@
     "sass-loader": "^10.0.5",
     "ts-jest": "^26.4.3",
     "ts-node": "^9.0.0",
+    "ts-node-dev": "^1.1.1",
     "typescript": "^4.1.2",
     "typescript-styled-plugin": "^0.15.0"
   },
