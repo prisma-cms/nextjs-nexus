@@ -49,5 +49,3 @@ storybook-static
 # jest
 __snapshots__
 
-# cypress
-/cypress
