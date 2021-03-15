@@ -63,7 +63,6 @@ addDecorator(makeDecorator({
           events: {} as MittEmitter,
           isReady: true,
           isLocaleDomain: false,
-          isPreview: false,
         }}
       >
         {storyFn(context)}
