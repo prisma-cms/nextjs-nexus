@@ -41,7 +41,7 @@ app.prepare().then(() => {
 
   server.use(express.static(cwd + '/shared'))
 
-  server.post('/api/', apiProxy)
+  server.use('/api/', apiProxy)
 
   // Uncomment to serve storybook-static (before should run yarn build-storybook)
   // server.use('/storybook-static/', express.static('./storybook-static/'))
