@@ -18,7 +18,7 @@ import { GlobalStyle } from 'src/theme/GlobalStyle'
 const withWs = true
 
 const App: MainApp<AppProps> = ({ Component, pageProps }) => {
-  const apolloClient = useApollo(pageProps.initialApolloState, true)
+  const apolloClient = useApollo(pageProps.initialApolloState, withWs)
 
   const { statusCode } = pageProps
 
