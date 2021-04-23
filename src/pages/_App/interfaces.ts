@@ -18,7 +18,8 @@ export interface NextPageContextCustom extends NextPageContext {
   apolloClient: ApolloClientNormolized
 }
 
-export interface PageProps extends React.PropsWithChildren<{}> {
+export interface PageProps
+  extends React.PropsWithChildren<Record<string, unknown>> {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   initialApolloState?: any
 

@@ -176,7 +176,7 @@ export type FileFieldPolicy = {
 	CreatedBy?: FieldPolicy<any> | FieldReadFunction<any>,
 	ImageResource?: FieldPolicy<any> | FieldReadFunction<any>
 };
-export type UserKeySpecifier = ('id' | 'createdAt' | 'updatedAt' | 'username' | 'email' | 'phone' | 'showEmail' | 'showPhone' | 'password' | 'fullname' | 'image' | 'address' | 'sudo' | 'active' | 'activated' | 'deleted' | 'Groups' | 'CreatedUsers' | 'CreatedBy' | 'LogedIns' | 'Resources' | 'Votes' | 'NotificationTypes' | 'NotificationTypesCreated' | 'Tags' | 'ResourceTags' | 'EthContractSourcesCreated' | 'EthAccounts' | 'Teams' | 'TeamsCreated' | 'Projects' | 'ProjectsCreated' | 'Tasks' | 'Timers' | 'PrismaProjects' | 'CodeChallengeCompletions' | 'UserTechnologies' | 'TasksCreated' | 'hasEmail' | 'hasPhone' | 'marketplaceToken' | 'hidden' | 'EthAccountAuthed' | 'worlds' | 'settings' | UserKeySpecifier)[];
+export type UserKeySpecifier = ('id' | 'createdAt' | 'updatedAt' | 'username' | 'email' | 'phone' | 'showEmail' | 'showPhone' | 'password' | 'fullname' | 'image' | 'address' | 'sudo' | 'active' | 'activated' | 'deleted' | 'Groups' | 'CreatedUsers' | 'CreatedBy' | 'LogedIns' | 'Resources' | 'Votes' | 'NotificationTypes' | 'NotificationTypesCreated' | 'Tags' | 'ResourceTags' | 'EthContractSourcesCreated' | 'EthAccounts' | 'Teams' | 'TeamsCreated' | 'Projects' | 'ProjectsCreated' | 'Tasks' | 'Timers' | 'PrismaProjects' | 'CodeChallengeCompletions' | 'UserTechnologies' | 'TasksCreated' | 'acceptChatMessageAnonymous' | 'acceptNewChatRoomAnonymous' | 'acceptNewChatRoom' | 'hasEmail' | 'hasPhone' | 'marketplaceToken' | 'hidden' | 'EthAccountAuthed' | 'worlds' | 'settings' | UserKeySpecifier)[];
 export type UserFieldPolicy = {
 	id?: FieldPolicy<any> | FieldReadFunction<any>,
 	createdAt?: FieldPolicy<any> | FieldReadFunction<any>,
@@ -216,6 +216,9 @@ export type UserFieldPolicy = {
 	CodeChallengeCompletions?: FieldPolicy<any> | FieldReadFunction<any>,
 	UserTechnologies?: FieldPolicy<any> | FieldReadFunction<any>,
 	TasksCreated?: FieldPolicy<any> | FieldReadFunction<any>,
+	acceptChatMessageAnonymous?: FieldPolicy<any> | FieldReadFunction<any>,
+	acceptNewChatRoomAnonymous?: FieldPolicy<any> | FieldReadFunction<any>,
+	acceptNewChatRoom?: FieldPolicy<any> | FieldReadFunction<any>,
 	hasEmail?: FieldPolicy<any> | FieldReadFunction<any>,
 	hasPhone?: FieldPolicy<any> | FieldReadFunction<any>,
 	marketplaceToken?: FieldPolicy<any> | FieldReadFunction<any>,

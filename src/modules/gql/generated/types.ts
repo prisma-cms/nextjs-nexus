@@ -9286,6 +9286,12 @@ export interface User extends Node {
   CodeChallengeCompletions?: Maybe<Array<CodeChallengeCompletion>>;
   UserTechnologies?: Maybe<Array<UserTechnology>>;
   TasksCreated?: Maybe<Array<Task>>;
+  /** Разрешены ли чат-сообщения от анонимных пользователей */
+  acceptChatMessageAnonymous?: Maybe<Scalars['Boolean']>;
+  /** Разрешено ли анонимному пользователю начать новый диалог с данным пользователем */
+  acceptNewChatRoomAnonymous?: Maybe<Scalars['Boolean']>;
+  /** Разрешено ли авторизованному пользователю начать новый диалог с данным пользователем */
+  acceptNewChatRoom?: Maybe<Scalars['Boolean']>;
   hasEmail: Scalars['Boolean'];
   hasPhone: Scalars['Boolean'];
   marketplaceToken?: Maybe<Scalars['String']>;
@@ -16420,6 +16426,12 @@ export interface UserCreateInput {
   image?: Maybe<Scalars['String']>;
   address?: Maybe<Scalars['String']>;
   marketplaceToken?: Maybe<Scalars['String']>;
+  /** Разрешены ли чат-сообщения от анонимных пользователей */
+  acceptChatMessageAnonymous?: Maybe<Scalars['Boolean']>;
+  /** Разрешено ли анонимному пользователю начать новый диалог с данным пользователем */
+  acceptNewChatRoomAnonymous?: Maybe<Scalars['Boolean']>;
+  /** Разрешено ли авторизованному пользователю начать новый диалог с данным пользователем */
+  acceptNewChatRoom?: Maybe<Scalars['Boolean']>;
 }
 
 export interface PlayerUpdateInput {
@@ -16965,6 +16977,12 @@ export interface UserUpdateInput {
   NotificationTypes?: Maybe<NotificationTypeUpdateManyWithoutUsersInput>;
   marketplaceToken?: Maybe<Scalars['String']>;
   Groups?: Maybe<UserGroupUpdateManyWithoutUsersInput>;
+  /** Разрешены ли чат-сообщения от анонимных пользователей */
+  acceptChatMessageAnonymous?: Maybe<Scalars['Boolean']>;
+  /** Разрешено ли анонимному пользователю начать новый диалог с данным пользователем */
+  acceptNewChatRoomAnonymous?: Maybe<Scalars['Boolean']>;
+  /** Разрешено ли авторизованному пользователю начать новый диалог с данным пользователем */
+  acceptNewChatRoom?: Maybe<Scalars['Boolean']>;
 }
 
 export interface NotificationTypeUpdateManyWithoutUsersInput {

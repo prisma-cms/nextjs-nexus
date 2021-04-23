@@ -56,7 +56,7 @@ const App: MainApp<AppProps> = ({ Component, pageProps }) => {
         {content}
       </>
     )
-  }, [statusCode, pageProps])
+  }, [statusCode, pageProps, Component])
 
   return (
     <>
