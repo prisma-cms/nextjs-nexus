@@ -5,31 +5,32 @@ import { yupResolver } from '@hookform/resolvers/yup'
 import * as yup from 'yup'
 import { SchemaOf } from 'yup'
 import {
-  UserSignupDataInput,
-  useSignupMutation,
+  SigninMutationVariables,
+  useSigninMutation,
 } from 'src/modules/gql/generated'
 import TextField from 'src/components/ui/form/TextField'
 import Button from 'src/components/ui/Button'
 // import { FormStyled } from "src/components/ui/form/styles";
 
-import { SignupFormStyled } from './styles'
+import { SigninFormStyled } from './styles'
 import { Context } from 'src/pages/_App/Context'
+
+type FormData = Pick<SigninMutationVariables['where'], 'username'> &
+  SigninMutationVariables['data']
 
 /**
  * Форма регистрации
  */
-const SignupForm: React.FC = () => {
+const SigninForm: React.FC = () => {
   const context = useContext(Context)
 
   /**
    * Описываем структуру формы в соответствии с типизацией
    */
   const schema = useMemo(() => {
-    const schema: SchemaOf<UserSignupDataInput> = yup
+    const schema: SchemaOf<FormData> = yup
       .object({
-        email: yup.string().email().required(),
         username: yup.string().required(),
-        fullname: yup.string(),
         password: yup.string().required(),
       })
       .defined()
@@ -37,7 +38,7 @@ const SignupForm: React.FC = () => {
     return schema
   }, [])
 
-  const { handleSubmit, control } = useForm<UserSignupDataInput>({
+  const { handleSubmit, control } = useForm<FormData>({
     resolver: yupResolver(schema),
     shouldFocusError: true,
   })
@@ -46,27 +47,34 @@ const SignupForm: React.FC = () => {
    * Хук регистрации
    */
 
-  const [signupMutation, { loading: signupLoading }] = useSignupMutation()
+  const [signinMutation, { loading: signinLoading }] = useSigninMutation()
 
   /**
    * Отправка формы
    */
   const onSubmit = handleSubmit((data) => {
-    if (signupLoading) {
+    if (signinLoading) {
       return
     }
 
     /**
      * Выполняем запрос на сервер
      */
-    signupMutation({
+    signinMutation({
       variables: {
-        data,
+        where: {
+          username: data.username,
+        },
+        data: {
+          password: data.password,
+        },
       },
     })
       .then((r) => {
-        if (r.data?.signup.data) {
-          context?.onAuthSuccess(r.data.signup)
+        if (r.data?.signin.data) {
+          context?.onAuthSuccess(r.data.signin)
+        } else {
+          alert(r.data?.signin.message || 'Ошибка авторизации')
         }
       })
       .catch((error) => {
@@ -78,50 +86,22 @@ const SignupForm: React.FC = () => {
    * Рендерер поля
    */
   const usernameFieldRender: ControllerProps<
-    UserSignupDataInput,
+    FormData,
     'username'
   >['render'] = useCallback(({ field, formState }) => {
     return (
       <TextField
         type="text"
         title="Логин"
-        {...field}
         error={formState.errors[field.name]}
-      />
-    )
-  }, [])
-
-  const emailFieldRender: ControllerProps<
-    UserSignupDataInput,
-    'email'
-  >['render'] = useCallback(({ field, formState }) => {
-    return (
-      <TextField
-        type="email"
-        title="Емейл"
-        {...field}
-        error={formState.errors[field.name]}
-      />
-    )
-  }, [])
-
-  const fullnameFieldRender: ControllerProps<
-    UserSignupDataInput,
-    'fullname'
-  >['render'] = useCallback(({ field, formState }) => {
-    return (
-      <TextField
-        type="text"
-        title="ФИО"
         {...field}
         value={field.value || ''}
-        error={formState.errors[field.name]}
       />
     )
   }, [])
 
   const passwordFieldRender: ControllerProps<
-    UserSignupDataInput,
+    FormData,
     'password'
   >['render'] = useCallback(({ field, formState }) => {
     return (
@@ -138,8 +118,8 @@ const SignupForm: React.FC = () => {
   return useMemo(() => {
     return (
       <>
-        <SignupFormStyled onSubmit={onSubmit}>
-          <h2>Зарегистрироваться</h2>
+        <SigninFormStyled onSubmit={onSubmit}>
+          <h2>Авторизоваться</h2>
 
           <Controller
             name="username"
@@ -149,41 +129,25 @@ const SignupForm: React.FC = () => {
           />
 
           <Controller
-            name="email"
-            control={control}
-            defaultValue={''}
-            render={emailFieldRender}
-          />
-
-          <Controller
-            name="fullname"
-            control={control}
-            defaultValue={''}
-            render={fullnameFieldRender}
-          />
-
-          <Controller
             name="password"
             control={control}
             defaultValue={''}
             render={passwordFieldRender}
           />
 
-          <Button type="submit" disabled={signupLoading} variant="success">
+          <Button type="submit" disabled={signinLoading} variant="success">
             Зарегистрироваться
           </Button>
-        </SignupFormStyled>
+        </SigninFormStyled>
       </>
     )
   }, [
     control,
-    emailFieldRender,
-    fullnameFieldRender,
     onSubmit,
     passwordFieldRender,
-    signupLoading,
+    signinLoading,
     usernameFieldRender,
   ])
 }
 
-export default SignupForm
+export default SigninForm

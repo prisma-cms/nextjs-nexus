@@ -16,8 +16,20 @@ import ErrorPage from '../_Error'
 import { GlobalStyle } from 'src/theme/GlobalStyle'
 import { Context, ContextValue } from './Context'
 import { useMeQuery } from 'src/modules/gql/generated'
+import * as yup from 'yup'
 
 const withWs = false
+
+yup.setLocale({
+  mixed: {
+    default: 'Ошибка заполнения',
+    required: 'Обязательное поле',
+  },
+  string: {
+    required: 'Обязательное поле',
+    email: 'Введите корректный емейл',
+  },
+})
 
 const App: MainApp<AppProps> = ({ Component, pageProps }) => {
   const apolloClient = useApollo(pageProps.initialApolloState, withWs)
