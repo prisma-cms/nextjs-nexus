@@ -1,0 +1,48 @@
+query me {
+  me {
+    ...meUser
+  }
+}
+
+mutation signin($where: UserWhereUniqueInput!, $data: UserSigninDataInput!) {
+  signin(where: $where, data: $data) {
+    success
+    message
+    errors {
+      key
+      message
+    }
+    token
+    data {
+      ...user
+    }
+  }
+}
+
+mutation signup($data: UserSignupDataInput!) {
+  signup(data: $data) {
+    success
+    message
+    errors {
+      key
+      message
+    }
+    token
+    data {
+      ...user
+    }
+  }
+}
+
+fragment user on User {
+  id
+  createdAt
+  updatedAt
+  email
+  username
+  fullname
+}
+
+fragment meUser on User {
+  ...user
+}

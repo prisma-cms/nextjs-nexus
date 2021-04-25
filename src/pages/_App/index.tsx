@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react'
+import React, { useCallback, useMemo } from 'react'
 import NextApp, { AppContext } from 'next/app'
 import { ApolloProvider } from '@apollo/client'
 import { ThemeProvider } from 'styled-components'
@@ -14,13 +14,44 @@ import { NextSeo, NextSeoProps } from 'next-seo'
 import Page404 from '../_Error/404'
 import ErrorPage from '../_Error'
 import { GlobalStyle } from 'src/theme/GlobalStyle'
+import { Context, ContextValue } from './Context'
+import { useMeQuery } from 'src/modules/gql/generated'
 
-const withWs = true
+const withWs = false
 
 const App: MainApp<AppProps> = ({ Component, pageProps }) => {
   const apolloClient = useApollo(pageProps.initialApolloState, withWs)
 
   const { statusCode } = pageProps
+
+  const onAuthSuccess: ContextValue['onAuthSuccess'] = useCallback(
+    (data) => {
+      /**
+       * Устанавливаем значения хранилища
+       */
+      data.token && global.localStorage?.setItem('token', data.token)
+
+      try {
+        apolloClient.resetStore()
+      } catch (error) {
+        console.error(error)
+      }
+    },
+    [apolloClient]
+  )
+
+  const { data: meQueryData } = useMeQuery({
+    client: apolloClient,
+  })
+
+  const user = meQueryData?.me
+
+  const context = useMemo<ContextValue>(() => {
+    return {
+      user,
+      onAuthSuccess,
+    }
+  }, [user, onAuthSuccess])
 
   const content = useMemo(() => {
     const meta: NextSeoProps = {}
@@ -62,7 +93,9 @@ const App: MainApp<AppProps> = ({ Component, pageProps }) => {
     <>
       <ThemeProvider theme={theme}>
         <GlobalStyle />
-        <ApolloProvider client={apolloClient}>{content}</ApolloProvider>
+        <Context.Provider value={context}>
+          <ApolloProvider client={apolloClient}>{content}</ApolloProvider>
+        </Context.Provider>
       </ThemeProvider>
     </>
   )
