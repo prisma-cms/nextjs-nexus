@@ -8,9 +8,9 @@
 
 Bootstrap a developer-friendly NextJS app configured with:
 
-- Support custom GraphQL API endpoints.
+- TypeScript CRUD API with [prisma-2](https://www.prisma.io/) and [nexus-js](https://nexusjs.org/)
 - Frontend GraphQL API schema and types generation.
-- [SASS/SCSS](https://sass-lang.com/) and [styled-components](https://styled-components.com/).
+- [styled-components](https://styled-components.com/) AND [SASS/SCSS](https://sass-lang.com/).
 - [Typescript](https://www.typescriptlang.org/) and [server](https://github.com/TypeStrong/ts-node)
 - Linting with [ESLint](https://eslint.org/)
 - [Storybook](https://storybook.js.org/)
@@ -28,10 +28,16 @@ Deploy the example using [Vercel](https://vercel.com):
 
 ```bash
 # Clone project
-git clone https://github.com/prisma-cms/nextjs.git
+git clone https://github.com/prisma-cms/nextjs-nexus.git
 
 # Install dependencies
 yarn install
+
+# Clone and edit .env file
+cp .env.sample .env
+
+# Deploy database migrations (set MySQL connection credentioals in .env file)
+yarn prisma:deploy
 
 # Build bundles
 yarn build
@@ -42,18 +48,25 @@ yarn start
 
 ## Development
 
-@prisma-cms/nextjs support custom GrapghQL API endpoints. By default used https://nextjs-graphql-with-prisma-simple.vercel.app/api.
+1. Edit prisma shema in prisma/schema.prisma
 
-1. In root of project create .env file (dot is necessary in start of filename).
-2. Added line with your GraphQL API endpoint address e.g.
-   API_ENDPOINT=https://api.prisma-cms.com
-3. Generate front GraphQL schema and types
+2. Push change to database
+```bash
+yarn prisma:db:push
+```
+
+3. Create migration
+```bash
+yarn prisma:migrate:create --name migration_name
+```
+
+5. Generate front GraphQL schema and types
 
 ```bash
 yarn generate:types
 ```
 
-4. Start server in development mode
+6. Start server in development mode
 
 ```bash
 yarn dev
@@ -89,6 +102,15 @@ yarn test --coverage
 
 **Attension!** For unit tests with real API started server required.
 
+## Build
+
+1. Generate schemas if changed
+
+```bash
+yarn generate
+```
+
+2. Build bundles
 ```bash
 # Build bundles
 yarn build
