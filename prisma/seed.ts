@@ -17,6 +17,7 @@ async function main() {
       username: 'admin',
       email: 'admin@localhost',
       password: await createPassword(password),
+      sudo: true,
     })
   }
 
