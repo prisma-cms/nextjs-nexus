@@ -1,0 +1,6 @@
+{
+  "watch": ["/server"],
+  "exec": "cross-env NODE_ENV=development TS_NODE_PROJECT=tsconfig.server.json node --max-old-space-size=3072 -r ts-node/register server/index.ts",
+  "ext": "js ts",
+  "ignore": ["**"]
+}

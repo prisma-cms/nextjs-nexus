@@ -13,6 +13,7 @@ export default class MyDocument extends Document {
       <Html lang="ru">
         <Head>
           <link rel="icon" href="/demo/favicon.ico" />
+          <link rel="manifest" href="/pwa/manifest.json" />
         </Head>
         <body>
           <Main />

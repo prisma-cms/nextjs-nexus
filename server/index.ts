@@ -1,7 +1,7 @@
 import express from 'express'
 import next from 'next'
 import { createProxyMiddleware } from 'http-proxy-middleware'
-import { endpoint } from '../src/config'
+import { endpoint } from './config'
 
 const cwd = process.cwd()
 
@@ -41,6 +41,14 @@ app.prepare().then(() => {
 
   server.use(express.static(cwd + '/shared'))
 
+  /**
+   * PWA and other public generated files
+   */
+  server.use(express.static(cwd + '/.next/public'))
+
+  /**
+   * API requests
+   */
   server.use('/api/', apiProxy)
 
   // Uncomment to serve storybook-static (before should run yarn build-storybook)
