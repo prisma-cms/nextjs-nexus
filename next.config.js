@@ -83,8 +83,8 @@ module.exports = (phase, defaultConfig) => {
 
     const withPWA = require('next-pwa')
 
-    const config = withBundleAnalyzer({
-      ...withPWA({
+    const config = withBundleAnalyzer(
+      withPWA({
         pwa: {
           dest: `.next/public`,
           // TODO Пока не работает как хотелось бы
@@ -104,8 +104,8 @@ module.exports = (phase, defaultConfig) => {
         future: {
           webpack5: true,
         },
-      }),
-    })
+      })
+    )
     return config
   }
 
