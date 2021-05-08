@@ -5,13 +5,13 @@ import { schema } from '../nexus'
 import jwt from 'jsonwebtoken'
 import { AuthTokenData } from 'server/nexus/types/User/resolvers'
 import { ApolloServer, ExpressContext } from 'apollo-server-express'
-// import { applyMiddleware } from "graphql-middleware";
-// import { permissions } from './permissions';
+import { applyMiddleware } from 'graphql-middleware'
+import { permissions } from './permissions'
 import { context, PrismaContext } from '../nexus/context'
 
 export default new ApolloServer({
-  schema,
-  // schema: applyMiddleware(schema, permissions),
+  // schema,
+  schema: applyMiddleware(schema, permissions),
 
   // Run GraphQL playground in dev mode only
   // playground: process.env.NODE_ENV === 'development',
