@@ -58,6 +58,8 @@
     "express": "^4.17.1",
     "graphql": "^15.3.0",
     "graphql-iso-date": "^3.6.1",
+    "graphql-middleware": "^6.0.10",
+    "graphql-shield": "^7.5.0",
     "http-proxy-middleware": "^1.2.0",
     "moment": "^2.29.1",
     "next": "10.0.7",
