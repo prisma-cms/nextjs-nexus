@@ -197,6 +197,16 @@ type User {
   email: String
   fullname: String
   id: String!
+
+  """
+  Показывать емейл другим пользователям
+  """
+  showEmail: Boolean!
+
+  """
+  Показывать ФИО другим пользователям
+  """
+  showFullname: Boolean!
   sudo: Boolean
 
   """
@@ -213,6 +223,8 @@ input UserOrderByInput {
   fullname: SortOrder
   id: SortOrder
   password: SortOrder
+  showEmail: SortOrder
+  showFullname: SortOrder
   sudo: SortOrder
   updatedAt: SortOrder
   username: SortOrder
@@ -226,6 +238,16 @@ input UserSignupDataInput {
   email: String!
   fullname: String
   password: String!
+
+  """
+  Показывать емейл другим пользователям
+  """
+  showEmail: Boolean!
+
+  """
+  Показывать ФИО другим пользователям
+  """
+  showFullname: Boolean!
   username: String!
 }
 
@@ -240,6 +262,8 @@ input UserWhereInput {
   fullname: StringNullableFilter
   id: StringFilter
   password: StringFilter
+  showEmail: BoolFilter
+  showFullname: BoolFilter
   sudo: BoolFilter
   updatedAt: DateTimeFilter
   username: StringFilter

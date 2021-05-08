@@ -26,6 +26,12 @@ export const UserSignupDataInput = inputObjectType({
     t.nonNull.string('email')
     t.string('fullname')
     t.nonNull.string('password')
+    t.nonNull.boolean('showEmail', {
+      description: 'Показывать емейл другим пользователям',
+    })
+    t.nonNull.boolean('showFullname', {
+      description: 'Показывать ФИО другим пользователям',
+    })
   },
 })
 
@@ -92,13 +98,30 @@ export const User = objectType({
       description: 'Когда обновлен',
     })
     t.string('email', {
-      resolve(parent) {
-        parent
-        return null
+      resolve(parent, _args, ctx) {
+        return parent.showEmail === true ||
+          ctx.currentUser?.sudo === true ||
+          ctx.currentUser?.id === parent.id
+          ? parent.email
+          : null
+      },
+    })
+    t.string('fullname', {
+      resolve(parent, _args, ctx) {
+        return parent.showFullname === true ||
+          ctx.currentUser?.sudo === true ||
+          ctx.currentUser?.id === parent.id
+          ? parent.fullname
+          : null
       },
     })
     t.string('username')
     t.boolean('sudo')
-    t.string('fullname')
+    t.nonNull.boolean('showEmail', {
+      description: 'Показывать емейл другим пользователям',
+    })
+    t.nonNull.boolean('showFullname', {
+      description: 'Показывать ФИО другим пользователям',
+    })
   },
 })

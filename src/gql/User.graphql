@@ -39,8 +39,10 @@ fragment user on User {
   createdAt
   updatedAt
   email
+  showEmail
   username
   fullname
+  showFullname
 }
 
 fragment meUser on User {

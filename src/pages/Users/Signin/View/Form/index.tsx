@@ -136,7 +136,7 @@ const SigninForm: React.FC = () => {
           />
 
           <Button type="submit" disabled={signinLoading} variant="success">
-            Зарегистрироваться
+            Авторизоваться
           </Button>
         </SigninFormStyled>
       </>

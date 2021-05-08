@@ -51,11 +51,13 @@ yarn start
 1. Edit prisma shema in prisma/schema.prisma
 
 2. Push change to database
+
 ```bash
 yarn prisma:db:push
 ```
 
 3. Create migration
+
 ```bash
 yarn prisma:migrate:create --name migration_name
 ```
@@ -111,6 +113,7 @@ yarn generate
 ```
 
 2. Build bundles
+
 ```bash
 # Build bundles
 yarn build

@@ -1,4 +1,5 @@
-import React, { useCallback, useContext, useMemo } from 'react'
+/* eslint-disable no-console */
+import React, { useCallback, useContext, useEffect, useMemo } from 'react'
 
 import { Controller, ControllerProps, useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
@@ -14,6 +15,7 @@ import Button from 'src/components/ui/Button'
 
 import { SignupFormStyled } from './styles'
 import { Context } from 'src/pages/_App/Context'
+import FormControl from '@prisma-cms/ui/dist/form/FormControl'
 
 /**
  * Форма регистрации
@@ -31,16 +33,45 @@ const SignupForm: React.FC = () => {
         username: yup.string().required(),
         fullname: yup.string(),
         password: yup.string().required(),
+        showEmail: yup.boolean().required(),
+        showFullname: yup.boolean().required(),
       })
       .defined()
 
     return schema
   }, [])
 
-  const { handleSubmit, control } = useForm<UserSignupDataInput>({
+  const {
+    handleSubmit,
+    control,
+    formState,
+    trigger,
+  } = useForm<UserSignupDataInput>({
     resolver: yupResolver(schema),
     shouldFocusError: true,
+    /**
+     * Устанавливаем режим ревалидации формы при изменении данных.
+     * https://github.com/react-hook-form/react-hook-form/issues/2755#issuecomment-683268595
+     */
+    mode: 'onChange',
+    defaultValues: {
+      showEmail: false,
+      showFullname: true,
+    },
   })
+
+  /**
+   * При загрузке формы сразу вызываем валидацию формы,
+   * чтобы показать обязательные поля
+   */
+  useEffect(() => {
+    trigger()
+  }, [trigger])
+
+  console.log('errors', formState.errors)
+  console.log('isDirty', formState.isDirty)
+  console.log('isValid', formState.isValid)
+  console.log('isValidating', formState.isValidating)
 
   /**
    * Хук регистрации
@@ -135,6 +166,42 @@ const SignupForm: React.FC = () => {
     )
   }, [])
 
+  const showEmailFieldRender: ControllerProps<
+    UserSignupDataInput,
+    'showEmail'
+  >['render'] = useCallback(({ field }) => {
+    return (
+      <FormControl disabled={false} focused={false} className="flex-row">
+        <>
+          <input
+            {...field}
+            value={field.value ? 'true' : 'false'}
+            type="checkbox"
+          />{' '}
+          <label>Показывать емейл другим пользователям</label>
+        </>
+      </FormControl>
+    )
+  }, [])
+
+  const showFullnameFieldRender: ControllerProps<
+    UserSignupDataInput,
+    'showFullname'
+  >['render'] = useCallback(({ field }) => {
+    return (
+      <FormControl disabled={false} focused={false} className="flex-row">
+        <>
+          <input
+            {...field}
+            value={field.value ? 'true' : 'false'}
+            type="checkbox"
+          />{' '}
+          <label>Показывать ФИО другим пользователям</label>
+        </>
+      </FormControl>
+    )
+  }, [])
+
   return useMemo(() => {
     return (
       <>
@@ -156,10 +223,22 @@ const SignupForm: React.FC = () => {
           />
 
           <Controller
+            name="showEmail"
+            control={control}
+            render={showEmailFieldRender}
+          />
+
+          <Controller
             name="fullname"
             control={control}
             defaultValue={''}
             render={fullnameFieldRender}
+          />
+
+          <Controller
+            name="showFullname"
+            control={control}
+            render={showFullnameFieldRender}
           />
 
           <Controller
@@ -169,7 +248,11 @@ const SignupForm: React.FC = () => {
             render={passwordFieldRender}
           />
 
-          <Button type="submit" disabled={signupLoading} variant="success">
+          <Button
+            type="submit"
+            disabled={signupLoading || !formState.isValid}
+            variant={formState.isValid ? 'success' : 'default'}
+          >
             Зарегистрироваться
           </Button>
         </SignupFormStyled>
@@ -178,9 +261,12 @@ const SignupForm: React.FC = () => {
   }, [
     control,
     emailFieldRender,
+    formState.isValid,
     fullnameFieldRender,
     onSubmit,
     passwordFieldRender,
+    showEmailFieldRender,
+    showFullnameFieldRender,
     signupLoading,
     usernameFieldRender,
   ])

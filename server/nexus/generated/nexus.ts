@@ -175,6 +175,8 @@ export interface NexusGenInputs {
     fullname?: NexusGenEnums['SortOrder'] | null // SortOrder
     id?: NexusGenEnums['SortOrder'] | null // SortOrder
     password?: NexusGenEnums['SortOrder'] | null // SortOrder
+    showEmail?: NexusGenEnums['SortOrder'] | null // SortOrder
+    showFullname?: NexusGenEnums['SortOrder'] | null // SortOrder
     sudo?: NexusGenEnums['SortOrder'] | null // SortOrder
     updatedAt?: NexusGenEnums['SortOrder'] | null // SortOrder
     username?: NexusGenEnums['SortOrder'] | null // SortOrder
@@ -188,6 +190,8 @@ export interface NexusGenInputs {
     email: string // String!
     fullname?: string | null // String
     password: string // String!
+    showEmail: boolean // Boolean!
+    showFullname: boolean // Boolean!
     username: string // String!
   }
   UserWhereInput: {
@@ -202,6 +206,8 @@ export interface NexusGenInputs {
     fullname?: NexusGenInputs['StringNullableFilter'] | null // StringNullableFilter
     id?: NexusGenInputs['StringFilter'] | null // StringFilter
     password?: NexusGenInputs['StringFilter'] | null // StringFilter
+    showEmail?: NexusGenInputs['BoolFilter'] | null // BoolFilter
+    showFullname?: NexusGenInputs['BoolFilter'] | null // BoolFilter
     sudo?: NexusGenInputs['BoolFilter'] | null // BoolFilter
     updatedAt?: NexusGenInputs['DateTimeFilter'] | null // DateTimeFilter
     username?: NexusGenInputs['StringFilter'] | null // StringFilter
@@ -287,6 +293,8 @@ export interface NexusGenFieldTypes {
     email: string | null // String
     fullname: string | null // String
     id: string // String!
+    showEmail: boolean // Boolean!
+    showFullname: boolean // Boolean!
     sudo: boolean | null // Boolean
     updatedAt: NexusGenScalars['DateTime'] // DateTime!
     username: string | null // String
@@ -323,6 +331,8 @@ export interface NexusGenFieldTypeNames {
     email: 'String'
     fullname: 'String'
     id: 'String'
+    showEmail: 'Boolean'
+    showFullname: 'Boolean'
     sudo: 'Boolean'
     updatedAt: 'DateTime'
     username: 'String'

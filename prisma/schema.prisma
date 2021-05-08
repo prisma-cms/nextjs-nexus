@@ -17,6 +17,8 @@ model User {
   sudo      Boolean  @default(false)
   createdAt DateTime @default(now("0")) @db.DateTime("0")
   updatedAt DateTime @default(now("0")) @updatedAt @db.DateTime("0")
+  showEmail      Boolean  @default(false)
+  showFullname      Boolean  @default(true)
   Tokens    Token[]
 }
 

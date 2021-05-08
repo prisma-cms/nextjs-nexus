@@ -216,6 +216,10 @@ export interface User {
   email?: Maybe<Scalars['String']>;
   fullname?: Maybe<Scalars['String']>;
   id: Scalars['String'];
+  /** Показывать емейл другим пользователям */
+  showEmail: Scalars['Boolean'];
+  /** Показывать ФИО другим пользователям */
+  showFullname: Scalars['Boolean'];
   sudo?: Maybe<Scalars['Boolean']>;
   /** Когда обновлен */
   updatedAt: Scalars['DateTime'];
@@ -229,6 +233,8 @@ export interface UserOrderByInput {
   fullname?: Maybe<SortOrder>;
   id?: Maybe<SortOrder>;
   password?: Maybe<SortOrder>;
+  showEmail?: Maybe<SortOrder>;
+  showFullname?: Maybe<SortOrder>;
   sudo?: Maybe<SortOrder>;
   updatedAt?: Maybe<SortOrder>;
   username?: Maybe<SortOrder>;
@@ -242,6 +248,10 @@ export interface UserSignupDataInput {
   email: Scalars['String'];
   fullname?: Maybe<Scalars['String']>;
   password: Scalars['String'];
+  /** Показывать емейл другим пользователям */
+  showEmail: Scalars['Boolean'];
+  /** Показывать ФИО другим пользователям */
+  showFullname: Scalars['Boolean'];
   username: Scalars['String'];
 }
 
@@ -256,6 +266,8 @@ export interface UserWhereInput {
   fullname?: Maybe<StringNullableFilter>;
   id?: Maybe<StringFilter>;
   password?: Maybe<StringFilter>;
+  showEmail?: Maybe<BoolFilter>;
+  showFullname?: Maybe<BoolFilter>;
   sudo?: Maybe<BoolFilter>;
   updatedAt?: Maybe<DateTimeFilter>;
   username?: Maybe<StringFilter>;

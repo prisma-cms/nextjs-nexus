@@ -22,12 +22,14 @@ export type RequestErrorFieldPolicy = {
 	key?: FieldPolicy<any> | FieldReadFunction<any>,
 	message?: FieldPolicy<any> | FieldReadFunction<any>
 };
-export type UserKeySpecifier = ('createdAt' | 'email' | 'fullname' | 'id' | 'sudo' | 'updatedAt' | 'username' | UserKeySpecifier)[];
+export type UserKeySpecifier = ('createdAt' | 'email' | 'fullname' | 'id' | 'showEmail' | 'showFullname' | 'sudo' | 'updatedAt' | 'username' | UserKeySpecifier)[];
 export type UserFieldPolicy = {
 	createdAt?: FieldPolicy<any> | FieldReadFunction<any>,
 	email?: FieldPolicy<any> | FieldReadFunction<any>,
 	fullname?: FieldPolicy<any> | FieldReadFunction<any>,
 	id?: FieldPolicy<any> | FieldReadFunction<any>,
+	showEmail?: FieldPolicy<any> | FieldReadFunction<any>,
+	showFullname?: FieldPolicy<any> | FieldReadFunction<any>,
 	sudo?: FieldPolicy<any> | FieldReadFunction<any>,
 	updatedAt?: FieldPolicy<any> | FieldReadFunction<any>,
 	username?: FieldPolicy<any> | FieldReadFunction<any>
