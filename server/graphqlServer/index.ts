@@ -4,7 +4,7 @@ import { schema } from '../nexus'
 
 import jwt from 'jsonwebtoken'
 import { AuthTokenData } from 'server/nexus/types/User/resolvers'
-import { ApolloServer, ExpressContext } from 'apollo-server-express'
+import { ApolloServer } from 'apollo-server-express'
 import { applyMiddleware } from 'graphql-middleware'
 import { permissions } from './permissions'
 import { context, PrismaContext } from '../nexus/context'
@@ -24,7 +24,7 @@ export default new ApolloServer({
 
     return error
   },
-  context: async (requestContext: ExpressContext): Promise<PrismaContext> => {
+  context: async (requestContext): Promise<PrismaContext> => {
     let currentUser: PrismaContext['currentUser'] = null
 
     /**
@@ -84,6 +84,7 @@ export default new ApolloServer({
       // headers,
       ...context,
       currentUser,
+      express: requestContext,
     }
   },
 })
