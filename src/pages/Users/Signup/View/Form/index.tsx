@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import React, { useCallback, useContext, useEffect, useMemo } from 'react'
 
 import { Controller, ControllerProps, useForm } from 'react-hook-form'
@@ -67,11 +66,6 @@ const SignupForm: React.FC = () => {
   useEffect(() => {
     trigger()
   }, [trigger])
-
-  console.log('errors', formState.errors)
-  console.log('isDirty', formState.isDirty)
-  console.log('isValid', formState.isValid)
-  console.log('isValidating', formState.isValidating)
 
   /**
    * Хук регистрации
