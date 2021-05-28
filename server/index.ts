@@ -1,3 +1,6 @@
+import DotEnv from 'dotenv'
+DotEnv.config()
+
 import express from 'express'
 import next from 'next'
 import graphqlServer from './graphqlServer'
