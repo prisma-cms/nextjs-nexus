@@ -5,7 +5,7 @@ import { nexusPrisma } from 'nexus-plugin-prisma'
 
 import * as types from './types'
 
-export const DateTime = asNexusMethod(GraphQLDateTime, 'date')
+export const DateTime = asNexusMethod(GraphQLDateTime, 'date', 'Date')
 
 export const schema = makeSchema({
   /**
