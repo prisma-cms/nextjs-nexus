@@ -40,24 +40,20 @@ const SignupForm: React.FC = () => {
     return schema
   }, [])
 
-  const {
-    handleSubmit,
-    control,
-    formState,
-    trigger,
-  } = useForm<UserSignupDataInput>({
-    resolver: yupResolver(schema),
-    shouldFocusError: true,
-    /**
-     * Устанавливаем режим ревалидации формы при изменении данных.
-     * https://github.com/react-hook-form/react-hook-form/issues/2755#issuecomment-683268595
-     */
-    mode: 'onChange',
-    defaultValues: {
-      showEmail: false,
-      showFullname: true,
-    },
-  })
+  const { handleSubmit, control, formState, trigger } =
+    useForm<UserSignupDataInput>({
+      resolver: yupResolver(schema),
+      shouldFocusError: true,
+      /**
+       * Устанавливаем режим ревалидации формы при изменении данных.
+       * https://github.com/react-hook-form/react-hook-form/issues/2755#issuecomment-683268595
+       */
+      mode: 'onChange',
+      defaultValues: {
+        showEmail: false,
+        showFullname: true,
+      },
+    })
 
   /**
    * При загрузке формы сразу вызываем валидацию формы,

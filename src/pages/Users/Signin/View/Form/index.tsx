@@ -85,35 +85,31 @@ const SigninForm: React.FC = () => {
   /**
    * Рендерер поля
    */
-  const usernameFieldRender: ControllerProps<
-    FormData,
-    'username'
-  >['render'] = useCallback(({ field, formState }) => {
-    return (
-      <TextField
-        type="text"
-        title="Логин"
-        error={formState.errors[field.name]}
-        {...field}
-        value={field.value || ''}
-      />
-    )
-  }, [])
+  const usernameFieldRender: ControllerProps<FormData, 'username'>['render'] =
+    useCallback(({ field, formState }) => {
+      return (
+        <TextField
+          type="text"
+          title="Логин"
+          error={formState.errors[field.name]}
+          {...field}
+          value={field.value || ''}
+        />
+      )
+    }, [])
 
-  const passwordFieldRender: ControllerProps<
-    FormData,
-    'password'
-  >['render'] = useCallback(({ field, formState }) => {
-    return (
-      <TextField
-        type="password"
-        title="Пароль"
-        {...field}
-        value={field.value || ''}
-        error={formState.errors[field.name]}
-      />
-    )
-  }, [])
+  const passwordFieldRender: ControllerProps<FormData, 'password'>['render'] =
+    useCallback(({ field, formState }) => {
+      return (
+        <TextField
+          type="password"
+          title="Пароль"
+          {...field}
+          value={field.value || ''}
+          error={formState.errors[field.name]}
+        />
+      )
+    }, [])
 
   return useMemo(() => {
     return (

@@ -22,4 +22,9 @@ const ruleTree: RuleTree<NexusGenFieldTypes> = {
   Mutation: {},
 }
 
-export const permissions = shield(ruleTree)
+export const permissions = shield(ruleTree, {
+  /**
+   * Allow use new Error() in resolvers
+   */
+  allowExternalErrors: true,
+})

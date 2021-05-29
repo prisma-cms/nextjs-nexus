@@ -1,8 +1,7 @@
-import DotEnv from 'dotenv'
-DotEnv.config()
-
 import express from 'express'
 import next from 'next'
+
+import './config'
 import graphqlServer from './graphqlServer'
 
 const cwd = process.cwd()
@@ -17,10 +16,21 @@ app.prepare().then(() => {
 
   server.use(express.static(cwd + '/shared'))
 
+  /**
+   * PWA and other public generated files
+   */
+  server.use(express.static(cwd + '/.next/public'))
+
+  /**
+   * API requests
+   */
   graphqlServer.applyMiddleware({
     app: server,
     path: '/api',
   })
+
+  // Uncomment to serve storybook-static (before should run yarn build-storybook)
+  // server.use('/storybook-static/', express.static('./storybook-static/'))
 
   server.all('*', (req, res) => {
     return handle(req, res)

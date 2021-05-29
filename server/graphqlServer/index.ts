@@ -14,16 +14,21 @@ export default new ApolloServer({
   schema: applyMiddleware(schema, permissions),
 
   // Run GraphQL playground in dev mode only
-  // playground: process.env.NODE_ENV === 'development',
-  playground: true,
-  formatError(error) {
-    if (process.env.NODE_ENV !== 'development') {
-      console.error('GraphQL Error', error)
-      return new Error('Internal server error')
-    }
+  playground: process.env.NODE_ENV === 'development',
+  // playground: true,
 
-    return error
-  },
+  /**
+   * Это теряет смысл, так как не позволяет выкидывать кастомные ошибки.
+   * При этом в прод-режиме стек вырезается самим аполло-сервером, оставляя только текстовое сообщение.
+   */
+  // formatError(error) {
+  //   if (process.env.NODE_ENV !== 'development') {
+  //     console.error('GraphQL Error', error)
+  //     return new Error('Internal server error')
+  //   }
+
+  //   return error
+  // },
   context: async (requestContext): Promise<PrismaContext> => {
     let currentUser: PrismaContext['currentUser'] = null
 
