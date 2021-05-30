@@ -1,6 +1,6 @@
 import { PrismaClient } from '@prisma/client'
 import { ExpressContext } from 'apollo-server-express'
-import { NexusGenFieldTypes } from './generated/nexus'
+import { NexusGenFieldTypes } from '../generated/nexus'
 
 if (!process.env.APP_SECRET) {
   throw new Error('APP_SECRET env is not defined')

@@ -3,7 +3,7 @@
  * Do not make changes to this file directly
  */
 
-import { PrismaContext } from './../context'
+import { PrismaContext } from './../context/index'
 import { User } from '@prisma/client'
 import { core } from 'nexus'
 declare global {
