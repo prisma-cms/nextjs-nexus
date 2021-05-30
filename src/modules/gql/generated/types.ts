@@ -138,9 +138,18 @@ export interface NestedStringNullableFilter {
 export interface Query {
   __typename?: 'Query';
   me?: Maybe<User>;
+  /** Пользователь */
+  user?: Maybe<User>;
   /** Список пользователей */
   users: Array<User>;
+  /** Количество пользователей */
+  usersCount: Scalars['Int'];
 }
+
+
+export type QueryUserArgs = {
+  where: UserWhereUniqueInput;
+};
 
 
 export type QueryUsersArgs = {
@@ -148,6 +157,11 @@ export type QueryUsersArgs = {
   orderBy?: Maybe<Array<UserOrderByInput>>;
   skip?: Maybe<Scalars['Int']>;
   take?: Maybe<Scalars['Int']>;
+  where?: Maybe<UserWhereInput>;
+};
+
+
+export type QueryUsersCountArgs = {
   where?: Maybe<UserWhereInput>;
 };
 

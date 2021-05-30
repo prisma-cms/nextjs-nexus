@@ -1,3 +1,4 @@
+import { Prisma } from '@prisma/client'
 import { objectType, extendType, inputObjectType, nonNull } from 'nexus'
 import { signin, signup } from './resolvers'
 
@@ -8,6 +9,22 @@ export const UserQuery = extendType({
       description: 'Список пользователей',
       filtering: true,
       ordering: true,
+    })
+
+    t.nonNull.int('usersCount', {
+      description: 'Количество пользователей',
+      args: {
+        where: 'UserWhereInput',
+      },
+      resolve(_, args, ctx) {
+        return ctx.prisma.user.count({
+          where: args.where as Prisma.UserCountArgs['where'],
+        })
+      },
+    })
+
+    t.crud.user({
+      description: 'Пользователь',
     })
 
     t.field('me', {

@@ -280,7 +280,9 @@ export interface NexusGenFieldTypes {
   Query: {
     // field return type
     me: NexusGenRootTypes['User'] | null // User
+    user: NexusGenRootTypes['User'] | null // User
     users: NexusGenRootTypes['User'][] // [User!]!
+    usersCount: number // Int!
   }
   RequestError: {
     // field return type
@@ -318,7 +320,9 @@ export interface NexusGenFieldTypeNames {
   Query: {
     // field return type name
     me: 'User'
+    user: 'User'
     users: 'User'
+    usersCount: 'Int'
   }
   RequestError: {
     // field return type name
@@ -352,12 +356,20 @@ export interface NexusGenArgTypes {
     }
   }
   Query: {
+    user: {
+      // args
+      where: NexusGenInputs['UserWhereUniqueInput'] // UserWhereUniqueInput!
+    }
     users: {
       // args
       cursor?: NexusGenInputs['UserWhereUniqueInput'] | null // UserWhereUniqueInput
       orderBy?: NexusGenInputs['UserOrderByInput'][] | null // [UserOrderByInput!]
       skip?: number | null // Int
       take?: number | null // Int
+      where?: NexusGenInputs['UserWhereInput'] | null // UserWhereInput
+    }
+    usersCount: {
+      // args
       where?: NexusGenInputs['UserWhereInput'] | null // UserWhereInput
     }
   }

@@ -117,6 +117,11 @@ type Query {
   me: User
 
   """
+  Пользователь
+  """
+  user(where: UserWhereUniqueInput!): User
+
+  """
   Список пользователей
   """
   users(
@@ -126,6 +131,11 @@ type Query {
     take: Int
     where: UserWhereInput
   ): [User!]!
+
+  """
+  Количество пользователей
+  """
+  usersCount(where: UserWhereInput): Int!
 }
 
 """

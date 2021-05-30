@@ -12,10 +12,12 @@ export type MutationFieldPolicy = {
 	signin?: FieldPolicy<any> | FieldReadFunction<any>,
 	signup?: FieldPolicy<any> | FieldReadFunction<any>
 };
-export type QueryKeySpecifier = ('me' | 'users' | QueryKeySpecifier)[];
+export type QueryKeySpecifier = ('me' | 'user' | 'users' | 'usersCount' | QueryKeySpecifier)[];
 export type QueryFieldPolicy = {
 	me?: FieldPolicy<any> | FieldReadFunction<any>,
-	users?: FieldPolicy<any> | FieldReadFunction<any>
+	user?: FieldPolicy<any> | FieldReadFunction<any>,
+	users?: FieldPolicy<any> | FieldReadFunction<any>,
+	usersCount?: FieldPolicy<any> | FieldReadFunction<any>
 };
 export type RequestErrorKeySpecifier = ('key' | 'message' | RequestErrorKeySpecifier)[];
 export type RequestErrorFieldPolicy = {
