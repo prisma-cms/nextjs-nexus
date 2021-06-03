@@ -219,7 +219,7 @@ export interface TokenWhereInput {
   createdAt?: Maybe<DateTimeFilter>;
   expiredAt?: Maybe<DateTimeNullableFilter>;
   id?: Maybe<StringFilter>;
-  userId?: Maybe<StringFilter>;
+  userId?: Maybe<StringNullableFilter>;
 }
 
 /** Пользователь */

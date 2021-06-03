@@ -103,7 +103,9 @@ module.exports = (phase, defaultConfig) => {
           //   // video: ...,
           // },
 
-          disable: process.env.PWA !== "true" || process.env.NODE_ENV === 'development',
+          disable:
+            process.env.PWA !== 'true' ||
+            process.env.NODE_ENV === 'development',
         },
         webpack,
 

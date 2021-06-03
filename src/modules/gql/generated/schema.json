@@ -1842,7 +1842,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "StringFilter",
+              "name": "StringNullableFilter",
               "ofType": null
             },
             "defaultValue": null,

@@ -26,8 +26,11 @@ model Token {
   id        String    @id @default(cuid()) @db.Char(25)
   createdAt DateTime  @default(now("0")) @db.DateTime("0")
   expiredAt DateTime? @db.DateTime("0")
-  userId    String    @db.Char(25)
-  User      User      @relation(fields: [userId], references: [id])
+  userId    String?   @db.Char(25)
+
+  // User - не обязательный объект, так как необходимость сформировать токен
+  // может быть еще до существования объекта пользователя
+  User      User?     @relation(fields: [userId], references: [id])
 
   @@index(createdAt)
 }

@@ -193,7 +193,7 @@ input TokenWhereInput {
   createdAt: DateTimeFilter
   expiredAt: DateTimeNullableFilter
   id: StringFilter
-  userId: StringFilter
+  userId: StringNullableFilter
 }
 
 """

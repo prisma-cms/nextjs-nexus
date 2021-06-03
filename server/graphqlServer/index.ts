@@ -31,6 +31,7 @@ export default new ApolloServer({
   // },
   context: async (requestContext): Promise<PrismaContext> => {
     let currentUser: PrismaContext['currentUser'] = null
+    let ContextToken: PrismaContext['Token'] = null
 
     /**
      * Если есть токен, пытаемся получить текущего пользователя
@@ -50,20 +51,23 @@ export default new ApolloServer({
           /**
            * Получаем токен
            */
-          const Token = await context.prisma.token.findUnique({
-            where: {
-              id: tokenData.tokenId,
-            },
-            select: {
-              id: true,
-              expiredAt: true,
+          const Token: PrismaContext['Token'] =
+            await context.prisma.token.findUnique({
+              where: {
+                id: tokenData.tokenId,
+              },
+              select: {
+                id: true,
+                expiredAt: true,
+                createdAt: true,
+                userId: true,
 
-              /**
-               * Включаем в выборку и данные пользователя
-               */
-              User: true,
-            },
-          })
+                /**
+                 * Включаем в выборку и данные пользователя
+                 */
+                User: true,
+              },
+            })
 
           /**
            * Проверяем данные токена
@@ -76,6 +80,11 @@ export default new ApolloServer({
              * Если все ОК, возвращаем данные пользователя
              */
             currentUser = Token.User
+
+            /**
+             * И пробрасывает токен в контекст
+             */
+            ContextToken = Token
           }
         }
       } catch (error) {
@@ -89,6 +98,7 @@ export default new ApolloServer({
       // headers,
       ...context,
       currentUser,
+      Token: ContextToken,
       express: requestContext,
     }
   },

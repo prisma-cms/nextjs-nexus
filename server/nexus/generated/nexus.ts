@@ -165,7 +165,7 @@ export interface NexusGenInputs {
     createdAt?: NexusGenInputs['DateTimeFilter'] | null // DateTimeFilter
     expiredAt?: NexusGenInputs['DateTimeNullableFilter'] | null // DateTimeNullableFilter
     id?: NexusGenInputs['StringFilter'] | null // StringFilter
-    userId?: NexusGenInputs['StringFilter'] | null // StringFilter
+    userId?: NexusGenInputs['StringNullableFilter'] | null // StringNullableFilter
   }
   UserOrderByInput: {
     // input type

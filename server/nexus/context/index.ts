@@ -1,4 +1,4 @@
-import { PrismaClient } from '@prisma/client'
+import { PrismaClient, Token, User } from '@prisma/client'
 import { ExpressContext } from 'apollo-server-express'
 import { NexusGenFieldTypes } from '../generated/nexus'
 
@@ -16,6 +16,11 @@ export interface PrismaContext {
   currentUser: NexusGenFieldTypes['Query']['me']
 
   express: ExpressContext | null
+
+  /**
+   * Токен авторизации
+   */
+  Token: (Token & { User: User | null }) | null
 }
 
 const prisma = new PrismaClient()
@@ -25,4 +30,5 @@ export const context: PrismaContext = {
   APP_SECRET,
   currentUser: null,
   express: null,
+  Token: null,
 }
