@@ -183,16 +183,16 @@ export interface NexusGenInputs {
   }
   UserSigninDataInput: {
     // input type
-    password: string // String!
+    password?: string | null // String
   }
   UserSignupDataInput: {
     // input type
-    email: string // String!
+    email?: string | null // String
     fullname?: string | null // String
-    password: string // String!
+    password?: string | null // String
     showEmail: boolean // Boolean!
     showFullname: boolean // Boolean!
-    username: string // String!
+    username?: string | null // String
   }
   UserWhereInput: {
     // input type
@@ -202,15 +202,15 @@ export interface NexusGenInputs {
     Tokens?: NexusGenInputs['TokenListRelationFilter'] | null // TokenListRelationFilter
     active?: NexusGenInputs['BoolFilter'] | null // BoolFilter
     createdAt?: NexusGenInputs['DateTimeFilter'] | null // DateTimeFilter
-    email?: NexusGenInputs['StringFilter'] | null // StringFilter
+    email?: NexusGenInputs['StringNullableFilter'] | null // StringNullableFilter
     fullname?: NexusGenInputs['StringNullableFilter'] | null // StringNullableFilter
     id?: NexusGenInputs['StringFilter'] | null // StringFilter
-    password?: NexusGenInputs['StringFilter'] | null // StringFilter
+    password?: NexusGenInputs['StringNullableFilter'] | null // StringNullableFilter
     showEmail?: NexusGenInputs['BoolFilter'] | null // BoolFilter
     showFullname?: NexusGenInputs['BoolFilter'] | null // BoolFilter
     sudo?: NexusGenInputs['BoolFilter'] | null // BoolFilter
     updatedAt?: NexusGenInputs['DateTimeFilter'] | null // DateTimeFilter
-    username?: NexusGenInputs['StringFilter'] | null // StringFilter
+    username?: NexusGenInputs['StringNullableFilter'] | null // StringNullableFilter
   }
   UserWhereUniqueInput: {
     // input type

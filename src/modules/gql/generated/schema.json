@@ -2146,13 +2146,9 @@
             "name": "password",
             "description": null,
             "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
-              }
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
             },
             "defaultValue": null,
             "isDeprecated": false,
@@ -2173,13 +2169,9 @@
             "name": "email",
             "description": null,
             "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
-              }
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
             },
             "defaultValue": null,
             "isDeprecated": false,
@@ -2201,13 +2193,9 @@
             "name": "password",
             "description": null,
             "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
-              }
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
             },
             "defaultValue": null,
             "isDeprecated": false,
@@ -2249,13 +2237,9 @@
             "name": "username",
             "description": null,
             "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
-              }
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
             },
             "defaultValue": null,
             "isDeprecated": false,
@@ -2373,7 +2357,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "StringFilter",
+              "name": "StringNullableFilter",
               "ofType": null
             },
             "defaultValue": null,
@@ -2409,7 +2393,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "StringFilter",
+              "name": "StringNullableFilter",
               "ofType": null
             },
             "defaultValue": null,
@@ -2469,7 +2453,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "StringFilter",
+              "name": "StringNullableFilter",
               "ofType": null
             },
             "defaultValue": null,

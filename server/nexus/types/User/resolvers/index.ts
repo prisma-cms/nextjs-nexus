@@ -49,7 +49,9 @@ export const signup: FieldResolver<'Mutation', 'signup'> = async (
 ) => {
   const { password: passwordProps, ...data } = args.data || {}
 
-  const password = await createPassword(passwordProps)
+  const password = passwordProps
+    ? await createPassword(passwordProps)
+    : passwordProps
 
   const user = await ctx.prisma.user.create({
     data: {
@@ -81,6 +83,10 @@ export const signin: FieldResolver<'Mutation', 'signin'> = async (
   ctx
 ) => {
   const { password } = args.data || {}
+
+  if (!password) {
+    throw new Error('Не указан пароль')
+  }
 
   const where = args.where as Prisma.UserWhereUniqueInput
 

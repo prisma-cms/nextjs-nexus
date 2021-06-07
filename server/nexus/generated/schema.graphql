@@ -241,13 +241,13 @@ input UserOrderByInput {
 }
 
 input UserSigninDataInput {
-  password: String!
+  password: String
 }
 
 input UserSignupDataInput {
-  email: String!
+  email: String
   fullname: String
-  password: String!
+  password: String
 
   """
   Показывать емейл другим пользователям
@@ -258,7 +258,7 @@ input UserSignupDataInput {
   Показывать ФИО другим пользователям
   """
   showFullname: Boolean!
-  username: String!
+  username: String
 }
 
 input UserWhereInput {
@@ -268,15 +268,15 @@ input UserWhereInput {
   Tokens: TokenListRelationFilter
   active: BoolFilter
   createdAt: DateTimeFilter
-  email: StringFilter
+  email: StringNullableFilter
   fullname: StringNullableFilter
   id: StringFilter
-  password: StringFilter
+  password: StringNullableFilter
   showEmail: BoolFilter
   showFullname: BoolFilter
   sudo: BoolFilter
   updatedAt: DateTimeFilter
-  username: StringFilter
+  username: StringNullableFilter
 }
 
 input UserWhereUniqueInput {

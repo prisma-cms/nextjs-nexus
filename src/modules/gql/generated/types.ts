@@ -255,18 +255,18 @@ export interface UserOrderByInput {
 }
 
 export interface UserSigninDataInput {
-  password: Scalars['String'];
+  password?: Maybe<Scalars['String']>;
 }
 
 export interface UserSignupDataInput {
-  email: Scalars['String'];
+  email?: Maybe<Scalars['String']>;
   fullname?: Maybe<Scalars['String']>;
-  password: Scalars['String'];
+  password?: Maybe<Scalars['String']>;
   /** Показывать емейл другим пользователям */
   showEmail: Scalars['Boolean'];
   /** Показывать ФИО другим пользователям */
   showFullname: Scalars['Boolean'];
-  username: Scalars['String'];
+  username?: Maybe<Scalars['String']>;
 }
 
 export interface UserWhereInput {
@@ -276,15 +276,15 @@ export interface UserWhereInput {
   Tokens?: Maybe<TokenListRelationFilter>;
   active?: Maybe<BoolFilter>;
   createdAt?: Maybe<DateTimeFilter>;
-  email?: Maybe<StringFilter>;
+  email?: Maybe<StringNullableFilter>;
   fullname?: Maybe<StringNullableFilter>;
   id?: Maybe<StringFilter>;
-  password?: Maybe<StringFilter>;
+  password?: Maybe<StringNullableFilter>;
   showEmail?: Maybe<BoolFilter>;
   showFullname?: Maybe<BoolFilter>;
   sudo?: Maybe<BoolFilter>;
   updatedAt?: Maybe<DateTimeFilter>;
-  username?: Maybe<StringFilter>;
+  username?: Maybe<StringNullableFilter>;
 }
 
 export interface UserWhereUniqueInput {

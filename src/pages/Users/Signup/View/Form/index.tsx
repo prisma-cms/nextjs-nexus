@@ -28,10 +28,10 @@ const SignupForm: React.FC = () => {
   const schema = useMemo(() => {
     const schema: SchemaOf<UserSignupDataInput> = yup
       .object({
-        email: yup.string().email().required(),
-        username: yup.string().required(),
+        email: yup.string().email(),
+        username: yup.string(),
         fullname: yup.string(),
-        password: yup.string().required(),
+        password: yup.string(),
         showEmail: yup.boolean().required(),
         showFullname: yup.boolean().required(),
       })
@@ -107,6 +107,7 @@ const SignupForm: React.FC = () => {
         type="text"
         title="Логин"
         {...field}
+        value={field.value || ''}
         error={formState.errors[field.name]}
       />
     )
@@ -121,6 +122,7 @@ const SignupForm: React.FC = () => {
         type="email"
         title="Емейл"
         {...field}
+        value={field.value || ''}
         error={formState.errors[field.name]}
       />
     )
@@ -201,14 +203,12 @@ const SignupForm: React.FC = () => {
           <Controller
             name="username"
             control={control}
-            defaultValue={''}
             render={usernameFieldRender}
           />
 
           <Controller
             name="email"
             control={control}
-            defaultValue={''}
             render={emailFieldRender}
           />
 
@@ -221,7 +221,6 @@ const SignupForm: React.FC = () => {
           <Controller
             name="fullname"
             control={control}
-            defaultValue={''}
             render={fullnameFieldRender}
           />
 
@@ -234,7 +233,6 @@ const SignupForm: React.FC = () => {
           <Controller
             name="password"
             control={control}
-            defaultValue={''}
             render={passwordFieldRender}
           />
 

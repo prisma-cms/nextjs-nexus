@@ -39,10 +39,10 @@ export const UserQuery = extendType({
 export const UserSignupDataInput = inputObjectType({
   name: 'UserSignupDataInput',
   definition(t) {
-    t.nonNull.string('username')
-    t.nonNull.string('email')
+    t.string('username')
+    t.string('email')
     t.string('fullname')
-    t.nonNull.string('password')
+    t.string('password')
     t.nonNull.boolean('showEmail', {
       description: 'Показывать емейл другим пользователям',
     })
@@ -55,7 +55,7 @@ export const UserSignupDataInput = inputObjectType({
 export const UserSigninDataInput = inputObjectType({
   name: 'UserSigninDataInput',
   definition(t) {
-    t.nonNull.string('password')
+    t.string('password')
   },
 })
 
