@@ -4,6 +4,24 @@ query me {
   }
 }
 
+query usersConnection(
+  $where: UserWhereInput
+  $orderBy: [UserOrderByInput!]
+  $skip: Int
+  $take: Int
+) {
+  users(where: $where, orderBy: $orderBy, skip: $skip, take: $take) {
+    ...user
+  }
+  usersCount
+}
+
+query UserUnique($where: UserWhereUniqueInput!) {
+  user(where: $where) {
+    ...user
+  }
+}
+
 mutation signin($where: UserWhereUniqueInput!, $data: UserSigninDataInput!) {
   signin(where: $where, data: $data) {
     success
