@@ -3,7 +3,7 @@ ALTER TABLE `User` ADD COLUMN `image` VARCHAR(191);
 
 -- CreateTable
 CREATE TABLE `File` (
-    `id` CHAR(25) NOT NULL,
+    `id` VARCHAR(32) NOT NULL,
     `createdAt` DATETIME(0) NOT NULL DEFAULT CURRENT_TIMESTAMP(0),
     `updatedAt` DATETIME(0) NOT NULL DEFAULT CURRENT_TIMESTAMP(0),
     `path` MEDIUMTEXT NOT NULL,
@@ -13,7 +13,7 @@ CREATE TABLE `File` (
     `encoding` VARCHAR(191) NOT NULL,
     `size` DOUBLE NOT NULL,
     `rank` INTEGER NOT NULL DEFAULT 0,
-    `createdById` CHAR(25),
+    `createdById` VARCHAR(32),
 
     PRIMARY KEY (`id`)
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;

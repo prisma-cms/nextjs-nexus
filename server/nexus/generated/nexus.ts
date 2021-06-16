@@ -3,25 +3,20 @@
  * Do not make changes to this file directly
  */
 
-import { PrismaContext } from './../context/index'
-import { User, File } from '@prisma/client'
-import { core } from 'nexus'
+
+import { PrismaContext } from "./../context/index"
+import { User, File } from "@prisma/client"
+import { core } from "nexus"
 declare global {
   interface NexusGenCustomInputMethods<TypeName extends string> {
     /**
      * desc
      */
-    upload<FieldName extends string>(
-      fieldName: FieldName,
-      opts?: core.CommonInputFieldConfig<TypeName, FieldName>
-    ): void // "Upload";
+    upload<FieldName extends string>(fieldName: FieldName, opts?: core.CommonInputFieldConfig<TypeName, FieldName>): void // "Upload";
     /**
      * A date-time string at UTC, such as 2007-12-03T10:15:30Z, compliant with the `date-time` format outlined in section 5.6 of the RFC 3339 profile of the ISO 8601 standard for representation of dates and times using the Gregorian calendar.
      */
-    date<FieldName extends string>(
-      fieldName: FieldName,
-      opts?: core.CommonInputFieldConfig<TypeName, FieldName>
-    ): void // "DateTime";
+    date<FieldName extends string>(fieldName: FieldName, opts?: core.CommonInputFieldConfig<TypeName, FieldName>): void // "DateTime";
   }
 }
 declare global {
@@ -29,17 +24,11 @@ declare global {
     /**
      * desc
      */
-    upload<FieldName extends string>(
-      fieldName: FieldName,
-      ...opts: core.ScalarOutSpread<TypeName, FieldName>
-    ): void // "Upload";
+    upload<FieldName extends string>(fieldName: FieldName, ...opts: core.ScalarOutSpread<TypeName, FieldName>): void // "Upload";
     /**
      * A date-time string at UTC, such as 2007-12-03T10:15:30Z, compliant with the `date-time` format outlined in section 5.6 of the RFC 3339 profile of the ISO 8601 standard for representation of dates and times using the Gregorian calendar.
      */
-    date<FieldName extends string>(
-      fieldName: FieldName,
-      ...opts: core.ScalarOutSpread<TypeName, FieldName>
-    ): void // "DateTime";
+    date<FieldName extends string>(fieldName: FieldName, ...opts: core.ScalarOutSpread<TypeName, FieldName>): void // "DateTime";
   }
 }
 declare global {
@@ -54,283 +43,257 @@ declare global {
 }
 
 export interface NexusGenInputs {
-  BoolFilter: {
-    // input type
-    equals?: boolean | null // Boolean
-    not?: NexusGenInputs['NestedBoolFilter'] | null // NestedBoolFilter
+  BoolFilter: { // input type
+    equals?: boolean | null; // Boolean
+    not?: NexusGenInputs['NestedBoolFilter'] | null; // NestedBoolFilter
   }
-  DateTimeFilter: {
-    // input type
-    equals?: NexusGenScalars['DateTime'] | null // DateTime
-    gt?: NexusGenScalars['DateTime'] | null // DateTime
-    gte?: NexusGenScalars['DateTime'] | null // DateTime
-    in?: NexusGenScalars['DateTime'][] | null // [DateTime!]
-    lt?: NexusGenScalars['DateTime'] | null // DateTime
-    lte?: NexusGenScalars['DateTime'] | null // DateTime
-    not?: NexusGenInputs['NestedDateTimeFilter'] | null // NestedDateTimeFilter
-    notIn?: NexusGenScalars['DateTime'][] | null // [DateTime!]
+  DateTimeFilter: { // input type
+    equals?: NexusGenScalars['DateTime'] | null; // DateTime
+    gt?: NexusGenScalars['DateTime'] | null; // DateTime
+    gte?: NexusGenScalars['DateTime'] | null; // DateTime
+    in?: NexusGenScalars['DateTime'][] | null; // [DateTime!]
+    lt?: NexusGenScalars['DateTime'] | null; // DateTime
+    lte?: NexusGenScalars['DateTime'] | null; // DateTime
+    not?: NexusGenInputs['NestedDateTimeFilter'] | null; // NestedDateTimeFilter
+    notIn?: NexusGenScalars['DateTime'][] | null; // [DateTime!]
   }
-  DateTimeNullableFilter: {
-    // input type
-    equals?: NexusGenScalars['DateTime'] | null // DateTime
-    gt?: NexusGenScalars['DateTime'] | null // DateTime
-    gte?: NexusGenScalars['DateTime'] | null // DateTime
-    in?: NexusGenScalars['DateTime'][] | null // [DateTime!]
-    lt?: NexusGenScalars['DateTime'] | null // DateTime
-    lte?: NexusGenScalars['DateTime'] | null // DateTime
-    not?: NexusGenInputs['NestedDateTimeNullableFilter'] | null // NestedDateTimeNullableFilter
-    notIn?: NexusGenScalars['DateTime'][] | null // [DateTime!]
+  DateTimeNullableFilter: { // input type
+    equals?: NexusGenScalars['DateTime'] | null; // DateTime
+    gt?: NexusGenScalars['DateTime'] | null; // DateTime
+    gte?: NexusGenScalars['DateTime'] | null; // DateTime
+    in?: NexusGenScalars['DateTime'][] | null; // [DateTime!]
+    lt?: NexusGenScalars['DateTime'] | null; // DateTime
+    lte?: NexusGenScalars['DateTime'] | null; // DateTime
+    not?: NexusGenInputs['NestedDateTimeNullableFilter'] | null; // NestedDateTimeNullableFilter
+    notIn?: NexusGenScalars['DateTime'][] | null; // [DateTime!]
   }
-  FileListRelationFilter: {
-    // input type
-    every?: NexusGenInputs['FileWhereInput'] | null // FileWhereInput
-    none?: NexusGenInputs['FileWhereInput'] | null // FileWhereInput
-    some?: NexusGenInputs['FileWhereInput'] | null // FileWhereInput
+  FileListRelationFilter: { // input type
+    every?: NexusGenInputs['FileWhereInput'] | null; // FileWhereInput
+    none?: NexusGenInputs['FileWhereInput'] | null; // FileWhereInput
+    some?: NexusGenInputs['FileWhereInput'] | null; // FileWhereInput
   }
-  FileOrderByInput: {
-    // input type
-    createdAt?: NexusGenEnums['SortOrder'] | null // SortOrder
-    createdById?: NexusGenEnums['SortOrder'] | null // SortOrder
-    encoding?: NexusGenEnums['SortOrder'] | null // SortOrder
-    filename?: NexusGenEnums['SortOrder'] | null // SortOrder
-    id?: NexusGenEnums['SortOrder'] | null // SortOrder
-    mimetype?: NexusGenEnums['SortOrder'] | null // SortOrder
-    name?: NexusGenEnums['SortOrder'] | null // SortOrder
-    path?: NexusGenEnums['SortOrder'] | null // SortOrder
-    rank?: NexusGenEnums['SortOrder'] | null // SortOrder
-    size?: NexusGenEnums['SortOrder'] | null // SortOrder
-    updatedAt?: NexusGenEnums['SortOrder'] | null // SortOrder
+  FileOrderByInput: { // input type
+    createdAt?: NexusGenEnums['SortOrder'] | null; // SortOrder
+    createdById?: NexusGenEnums['SortOrder'] | null; // SortOrder
+    encoding?: NexusGenEnums['SortOrder'] | null; // SortOrder
+    filename?: NexusGenEnums['SortOrder'] | null; // SortOrder
+    id?: NexusGenEnums['SortOrder'] | null; // SortOrder
+    mimetype?: NexusGenEnums['SortOrder'] | null; // SortOrder
+    name?: NexusGenEnums['SortOrder'] | null; // SortOrder
+    path?: NexusGenEnums['SortOrder'] | null; // SortOrder
+    rank?: NexusGenEnums['SortOrder'] | null; // SortOrder
+    size?: NexusGenEnums['SortOrder'] | null; // SortOrder
+    updatedAt?: NexusGenEnums['SortOrder'] | null; // SortOrder
   }
-  FileWhereInput: {
-    // input type
-    AND?: NexusGenInputs['FileWhereInput'][] | null // [FileWhereInput!]
-    CreatedBy?: NexusGenInputs['UserWhereInput'] | null // UserWhereInput
-    NOT?: NexusGenInputs['FileWhereInput'][] | null // [FileWhereInput!]
-    OR?: NexusGenInputs['FileWhereInput'][] | null // [FileWhereInput!]
-    createdAt?: NexusGenInputs['DateTimeFilter'] | null // DateTimeFilter
-    createdById?: NexusGenInputs['StringNullableFilter'] | null // StringNullableFilter
-    encoding?: NexusGenInputs['StringFilter'] | null // StringFilter
-    filename?: NexusGenInputs['StringFilter'] | null // StringFilter
-    id?: NexusGenInputs['StringFilter'] | null // StringFilter
-    mimetype?: NexusGenInputs['StringFilter'] | null // StringFilter
-    name?: NexusGenInputs['StringNullableFilter'] | null // StringNullableFilter
-    path?: NexusGenInputs['StringFilter'] | null // StringFilter
-    rank?: NexusGenInputs['IntFilter'] | null // IntFilter
-    size?: NexusGenInputs['FloatFilter'] | null // FloatFilter
-    updatedAt?: NexusGenInputs['DateTimeFilter'] | null // DateTimeFilter
+  FileWhereInput: { // input type
+    AND?: NexusGenInputs['FileWhereInput'][] | null; // [FileWhereInput!]
+    CreatedBy?: NexusGenInputs['UserWhereInput'] | null; // UserWhereInput
+    NOT?: NexusGenInputs['FileWhereInput'][] | null; // [FileWhereInput!]
+    OR?: NexusGenInputs['FileWhereInput'][] | null; // [FileWhereInput!]
+    createdAt?: NexusGenInputs['DateTimeFilter'] | null; // DateTimeFilter
+    createdById?: NexusGenInputs['StringNullableFilter'] | null; // StringNullableFilter
+    encoding?: NexusGenInputs['StringFilter'] | null; // StringFilter
+    filename?: NexusGenInputs['StringFilter'] | null; // StringFilter
+    id?: NexusGenInputs['StringFilter'] | null; // StringFilter
+    mimetype?: NexusGenInputs['StringFilter'] | null; // StringFilter
+    name?: NexusGenInputs['StringNullableFilter'] | null; // StringNullableFilter
+    path?: NexusGenInputs['StringFilter'] | null; // StringFilter
+    rank?: NexusGenInputs['IntFilter'] | null; // IntFilter
+    size?: NexusGenInputs['FloatFilter'] | null; // FloatFilter
+    updatedAt?: NexusGenInputs['DateTimeFilter'] | null; // DateTimeFilter
   }
-  FileWhereUniqueInput: {
-    // input type
-    id?: string | null // String
+  FileWhereUniqueInput: { // input type
+    id?: string | null; // String
   }
-  FloatFilter: {
-    // input type
-    equals?: number | null // Float
-    gt?: number | null // Float
-    gte?: number | null // Float
-    in?: number[] | null // [Float!]
-    lt?: number | null // Float
-    lte?: number | null // Float
-    not?: NexusGenInputs['NestedFloatFilter'] | null // NestedFloatFilter
-    notIn?: number[] | null // [Float!]
+  FloatFilter: { // input type
+    equals?: number | null; // Float
+    gt?: number | null; // Float
+    gte?: number | null; // Float
+    in?: number[] | null; // [Float!]
+    lt?: number | null; // Float
+    lte?: number | null; // Float
+    not?: NexusGenInputs['NestedFloatFilter'] | null; // NestedFloatFilter
+    notIn?: number[] | null; // [Float!]
   }
-  IntFilter: {
-    // input type
-    equals?: number | null // Int
-    gt?: number | null // Int
-    gte?: number | null // Int
-    in?: number[] | null // [Int!]
-    lt?: number | null // Int
-    lte?: number | null // Int
-    not?: NexusGenInputs['NestedIntFilter'] | null // NestedIntFilter
-    notIn?: number[] | null // [Int!]
+  IntFilter: { // input type
+    equals?: number | null; // Int
+    gt?: number | null; // Int
+    gte?: number | null; // Int
+    in?: number[] | null; // [Int!]
+    lt?: number | null; // Int
+    lte?: number | null; // Int
+    not?: NexusGenInputs['NestedIntFilter'] | null; // NestedIntFilter
+    notIn?: number[] | null; // [Int!]
   }
-  NestedBoolFilter: {
-    // input type
-    equals?: boolean | null // Boolean
-    not?: NexusGenInputs['NestedBoolFilter'] | null // NestedBoolFilter
+  NestedBoolFilter: { // input type
+    equals?: boolean | null; // Boolean
+    not?: NexusGenInputs['NestedBoolFilter'] | null; // NestedBoolFilter
   }
-  NestedDateTimeFilter: {
-    // input type
-    equals?: NexusGenScalars['DateTime'] | null // DateTime
-    gt?: NexusGenScalars['DateTime'] | null // DateTime
-    gte?: NexusGenScalars['DateTime'] | null // DateTime
-    in?: NexusGenScalars['DateTime'][] | null // [DateTime!]
-    lt?: NexusGenScalars['DateTime'] | null // DateTime
-    lte?: NexusGenScalars['DateTime'] | null // DateTime
-    not?: NexusGenInputs['NestedDateTimeFilter'] | null // NestedDateTimeFilter
-    notIn?: NexusGenScalars['DateTime'][] | null // [DateTime!]
+  NestedDateTimeFilter: { // input type
+    equals?: NexusGenScalars['DateTime'] | null; // DateTime
+    gt?: NexusGenScalars['DateTime'] | null; // DateTime
+    gte?: NexusGenScalars['DateTime'] | null; // DateTime
+    in?: NexusGenScalars['DateTime'][] | null; // [DateTime!]
+    lt?: NexusGenScalars['DateTime'] | null; // DateTime
+    lte?: NexusGenScalars['DateTime'] | null; // DateTime
+    not?: NexusGenInputs['NestedDateTimeFilter'] | null; // NestedDateTimeFilter
+    notIn?: NexusGenScalars['DateTime'][] | null; // [DateTime!]
   }
-  NestedDateTimeNullableFilter: {
-    // input type
-    equals?: NexusGenScalars['DateTime'] | null // DateTime
-    gt?: NexusGenScalars['DateTime'] | null // DateTime
-    gte?: NexusGenScalars['DateTime'] | null // DateTime
-    in?: NexusGenScalars['DateTime'][] | null // [DateTime!]
-    lt?: NexusGenScalars['DateTime'] | null // DateTime
-    lte?: NexusGenScalars['DateTime'] | null // DateTime
-    not?: NexusGenInputs['NestedDateTimeNullableFilter'] | null // NestedDateTimeNullableFilter
-    notIn?: NexusGenScalars['DateTime'][] | null // [DateTime!]
+  NestedDateTimeNullableFilter: { // input type
+    equals?: NexusGenScalars['DateTime'] | null; // DateTime
+    gt?: NexusGenScalars['DateTime'] | null; // DateTime
+    gte?: NexusGenScalars['DateTime'] | null; // DateTime
+    in?: NexusGenScalars['DateTime'][] | null; // [DateTime!]
+    lt?: NexusGenScalars['DateTime'] | null; // DateTime
+    lte?: NexusGenScalars['DateTime'] | null; // DateTime
+    not?: NexusGenInputs['NestedDateTimeNullableFilter'] | null; // NestedDateTimeNullableFilter
+    notIn?: NexusGenScalars['DateTime'][] | null; // [DateTime!]
   }
-  NestedFloatFilter: {
-    // input type
-    equals?: number | null // Float
-    gt?: number | null // Float
-    gte?: number | null // Float
-    in?: number[] | null // [Float!]
-    lt?: number | null // Float
-    lte?: number | null // Float
-    not?: NexusGenInputs['NestedFloatFilter'] | null // NestedFloatFilter
-    notIn?: number[] | null // [Float!]
+  NestedFloatFilter: { // input type
+    equals?: number | null; // Float
+    gt?: number | null; // Float
+    gte?: number | null; // Float
+    in?: number[] | null; // [Float!]
+    lt?: number | null; // Float
+    lte?: number | null; // Float
+    not?: NexusGenInputs['NestedFloatFilter'] | null; // NestedFloatFilter
+    notIn?: number[] | null; // [Float!]
   }
-  NestedIntFilter: {
-    // input type
-    equals?: number | null // Int
-    gt?: number | null // Int
-    gte?: number | null // Int
-    in?: number[] | null // [Int!]
-    lt?: number | null // Int
-    lte?: number | null // Int
-    not?: NexusGenInputs['NestedIntFilter'] | null // NestedIntFilter
-    notIn?: number[] | null // [Int!]
+  NestedIntFilter: { // input type
+    equals?: number | null; // Int
+    gt?: number | null; // Int
+    gte?: number | null; // Int
+    in?: number[] | null; // [Int!]
+    lt?: number | null; // Int
+    lte?: number | null; // Int
+    not?: NexusGenInputs['NestedIntFilter'] | null; // NestedIntFilter
+    notIn?: number[] | null; // [Int!]
   }
-  NestedStringFilter: {
-    // input type
-    contains?: string | null // String
-    endsWith?: string | null // String
-    equals?: string | null // String
-    gt?: string | null // String
-    gte?: string | null // String
-    in?: string[] | null // [String!]
-    lt?: string | null // String
-    lte?: string | null // String
-    not?: NexusGenInputs['NestedStringFilter'] | null // NestedStringFilter
-    notIn?: string[] | null // [String!]
-    startsWith?: string | null // String
+  NestedStringFilter: { // input type
+    contains?: string | null; // String
+    endsWith?: string | null; // String
+    equals?: string | null; // String
+    gt?: string | null; // String
+    gte?: string | null; // String
+    in?: string[] | null; // [String!]
+    lt?: string | null; // String
+    lte?: string | null; // String
+    not?: NexusGenInputs['NestedStringFilter'] | null; // NestedStringFilter
+    notIn?: string[] | null; // [String!]
+    startsWith?: string | null; // String
   }
-  NestedStringNullableFilter: {
-    // input type
-    contains?: string | null // String
-    endsWith?: string | null // String
-    equals?: string | null // String
-    gt?: string | null // String
-    gte?: string | null // String
-    in?: string[] | null // [String!]
-    lt?: string | null // String
-    lte?: string | null // String
-    not?: NexusGenInputs['NestedStringNullableFilter'] | null // NestedStringNullableFilter
-    notIn?: string[] | null // [String!]
-    startsWith?: string | null // String
+  NestedStringNullableFilter: { // input type
+    contains?: string | null; // String
+    endsWith?: string | null; // String
+    equals?: string | null; // String
+    gt?: string | null; // String
+    gte?: string | null; // String
+    in?: string[] | null; // [String!]
+    lt?: string | null; // String
+    lte?: string | null; // String
+    not?: NexusGenInputs['NestedStringNullableFilter'] | null; // NestedStringNullableFilter
+    notIn?: string[] | null; // [String!]
+    startsWith?: string | null; // String
   }
-  SingleUploadInput: {
-    // input type
-    directory?: string | null // String
-    file: NexusGenScalars['Upload'] // Upload!
-    name?: string | null // String
+  SingleUploadInput: { // input type
+    directory?: string | null; // String
+    file: NexusGenScalars['Upload']; // Upload!
+    name?: string | null; // String
   }
-  StringFilter: {
-    // input type
-    contains?: string | null // String
-    endsWith?: string | null // String
-    equals?: string | null // String
-    gt?: string | null // String
-    gte?: string | null // String
-    in?: string[] | null // [String!]
-    lt?: string | null // String
-    lte?: string | null // String
-    not?: NexusGenInputs['NestedStringFilter'] | null // NestedStringFilter
-    notIn?: string[] | null // [String!]
-    startsWith?: string | null // String
+  StringFilter: { // input type
+    contains?: string | null; // String
+    endsWith?: string | null; // String
+    equals?: string | null; // String
+    gt?: string | null; // String
+    gte?: string | null; // String
+    in?: string[] | null; // [String!]
+    lt?: string | null; // String
+    lte?: string | null; // String
+    not?: NexusGenInputs['NestedStringFilter'] | null; // NestedStringFilter
+    notIn?: string[] | null; // [String!]
+    startsWith?: string | null; // String
   }
-  StringNullableFilter: {
-    // input type
-    contains?: string | null // String
-    endsWith?: string | null // String
-    equals?: string | null // String
-    gt?: string | null // String
-    gte?: string | null // String
-    in?: string[] | null // [String!]
-    lt?: string | null // String
-    lte?: string | null // String
-    not?: NexusGenInputs['NestedStringNullableFilter'] | null // NestedStringNullableFilter
-    notIn?: string[] | null // [String!]
-    startsWith?: string | null // String
+  StringNullableFilter: { // input type
+    contains?: string | null; // String
+    endsWith?: string | null; // String
+    equals?: string | null; // String
+    gt?: string | null; // String
+    gte?: string | null; // String
+    in?: string[] | null; // [String!]
+    lt?: string | null; // String
+    lte?: string | null; // String
+    not?: NexusGenInputs['NestedStringNullableFilter'] | null; // NestedStringNullableFilter
+    notIn?: string[] | null; // [String!]
+    startsWith?: string | null; // String
   }
-  TokenListRelationFilter: {
-    // input type
-    every?: NexusGenInputs['TokenWhereInput'] | null // TokenWhereInput
-    none?: NexusGenInputs['TokenWhereInput'] | null // TokenWhereInput
-    some?: NexusGenInputs['TokenWhereInput'] | null // TokenWhereInput
+  TokenListRelationFilter: { // input type
+    every?: NexusGenInputs['TokenWhereInput'] | null; // TokenWhereInput
+    none?: NexusGenInputs['TokenWhereInput'] | null; // TokenWhereInput
+    some?: NexusGenInputs['TokenWhereInput'] | null; // TokenWhereInput
   }
-  TokenWhereInput: {
-    // input type
-    AND?: NexusGenInputs['TokenWhereInput'][] | null // [TokenWhereInput!]
-    NOT?: NexusGenInputs['TokenWhereInput'][] | null // [TokenWhereInput!]
-    OR?: NexusGenInputs['TokenWhereInput'][] | null // [TokenWhereInput!]
-    User?: NexusGenInputs['UserWhereInput'] | null // UserWhereInput
-    createdAt?: NexusGenInputs['DateTimeFilter'] | null // DateTimeFilter
-    expiredAt?: NexusGenInputs['DateTimeNullableFilter'] | null // DateTimeNullableFilter
-    id?: NexusGenInputs['StringFilter'] | null // StringFilter
-    userId?: NexusGenInputs['StringNullableFilter'] | null // StringNullableFilter
+  TokenWhereInput: { // input type
+    AND?: NexusGenInputs['TokenWhereInput'][] | null; // [TokenWhereInput!]
+    NOT?: NexusGenInputs['TokenWhereInput'][] | null; // [TokenWhereInput!]
+    OR?: NexusGenInputs['TokenWhereInput'][] | null; // [TokenWhereInput!]
+    User?: NexusGenInputs['UserWhereInput'] | null; // UserWhereInput
+    createdAt?: NexusGenInputs['DateTimeFilter'] | null; // DateTimeFilter
+    expiredAt?: NexusGenInputs['DateTimeNullableFilter'] | null; // DateTimeNullableFilter
+    id?: NexusGenInputs['StringFilter'] | null; // StringFilter
+    userId?: NexusGenInputs['StringNullableFilter'] | null; // StringNullableFilter
   }
-  UserOrderByInput: {
-    // input type
-    active?: NexusGenEnums['SortOrder'] | null // SortOrder
-    createdAt?: NexusGenEnums['SortOrder'] | null // SortOrder
-    email?: NexusGenEnums['SortOrder'] | null // SortOrder
-    fullname?: NexusGenEnums['SortOrder'] | null // SortOrder
-    id?: NexusGenEnums['SortOrder'] | null // SortOrder
-    image?: NexusGenEnums['SortOrder'] | null // SortOrder
-    password?: NexusGenEnums['SortOrder'] | null // SortOrder
-    showEmail?: NexusGenEnums['SortOrder'] | null // SortOrder
-    showFullname?: NexusGenEnums['SortOrder'] | null // SortOrder
-    sudo?: NexusGenEnums['SortOrder'] | null // SortOrder
-    updatedAt?: NexusGenEnums['SortOrder'] | null // SortOrder
-    username?: NexusGenEnums['SortOrder'] | null // SortOrder
+  UserOrderByInput: { // input type
+    active?: NexusGenEnums['SortOrder'] | null; // SortOrder
+    createdAt?: NexusGenEnums['SortOrder'] | null; // SortOrder
+    email?: NexusGenEnums['SortOrder'] | null; // SortOrder
+    fullname?: NexusGenEnums['SortOrder'] | null; // SortOrder
+    id?: NexusGenEnums['SortOrder'] | null; // SortOrder
+    image?: NexusGenEnums['SortOrder'] | null; // SortOrder
+    password?: NexusGenEnums['SortOrder'] | null; // SortOrder
+    showEmail?: NexusGenEnums['SortOrder'] | null; // SortOrder
+    showFullname?: NexusGenEnums['SortOrder'] | null; // SortOrder
+    sudo?: NexusGenEnums['SortOrder'] | null; // SortOrder
+    updatedAt?: NexusGenEnums['SortOrder'] | null; // SortOrder
+    username?: NexusGenEnums['SortOrder'] | null; // SortOrder
   }
-  UserSigninDataInput: {
-    // input type
-    password?: string | null // String
+  UserSigninDataInput: { // input type
+    password?: string | null; // String
   }
-  UserSignupDataInput: {
-    // input type
-    email?: string | null // String
-    fullname?: string | null // String
-    password?: string | null // String
-    showEmail: boolean // Boolean!
-    showFullname: boolean // Boolean!
-    username?: string | null // String
+  UserSignupDataInput: { // input type
+    email?: string | null; // String
+    fullname?: string | null; // String
+    password?: string | null; // String
+    showEmail: boolean; // Boolean!
+    showFullname: boolean; // Boolean!
+    username?: string | null; // String
   }
-  UserWhereInput: {
-    // input type
-    AND?: NexusGenInputs['UserWhereInput'][] | null // [UserWhereInput!]
-    Files?: NexusGenInputs['FileListRelationFilter'] | null // FileListRelationFilter
-    NOT?: NexusGenInputs['UserWhereInput'][] | null // [UserWhereInput!]
-    OR?: NexusGenInputs['UserWhereInput'][] | null // [UserWhereInput!]
-    Tokens?: NexusGenInputs['TokenListRelationFilter'] | null // TokenListRelationFilter
-    active?: NexusGenInputs['BoolFilter'] | null // BoolFilter
-    createdAt?: NexusGenInputs['DateTimeFilter'] | null // DateTimeFilter
-    email?: NexusGenInputs['StringNullableFilter'] | null // StringNullableFilter
-    fullname?: NexusGenInputs['StringNullableFilter'] | null // StringNullableFilter
-    id?: NexusGenInputs['StringFilter'] | null // StringFilter
-    image?: NexusGenInputs['StringNullableFilter'] | null // StringNullableFilter
-    password?: NexusGenInputs['StringNullableFilter'] | null // StringNullableFilter
-    showEmail?: NexusGenInputs['BoolFilter'] | null // BoolFilter
-    showFullname?: NexusGenInputs['BoolFilter'] | null // BoolFilter
-    sudo?: NexusGenInputs['BoolFilter'] | null // BoolFilter
-    updatedAt?: NexusGenInputs['DateTimeFilter'] | null // DateTimeFilter
-    username?: NexusGenInputs['StringNullableFilter'] | null // StringNullableFilter
+  UserWhereInput: { // input type
+    AND?: NexusGenInputs['UserWhereInput'][] | null; // [UserWhereInput!]
+    Files?: NexusGenInputs['FileListRelationFilter'] | null; // FileListRelationFilter
+    NOT?: NexusGenInputs['UserWhereInput'][] | null; // [UserWhereInput!]
+    OR?: NexusGenInputs['UserWhereInput'][] | null; // [UserWhereInput!]
+    Tokens?: NexusGenInputs['TokenListRelationFilter'] | null; // TokenListRelationFilter
+    active?: NexusGenInputs['BoolFilter'] | null; // BoolFilter
+    createdAt?: NexusGenInputs['DateTimeFilter'] | null; // DateTimeFilter
+    email?: NexusGenInputs['StringNullableFilter'] | null; // StringNullableFilter
+    fullname?: NexusGenInputs['StringNullableFilter'] | null; // StringNullableFilter
+    id?: NexusGenInputs['StringFilter'] | null; // StringFilter
+    image?: NexusGenInputs['StringNullableFilter'] | null; // StringNullableFilter
+    password?: NexusGenInputs['StringNullableFilter'] | null; // StringNullableFilter
+    showEmail?: NexusGenInputs['BoolFilter'] | null; // BoolFilter
+    showFullname?: NexusGenInputs['BoolFilter'] | null; // BoolFilter
+    sudo?: NexusGenInputs['BoolFilter'] | null; // BoolFilter
+    updatedAt?: NexusGenInputs['DateTimeFilter'] | null; // DateTimeFilter
+    username?: NexusGenInputs['StringNullableFilter'] | null; // StringNullableFilter
   }
-  UserWhereUniqueInput: {
-    // input type
-    email?: string | null // String
-    id?: string | null // String
-    username?: string | null // String
+  UserWhereUniqueInput: { // input type
+    email?: string | null; // String
+    id?: string | null; // String
+    username?: string | null; // String
   }
 }
 
 export interface NexusGenEnums {
-  SortOrder: 'asc' | 'desc'
+  SortOrder: "asc" | "desc"
 }
 
 export interface NexusGenScalars {
@@ -345,104 +308,94 @@ export interface NexusGenScalars {
 }
 
 export interface NexusGenObjects {
-  AuthPayload: {
-    // root type
-    data?: NexusGenRootTypes['User'] | null // User
-    errors: NexusGenRootTypes['RequestError'][] // [RequestError!]!
-    message?: string | null // String
-    success: boolean // Boolean!
-    token?: string | null // String
+  AuthPayload: { // root type
+    data?: NexusGenRootTypes['User'] | null; // User
+    errors: NexusGenRootTypes['RequestError'][]; // [RequestError!]!
+    message?: string | null; // String
+    success: boolean; // Boolean!
+    token?: string | null; // String
   }
-  File: File
-  Mutation: {}
-  Query: {}
-  RequestError: {
-    // root type
-    key: string // String!
-    message: string // String!
+  File: File;
+  Mutation: {};
+  Query: {};
+  RequestError: { // root type
+    key: string; // String!
+    message: string; // String!
   }
-  User: User
+  User: User;
 }
 
-export interface NexusGenInterfaces {}
+export interface NexusGenInterfaces {
+}
 
-export interface NexusGenUnions {}
+export interface NexusGenUnions {
+}
 
 export type NexusGenRootTypes = NexusGenObjects
 
-export type NexusGenAllTypes = NexusGenRootTypes &
-  NexusGenScalars &
-  NexusGenEnums
+export type NexusGenAllTypes = NexusGenRootTypes & NexusGenScalars & NexusGenEnums
 
 export interface NexusGenFieldTypes {
-  AuthPayload: {
-    // field return type
-    data: NexusGenRootTypes['User'] | null // User
-    errors: NexusGenRootTypes['RequestError'][] // [RequestError!]!
-    message: string | null // String
-    success: boolean // Boolean!
-    token: string | null // String
+  AuthPayload: { // field return type
+    data: NexusGenRootTypes['User'] | null; // User
+    errors: NexusGenRootTypes['RequestError'][]; // [RequestError!]!
+    message: string | null; // String
+    success: boolean; // Boolean!
+    token: string | null; // String
   }
-  File: {
-    // field return type
-    createdAt: NexusGenScalars['DateTime'] // DateTime!
-    encoding: string // String!
-    filename: string // String!
-    id: string // String!
-    mimetype: string // String!
-    name: string | null // String
-    path: string // String!
-    rank: number // Int!
-    size: number // Float!
-    updatedAt: NexusGenScalars['DateTime'] // DateTime!
+  File: { // field return type
+    createdAt: NexusGenScalars['DateTime']; // DateTime!
+    encoding: string; // String!
+    filename: string; // String!
+    id: string; // String!
+    mimetype: string; // String!
+    name: string | null; // String
+    path: string; // String!
+    rank: number; // Int!
+    size: number; // Float!
+    updatedAt: NexusGenScalars['DateTime']; // DateTime!
   }
-  Mutation: {
-    // field return type
-    signin: NexusGenRootTypes['AuthPayload'] // AuthPayload!
-    signup: NexusGenRootTypes['AuthPayload'] // AuthPayload!
-    singleUpload: NexusGenRootTypes['File'] | null // File
+  Mutation: { // field return type
+    signin: NexusGenRootTypes['AuthPayload']; // AuthPayload!
+    signup: NexusGenRootTypes['AuthPayload']; // AuthPayload!
+    singleUpload: NexusGenRootTypes['File'] | null; // File
   }
-  Query: {
-    // field return type
-    file: NexusGenRootTypes['File'] | null // File
-    files: NexusGenRootTypes['File'][] // [File!]!
-    filesCount: number // Int!
-    me: NexusGenRootTypes['User'] | null // User
-    user: NexusGenRootTypes['User'] | null // User
-    users: NexusGenRootTypes['User'][] // [User!]!
-    usersCount: number // Int!
+  Query: { // field return type
+    file: NexusGenRootTypes['File'] | null; // File
+    files: NexusGenRootTypes['File'][]; // [File!]!
+    filesCount: number; // Int!
+    me: NexusGenRootTypes['User'] | null; // User
+    user: NexusGenRootTypes['User'] | null; // User
+    users: NexusGenRootTypes['User'][]; // [User!]!
+    usersCount: number; // Int!
   }
-  RequestError: {
-    // field return type
-    key: string // String!
-    message: string // String!
+  RequestError: { // field return type
+    key: string; // String!
+    message: string; // String!
   }
-  User: {
-    // field return type
-    createdAt: NexusGenScalars['DateTime'] // DateTime!
-    email: string | null // String
-    fullname: string | null // String
-    id: string // String!
-    image: string | null // String
-    showEmail: boolean // Boolean!
-    showFullname: boolean // Boolean!
-    sudo: boolean | null // Boolean
-    updatedAt: NexusGenScalars['DateTime'] // DateTime!
-    username: string | null // String
+  User: { // field return type
+    createdAt: NexusGenScalars['DateTime']; // DateTime!
+    email: string | null; // String
+    fullname: string | null; // String
+    id: string; // String!
+    image: string | null; // String
+    showEmail: boolean; // Boolean!
+    showFullname: boolean; // Boolean!
+    sudo: boolean | null; // Boolean
+    updatedAt: NexusGenScalars['DateTime']; // DateTime!
+    username: string | null; // String
   }
 }
 
 export interface NexusGenFieldTypeNames {
-  AuthPayload: {
-    // field return type name
+  AuthPayload: { // field return type name
     data: 'User'
     errors: 'RequestError'
     message: 'String'
     success: 'Boolean'
     token: 'String'
   }
-  File: {
-    // field return type name
+  File: { // field return type name
     createdAt: 'DateTime'
     encoding: 'String'
     filename: 'String'
@@ -454,14 +407,12 @@ export interface NexusGenFieldTypeNames {
     size: 'Float'
     updatedAt: 'DateTime'
   }
-  Mutation: {
-    // field return type name
+  Mutation: { // field return type name
     signin: 'AuthPayload'
     signup: 'AuthPayload'
     singleUpload: 'File'
   }
-  Query: {
-    // field return type name
+  Query: { // field return type name
     file: 'File'
     files: 'File'
     filesCount: 'Int'
@@ -470,13 +421,11 @@ export interface NexusGenFieldTypeNames {
     users: 'User'
     usersCount: 'Int'
   }
-  RequestError: {
-    // field return type name
+  RequestError: { // field return type name
     key: 'String'
     message: 'String'
   }
-  User: {
-    // field return type name
+  User: { // field return type name
     createdAt: 'DateTime'
     email: 'String'
     fullname: 'String'
@@ -492,76 +441,69 @@ export interface NexusGenFieldTypeNames {
 
 export interface NexusGenArgTypes {
   Mutation: {
-    signin: {
-      // args
-      data: NexusGenInputs['UserSigninDataInput'] // UserSigninDataInput!
-      where: NexusGenInputs['UserWhereUniqueInput'] // UserWhereUniqueInput!
+    signin: { // args
+      data: NexusGenInputs['UserSigninDataInput']; // UserSigninDataInput!
+      where: NexusGenInputs['UserWhereUniqueInput']; // UserWhereUniqueInput!
     }
-    signup: {
-      // args
-      data: NexusGenInputs['UserSignupDataInput'] // UserSignupDataInput!
+    signup: { // args
+      data: NexusGenInputs['UserSignupDataInput']; // UserSignupDataInput!
     }
-    singleUpload: {
-      // args
-      data?: NexusGenInputs['SingleUploadInput'] | null // SingleUploadInput
-      file?: NexusGenScalars['Upload'] | null // Upload
+    singleUpload: { // args
+      data?: NexusGenInputs['SingleUploadInput'] | null; // SingleUploadInput
+      file?: NexusGenScalars['Upload'] | null; // Upload
     }
   }
   Query: {
-    file: {
-      // args
-      where: NexusGenInputs['FileWhereUniqueInput'] // FileWhereUniqueInput!
+    file: { // args
+      where: NexusGenInputs['FileWhereUniqueInput']; // FileWhereUniqueInput!
     }
-    files: {
-      // args
-      cursor?: NexusGenInputs['FileWhereUniqueInput'] | null // FileWhereUniqueInput
-      orderBy?: NexusGenInputs['FileOrderByInput'][] | null // [FileOrderByInput!]
-      skip?: number | null // Int
-      take?: number | null // Int
-      where?: NexusGenInputs['FileWhereInput'] | null // FileWhereInput
+    files: { // args
+      cursor?: NexusGenInputs['FileWhereUniqueInput'] | null; // FileWhereUniqueInput
+      orderBy?: NexusGenInputs['FileOrderByInput'][] | null; // [FileOrderByInput!]
+      skip?: number | null; // Int
+      take?: number | null; // Int
+      where?: NexusGenInputs['FileWhereInput'] | null; // FileWhereInput
     }
-    filesCount: {
-      // args
-      where?: NexusGenInputs['FileWhereInput'] | null // FileWhereInput
+    filesCount: { // args
+      where?: NexusGenInputs['FileWhereInput'] | null; // FileWhereInput
     }
-    user: {
-      // args
-      where: NexusGenInputs['UserWhereUniqueInput'] // UserWhereUniqueInput!
+    user: { // args
+      where: NexusGenInputs['UserWhereUniqueInput']; // UserWhereUniqueInput!
     }
-    users: {
-      // args
-      cursor?: NexusGenInputs['UserWhereUniqueInput'] | null // UserWhereUniqueInput
-      orderBy?: NexusGenInputs['UserOrderByInput'][] | null // [UserOrderByInput!]
-      skip?: number | null // Int
-      take?: number | null // Int
-      where?: NexusGenInputs['UserWhereInput'] | null // UserWhereInput
+    users: { // args
+      cursor?: NexusGenInputs['UserWhereUniqueInput'] | null; // UserWhereUniqueInput
+      orderBy?: NexusGenInputs['UserOrderByInput'][] | null; // [UserOrderByInput!]
+      skip?: number | null; // Int
+      take?: number | null; // Int
+      where?: NexusGenInputs['UserWhereInput'] | null; // UserWhereInput
     }
-    usersCount: {
-      // args
-      where?: NexusGenInputs['UserWhereInput'] | null // UserWhereInput
+    usersCount: { // args
+      where?: NexusGenInputs['UserWhereInput'] | null; // UserWhereInput
     }
   }
 }
 
-export interface NexusGenAbstractTypeMembers {}
+export interface NexusGenAbstractTypeMembers {
+}
 
-export interface NexusGenTypeInterfaces {}
+export interface NexusGenTypeInterfaces {
+}
 
-export type NexusGenObjectNames = keyof NexusGenObjects
+export type NexusGenObjectNames = keyof NexusGenObjects;
 
-export type NexusGenInputNames = keyof NexusGenInputs
+export type NexusGenInputNames = keyof NexusGenInputs;
 
-export type NexusGenEnumNames = keyof NexusGenEnums
+export type NexusGenEnumNames = keyof NexusGenEnums;
 
-export type NexusGenInterfaceNames = never
+export type NexusGenInterfaceNames = never;
 
-export type NexusGenScalarNames = keyof NexusGenScalars
+export type NexusGenScalarNames = keyof NexusGenScalars;
 
-export type NexusGenUnionNames = never
+export type NexusGenUnionNames = never;
 
-export type NexusGenObjectsUsingAbstractStrategyIsTypeOf = never
+export type NexusGenObjectsUsingAbstractStrategyIsTypeOf = never;
 
-export type NexusGenAbstractsUsingStrategyResolveType = never
+export type NexusGenAbstractsUsingStrategyResolveType = never;
 
 export type NexusGenFeaturesConfig = {
   abstractTypeStrategies: {
@@ -572,51 +514,41 @@ export type NexusGenFeaturesConfig = {
 }
 
 export interface NexusGenTypes {
-  context: PrismaContext
-  inputTypes: NexusGenInputs
-  rootTypes: NexusGenRootTypes
-  inputTypeShapes: NexusGenInputs & NexusGenEnums & NexusGenScalars
-  argTypes: NexusGenArgTypes
-  fieldTypes: NexusGenFieldTypes
-  fieldTypeNames: NexusGenFieldTypeNames
-  allTypes: NexusGenAllTypes
-  typeInterfaces: NexusGenTypeInterfaces
-  objectNames: NexusGenObjectNames
-  inputNames: NexusGenInputNames
-  enumNames: NexusGenEnumNames
-  interfaceNames: NexusGenInterfaceNames
-  scalarNames: NexusGenScalarNames
-  unionNames: NexusGenUnionNames
-  allInputTypes:
-    | NexusGenTypes['inputNames']
-    | NexusGenTypes['enumNames']
-    | NexusGenTypes['scalarNames']
-  allOutputTypes:
-    | NexusGenTypes['objectNames']
-    | NexusGenTypes['enumNames']
-    | NexusGenTypes['unionNames']
-    | NexusGenTypes['interfaceNames']
-    | NexusGenTypes['scalarNames']
-  allNamedTypes:
-    | NexusGenTypes['allInputTypes']
-    | NexusGenTypes['allOutputTypes']
-  abstractTypes: NexusGenTypes['interfaceNames'] | NexusGenTypes['unionNames']
-  abstractTypeMembers: NexusGenAbstractTypeMembers
-  objectsUsingAbstractStrategyIsTypeOf: NexusGenObjectsUsingAbstractStrategyIsTypeOf
-  abstractsUsingStrategyResolveType: NexusGenAbstractsUsingStrategyResolveType
-  features: NexusGenFeaturesConfig
+  context: PrismaContext;
+  inputTypes: NexusGenInputs;
+  rootTypes: NexusGenRootTypes;
+  inputTypeShapes: NexusGenInputs & NexusGenEnums & NexusGenScalars;
+  argTypes: NexusGenArgTypes;
+  fieldTypes: NexusGenFieldTypes;
+  fieldTypeNames: NexusGenFieldTypeNames;
+  allTypes: NexusGenAllTypes;
+  typeInterfaces: NexusGenTypeInterfaces;
+  objectNames: NexusGenObjectNames;
+  inputNames: NexusGenInputNames;
+  enumNames: NexusGenEnumNames;
+  interfaceNames: NexusGenInterfaceNames;
+  scalarNames: NexusGenScalarNames;
+  unionNames: NexusGenUnionNames;
+  allInputTypes: NexusGenTypes['inputNames'] | NexusGenTypes['enumNames'] | NexusGenTypes['scalarNames'];
+  allOutputTypes: NexusGenTypes['objectNames'] | NexusGenTypes['enumNames'] | NexusGenTypes['unionNames'] | NexusGenTypes['interfaceNames'] | NexusGenTypes['scalarNames'];
+  allNamedTypes: NexusGenTypes['allInputTypes'] | NexusGenTypes['allOutputTypes']
+  abstractTypes: NexusGenTypes['interfaceNames'] | NexusGenTypes['unionNames'];
+  abstractTypeMembers: NexusGenAbstractTypeMembers;
+  objectsUsingAbstractStrategyIsTypeOf: NexusGenObjectsUsingAbstractStrategyIsTypeOf;
+  abstractsUsingStrategyResolveType: NexusGenAbstractsUsingStrategyResolveType;
+  features: NexusGenFeaturesConfig;
 }
 
+
 declare global {
-  interface NexusGenPluginTypeConfig<TypeName extends string> {}
-  interface NexusGenPluginFieldConfig<
-    TypeName extends string,
-    FieldName extends string
-  > {}
-  interface NexusGenPluginInputFieldConfig<
-    TypeName extends string,
-    FieldName extends string
-  > {}
-  interface NexusGenPluginSchemaConfig {}
-  interface NexusGenPluginArgConfig {}
+  interface NexusGenPluginTypeConfig<TypeName extends string> {
+  }
+  interface NexusGenPluginFieldConfig<TypeName extends string, FieldName extends string> {
+  }
+  interface NexusGenPluginInputFieldConfig<TypeName extends string, FieldName extends string> {
+  }
+  interface NexusGenPluginSchemaConfig {
+  }
+  interface NexusGenPluginArgConfig {
+  }
 }

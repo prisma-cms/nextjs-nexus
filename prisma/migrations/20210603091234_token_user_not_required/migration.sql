@@ -1,2 +1,2 @@
 -- AlterTable
-ALTER TABLE `Token` MODIFY `userId` CHAR(25);
+ALTER TABLE `Token` MODIFY `userId` VARCHAR(32);

@@ -1,6 +1,6 @@
 -- CreateTable
 CREATE TABLE `User` (
-    `id` CHAR(25) NOT NULL,
+    `id` VARCHAR(32) NOT NULL,
     `username` VARCHAR(191) NOT NULL,
     `email` VARCHAR(191) NOT NULL,
     `fullname` VARCHAR(191),
@@ -17,10 +17,10 @@ UNIQUE INDEX `User.email_unique`(`email`),
 
 -- CreateTable
 CREATE TABLE `Token` (
-    `id` CHAR(25) NOT NULL,
+    `id` VARCHAR(32) NOT NULL,
     `createdAt` DATETIME(0) NOT NULL DEFAULT CURRENT_TIMESTAMP(0),
     `expiredAt` DATETIME(0),
-    `userId` CHAR(25) NOT NULL,
+    `userId` VARCHAR(32) NOT NULL,
 INDEX `Token.createdAt_index`(`createdAt`),
 
     PRIMARY KEY (`id`)

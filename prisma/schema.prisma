@@ -8,7 +8,7 @@ datasource db {
 }
 
 model User {
-  id           String   @id @default(cuid()) @db.Char(25)
+  id           String   @id @default(cuid()) @db.VarChar(32)
   username     String?  @unique
   email        String?  @unique
   fullname     String?
@@ -25,10 +25,10 @@ model User {
 }
 
 model Token {
-  id        String    @id @default(cuid()) @db.Char(25)
+  id        String    @id @default(cuid()) @db.VarChar(32)
   createdAt DateTime  @default(now("0")) @db.DateTime("0")
   expiredAt DateTime? @db.DateTime("0")
-  userId    String?   @db.Char(25)
+  userId    String?   @db.VarChar(32)
 
   // User - не обязательный объект, так как необходимость сформировать токен
   // может быть еще до существования объекта пользователя
@@ -38,7 +38,7 @@ model Token {
 }
 
 model File {
-  id        String   @id @default(cuid()) @db.Char(25)
+  id        String   @id @default(cuid()) @db.VarChar(32)
   createdAt DateTime @default(now("0")) @db.DateTime("0")
   updatedAt DateTime @default(now("0")) @updatedAt @db.DateTime("0")
   path      String   @db.MediumText
@@ -49,6 +49,6 @@ model File {
   size      Float
   rank      Int      @default(value: 0)
 
-  createdById String? @db.Char(25)
+  createdById String? @db.VarChar(32)
   CreatedBy   User?   @relation(fields: [createdById], references: [id])
 }
