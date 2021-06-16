@@ -9,7 +9,7 @@ datasource db {
 
 model User {
   id           String   @id @default(cuid()) @db.Char(25)
-  username     String?   @unique
+  username     String?  @unique
   email        String?  @unique
   fullname     String?
   password     String?
@@ -19,7 +19,9 @@ model User {
   updatedAt    DateTime @default(now("0")) @updatedAt @db.DateTime("0")
   showEmail    Boolean  @default(false)
   showFullname Boolean  @default(true)
+  image        String?
   Tokens       Token[]
+  Files        File[]
 }
 
 model Token {
@@ -30,7 +32,23 @@ model Token {
 
   // User - не обязательный объект, так как необходимость сформировать токен
   // может быть еще до существования объекта пользователя
-  User      User?     @relation(fields: [userId], references: [id])
+  User User? @relation(fields: [userId], references: [id])
 
   @@index(createdAt)
+}
+
+model File {
+  id        String   @id @default(cuid()) @db.Char(25)
+  createdAt DateTime @default(now("0")) @db.DateTime("0")
+  updatedAt DateTime @default(now("0")) @updatedAt @db.DateTime("0")
+  path      String   @db.MediumText
+  filename  String
+  name      String?
+  mimetype  String
+  encoding  String
+  size      Float
+  rank      Int      @default(value: 0)
+
+  createdById String? @db.Char(25)
+  CreatedBy   User?   @relation(fields: [createdById], references: [id])
 }

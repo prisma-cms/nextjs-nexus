@@ -1,7 +1,12 @@
 import React from 'react'
 import { useRouter } from 'next/dist/client/router'
 import { Page } from 'src/pages/_App/interfaces'
-import { useUserUniqueQuery } from 'src/modules/gql/generated'
+import {
+  UserUniqueDocument,
+  UserUniqueQuery,
+  UserUniqueQueryVariables,
+  useUserUniqueQuery,
+} from 'src/modules/gql/generated'
 import { UserPageView } from './View'
 import { NextSeo } from 'next-seo'
 
@@ -31,4 +36,24 @@ export const UserPage: Page = () => {
       {user ? <UserPageView user={user} /> : null}
     </>
   )
+}
+
+UserPage.getInitialProps = async ({ query, apolloClient }) => {
+  const id = query.id && typeof query.id === 'string' ? query.id : ''
+
+  const data = await apolloClient.query<
+    UserUniqueQuery,
+    UserUniqueQueryVariables
+  >({
+    query: UserUniqueDocument,
+    variables: {
+      where: {
+        id,
+      },
+    },
+  })
+
+  return {
+    statusCode: !data.data.user ? 404 : undefined,
+  }
 }

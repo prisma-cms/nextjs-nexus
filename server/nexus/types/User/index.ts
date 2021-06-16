@@ -140,5 +140,8 @@ export const User = objectType({
     t.nonNull.boolean('showFullname', {
       description: 'Показывать ФИО другим пользователям',
     })
+    t.string('image', {
+      description: 'Avatar',
+    })
   },
 })

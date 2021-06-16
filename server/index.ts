@@ -4,6 +4,8 @@ import next from 'next'
 import './config'
 import graphqlServer from './graphqlServer'
 
+import { graphqlUploadExpress } from 'graphql-upload'
+
 const cwd = process.cwd()
 
 const port = (process.env.PORT && parseInt(process.env.PORT, 10)) || 3000
@@ -16,10 +18,31 @@ app.prepare().then(() => {
 
   server.use(express.static(cwd + '/shared'))
 
+  // server.use('/uploads', express.static('/'))
+
+  server.use('/uploads', (req, res) => {
+    // res.sendFile(`${cwd}/node_modules/@prisma-cms/graphql-voyager/dist/voyager.worker.js`);
+
+    // console.log('req', req);
+    // console.log('req.url', req.url);
+
+    // res.sendFile(cwd + "/uploads/" + req.url)
+    res.sendFile(cwd + '/uploads/' + decodeURI(req.url))
+    // res.sendFile(cwd + "/uploads/" + req.url)
+  })
+
   /**
    * PWA and other public generated files
    */
   server.use(express.static(cwd + '/.next/public'))
+
+  // server.use(
+  //   '/api',
+  //   graphqlUploadExpress({ maxFileSize: 10000000, maxFiles: 10 }),
+  //   // graphqlHTTP({ schema })
+  // )
+
+  server.use(graphqlUploadExpress())
 
   /**
    * API requests

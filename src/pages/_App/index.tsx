@@ -11,12 +11,17 @@ import {
   NextPageContextCustom,
 } from './interfaces'
 import { NextSeo, NextSeoProps } from 'next-seo'
+import * as yup from 'yup'
+
+// TODO это для @prisma-cms/uploader
+// Надо переделать его на useApollo и убрать этот контекст
+import PrismaContext from '@prisma-cms/context'
+
 import Page404 from '../_Error/404'
 import ErrorPage from '../_Error'
 import { GlobalStyle } from 'src/theme/GlobalStyle'
 import { Context, ContextValue } from './Context'
 import { useMeQuery } from 'src/modules/gql/generated'
-import * as yup from 'yup'
 
 const withWs = false
 
@@ -106,7 +111,15 @@ const App: MainApp<AppProps> = ({ Component, pageProps }) => {
       <ThemeProvider theme={theme}>
         <GlobalStyle />
         <Context.Provider value={context}>
-          <ApolloProvider client={apolloClient}>{content}</ApolloProvider>
+          <ApolloProvider client={apolloClient}>
+            <PrismaContext.Provider
+              value={{
+                client: apolloClient,
+              }}
+            >
+              {content}
+            </PrismaContext.Provider>
+          </ApolloProvider>
         </Context.Provider>
       </ThemeProvider>
     </>

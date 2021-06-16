@@ -20,6 +20,8 @@ export type Scalars = {
   /** A date-time string at UTC, such as 2007-12-03T10:15:30Z, compliant with the `date-time` format outlined in section 5.6 of the RFC 3339 profile of the ISO 8601 standard for representation of dates and times using the Gregorian calendar. */
   DateTime: globalThis.Date;
   JSON: any;
+  /** desc */
+  Upload: globalThis.File;
 };
 
 /** Объект ответа мутации пользователя */
@@ -60,6 +62,94 @@ export interface DateTimeNullableFilter {
   notIn?: Maybe<Array<Scalars['DateTime']>>;
 }
 
+/** Файл */
+export interface File {
+  __typename?: 'File';
+  /** Когда создан */
+  createdAt: Scalars['DateTime'];
+  /** Кодировка */
+  encoding: Scalars['String'];
+  /** Имя файла */
+  filename: Scalars['String'];
+  id: Scalars['String'];
+  /** Миме-тип */
+  mimetype: Scalars['String'];
+  /** Пользовательское имя файла */
+  name?: Maybe<Scalars['String']>;
+  /** Путь к файлу */
+  path: Scalars['String'];
+  /** Очередность */
+  rank: Scalars['Int'];
+  /** Размер в байтах */
+  size: Scalars['Float'];
+  /** Когда обновлен */
+  updatedAt: Scalars['DateTime'];
+}
+
+export interface FileListRelationFilter {
+  every?: Maybe<FileWhereInput>;
+  none?: Maybe<FileWhereInput>;
+  some?: Maybe<FileWhereInput>;
+}
+
+export interface FileOrderByInput {
+  createdAt?: Maybe<SortOrder>;
+  createdById?: Maybe<SortOrder>;
+  encoding?: Maybe<SortOrder>;
+  filename?: Maybe<SortOrder>;
+  id?: Maybe<SortOrder>;
+  mimetype?: Maybe<SortOrder>;
+  name?: Maybe<SortOrder>;
+  path?: Maybe<SortOrder>;
+  rank?: Maybe<SortOrder>;
+  size?: Maybe<SortOrder>;
+  updatedAt?: Maybe<SortOrder>;
+}
+
+export interface FileWhereInput {
+  AND?: Maybe<Array<FileWhereInput>>;
+  CreatedBy?: Maybe<UserWhereInput>;
+  NOT?: Maybe<Array<FileWhereInput>>;
+  OR?: Maybe<Array<FileWhereInput>>;
+  createdAt?: Maybe<DateTimeFilter>;
+  createdById?: Maybe<StringNullableFilter>;
+  encoding?: Maybe<StringFilter>;
+  filename?: Maybe<StringFilter>;
+  id?: Maybe<StringFilter>;
+  mimetype?: Maybe<StringFilter>;
+  name?: Maybe<StringNullableFilter>;
+  path?: Maybe<StringFilter>;
+  rank?: Maybe<IntFilter>;
+  size?: Maybe<FloatFilter>;
+  updatedAt?: Maybe<DateTimeFilter>;
+}
+
+export interface FileWhereUniqueInput {
+  id?: Maybe<Scalars['String']>;
+}
+
+export interface FloatFilter {
+  equals?: Maybe<Scalars['Float']>;
+  gt?: Maybe<Scalars['Float']>;
+  gte?: Maybe<Scalars['Float']>;
+  in?: Maybe<Array<Scalars['Float']>>;
+  lt?: Maybe<Scalars['Float']>;
+  lte?: Maybe<Scalars['Float']>;
+  not?: Maybe<NestedFloatFilter>;
+  notIn?: Maybe<Array<Scalars['Float']>>;
+}
+
+export interface IntFilter {
+  equals?: Maybe<Scalars['Int']>;
+  gt?: Maybe<Scalars['Int']>;
+  gte?: Maybe<Scalars['Int']>;
+  in?: Maybe<Array<Scalars['Int']>>;
+  lt?: Maybe<Scalars['Int']>;
+  lte?: Maybe<Scalars['Int']>;
+  not?: Maybe<NestedIntFilter>;
+  notIn?: Maybe<Array<Scalars['Int']>>;
+}
+
 
 export interface Mutation {
   __typename?: 'Mutation';
@@ -67,6 +157,8 @@ export interface Mutation {
   signin: AuthPayload;
   /** Регистрация */
   signup: AuthPayload;
+  /** Загрузка файла */
+  singleUpload?: Maybe<File>;
 }
 
 
@@ -78,6 +170,12 @@ export type MutationSigninArgs = {
 
 export type MutationSignupArgs = {
   data: UserSignupDataInput;
+};
+
+
+export type MutationSingleUploadArgs = {
+  data?: Maybe<SingleUploadInput>;
+  file?: Maybe<Scalars['Upload']>;
 };
 
 export interface NestedBoolFilter {
@@ -105,6 +203,28 @@ export interface NestedDateTimeNullableFilter {
   lte?: Maybe<Scalars['DateTime']>;
   not?: Maybe<NestedDateTimeNullableFilter>;
   notIn?: Maybe<Array<Scalars['DateTime']>>;
+}
+
+export interface NestedFloatFilter {
+  equals?: Maybe<Scalars['Float']>;
+  gt?: Maybe<Scalars['Float']>;
+  gte?: Maybe<Scalars['Float']>;
+  in?: Maybe<Array<Scalars['Float']>>;
+  lt?: Maybe<Scalars['Float']>;
+  lte?: Maybe<Scalars['Float']>;
+  not?: Maybe<NestedFloatFilter>;
+  notIn?: Maybe<Array<Scalars['Float']>>;
+}
+
+export interface NestedIntFilter {
+  equals?: Maybe<Scalars['Int']>;
+  gt?: Maybe<Scalars['Int']>;
+  gte?: Maybe<Scalars['Int']>;
+  in?: Maybe<Array<Scalars['Int']>>;
+  lt?: Maybe<Scalars['Int']>;
+  lte?: Maybe<Scalars['Int']>;
+  not?: Maybe<NestedIntFilter>;
+  notIn?: Maybe<Array<Scalars['Int']>>;
 }
 
 export interface NestedStringFilter {
@@ -137,6 +257,12 @@ export interface NestedStringNullableFilter {
 
 export interface Query {
   __typename?: 'Query';
+  /** Файл */
+  file?: Maybe<File>;
+  /** Список файлов */
+  files: Array<File>;
+  /** Количество файлов */
+  filesCount: Scalars['Int'];
   me?: Maybe<User>;
   /** Пользователь */
   user?: Maybe<User>;
@@ -145,6 +271,25 @@ export interface Query {
   /** Количество пользователей */
   usersCount: Scalars['Int'];
 }
+
+
+export type QueryFileArgs = {
+  where: FileWhereUniqueInput;
+};
+
+
+export type QueryFilesArgs = {
+  cursor?: Maybe<FileWhereUniqueInput>;
+  orderBy?: Maybe<Array<FileOrderByInput>>;
+  skip?: Maybe<Scalars['Int']>;
+  take?: Maybe<Scalars['Int']>;
+  where?: Maybe<FileWhereInput>;
+};
+
+
+export type QueryFilesCountArgs = {
+  where?: Maybe<FileWhereInput>;
+};
 
 
 export type QueryUserArgs = {
@@ -170,6 +315,14 @@ export interface RequestError {
   __typename?: 'RequestError';
   key: Scalars['String'];
   message: Scalars['String'];
+}
+
+export interface SingleUploadInput {
+  /** В какую директорю загружать файл */
+  directory?: Maybe<Scalars['String']>;
+  file: Scalars['Upload'];
+  /** Пользовательское имя файла */
+  name?: Maybe<Scalars['String']>;
 }
 
 export enum SortOrder {
@@ -222,6 +375,7 @@ export interface TokenWhereInput {
   userId?: Maybe<StringNullableFilter>;
 }
 
+
 /** Пользователь */
 export interface User {
   __typename?: 'User';
@@ -230,6 +384,8 @@ export interface User {
   email?: Maybe<Scalars['String']>;
   fullname?: Maybe<Scalars['String']>;
   id: Scalars['String'];
+  /** Avatar */
+  image?: Maybe<Scalars['String']>;
   /** Показывать емейл другим пользователям */
   showEmail: Scalars['Boolean'];
   /** Показывать ФИО другим пользователям */
@@ -246,6 +402,7 @@ export interface UserOrderByInput {
   email?: Maybe<SortOrder>;
   fullname?: Maybe<SortOrder>;
   id?: Maybe<SortOrder>;
+  image?: Maybe<SortOrder>;
   password?: Maybe<SortOrder>;
   showEmail?: Maybe<SortOrder>;
   showFullname?: Maybe<SortOrder>;
@@ -271,6 +428,7 @@ export interface UserSignupDataInput {
 
 export interface UserWhereInput {
   AND?: Maybe<Array<UserWhereInput>>;
+  Files?: Maybe<FileListRelationFilter>;
   NOT?: Maybe<Array<UserWhereInput>>;
   OR?: Maybe<Array<UserWhereInput>>;
   Tokens?: Maybe<TokenListRelationFilter>;
@@ -279,6 +437,7 @@ export interface UserWhereInput {
   email?: Maybe<StringNullableFilter>;
   fullname?: Maybe<StringNullableFilter>;
   id?: Maybe<StringFilter>;
+  image?: Maybe<StringNullableFilter>;
   password?: Maybe<StringNullableFilter>;
   showEmail?: Maybe<BoolFilter>;
   showFullname?: Maybe<BoolFilter>;

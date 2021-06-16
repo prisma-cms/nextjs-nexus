@@ -9,7 +9,7 @@
 import * as Types from './types';
 
 import { gql } from '@apollo/client';
-export type UserFragment = { __typename?: 'User', id: string, createdAt: globalThis.Date, updatedAt: globalThis.Date, email?: Types.Maybe<string>, showEmail: boolean, username?: Types.Maybe<string>, fullname?: Types.Maybe<string>, showFullname: boolean };
+export type UserFragment = { __typename?: 'User', id: string, createdAt: globalThis.Date, updatedAt: globalThis.Date, email?: Types.Maybe<string>, showEmail: boolean, username?: Types.Maybe<string>, fullname?: Types.Maybe<string>, showFullname: boolean, image?: Types.Maybe<string> };
 
 export const UserFragmentDoc = gql`
     fragment user on User {
@@ -21,5 +21,6 @@ export const UserFragmentDoc = gql`
   username
   fullname
   showFullname
+  image
 }
     `;

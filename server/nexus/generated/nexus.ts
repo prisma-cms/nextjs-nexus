@@ -4,10 +4,17 @@
  */
 
 import { PrismaContext } from './../context/index'
-import { User } from '@prisma/client'
+import { User, File } from '@prisma/client'
 import { core } from 'nexus'
 declare global {
   interface NexusGenCustomInputMethods<TypeName extends string> {
+    /**
+     * desc
+     */
+    upload<FieldName extends string>(
+      fieldName: FieldName,
+      opts?: core.CommonInputFieldConfig<TypeName, FieldName>
+    ): void // "Upload";
     /**
      * A date-time string at UTC, such as 2007-12-03T10:15:30Z, compliant with the `date-time` format outlined in section 5.6 of the RFC 3339 profile of the ISO 8601 standard for representation of dates and times using the Gregorian calendar.
      */
@@ -19,6 +26,13 @@ declare global {
 }
 declare global {
   interface NexusGenCustomOutputMethods<TypeName extends string> {
+    /**
+     * desc
+     */
+    upload<FieldName extends string>(
+      fieldName: FieldName,
+      ...opts: core.ScalarOutSpread<TypeName, FieldName>
+    ): void // "Upload";
     /**
      * A date-time string at UTC, such as 2007-12-03T10:15:30Z, compliant with the `date-time` format outlined in section 5.6 of the RFC 3339 profile of the ISO 8601 standard for representation of dates and times using the Gregorian calendar.
      */
@@ -67,6 +81,70 @@ export interface NexusGenInputs {
     not?: NexusGenInputs['NestedDateTimeNullableFilter'] | null // NestedDateTimeNullableFilter
     notIn?: NexusGenScalars['DateTime'][] | null // [DateTime!]
   }
+  FileListRelationFilter: {
+    // input type
+    every?: NexusGenInputs['FileWhereInput'] | null // FileWhereInput
+    none?: NexusGenInputs['FileWhereInput'] | null // FileWhereInput
+    some?: NexusGenInputs['FileWhereInput'] | null // FileWhereInput
+  }
+  FileOrderByInput: {
+    // input type
+    createdAt?: NexusGenEnums['SortOrder'] | null // SortOrder
+    createdById?: NexusGenEnums['SortOrder'] | null // SortOrder
+    encoding?: NexusGenEnums['SortOrder'] | null // SortOrder
+    filename?: NexusGenEnums['SortOrder'] | null // SortOrder
+    id?: NexusGenEnums['SortOrder'] | null // SortOrder
+    mimetype?: NexusGenEnums['SortOrder'] | null // SortOrder
+    name?: NexusGenEnums['SortOrder'] | null // SortOrder
+    path?: NexusGenEnums['SortOrder'] | null // SortOrder
+    rank?: NexusGenEnums['SortOrder'] | null // SortOrder
+    size?: NexusGenEnums['SortOrder'] | null // SortOrder
+    updatedAt?: NexusGenEnums['SortOrder'] | null // SortOrder
+  }
+  FileWhereInput: {
+    // input type
+    AND?: NexusGenInputs['FileWhereInput'][] | null // [FileWhereInput!]
+    CreatedBy?: NexusGenInputs['UserWhereInput'] | null // UserWhereInput
+    NOT?: NexusGenInputs['FileWhereInput'][] | null // [FileWhereInput!]
+    OR?: NexusGenInputs['FileWhereInput'][] | null // [FileWhereInput!]
+    createdAt?: NexusGenInputs['DateTimeFilter'] | null // DateTimeFilter
+    createdById?: NexusGenInputs['StringNullableFilter'] | null // StringNullableFilter
+    encoding?: NexusGenInputs['StringFilter'] | null // StringFilter
+    filename?: NexusGenInputs['StringFilter'] | null // StringFilter
+    id?: NexusGenInputs['StringFilter'] | null // StringFilter
+    mimetype?: NexusGenInputs['StringFilter'] | null // StringFilter
+    name?: NexusGenInputs['StringNullableFilter'] | null // StringNullableFilter
+    path?: NexusGenInputs['StringFilter'] | null // StringFilter
+    rank?: NexusGenInputs['IntFilter'] | null // IntFilter
+    size?: NexusGenInputs['FloatFilter'] | null // FloatFilter
+    updatedAt?: NexusGenInputs['DateTimeFilter'] | null // DateTimeFilter
+  }
+  FileWhereUniqueInput: {
+    // input type
+    id?: string | null // String
+  }
+  FloatFilter: {
+    // input type
+    equals?: number | null // Float
+    gt?: number | null // Float
+    gte?: number | null // Float
+    in?: number[] | null // [Float!]
+    lt?: number | null // Float
+    lte?: number | null // Float
+    not?: NexusGenInputs['NestedFloatFilter'] | null // NestedFloatFilter
+    notIn?: number[] | null // [Float!]
+  }
+  IntFilter: {
+    // input type
+    equals?: number | null // Int
+    gt?: number | null // Int
+    gte?: number | null // Int
+    in?: number[] | null // [Int!]
+    lt?: number | null // Int
+    lte?: number | null // Int
+    not?: NexusGenInputs['NestedIntFilter'] | null // NestedIntFilter
+    notIn?: number[] | null // [Int!]
+  }
   NestedBoolFilter: {
     // input type
     equals?: boolean | null // Boolean
@@ -93,6 +171,28 @@ export interface NexusGenInputs {
     lte?: NexusGenScalars['DateTime'] | null // DateTime
     not?: NexusGenInputs['NestedDateTimeNullableFilter'] | null // NestedDateTimeNullableFilter
     notIn?: NexusGenScalars['DateTime'][] | null // [DateTime!]
+  }
+  NestedFloatFilter: {
+    // input type
+    equals?: number | null // Float
+    gt?: number | null // Float
+    gte?: number | null // Float
+    in?: number[] | null // [Float!]
+    lt?: number | null // Float
+    lte?: number | null // Float
+    not?: NexusGenInputs['NestedFloatFilter'] | null // NestedFloatFilter
+    notIn?: number[] | null // [Float!]
+  }
+  NestedIntFilter: {
+    // input type
+    equals?: number | null // Int
+    gt?: number | null // Int
+    gte?: number | null // Int
+    in?: number[] | null // [Int!]
+    lt?: number | null // Int
+    lte?: number | null // Int
+    not?: NexusGenInputs['NestedIntFilter'] | null // NestedIntFilter
+    notIn?: number[] | null // [Int!]
   }
   NestedStringFilter: {
     // input type
@@ -121,6 +221,12 @@ export interface NexusGenInputs {
     not?: NexusGenInputs['NestedStringNullableFilter'] | null // NestedStringNullableFilter
     notIn?: string[] | null // [String!]
     startsWith?: string | null // String
+  }
+  SingleUploadInput: {
+    // input type
+    directory?: string | null // String
+    file: NexusGenScalars['Upload'] // Upload!
+    name?: string | null // String
   }
   StringFilter: {
     // input type
@@ -174,6 +280,7 @@ export interface NexusGenInputs {
     email?: NexusGenEnums['SortOrder'] | null // SortOrder
     fullname?: NexusGenEnums['SortOrder'] | null // SortOrder
     id?: NexusGenEnums['SortOrder'] | null // SortOrder
+    image?: NexusGenEnums['SortOrder'] | null // SortOrder
     password?: NexusGenEnums['SortOrder'] | null // SortOrder
     showEmail?: NexusGenEnums['SortOrder'] | null // SortOrder
     showFullname?: NexusGenEnums['SortOrder'] | null // SortOrder
@@ -197,6 +304,7 @@ export interface NexusGenInputs {
   UserWhereInput: {
     // input type
     AND?: NexusGenInputs['UserWhereInput'][] | null // [UserWhereInput!]
+    Files?: NexusGenInputs['FileListRelationFilter'] | null // FileListRelationFilter
     NOT?: NexusGenInputs['UserWhereInput'][] | null // [UserWhereInput!]
     OR?: NexusGenInputs['UserWhereInput'][] | null // [UserWhereInput!]
     Tokens?: NexusGenInputs['TokenListRelationFilter'] | null // TokenListRelationFilter
@@ -205,6 +313,7 @@ export interface NexusGenInputs {
     email?: NexusGenInputs['StringNullableFilter'] | null // StringNullableFilter
     fullname?: NexusGenInputs['StringNullableFilter'] | null // StringNullableFilter
     id?: NexusGenInputs['StringFilter'] | null // StringFilter
+    image?: NexusGenInputs['StringNullableFilter'] | null // StringNullableFilter
     password?: NexusGenInputs['StringNullableFilter'] | null // StringNullableFilter
     showEmail?: NexusGenInputs['BoolFilter'] | null // BoolFilter
     showFullname?: NexusGenInputs['BoolFilter'] | null // BoolFilter
@@ -232,6 +341,7 @@ export interface NexusGenScalars {
   ID: string
   DateTime: Date
   JSON: any
+  Upload: any
 }
 
 export interface NexusGenObjects {
@@ -243,6 +353,7 @@ export interface NexusGenObjects {
     success: boolean // Boolean!
     token?: string | null // String
   }
+  File: File
   Mutation: {}
   Query: {}
   RequestError: {
@@ -272,13 +383,30 @@ export interface NexusGenFieldTypes {
     success: boolean // Boolean!
     token: string | null // String
   }
+  File: {
+    // field return type
+    createdAt: NexusGenScalars['DateTime'] // DateTime!
+    encoding: string // String!
+    filename: string // String!
+    id: string // String!
+    mimetype: string // String!
+    name: string | null // String
+    path: string // String!
+    rank: number // Int!
+    size: number // Float!
+    updatedAt: NexusGenScalars['DateTime'] // DateTime!
+  }
   Mutation: {
     // field return type
     signin: NexusGenRootTypes['AuthPayload'] // AuthPayload!
     signup: NexusGenRootTypes['AuthPayload'] // AuthPayload!
+    singleUpload: NexusGenRootTypes['File'] | null // File
   }
   Query: {
     // field return type
+    file: NexusGenRootTypes['File'] | null // File
+    files: NexusGenRootTypes['File'][] // [File!]!
+    filesCount: number // Int!
     me: NexusGenRootTypes['User'] | null // User
     user: NexusGenRootTypes['User'] | null // User
     users: NexusGenRootTypes['User'][] // [User!]!
@@ -295,6 +423,7 @@ export interface NexusGenFieldTypes {
     email: string | null // String
     fullname: string | null // String
     id: string // String!
+    image: string | null // String
     showEmail: boolean // Boolean!
     showFullname: boolean // Boolean!
     sudo: boolean | null // Boolean
@@ -312,13 +441,30 @@ export interface NexusGenFieldTypeNames {
     success: 'Boolean'
     token: 'String'
   }
+  File: {
+    // field return type name
+    createdAt: 'DateTime'
+    encoding: 'String'
+    filename: 'String'
+    id: 'String'
+    mimetype: 'String'
+    name: 'String'
+    path: 'String'
+    rank: 'Int'
+    size: 'Float'
+    updatedAt: 'DateTime'
+  }
   Mutation: {
     // field return type name
     signin: 'AuthPayload'
     signup: 'AuthPayload'
+    singleUpload: 'File'
   }
   Query: {
     // field return type name
+    file: 'File'
+    files: 'File'
+    filesCount: 'Int'
     me: 'User'
     user: 'User'
     users: 'User'
@@ -335,6 +481,7 @@ export interface NexusGenFieldTypeNames {
     email: 'String'
     fullname: 'String'
     id: 'String'
+    image: 'String'
     showEmail: 'Boolean'
     showFullname: 'Boolean'
     sudo: 'Boolean'
@@ -354,8 +501,29 @@ export interface NexusGenArgTypes {
       // args
       data: NexusGenInputs['UserSignupDataInput'] // UserSignupDataInput!
     }
+    singleUpload: {
+      // args
+      data?: NexusGenInputs['SingleUploadInput'] | null // SingleUploadInput
+      file?: NexusGenScalars['Upload'] | null // Upload
+    }
   }
   Query: {
+    file: {
+      // args
+      where: NexusGenInputs['FileWhereUniqueInput'] // FileWhereUniqueInput!
+    }
+    files: {
+      // args
+      cursor?: NexusGenInputs['FileWhereUniqueInput'] | null // FileWhereUniqueInput
+      orderBy?: NexusGenInputs['FileOrderByInput'][] | null // [FileOrderByInput!]
+      skip?: number | null // Int
+      take?: number | null // Int
+      where?: NexusGenInputs['FileWhereInput'] | null // FileWhereInput
+    }
+    filesCount: {
+      // args
+      where?: NexusGenInputs['FileWhereInput'] | null // FileWhereInput
+    }
     user: {
       // args
       where: NexusGenInputs['UserWhereUniqueInput'] // UserWhereUniqueInput!

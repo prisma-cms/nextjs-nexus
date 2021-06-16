@@ -1,0 +1,18 @@
+mutation singleUpload($file: Upload, $data: SingleUploadInput) {
+  singleUpload(file: $file, data: $data) {
+    ...file
+  }
+}
+
+fragment file on File {
+  id
+  createdAt
+  updatedAt
+  path
+  filename
+  name
+  mimetype
+  encoding
+  size
+  rank
+}

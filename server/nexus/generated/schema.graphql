@@ -44,6 +44,121 @@ input DateTimeNullableFilter {
   notIn: [DateTime!]
 }
 
+"""
+Файл
+"""
+type File {
+  """
+  Когда создан
+  """
+  createdAt: DateTime!
+
+  """
+  Кодировка
+  """
+  encoding: String!
+
+  """
+  Имя файла
+  """
+  filename: String!
+  id: String!
+
+  """
+  Миме-тип
+  """
+  mimetype: String!
+
+  """
+  Пользовательское имя файла
+  """
+  name: String
+
+  """
+  Путь к файлу
+  """
+  path: String!
+
+  """
+  Очередность
+  """
+  rank: Int!
+
+  """
+  Размер в байтах
+  """
+  size: Float!
+
+  """
+  Когда обновлен
+  """
+  updatedAt: DateTime!
+}
+
+input FileListRelationFilter {
+  every: FileWhereInput
+  none: FileWhereInput
+  some: FileWhereInput
+}
+
+input FileOrderByInput {
+  createdAt: SortOrder
+  createdById: SortOrder
+  encoding: SortOrder
+  filename: SortOrder
+  id: SortOrder
+  mimetype: SortOrder
+  name: SortOrder
+  path: SortOrder
+  rank: SortOrder
+  size: SortOrder
+  updatedAt: SortOrder
+}
+
+input FileWhereInput {
+  AND: [FileWhereInput!]
+  CreatedBy: UserWhereInput
+  NOT: [FileWhereInput!]
+  OR: [FileWhereInput!]
+  createdAt: DateTimeFilter
+  createdById: StringNullableFilter
+  encoding: StringFilter
+  filename: StringFilter
+  id: StringFilter
+  mimetype: StringFilter
+  name: StringNullableFilter
+  path: StringFilter
+  rank: IntFilter
+  size: FloatFilter
+  updatedAt: DateTimeFilter
+}
+
+input FileWhereUniqueInput {
+  id: String
+}
+
+input FloatFilter {
+  equals: Float
+  gt: Float
+  gte: Float
+  in: [Float!]
+  lt: Float
+  lte: Float
+  not: NestedFloatFilter
+  notIn: [Float!]
+}
+
+input IntFilter {
+  equals: Int
+  gt: Int
+  gte: Int
+  in: [Int!]
+  lt: Int
+  lte: Int
+  not: NestedIntFilter
+  notIn: [Int!]
+}
+
 scalar JSON
 
 type Mutation {
@@ -56,6 +171,18 @@ type Mutation {
   Регистрация
   """
   signup(data: UserSignupDataInput!): AuthPayload!
+
+  """
+  Загрузка файла
+  """
+  singleUpload(
+    data: SingleUploadInput
+
+    """
+    Устаревший параметр
+    """
+    file: Upload
+  ): File
 }
 
 input NestedBoolFilter {
@@ -83,6 +210,28 @@ input NestedDateTimeNullableFilter {
   lte: DateTime
   not: NestedDateTimeNullableFilter
   notIn: [DateTime!]
+}
+
+input NestedFloatFilter {
+  equals: Float
+  gt: Float
+  gte: Float
+  in: [Float!]
+  lt: Float
+  lte: Float
+  not: NestedFloatFilter
+  notIn: [Float!]
+}
+
+input NestedIntFilter {
+  equals: Int
+  gt: Int
+  gte: Int
+  in: [Int!]
+  lt: Int
+  lte: Int
+  not: NestedIntFilter
+  notIn: [Int!]
 }
 
 input NestedStringFilter {
@@ -114,6 +263,26 @@ input NestedStringNullableFilter {
 }
 
 type Query {
+  """
+  Файл
+  """
+  file(where: FileWhereUniqueInput!): File
+
+  """
+  Список файлов
+  """
+  files(
+    cursor: FileWhereUniqueInput
+    orderBy: [FileOrderByInput!]
+    skip: Int
+    take: Int
+    where: FileWhereInput
+  ): [File!]!
+
+  """
+  Количество файлов
+  """
+  filesCount(where: FileWhereInput): Int!
   me: User
 
   """
@@ -144,6 +313,19 @@ type Query {
 type RequestError {
   key: String!
   message: String!
+}
+
+input SingleUploadInput {
+  """
+  В какую директорю загружать файл
+  """
+  directory: String
+  file: Upload!
+
+  """
+  Пользовательское имя файла
+  """
+  name: String
 }
 
 enum SortOrder {
@@ -197,6 +379,11 @@ input TokenWhereInput {
 }
 
 """
+desc
+"""
+scalar Upload
+
+"""
 Пользователь
 """
 type User {
@@ -207,6 +394,11 @@ type User {
   email: String
   fullname: String
   id: String!
+
+  """
+  Avatar
+  """
+  image: String
 
   """
   Показывать емейл другим пользователям
@@ -232,6 +424,7 @@ input UserOrderByInput {
   email: SortOrder
   fullname: SortOrder
   id: SortOrder
+  image: SortOrder
   password: SortOrder
   showEmail: SortOrder
   showFullname: SortOrder
@@ -263,6 +456,7 @@ input UserSignupDataInput {
 
 input UserWhereInput {
   AND: [UserWhereInput!]
+  Files: FileListRelationFilter
   NOT: [UserWhereInput!]
   OR: [UserWhereInput!]
   Tokens: TokenListRelationFilter
@@ -271,6 +465,7 @@ input UserWhereInput {
   email: StringNullableFilter
   fullname: StringNullableFilter
   id: StringFilter
+  image: StringNullableFilter
   password: StringNullableFilter
   showEmail: BoolFilter
   showFullname: BoolFilter

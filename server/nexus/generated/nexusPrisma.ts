@@ -15,18 +15,23 @@ type CustomScalars = 'DateTime'
 interface PrismaModels {
   User: Prisma.User
   Token: Prisma.Token
+  File: Prisma.File
 }
 
 // Prisma input types metadata
 interface NexusPrismaInputs {
   Query: {
     users: {
-      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'username' | 'email' | 'fullname' | 'password' | 'active' | 'sudo' | 'createdAt' | 'updatedAt' | 'showEmail' | 'showFullname' | 'Tokens'
-      ordering: 'id' | 'username' | 'email' | 'fullname' | 'password' | 'active' | 'sudo' | 'createdAt' | 'updatedAt' | 'showEmail' | 'showFullname'
+      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'username' | 'email' | 'fullname' | 'password' | 'active' | 'sudo' | 'createdAt' | 'updatedAt' | 'showEmail' | 'showFullname' | 'image' | 'Tokens' | 'Files'
+      ordering: 'id' | 'username' | 'email' | 'fullname' | 'password' | 'active' | 'sudo' | 'createdAt' | 'updatedAt' | 'showEmail' | 'showFullname' | 'image'
     }
     tokens: {
       filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'createdAt' | 'expiredAt' | 'userId' | 'User'
       ordering: 'id' | 'createdAt' | 'expiredAt' | 'userId'
+    }
+    files: {
+      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'createdAt' | 'updatedAt' | 'path' | 'filename' | 'name' | 'mimetype' | 'encoding' | 'size' | 'rank' | 'createdById' | 'CreatedBy'
+      ordering: 'id' | 'createdAt' | 'updatedAt' | 'path' | 'filename' | 'name' | 'mimetype' | 'encoding' | 'size' | 'rank' | 'createdById'
     }
   },
   User: {
@@ -34,8 +39,15 @@ interface NexusPrismaInputs {
       filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'createdAt' | 'expiredAt' | 'userId' | 'User'
       ordering: 'id' | 'createdAt' | 'expiredAt' | 'userId'
     }
+    Files: {
+      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'createdAt' | 'updatedAt' | 'path' | 'filename' | 'name' | 'mimetype' | 'encoding' | 'size' | 'rank' | 'createdById' | 'CreatedBy'
+      ordering: 'id' | 'createdAt' | 'updatedAt' | 'path' | 'filename' | 'name' | 'mimetype' | 'encoding' | 'size' | 'rank' | 'createdById'
+    }
   }
   Token: {
+
+  }
+  File: {
 
   }
 }
@@ -47,6 +59,8 @@ interface NexusPrismaOutputs {
     users: 'User'
     token: 'Token'
     tokens: 'Token'
+    file: 'File'
+    files: 'File'
   },
   Mutation: {
     createOneUser: 'User'
@@ -61,6 +75,12 @@ interface NexusPrismaOutputs {
     deleteOneToken: 'Token'
     deleteManyToken: 'AffectedRowsOutput'
     upsertOneToken: 'Token'
+    createOneFile: 'File'
+    updateOneFile: 'File'
+    updateManyFile: 'AffectedRowsOutput'
+    deleteOneFile: 'File'
+    deleteManyFile: 'AffectedRowsOutput'
+    upsertOneFile: 'File'
   },
   User: {
     id: 'String'
@@ -74,7 +94,9 @@ interface NexusPrismaOutputs {
     updatedAt: 'DateTime'
     showEmail: 'Boolean'
     showFullname: 'Boolean'
+    image: 'String'
     Tokens: 'Token'
+    Files: 'File'
   }
   Token: {
     id: 'String'
@@ -83,12 +105,27 @@ interface NexusPrismaOutputs {
     userId: 'String'
     User: 'User'
   }
+  File: {
+    id: 'String'
+    createdAt: 'DateTime'
+    updatedAt: 'DateTime'
+    path: 'String'
+    filename: 'String'
+    name: 'String'
+    mimetype: 'String'
+    encoding: 'String'
+    size: 'Float'
+    rank: 'Int'
+    createdById: 'String'
+    CreatedBy: 'User'
+  }
 }
 
 // Helper to gather all methods relative to a model
 interface NexusPrismaMethods {
   User: Typegen.NexusPrismaFields<'User'>
   Token: Typegen.NexusPrismaFields<'Token'>
+  File: Typegen.NexusPrismaFields<'File'>
   Query: Typegen.NexusPrismaFields<'Query'>
   Mutation: Typegen.NexusPrismaFields<'Mutation'>
 }

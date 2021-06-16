@@ -17,6 +17,8 @@ export default new ApolloServer({
   playground: process.env.NODE_ENV === 'development',
   // playground: true,
 
+  uploads: false,
+
   /**
    * Это теряет смысл, так как не позволяет выкидывать кастомные ошибки.
    * При этом в прод-режиме стек вырезается самим аполло-сервером, оставляя только текстовое сообщение.
