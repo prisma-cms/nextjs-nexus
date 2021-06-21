@@ -21,14 +21,9 @@ app.prepare().then(() => {
   // server.use('/uploads', express.static('/'))
 
   server.use('/uploads', (req, res) => {
-    // res.sendFile(`${cwd}/node_modules/@prisma-cms/graphql-voyager/dist/voyager.worker.js`);
-
-    // console.log('req', req);
-    // console.log('req.url', req.url);
-
-    // res.sendFile(cwd + "/uploads/" + req.url)
-    res.sendFile(cwd + '/uploads/' + decodeURI(req.url))
-    // res.sendFile(cwd + "/uploads/" + req.url)
+    res.sendFile(cwd + '/uploads/' + decodeURI(req.url), (error) => {
+      console.error(error)
+    })
   })
 
   /**
