@@ -4,7 +4,7 @@ mutation singleUpload($file: Upload, $data: SingleUploadInput) {
   }
 }
 
-fragment file on File {
+fragment FileNoNesting on File {
   id
   createdAt
   updatedAt
@@ -15,4 +15,8 @@ fragment file on File {
   encoding
   size
   rank
+}
+
+fragment file on File {
+  ...FileNoNesting
 }

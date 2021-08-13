@@ -6,21 +6,16 @@
 */
 
 
-import * as Types from './types';
-
+import { UserNoNestingFragment } from './UserNoNesting';
 import { gql } from '@apollo/client';
-export type UserFragment = { __typename?: 'User', id: string, createdAt: globalThis.Date, updatedAt: globalThis.Date, email?: Types.Maybe<string>, showEmail: boolean, username?: Types.Maybe<string>, fullname?: Types.Maybe<string>, showFullname: boolean, image?: Types.Maybe<string> };
+import { UserNoNestingFragmentDoc } from './UserNoNesting';
+export type UserFragment = (
+  { __typename?: 'User' }
+  & UserNoNestingFragment
+);
 
 export const UserFragmentDoc = gql`
     fragment user on User {
-  id
-  createdAt
-  updatedAt
-  email
-  showEmail
-  username
-  fullname
-  showFullname
-  image
+  ...UserNoNesting
 }
-    `;
+    ${UserNoNestingFragmentDoc}`;

@@ -52,7 +52,7 @@ mutation signup($data: UserSignupDataInput!) {
   }
 }
 
-fragment user on User {
+fragment UserNoNesting on User {
   id
   createdAt
   updatedAt
@@ -62,6 +62,10 @@ fragment user on User {
   fullname
   showFullname
   image
+}
+
+fragment user on User {
+  ...UserNoNesting
 }
 
 fragment meUser on User {

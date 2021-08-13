@@ -1,6 +1,7 @@
 import { Prisma } from '@prisma/client'
 import { objectType, extendType, inputObjectType, nonNull } from 'nexus'
-import { signin, signup } from './resolvers'
+import { signin } from './resolvers/signin'
+import { signup } from './resolvers/signup'
 
 export const UserQuery = extendType({
   type: 'Query',
@@ -32,6 +33,30 @@ export const UserQuery = extendType({
       resolve(_, _args, ctx) {
         return ctx.currentUser
       },
+    })
+  },
+})
+
+export const UserMutation = extendType({
+  type: 'Mutation',
+  definition: (t) => {
+    t.nonNull.field('signup', {
+      description: 'Регистрация',
+      type: 'AuthPayload',
+      args: {
+        data: nonNull('UserSignupDataInput'),
+      },
+      resolve: signup,
+    })
+
+    t.nonNull.field('signin', {
+      description: 'Авторизация',
+      type: 'AuthPayload',
+      args: {
+        where: nonNull('UserWhereUniqueInput'),
+        data: nonNull('UserSigninDataInput'),
+      },
+      resolve: signin,
     })
   },
 })
@@ -71,30 +96,6 @@ export const AuthPayload = objectType({
     })
     t.field('data', {
       type: 'User',
-    })
-  },
-})
-
-export const UserMutation = extendType({
-  type: 'Mutation',
-  definition: (t) => {
-    t.nonNull.field('signup', {
-      description: 'Регистрация',
-      type: 'AuthPayload',
-      args: {
-        data: nonNull('UserSignupDataInput'),
-      },
-      resolve: signup,
-    })
-
-    t.nonNull.field('signin', {
-      description: 'Авторизация',
-      type: 'AuthPayload',
-      args: {
-        where: nonNull('UserWhereUniqueInput'),
-        data: nonNull('UserSigninDataInput'),
-      },
-      resolve: signin,
     })
   },
 })
