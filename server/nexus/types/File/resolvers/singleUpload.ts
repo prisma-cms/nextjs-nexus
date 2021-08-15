@@ -147,6 +147,11 @@ export const processUpload = async (
       encoding,
       path: path.replace(/^\.\//, ''),
       size,
+      CreatedBy: {
+        connect: {
+          id: currentUser.id,
+        },
+      },
     }
 
     // return ctx.db.mutation.createFile({
