@@ -5,6 +5,7 @@ import './config'
 import graphqlServer from './graphqlServer'
 
 import { graphqlUploadExpress } from 'graphql-upload'
+import { imageResizerMiddleware } from './middleware/imageResizer'
 
 const cwd = process.cwd()
 
@@ -15,6 +16,8 @@ const handle = app.getRequestHandler()
 
 app.prepare().then(() => {
   const server = express()
+
+  server.use('/images/', imageResizerMiddleware)
 
   server.use(express.static(cwd + '/shared'))
 
