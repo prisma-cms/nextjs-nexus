@@ -62,6 +62,13 @@ export interface DateTimeNullableFilter {
   notIn?: Maybe<Array<Scalars['DateTime']>>;
 }
 
+export interface EnumLetterStatusFilter {
+  equals?: Maybe<LetterStatus>;
+  in?: Maybe<Array<LetterStatus>>;
+  not?: Maybe<NestedEnumLetterStatusFilter>;
+  notIn?: Maybe<Array<LetterStatus>>;
+}
+
 /** Файл */
 export interface File {
   __typename?: 'File';
@@ -150,6 +157,50 @@ export interface IntFilter {
   notIn?: Maybe<Array<Scalars['Int']>>;
 }
 
+export interface IntNullableFilter {
+  equals?: Maybe<Scalars['Int']>;
+  gt?: Maybe<Scalars['Int']>;
+  gte?: Maybe<Scalars['Int']>;
+  in?: Maybe<Array<Scalars['Int']>>;
+  lt?: Maybe<Scalars['Int']>;
+  lte?: Maybe<Scalars['Int']>;
+  not?: Maybe<NestedIntNullableFilter>;
+  notIn?: Maybe<Array<Scalars['Int']>>;
+}
+
+
+export interface LetterListRelationFilter {
+  every?: Maybe<LetterWhereInput>;
+  none?: Maybe<LetterWhereInput>;
+  some?: Maybe<LetterWhereInput>;
+}
+
+export enum LetterStatus {
+  CREATED = 'Created',
+  ERROR = 'Error',
+  PROCESSING = 'Processing',
+  SENDED = 'Sended'
+}
+
+export interface LetterWhereInput {
+  AND?: Maybe<Array<LetterWhereInput>>;
+  NOT?: Maybe<Array<LetterWhereInput>>;
+  OR?: Maybe<Array<LetterWhereInput>>;
+  User?: Maybe<StringNullableFilter>;
+  User_LetterToUser?: Maybe<UserWhereInput>;
+  createdAt?: Maybe<DateTimeFilter>;
+  deleteOnSend?: Maybe<BoolFilter>;
+  email?: Maybe<StringFilter>;
+  errorMessage?: Maybe<StringNullableFilter>;
+  id?: Maybe<StringFilter>;
+  message?: Maybe<StringFilter>;
+  rank?: Maybe<IntNullableFilter>;
+  replyTo?: Maybe<StringNullableFilter>;
+  returnTo?: Maybe<StringNullableFilter>;
+  status?: Maybe<EnumLetterStatusFilter>;
+  subject?: Maybe<StringFilter>;
+  updatedAt?: Maybe<DateTimeFilter>;
+}
 
 export interface Mutation {
   __typename?: 'Mutation';
@@ -205,6 +256,13 @@ export interface NestedDateTimeNullableFilter {
   notIn?: Maybe<Array<Scalars['DateTime']>>;
 }
 
+export interface NestedEnumLetterStatusFilter {
+  equals?: Maybe<LetterStatus>;
+  in?: Maybe<Array<LetterStatus>>;
+  not?: Maybe<NestedEnumLetterStatusFilter>;
+  notIn?: Maybe<Array<LetterStatus>>;
+}
+
 export interface NestedFloatFilter {
   equals?: Maybe<Scalars['Float']>;
   gt?: Maybe<Scalars['Float']>;
@@ -224,6 +282,17 @@ export interface NestedIntFilter {
   lt?: Maybe<Scalars['Int']>;
   lte?: Maybe<Scalars['Int']>;
   not?: Maybe<NestedIntFilter>;
+  notIn?: Maybe<Array<Scalars['Int']>>;
+}
+
+export interface NestedIntNullableFilter {
+  equals?: Maybe<Scalars['Int']>;
+  gt?: Maybe<Scalars['Int']>;
+  gte?: Maybe<Scalars['Int']>;
+  in?: Maybe<Array<Scalars['Int']>>;
+  lt?: Maybe<Scalars['Int']>;
+  lte?: Maybe<Scalars['Int']>;
+  not?: Maybe<NestedIntNullableFilter>;
   notIn?: Maybe<Array<Scalars['Int']>>;
 }
 
@@ -429,6 +498,7 @@ export interface UserSignupDataInput {
 export interface UserWhereInput {
   AND?: Maybe<Array<UserWhereInput>>;
   Files?: Maybe<FileListRelationFilter>;
+  Letters?: Maybe<LetterListRelationFilter>;
   NOT?: Maybe<Array<UserWhereInput>>;
   OR?: Maybe<Array<UserWhereInput>>;
   Tokens?: Maybe<TokenListRelationFilter>;

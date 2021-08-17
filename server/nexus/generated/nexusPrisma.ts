@@ -16,13 +16,15 @@ interface PrismaModels {
   User: Prisma.User
   Token: Prisma.Token
   File: Prisma.File
+  Letter: Prisma.Letter
+  Log: Prisma.Log
 }
 
 // Prisma input types metadata
 interface NexusPrismaInputs {
   Query: {
     users: {
-      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'username' | 'email' | 'fullname' | 'password' | 'active' | 'sudo' | 'createdAt' | 'updatedAt' | 'showEmail' | 'showFullname' | 'image' | 'Tokens' | 'Files'
+      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'username' | 'email' | 'fullname' | 'password' | 'active' | 'sudo' | 'createdAt' | 'updatedAt' | 'showEmail' | 'showFullname' | 'image' | 'Tokens' | 'Files' | 'Letters'
       ordering: 'id' | 'username' | 'email' | 'fullname' | 'password' | 'active' | 'sudo' | 'createdAt' | 'updatedAt' | 'showEmail' | 'showFullname' | 'image'
     }
     tokens: {
@@ -32,6 +34,14 @@ interface NexusPrismaInputs {
     files: {
       filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'createdAt' | 'updatedAt' | 'path' | 'filename' | 'name' | 'mimetype' | 'encoding' | 'size' | 'rank' | 'createdById' | 'CreatedBy'
       ordering: 'id' | 'createdAt' | 'updatedAt' | 'path' | 'filename' | 'name' | 'mimetype' | 'encoding' | 'size' | 'rank' | 'createdById'
+    }
+    letters: {
+      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'createdAt' | 'updatedAt' | 'email' | 'subject' | 'message' | 'status' | 'errorMessage' | 'rank' | 'deleteOnSend' | 'replyTo' | 'returnTo' | 'createdById' | 'CreatedBy'
+      ordering: 'id' | 'createdAt' | 'updatedAt' | 'email' | 'subject' | 'message' | 'status' | 'errorMessage' | 'rank' | 'deleteOnSend' | 'replyTo' | 'returnTo' | 'createdById'
+    }
+    logs: {
+      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'createdAt' | 'updatedAt' | 'level' | 'objectType' | 'message' | 'stack'
+      ordering: 'id' | 'createdAt' | 'updatedAt' | 'level' | 'objectType' | 'message' | 'stack'
     }
   },
   User: {
@@ -43,11 +53,21 @@ interface NexusPrismaInputs {
       filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'createdAt' | 'updatedAt' | 'path' | 'filename' | 'name' | 'mimetype' | 'encoding' | 'size' | 'rank' | 'createdById' | 'CreatedBy'
       ordering: 'id' | 'createdAt' | 'updatedAt' | 'path' | 'filename' | 'name' | 'mimetype' | 'encoding' | 'size' | 'rank' | 'createdById'
     }
+    Letters: {
+      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'createdAt' | 'updatedAt' | 'email' | 'subject' | 'message' | 'status' | 'errorMessage' | 'rank' | 'deleteOnSend' | 'replyTo' | 'returnTo' | 'createdById' | 'CreatedBy'
+      ordering: 'id' | 'createdAt' | 'updatedAt' | 'email' | 'subject' | 'message' | 'status' | 'errorMessage' | 'rank' | 'deleteOnSend' | 'replyTo' | 'returnTo' | 'createdById'
+    }
   }
   Token: {
 
   }
   File: {
+
+  }
+  Letter: {
+
+  }
+  Log: {
 
   }
 }
@@ -61,6 +81,10 @@ interface NexusPrismaOutputs {
     tokens: 'Token'
     file: 'File'
     files: 'File'
+    letter: 'Letter'
+    letters: 'Letter'
+    log: 'Log'
+    logs: 'Log'
   },
   Mutation: {
     createOneUser: 'User'
@@ -81,6 +105,18 @@ interface NexusPrismaOutputs {
     deleteOneFile: 'File'
     deleteManyFile: 'AffectedRowsOutput'
     upsertOneFile: 'File'
+    createOneLetter: 'Letter'
+    updateOneLetter: 'Letter'
+    updateManyLetter: 'AffectedRowsOutput'
+    deleteOneLetter: 'Letter'
+    deleteManyLetter: 'AffectedRowsOutput'
+    upsertOneLetter: 'Letter'
+    createOneLog: 'Log'
+    updateOneLog: 'Log'
+    updateManyLog: 'AffectedRowsOutput'
+    deleteOneLog: 'Log'
+    deleteManyLog: 'AffectedRowsOutput'
+    upsertOneLog: 'Log'
   },
   User: {
     id: 'String'
@@ -97,6 +133,7 @@ interface NexusPrismaOutputs {
     image: 'String'
     Tokens: 'Token'
     Files: 'File'
+    Letters: 'Letter'
   }
   Token: {
     id: 'String'
@@ -119,6 +156,31 @@ interface NexusPrismaOutputs {
     createdById: 'String'
     CreatedBy: 'User'
   }
+  Letter: {
+    id: 'String'
+    createdAt: 'DateTime'
+    updatedAt: 'DateTime'
+    email: 'String'
+    subject: 'String'
+    message: 'String'
+    status: 'LetterStatus'
+    errorMessage: 'String'
+    rank: 'Int'
+    deleteOnSend: 'Boolean'
+    replyTo: 'String'
+    returnTo: 'String'
+    createdById: 'String'
+    CreatedBy: 'User'
+  }
+  Log: {
+    id: 'String'
+    createdAt: 'DateTime'
+    updatedAt: 'DateTime'
+    level: 'LogLevel'
+    objectType: 'String'
+    message: 'String'
+    stack: 'String'
+  }
 }
 
 // Helper to gather all methods relative to a model
@@ -126,6 +188,8 @@ interface NexusPrismaMethods {
   User: Typegen.NexusPrismaFields<'User'>
   Token: Typegen.NexusPrismaFields<'Token'>
   File: Typegen.NexusPrismaFields<'File'>
+  Letter: Typegen.NexusPrismaFields<'Letter'>
+  Log: Typegen.NexusPrismaFields<'Log'>
   Query: Typegen.NexusPrismaFields<'Query'>
   Mutation: Typegen.NexusPrismaFields<'Mutation'>
 }

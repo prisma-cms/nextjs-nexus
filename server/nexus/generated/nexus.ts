@@ -81,6 +81,13 @@ export interface NexusGenInputs {
     not?: NexusGenInputs['NestedDateTimeNullableFilter'] | null // NestedDateTimeNullableFilter
     notIn?: NexusGenScalars['DateTime'][] | null // [DateTime!]
   }
+  EnumLetterStatusFilter: {
+    // input type
+    equals?: NexusGenEnums['LetterStatus'] | null // LetterStatus
+    in?: NexusGenEnums['LetterStatus'][] | null // [LetterStatus!]
+    not?: NexusGenInputs['NestedEnumLetterStatusFilter'] | null // NestedEnumLetterStatusFilter
+    notIn?: NexusGenEnums['LetterStatus'][] | null // [LetterStatus!]
+  }
   FileListRelationFilter: {
     // input type
     every?: NexusGenInputs['FileWhereInput'] | null // FileWhereInput
@@ -145,6 +152,43 @@ export interface NexusGenInputs {
     not?: NexusGenInputs['NestedIntFilter'] | null // NestedIntFilter
     notIn?: number[] | null // [Int!]
   }
+  IntNullableFilter: {
+    // input type
+    equals?: number | null // Int
+    gt?: number | null // Int
+    gte?: number | null // Int
+    in?: number[] | null // [Int!]
+    lt?: number | null // Int
+    lte?: number | null // Int
+    not?: NexusGenInputs['NestedIntNullableFilter'] | null // NestedIntNullableFilter
+    notIn?: number[] | null // [Int!]
+  }
+  LetterListRelationFilter: {
+    // input type
+    every?: NexusGenInputs['LetterWhereInput'] | null // LetterWhereInput
+    none?: NexusGenInputs['LetterWhereInput'] | null // LetterWhereInput
+    some?: NexusGenInputs['LetterWhereInput'] | null // LetterWhereInput
+  }
+  LetterWhereInput: {
+    // input type
+    AND?: NexusGenInputs['LetterWhereInput'][] | null // [LetterWhereInput!]
+    CreatedBy?: NexusGenInputs['UserWhereInput'] | null // UserWhereInput
+    NOT?: NexusGenInputs['LetterWhereInput'][] | null // [LetterWhereInput!]
+    OR?: NexusGenInputs['LetterWhereInput'][] | null // [LetterWhereInput!]
+    createdAt?: NexusGenInputs['DateTimeFilter'] | null // DateTimeFilter
+    createdById?: NexusGenInputs['StringNullableFilter'] | null // StringNullableFilter
+    deleteOnSend?: NexusGenInputs['BoolFilter'] | null // BoolFilter
+    email?: NexusGenInputs['StringFilter'] | null // StringFilter
+    errorMessage?: NexusGenInputs['StringNullableFilter'] | null // StringNullableFilter
+    id?: NexusGenInputs['StringFilter'] | null // StringFilter
+    message?: NexusGenInputs['StringFilter'] | null // StringFilter
+    rank?: NexusGenInputs['IntNullableFilter'] | null // IntNullableFilter
+    replyTo?: NexusGenInputs['StringNullableFilter'] | null // StringNullableFilter
+    returnTo?: NexusGenInputs['StringNullableFilter'] | null // StringNullableFilter
+    status?: NexusGenInputs['EnumLetterStatusFilter'] | null // EnumLetterStatusFilter
+    subject?: NexusGenInputs['StringFilter'] | null // StringFilter
+    updatedAt?: NexusGenInputs['DateTimeFilter'] | null // DateTimeFilter
+  }
   NestedBoolFilter: {
     // input type
     equals?: boolean | null // Boolean
@@ -172,6 +216,13 @@ export interface NexusGenInputs {
     not?: NexusGenInputs['NestedDateTimeNullableFilter'] | null // NestedDateTimeNullableFilter
     notIn?: NexusGenScalars['DateTime'][] | null // [DateTime!]
   }
+  NestedEnumLetterStatusFilter: {
+    // input type
+    equals?: NexusGenEnums['LetterStatus'] | null // LetterStatus
+    in?: NexusGenEnums['LetterStatus'][] | null // [LetterStatus!]
+    not?: NexusGenInputs['NestedEnumLetterStatusFilter'] | null // NestedEnumLetterStatusFilter
+    notIn?: NexusGenEnums['LetterStatus'][] | null // [LetterStatus!]
+  }
   NestedFloatFilter: {
     // input type
     equals?: number | null // Float
@@ -192,6 +243,17 @@ export interface NexusGenInputs {
     lt?: number | null // Int
     lte?: number | null // Int
     not?: NexusGenInputs['NestedIntFilter'] | null // NestedIntFilter
+    notIn?: number[] | null // [Int!]
+  }
+  NestedIntNullableFilter: {
+    // input type
+    equals?: number | null // Int
+    gt?: number | null // Int
+    gte?: number | null // Int
+    in?: number[] | null // [Int!]
+    lt?: number | null // Int
+    lte?: number | null // Int
+    not?: NexusGenInputs['NestedIntNullableFilter'] | null // NestedIntNullableFilter
     notIn?: number[] | null // [Int!]
   }
   NestedStringFilter: {
@@ -305,6 +367,7 @@ export interface NexusGenInputs {
     // input type
     AND?: NexusGenInputs['UserWhereInput'][] | null // [UserWhereInput!]
     Files?: NexusGenInputs['FileListRelationFilter'] | null // FileListRelationFilter
+    Letters?: NexusGenInputs['LetterListRelationFilter'] | null // LetterListRelationFilter
     NOT?: NexusGenInputs['UserWhereInput'][] | null // [UserWhereInput!]
     OR?: NexusGenInputs['UserWhereInput'][] | null // [UserWhereInput!]
     Tokens?: NexusGenInputs['TokenListRelationFilter'] | null // TokenListRelationFilter
@@ -330,6 +393,7 @@ export interface NexusGenInputs {
 }
 
 export interface NexusGenEnums {
+  LetterStatus: 'Created' | 'Error' | 'Processing' | 'Sended'
   SortOrder: 'asc' | 'desc'
 }
 

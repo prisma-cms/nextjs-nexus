@@ -22,6 +22,7 @@ model User {
   image        String?
   Tokens       Token[]
   Files        File[]
+  Letters      Letter[]
 }
 
 model Token {
@@ -51,4 +52,48 @@ model File {
 
   createdById String? @db.VarChar(32)
   CreatedBy   User?   @relation(fields: [createdById], references: [id])
+}
+
+model Letter {
+  id                String       @id @default(cuid()) @db.VarChar(32)
+  createdAt         DateTime     @default(now("0")) @db.DateTime("0")
+  updatedAt         DateTime     @default(now("0")) @updatedAt @db.DateTime("0")
+  email             String       @db.MediumText
+  subject           String       @db.MediumText
+  message           String       @db.MediumText
+  status            LetterStatus @default(value: Created)
+  errorMessage      String?      @db.Text
+  rank              Int?
+  deleteOnSend      Boolean      @default(value: true)
+  replyTo           String?      @db.MediumText
+  returnTo          String?      @db.MediumText
+  createdById              String?      @db.VarChar(32)
+  CreatedBy User?        @relation(fields: [createdById], references: [id])
+
+  @@index([createdById], name: "User")
+}
+
+enum LetterStatus {
+  Created
+  Processing
+  Sended
+  Error
+}
+
+model Log {
+  id         String   @id @default(cuid()) @db.VarChar(32)
+  createdAt  DateTime @default(now("0")) @db.DateTime("0")
+  updatedAt  DateTime @default(now("0")) @updatedAt @db.DateTime("0")
+  level      LogLevel @default(value: Info)
+  objectType String?  @db.VarChar(32)
+  message    String   @db.MediumText
+  stack      String?  @db.MediumText
+}
+
+enum LogLevel {
+  Info
+  Notice
+  Warning
+  Error
+  Fatal
 }

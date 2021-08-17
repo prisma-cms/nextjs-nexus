@@ -42,6 +42,7 @@ RUN yarn install --ignore-engines
 # Deploy prisma migrations into database
 RUN yarn prisma:deploy
 
+RUN yarn generate
 RUN yarn generate:types
 
 RUN if [ "$ENV_MODE" = "production" ] ; then yarn build ; fi

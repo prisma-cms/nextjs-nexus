@@ -6,6 +6,8 @@ import graphqlServer from './graphqlServer'
 
 import { graphqlUploadExpress } from 'graphql-upload'
 import { imageResizerMiddleware } from './middleware/imageResizer'
+import { startMailer } from './modules/Mailer'
+import { context } from './nexus/context'
 
 const cwd = process.cwd()
 
@@ -15,6 +17,10 @@ const app = next({ dev })
 const handle = app.getRequestHandler()
 
 app.prepare().then(() => {
+  if (process.env.Sendmail === 'true') {
+    startMailer(context)
+  }
+
   const server = express()
 
   server.use('/images/', imageResizerMiddleware)

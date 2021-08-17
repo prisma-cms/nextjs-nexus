@@ -44,6 +44,13 @@ input DateTimeNullableFilter {
   notIn: [DateTime!]
 }
 
+input EnumLetterStatusFilter {
+  equals: LetterStatus
+  in: [LetterStatus!]
+  not: NestedEnumLetterStatusFilter
+  notIn: [LetterStatus!]
+}
+
 """
 Файл
 """
@@ -159,7 +166,51 @@ input IntFilter {
   notIn: [Int!]
 }
 
+input IntNullableFilter {
+  equals: Int
+  gt: Int
+  gte: Int
+  in: [Int!]
+  lt: Int
+  lte: Int
+  not: NestedIntNullableFilter
+  notIn: [Int!]
+}
+
 scalar JSON
+
+input LetterListRelationFilter {
+  every: LetterWhereInput
+  none: LetterWhereInput
+  some: LetterWhereInput
+}
+
+enum LetterStatus {
+  Created
+  Error
+  Processing
+  Sended
+}
+
+input LetterWhereInput {
+  AND: [LetterWhereInput!]
+  CreatedBy: UserWhereInput
+  NOT: [LetterWhereInput!]
+  OR: [LetterWhereInput!]
+  createdAt: DateTimeFilter
+  createdById: StringNullableFilter
+  deleteOnSend: BoolFilter
+  email: StringFilter
+  errorMessage: StringNullableFilter
+  id: StringFilter
+  message: StringFilter
+  rank: IntNullableFilter
+  replyTo: StringNullableFilter
+  returnTo: StringNullableFilter
+  status: EnumLetterStatusFilter
+  subject: StringFilter
+  updatedAt: DateTimeFilter
+}
 
 type Mutation {
   """
@@ -212,6 +263,13 @@ input NestedDateTimeNullableFilter {
   notIn: [DateTime!]
 }
 
+input NestedEnumLetterStatusFilter {
+  equals: LetterStatus
+  in: [LetterStatus!]
+  not: NestedEnumLetterStatusFilter
+  notIn: [LetterStatus!]
+}
+
 input NestedFloatFilter {
   equals: Float
   gt: Float
@@ -231,6 +289,17 @@ input NestedIntFilter {
   lt: Int
   lte: Int
   not: NestedIntFilter
+  notIn: [Int!]
+}
+
+input NestedIntNullableFilter {
+  equals: Int
+  gt: Int
+  gte: Int
+  in: [Int!]
+  lt: Int
+  lte: Int
+  not: NestedIntNullableFilter
   notIn: [Int!]
 }
 
@@ -457,6 +526,7 @@ input UserSignupDataInput {
 input UserWhereInput {
   AND: [UserWhereInput!]
   Files: FileListRelationFilter
+  Letters: LetterListRelationFilter
   NOT: [UserWhereInput!]
   OR: [UserWhereInput!]
   Tokens: TokenListRelationFilter
