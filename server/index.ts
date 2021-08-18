@@ -30,9 +30,15 @@ app.prepare().then(() => {
   // server.use('/uploads', express.static('/'))
 
   server.use('/uploads', (req, res) => {
-    res.sendFile(cwd + '/uploads/' + decodeURI(req.url), (error) => {
-      console.error(error)
-    })
+    res.sendFile(
+      cwd + '/uploads/' + decodeURI(req.url),
+      (error: Error & { status?: number; statusCode?: number }) => {
+        if (error) {
+          console.error('server /uploads', error)
+          res.status(error.status || 404).end()
+        }
+      }
+    )
   })
 
   /**

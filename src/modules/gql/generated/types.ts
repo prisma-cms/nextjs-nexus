@@ -184,11 +184,11 @@ export enum LetterStatus {
 
 export interface LetterWhereInput {
   AND?: Maybe<Array<LetterWhereInput>>;
+  CreatedBy?: Maybe<UserWhereInput>;
   NOT?: Maybe<Array<LetterWhereInput>>;
   OR?: Maybe<Array<LetterWhereInput>>;
-  User?: Maybe<StringNullableFilter>;
-  User_LetterToUser?: Maybe<UserWhereInput>;
   createdAt?: Maybe<DateTimeFilter>;
+  createdById?: Maybe<StringNullableFilter>;
   deleteOnSend?: Maybe<BoolFilter>;
   email?: Maybe<StringFilter>;
   errorMessage?: Maybe<StringNullableFilter>;
