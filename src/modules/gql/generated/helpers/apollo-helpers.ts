@@ -20,8 +20,10 @@ export type FileFieldPolicy = {
 	size?: FieldPolicy<any> | FieldReadFunction<any>,
 	updatedAt?: FieldPolicy<any> | FieldReadFunction<any>
 };
-export type MutationKeySpecifier = ('signin' | 'signup' | 'singleUpload' | MutationKeySpecifier)[];
+export type MutationKeySpecifier = ('createResetPasswordProcessor' | 'resetPasswordProcessor' | 'signin' | 'signup' | 'singleUpload' | MutationKeySpecifier)[];
 export type MutationFieldPolicy = {
+	createResetPasswordProcessor?: FieldPolicy<any> | FieldReadFunction<any>,
+	resetPasswordProcessor?: FieldPolicy<any> | FieldReadFunction<any>,
 	signin?: FieldPolicy<any> | FieldReadFunction<any>,
 	signup?: FieldPolicy<any> | FieldReadFunction<any>,
 	singleUpload?: FieldPolicy<any> | FieldReadFunction<any>
@@ -40,6 +42,17 @@ export type RequestErrorKeySpecifier = ('key' | 'message' | RequestErrorKeySpeci
 export type RequestErrorFieldPolicy = {
 	key?: FieldPolicy<any> | FieldReadFunction<any>,
 	message?: FieldPolicy<any> | FieldReadFunction<any>
+};
+export type ResetPasswordKeySpecifier = ('id' | ResetPasswordKeySpecifier)[];
+export type ResetPasswordFieldPolicy = {
+	id?: FieldPolicy<any> | FieldReadFunction<any>
+};
+export type ResetPasswordResponseKeySpecifier = ('data' | 'errors' | 'message' | 'success' | ResetPasswordResponseKeySpecifier)[];
+export type ResetPasswordResponseFieldPolicy = {
+	data?: FieldPolicy<any> | FieldReadFunction<any>,
+	errors?: FieldPolicy<any> | FieldReadFunction<any>,
+	message?: FieldPolicy<any> | FieldReadFunction<any>,
+	success?: FieldPolicy<any> | FieldReadFunction<any>
 };
 export type UserKeySpecifier = ('createdAt' | 'email' | 'fullname' | 'id' | 'image' | 'showEmail' | 'showFullname' | 'sudo' | 'updatedAt' | 'username' | UserKeySpecifier)[];
 export type UserFieldPolicy = {
@@ -74,6 +87,14 @@ export type TypedTypePolicies = TypePolicies & {
 	RequestError?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | RequestErrorKeySpecifier | (() => undefined | RequestErrorKeySpecifier),
 		fields?: RequestErrorFieldPolicy,
+	},
+	ResetPassword?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | ResetPasswordKeySpecifier | (() => undefined | ResetPasswordKeySpecifier),
+		fields?: ResetPasswordFieldPolicy,
+	},
+	ResetPasswordResponse?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | ResetPasswordResponseKeySpecifier | (() => undefined | ResetPasswordResponseKeySpecifier),
+		fields?: ResetPasswordResponseFieldPolicy,
 	},
 	User?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | UserKeySpecifier | (() => undefined | UserKeySpecifier),
