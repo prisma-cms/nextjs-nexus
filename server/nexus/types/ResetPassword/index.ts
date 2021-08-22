@@ -15,8 +15,7 @@ export const ResetPasswordExtendMutation = extendType({
     t.nonNull.field('resetPasswordProcessor', {
       type: 'AuthPayload',
       args: {
-        data: nonNull('ResetPasswordInput'),
-        where: nonNull('ResetPasswordWhereUniqueInput'),
+        where: nonNull('ResetPasswordProcessorWhereInput'),
       },
       resolve: resetPasswordProcessor,
     })
@@ -31,6 +30,7 @@ export const ResetPassword = objectType({
   },
   definition(t) {
     t.nonNull.id('id')
+    t.string('foo')
   },
 })
 
@@ -48,16 +48,19 @@ export const ResetPasswordResponse = objectType({
   },
 })
 
-export const ResetPasswordInput = inputObjectType({
-  name: 'ResetPasswordInput',
-  definition(t) {
-    t.nonNull.id('code')
-  },
-})
-
 export const ResetPasswordWhereUniqueInput = inputObjectType({
   name: 'ResetPasswordWhereUniqueInput',
   definition(t) {
     t.id('id')
+  },
+})
+
+export const ResetPasswordProcessorWhereInput = inputObjectType({
+  name: 'ResetPasswordProcessorWhereInput',
+  definition(t) {
+    t.nonNull.field('User', {
+      type: 'UserWhereUniqueInput',
+    })
+    t.nonNull.id('code')
   },
 })

@@ -221,8 +221,7 @@ export type MutationCreateResetPasswordProcessorArgs = {
 
 
 export type MutationResetPasswordProcessorArgs = {
-  data: ResetPasswordInput;
-  where: ResetPasswordWhereUniqueInput;
+  where: ResetPasswordProcessorWhereInput;
 };
 
 
@@ -401,17 +400,19 @@ export interface RequestError {
 
 export interface ResetPassword {
   __typename?: 'ResetPassword';
+  foo?: Maybe<Scalars['String']>;
   id: Scalars['ID'];
-}
-
-export interface ResetPasswordInput {
-  code: Scalars['ID'];
 }
 
 export interface ResetPasswordListRelationFilter {
   every?: Maybe<ResetPasswordWhereInput>;
   none?: Maybe<ResetPasswordWhereInput>;
   some?: Maybe<ResetPasswordWhereInput>;
+}
+
+export interface ResetPasswordProcessorWhereInput {
+  User: UserWhereUniqueInput;
+  code: Scalars['ID'];
 }
 
 export interface ResetPasswordResponse {

@@ -216,10 +216,7 @@ type Mutation {
   createResetPasswordProcessor(
     where: UserWhereUniqueInput!
   ): ResetPasswordResponse!
-  resetPasswordProcessor(
-    data: ResetPasswordInput!
-    where: ResetPasswordWhereUniqueInput!
-  ): AuthPayload!
+  resetPasswordProcessor(where: ResetPasswordProcessorWhereInput!): AuthPayload!
 
   """
   Авторизация
@@ -393,17 +390,19 @@ type RequestError {
 }
 
 type ResetPassword {
+  foo: String
   id: ID!
-}
-
-input ResetPasswordInput {
-  code: ID!
 }
 
 input ResetPasswordListRelationFilter {
   every: ResetPasswordWhereInput
   none: ResetPasswordWhereInput
   some: ResetPasswordWhereInput
+}
+
+input ResetPasswordProcessorWhereInput {
+  User: UserWhereUniqueInput!
+  code: ID!
 }
 
 type ResetPasswordResponse {

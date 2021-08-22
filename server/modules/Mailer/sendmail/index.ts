@@ -49,8 +49,6 @@ type Mail = {
 
 const { DKIMSign } = dkimSigner
 
-// console.log("DKIMSign", DKIMSign);
-
 const CRLF = '\r\n'
 
 function dummy() {

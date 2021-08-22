@@ -36,59 +36,64 @@ export const resetPasswordProcessor: FieldResolver<
 
   return new Promise((resolve, reject) => {
     setTimeout(async () => {
-      const where = args.where as Prisma.ResetPasswordWhereUniqueInput
+      try {
+        const code = args.where.code
+        const whereUser = args.where.User as Prisma.UserWhereUniqueInput
 
-      const passwordReset = await ctx.prisma.resetPassword.findUnique({
-        where,
-        include: {
-          User_ResetPasswordToUser: true,
-        },
-      })
+        const passwordReset = await ctx.prisma.resetPassword.findFirst({
+          where: {
+            User_ResetPasswordToUser: whereUser,
+            code,
+          },
+          orderBy: {
+            createdAt: 'desc',
+          },
+          include: {
+            User_ResetPasswordToUser: true,
+          },
+        })
 
-      // passwordReset = passwordResets[0];
+        // passwordReset = passwordResets[0];
 
-      if (!passwordReset) {
-        throw new Error('Неправильный код')
-      }
+        if (!passwordReset) {
+          throw new Error('Неправильный код')
+        }
 
-      /**
-       * Проверка, чтобы на одного пользователя не сыпалось 100500 запросов на смену пользователя.
-       * Защита от перебора
-       */
+        /**
+         * Проверка, чтобы на одного пользователя не сыпалось 100500 запросов на смену пользователя.
+         * Защита от перебора
+         */
 
-      const resetCodeId = passwordReset.id
+        const resetCodeId = passwordReset.id
 
-      if (resetCodeQueue[resetCodeId]) {
-        throw new Error('Already in progress')
-      }
+        if (resetCodeQueue[resetCodeId]) {
+          throw new Error('Already in progress')
+        }
 
-      resetCodeQueue[resetCodeId] = true
+        resetCodeQueue[resetCodeId] = true
 
-      const result = await resetPasswordWithResponse(
-        passwordReset,
-        args,
-        ctx,
-        info
-      )
+        const result = await resetPasswordWithResponse(
+          passwordReset,
+          args,
+          ctx,
+          info
+        )
         // .then(resolve)
-        .catch(reject)
+        // .catch(reject)
 
-      /**
-       * Удаляем флаг
-       */
-      delete resetCodeQueue[resetCodeId]
+        /**
+         * Удаляем флаг
+         */
+        delete resetCodeQueue[resetCodeId]
 
-      if (!result) {
-        return reject()
+        if (!result) {
+          return reject()
+        }
+
+        resolve(result)
+      } catch (error) {
+        reject(error)
       }
-
-      resolve(result)
-      // resolve({
-      //   success: !!result,
-      //   message: "",
-      //   errors: [],
-      //   data: result,
-      // })
     }, 3000)
   })
 }
@@ -153,76 +158,45 @@ async function validateResetPasswordCode(
   ctx: PrismaContext
 ): Promise<boolean> {
   const {
-    // where,
-    data: {
-      code,
-      // ...data
-    },
-    // ...otherArgs
+    where: { code },
   } = args
 
-  // const {
-  //   ctx: {
-  //     db,
-  //   },
-  // } = this;
+  const {
+    id: passwordResetId,
+    code: passwordResetCode,
+    // password,
+    validTill,
+    // User: {
+    //   id: userId,
+    // }
+  } = passwordReset
 
-  if (!code) {
-    throw new Error('Не указан код')
-  } else {
-    // const query = `{
-    //   id,
-    //   code,
-    //   password,
-    //   validTill,
-    //   User {
-    //     id
-    //   }
-    // }`;
+  /**
+   * Проверяем срок действия пароля
+   */
 
-    // let passwordReset;
-
-    const {
-      id: passwordResetId,
-      code: passwordResetCode,
-      // password,
-      validTill,
-      // User: {
-      //   id: userId,
-      // }
-    } = passwordReset
-
+  if (!validTill || moment(validTill) < moment()) {
     /**
-     * Проверяем срок действия пароля
+     * Удаляем старый код
      */
+    await ctx.prisma.resetPassword
+      .delete({
+        where: {
+          id: passwordResetId,
+        },
+      })
+      .catch(console.error)
 
-    // console.log(chalk.green("validTill"), moment(validTill).format(), moment().format(), moment(validTill) < moment());
-
-    if (!validTill || moment(validTill) < moment()) {
-      /**
-       * Удаляем старый код
-       */
-      await ctx.prisma.resetPassword
-        .delete({
-          where: {
-            id: passwordResetId,
-          },
-        })
-        .catch(console.error)
-
-      throw new Error('закончился срок действия кода')
-    } else if (passwordResetCode !== code) {
-      throw new Error('Неправильный код')
-    } else {
-      /**
-       * Если все проверки пройдены, сбрасываем пароль и авторизуем пользователя
-       */
-      // return passwordReset;
-      return true
-    }
+    throw new Error('закончился срок действия кода')
+  } else if (passwordResetCode !== code) {
+    throw new Error('Неправильный код')
+  } else {
+    /**
+     * Если все проверки пройдены, сбрасываем пароль и авторизуем пользователя
+     */
+    // return passwordReset;
+    return true
   }
-
-  // return false;
 }
 
 async function resetUserPassword(

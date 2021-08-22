@@ -43,8 +43,9 @@ export type RequestErrorFieldPolicy = {
 	key?: FieldPolicy<any> | FieldReadFunction<any>,
 	message?: FieldPolicy<any> | FieldReadFunction<any>
 };
-export type ResetPasswordKeySpecifier = ('id' | ResetPasswordKeySpecifier)[];
+export type ResetPasswordKeySpecifier = ('foo' | 'id' | ResetPasswordKeySpecifier)[];
 export type ResetPasswordFieldPolicy = {
+	foo?: FieldPolicy<any> | FieldReadFunction<any>,
 	id?: FieldPolicy<any> | FieldReadFunction<any>
 };
 export type ResetPasswordResponseKeySpecifier = ('data' | 'errors' | 'message' | 'success' | ResetPasswordResponseKeySpecifier)[];

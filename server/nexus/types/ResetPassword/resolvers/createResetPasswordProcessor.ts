@@ -138,31 +138,6 @@ async function sendResetPasswordCodeViaEmail(
     if (email && ctx.sendmail) {
       const { code } = resetPassword
 
-      // Создаем новое сообщение
-      // result = await ctx.prisma.letter.create({
-      //   data: {
-      //     email,
-      //     subject: "Код для сброса пароля",
-      //     message: `<h3>Кем-то был запрошен сброс пароля.</h3>
-      //     <p>
-      //       <strong>
-      //         Внимание! Если это были не вы, ничего не делайте. Никому не сообщайте эти данные.
-      //       </strong>
-      //     </p>
-      //     <p>
-      //       ID пользователя: ${userId}
-      //     </p>
-      //     <p>
-      //       Емейл: ${email}
-      //     </p>
-      //     <p>
-      //       Код для сброса: ${code}
-      //     </p>
-      //   `,
-      //   },
-      // })
-      //   .catch(console.error);
-
       ctx.sendmail(
         {
           to: email,
@@ -180,7 +155,7 @@ async function sendResetPasswordCodeViaEmail(
               Емейл: ${email}
             </p>
             <p>
-              Код для сброса: ${code}
+              Код для сброса: <strong>${code}</strong>
             </p>
           `,
           from: ctx.mailSender,

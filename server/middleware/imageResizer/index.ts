@@ -46,8 +46,6 @@ export const imageResizerMiddleware: RequestHandler = async (
 
       const contentType = mimetype
 
-      // console.log("contentType", contentType);
-
       let data
 
       switch (contentType) {

@@ -78,8 +78,6 @@ async function sendLetters(ctx: PrismaContext) {
 }
 
 async function sendLetter(letter: Letter, ctx: PrismaContext) {
-  // console.log(console.log("sendLetter letter"), letter);
-
   const { id, email, subject, message, deleteOnSend, replyTo, returnTo } =
     letter
 
