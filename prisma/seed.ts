@@ -15,7 +15,6 @@ async function main() {
   } else {
     userData.push({
       username: 'admin',
-      email: 'admin@localhost',
       password: await createPassword(password),
       sudo: true,
     })

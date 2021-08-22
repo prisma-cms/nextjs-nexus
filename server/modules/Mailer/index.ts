@@ -1,26 +1,25 @@
 import { PrismaContext } from 'server/nexus/context'
-import fs from 'fs'
 import { Letter, Prisma } from '.prisma/client'
-import { Sendmail, SendmailProps } from './sendmail'
+// import { Sendmail, SendmailProps } from './sendmail'
 import Debug from 'debug'
 
 const debug = Debug('NextjsNexus:Sendmail')
 
-let sendmail: ReturnType<typeof Sendmail> | undefined
+// let sendmail: ReturnType<typeof Sendmail> | undefined
 
 type startMailerProps = {
   /**
    * Пауза в мсек при отсутствии писем для отправки
    */
   delay: number
-  mailSender: string
+  // mailSender: string
   footer?: string
-  sendmailProps?: Partial<SendmailProps>
+  // sendmailProps?: Partial<SendmailProps>
 }
 
 const mailerProps: startMailerProps = {
   delay: 60000,
-  mailSender: 'no-reply@localhost',
+  // mailSender: 'no-reply@localhost',
 }
 
 /**
@@ -29,51 +28,15 @@ const mailerProps: startMailerProps = {
 export const startMailer = (ctx: PrismaContext) => {
   debug('startMailer')
 
-  if (process.env.SendmailSender) {
-    mailerProps.mailSender = process.env.SendmailSender
-  }
+  // if (process.env.SendmailSender) {
+  //   mailerProps.mailSender = process.env.SendmailSender
+  // }
 
   if (process.env.SendmailQueueDelay) {
     mailerProps.delay = parseInt(process.env.SendmailQueueDelay)
   }
 
-  const sendmailProps: SendmailProps = {
-    silent: process.env.NODE_ENV !== 'development',
-  }
-
-  /**
-   * Prod
-   */
-  if (process.env.SendmailSmtpHost) {
-    sendmailProps.smtpHost = process.env.SendmailSmtpHost
-  }
-
-  if (process.env.SendmailSmtpPort) {
-    sendmailProps.smtpPort = parseInt(process.env.SendmailSmtpPort)
-  }
-
-  /**
-   * Dev
-   */
-  if (process.env.SendmailDevHost) {
-    sendmailProps.devHost = process.env.SendmailDevPort
-  }
-
-  if (process.env.SendmailDevPort) {
-    sendmailProps.devPort = parseInt(process.env.SendmailDevPort)
-  }
-
-  /**
-   * DKIM
-   */
-  if (process.env.SendmailKeySelector && process.env.SendmailPrivateKeyFile) {
-    sendmailProps.dkim = {
-      keySelector: process.env.SendmailKeySelector,
-      privateKey: fs.readFileSync(process.env.SendmailPrivateKeyFile, 'utf8'),
-    }
-  }
-
-  sendmail = Sendmail(sendmailProps)
+  // sendmail = Sendmail(sendmailProps)
 
   sendLetters(ctx)
 }
@@ -129,11 +92,14 @@ async function sendLetter(letter: Letter, ctx: PrismaContext) {
   )
 
   await sendEmail(
-    email,
-    subject,
-    message,
-    replyTo || undefined,
-    returnTo || undefined
+    {
+      to: email,
+      subject,
+      message,
+      replyTo: replyTo || undefined,
+      returnTo: returnTo || undefined,
+    },
+    ctx
   )
     .then(async (r) => {
       await updateLetter(
@@ -181,17 +147,28 @@ async function updateLetter(
 }
 
 function sendEmail(
-  to: string,
-  subject: string,
-  message: string,
-  replyTo?: string,
-  returnTo?: string
+  {
+    to,
+    subject,
+    message,
+    replyTo,
+    returnTo,
+  }: {
+    to: string
+    subject: string
+    message: string
+    replyTo?: string
+    returnTo?: string
+  },
+  ctx: PrismaContext
 ) {
   const {
     // sendmail,
-    mailSender,
+    // mailSender,
     footer = '',
   } = mailerProps
+
+  const { sendmail, mailSender } = ctx
 
   // const host = process.env.HOST || "planner";
 

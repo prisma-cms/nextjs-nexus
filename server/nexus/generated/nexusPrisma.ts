@@ -18,13 +18,14 @@ interface PrismaModels {
   File: Prisma.File
   Letter: Prisma.Letter
   Log: Prisma.Log
+  ResetPassword: Prisma.ResetPassword
 }
 
 // Prisma input types metadata
 interface NexusPrismaInputs {
   Query: {
     users: {
-      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'username' | 'email' | 'fullname' | 'password' | 'active' | 'sudo' | 'createdAt' | 'updatedAt' | 'showEmail' | 'showFullname' | 'image' | 'Tokens' | 'Files' | 'Letters'
+      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'username' | 'email' | 'fullname' | 'password' | 'active' | 'sudo' | 'createdAt' | 'updatedAt' | 'showEmail' | 'showFullname' | 'image' | 'Tokens' | 'Files' | 'Letters' | 'ResetPasswords'
       ordering: 'id' | 'username' | 'email' | 'fullname' | 'password' | 'active' | 'sudo' | 'createdAt' | 'updatedAt' | 'showEmail' | 'showFullname' | 'image'
     }
     tokens: {
@@ -43,6 +44,10 @@ interface NexusPrismaInputs {
       filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'createdAt' | 'updatedAt' | 'level' | 'objectType' | 'message' | 'stack'
       ordering: 'id' | 'createdAt' | 'updatedAt' | 'level' | 'objectType' | 'message' | 'stack'
     }
+    resetPasswords: {
+      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'createdAt' | 'updatedAt' | 'code' | 'password' | 'validTill' | 'User' | 'User_ResetPasswordToUser'
+      ordering: 'id' | 'createdAt' | 'updatedAt' | 'code' | 'password' | 'validTill' | 'User'
+    }
   },
   User: {
     Tokens: {
@@ -57,6 +62,10 @@ interface NexusPrismaInputs {
       filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'createdAt' | 'updatedAt' | 'email' | 'subject' | 'message' | 'status' | 'errorMessage' | 'rank' | 'deleteOnSend' | 'replyTo' | 'returnTo' | 'createdById' | 'CreatedBy'
       ordering: 'id' | 'createdAt' | 'updatedAt' | 'email' | 'subject' | 'message' | 'status' | 'errorMessage' | 'rank' | 'deleteOnSend' | 'replyTo' | 'returnTo' | 'createdById'
     }
+    ResetPasswords: {
+      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'createdAt' | 'updatedAt' | 'code' | 'password' | 'validTill' | 'User' | 'User_ResetPasswordToUser'
+      ordering: 'id' | 'createdAt' | 'updatedAt' | 'code' | 'password' | 'validTill' | 'User'
+    }
   }
   Token: {
 
@@ -68,6 +77,9 @@ interface NexusPrismaInputs {
 
   }
   Log: {
+
+  }
+  ResetPassword: {
 
   }
 }
@@ -85,6 +97,8 @@ interface NexusPrismaOutputs {
     letters: 'Letter'
     log: 'Log'
     logs: 'Log'
+    resetPassword: 'ResetPassword'
+    resetPasswords: 'ResetPassword'
   },
   Mutation: {
     createOneUser: 'User'
@@ -117,6 +131,12 @@ interface NexusPrismaOutputs {
     deleteOneLog: 'Log'
     deleteManyLog: 'AffectedRowsOutput'
     upsertOneLog: 'Log'
+    createOneResetPassword: 'ResetPassword'
+    updateOneResetPassword: 'ResetPassword'
+    updateManyResetPassword: 'AffectedRowsOutput'
+    deleteOneResetPassword: 'ResetPassword'
+    deleteManyResetPassword: 'AffectedRowsOutput'
+    upsertOneResetPassword: 'ResetPassword'
   },
   User: {
     id: 'String'
@@ -134,6 +154,7 @@ interface NexusPrismaOutputs {
     Tokens: 'Token'
     Files: 'File'
     Letters: 'Letter'
+    ResetPasswords: 'ResetPassword'
   }
   Token: {
     id: 'String'
@@ -181,6 +202,16 @@ interface NexusPrismaOutputs {
     message: 'String'
     stack: 'String'
   }
+  ResetPassword: {
+    id: 'String'
+    createdAt: 'DateTime'
+    updatedAt: 'DateTime'
+    code: 'String'
+    password: 'String'
+    validTill: 'DateTime'
+    User: 'String'
+    User_ResetPasswordToUser: 'User'
+  }
 }
 
 // Helper to gather all methods relative to a model
@@ -190,6 +221,7 @@ interface NexusPrismaMethods {
   File: Typegen.NexusPrismaFields<'File'>
   Letter: Typegen.NexusPrismaFields<'Letter'>
   Log: Typegen.NexusPrismaFields<'Log'>
+  ResetPassword: Typegen.NexusPrismaFields<'ResetPassword'>
   Query: Typegen.NexusPrismaFields<'Query'>
   Mutation: Typegen.NexusPrismaFields<'Mutation'>
 }

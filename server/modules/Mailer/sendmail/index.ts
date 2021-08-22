@@ -482,5 +482,6 @@ export const Sendmail = function (options: SendmailProps) {
       }
     })
   }
+
   return sendmail
 }

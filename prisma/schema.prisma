@@ -8,21 +8,22 @@ datasource db {
 }
 
 model User {
-  id           String   @id @default(cuid()) @db.VarChar(32)
-  username     String?  @unique
-  email        String?  @unique
-  fullname     String?
-  password     String?
-  active       Boolean  @default(true)
-  sudo         Boolean  @default(false)
-  createdAt    DateTime @default(now("0")) @db.DateTime("0")
-  updatedAt    DateTime @default(now("0")) @updatedAt @db.DateTime("0")
-  showEmail    Boolean  @default(false)
-  showFullname Boolean  @default(true)
-  image        String?
-  Tokens       Token[]
-  Files        File[]
-  Letters      Letter[]
+  id             String          @id @default(cuid()) @db.VarChar(32)
+  username       String?         @unique
+  email          String?         @unique
+  fullname       String?
+  password       String?
+  active         Boolean         @default(true)
+  sudo           Boolean         @default(false)
+  createdAt      DateTime        @default(now("0")) @db.DateTime("0")
+  updatedAt      DateTime        @default(now("0")) @updatedAt @db.DateTime("0")
+  showEmail      Boolean         @default(false)
+  showFullname   Boolean         @default(true)
+  image          String?
+  Tokens         Token[]
+  Files          File[]
+  Letters        Letter[]
+  ResetPasswords ResetPassword[]
 }
 
 model Token {
@@ -55,20 +56,20 @@ model File {
 }
 
 model Letter {
-  id                String       @id @default(cuid()) @db.VarChar(32)
-  createdAt         DateTime     @default(now("0")) @db.DateTime("0")
-  updatedAt         DateTime     @default(now("0")) @updatedAt @db.DateTime("0")
-  email             String       @db.MediumText
-  subject           String       @db.MediumText
-  message           String       @db.MediumText
-  status            LetterStatus @default(value: Created)
-  errorMessage      String?      @db.Text
-  rank              Int?
-  deleteOnSend      Boolean      @default(value: true)
-  replyTo           String?      @db.MediumText
-  returnTo          String?      @db.MediumText
-  createdById              String?      @db.VarChar(32)
-  CreatedBy User?        @relation(fields: [createdById], references: [id])
+  id           String       @id @default(cuid()) @db.VarChar(32)
+  createdAt    DateTime     @default(now("0")) @db.DateTime("0")
+  updatedAt    DateTime     @default(now("0")) @updatedAt @db.DateTime("0")
+  email        String       @db.MediumText
+  subject      String       @db.MediumText
+  message      String       @db.MediumText
+  status       LetterStatus @default(value: Created)
+  errorMessage String?      @db.Text
+  rank         Int?
+  deleteOnSend Boolean      @default(value: true)
+  replyTo      String?      @db.MediumText
+  returnTo     String?      @db.MediumText
+  createdById  String?      @db.VarChar(32)
+  CreatedBy    User?        @relation(fields: [createdById], references: [id])
 
   @@index([createdById], name: "User")
 }
@@ -96,4 +97,17 @@ enum LogLevel {
   Warning
   Error
   Fatal
+}
+
+model ResetPassword {
+  id                       String    @id @default(cuid()) @db.VarChar(32)
+  createdAt                DateTime  @default(now("0")) @db.DateTime("0")
+  updatedAt                DateTime  @default(now("0")) @updatedAt @db.DateTime("0")
+  code                     String    @db.VarChar(32)
+  password                 String
+  validTill                DateTime?
+  User                     String    @db.VarChar(32)
+  User_ResetPasswordToUser User      @relation(fields: [User], references: [id])
+
+  @@index([User], name: "User")
 }

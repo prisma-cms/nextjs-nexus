@@ -4,7 +4,7 @@
  */
 
 import { PrismaContext } from './../context/index'
-import { User, File } from '@prisma/client'
+import { User, File, ResetPassword } from '@prisma/client'
 import { core } from 'nexus'
 declare global {
   interface NexusGenCustomInputMethods<TypeName extends string> {
@@ -284,6 +284,34 @@ export interface NexusGenInputs {
     notIn?: string[] | null // [String!]
     startsWith?: string | null // String
   }
+  ResetPasswordInput: {
+    // input type
+    code: string // ID!
+  }
+  ResetPasswordListRelationFilter: {
+    // input type
+    every?: NexusGenInputs['ResetPasswordWhereInput'] | null // ResetPasswordWhereInput
+    none?: NexusGenInputs['ResetPasswordWhereInput'] | null // ResetPasswordWhereInput
+    some?: NexusGenInputs['ResetPasswordWhereInput'] | null // ResetPasswordWhereInput
+  }
+  ResetPasswordWhereInput: {
+    // input type
+    AND?: NexusGenInputs['ResetPasswordWhereInput'][] | null // [ResetPasswordWhereInput!]
+    NOT?: NexusGenInputs['ResetPasswordWhereInput'][] | null // [ResetPasswordWhereInput!]
+    OR?: NexusGenInputs['ResetPasswordWhereInput'][] | null // [ResetPasswordWhereInput!]
+    User?: NexusGenInputs['StringFilter'] | null // StringFilter
+    User_ResetPasswordToUser?: NexusGenInputs['UserWhereInput'] | null // UserWhereInput
+    code?: NexusGenInputs['StringFilter'] | null // StringFilter
+    createdAt?: NexusGenInputs['DateTimeFilter'] | null // DateTimeFilter
+    id?: NexusGenInputs['StringFilter'] | null // StringFilter
+    password?: NexusGenInputs['StringFilter'] | null // StringFilter
+    updatedAt?: NexusGenInputs['DateTimeFilter'] | null // DateTimeFilter
+    validTill?: NexusGenInputs['DateTimeNullableFilter'] | null // DateTimeNullableFilter
+  }
+  ResetPasswordWhereUniqueInput: {
+    // input type
+    id?: string | null // ID
+  }
   SingleUploadInput: {
     // input type
     directory?: string | null // String
@@ -370,6 +398,7 @@ export interface NexusGenInputs {
     Letters?: NexusGenInputs['LetterListRelationFilter'] | null // LetterListRelationFilter
     NOT?: NexusGenInputs['UserWhereInput'][] | null // [UserWhereInput!]
     OR?: NexusGenInputs['UserWhereInput'][] | null // [UserWhereInput!]
+    ResetPasswords?: NexusGenInputs['ResetPasswordListRelationFilter'] | null // ResetPasswordListRelationFilter
     Tokens?: NexusGenInputs['TokenListRelationFilter'] | null // TokenListRelationFilter
     active?: NexusGenInputs['BoolFilter'] | null // BoolFilter
     createdAt?: NexusGenInputs['DateTimeFilter'] | null // DateTimeFilter
@@ -425,6 +454,14 @@ export interface NexusGenObjects {
     key: string // String!
     message: string // String!
   }
+  ResetPassword: ResetPassword
+  ResetPasswordResponse: {
+    // root type
+    data?: NexusGenRootTypes['ResetPassword'] | null // ResetPassword
+    errors: NexusGenRootTypes['RequestError'][] // [RequestError!]!
+    message: string // String!
+    success: boolean // Boolean!
+  }
   User: User
 }
 
@@ -462,6 +499,8 @@ export interface NexusGenFieldTypes {
   }
   Mutation: {
     // field return type
+    createResetPasswordProcessor: NexusGenRootTypes['ResetPasswordResponse'] // ResetPasswordResponse!
+    resetPasswordProcessor: NexusGenRootTypes['AuthPayload'] // AuthPayload!
     signin: NexusGenRootTypes['AuthPayload'] // AuthPayload!
     signup: NexusGenRootTypes['AuthPayload'] // AuthPayload!
     singleUpload: NexusGenRootTypes['File'] | null // File
@@ -480,6 +519,17 @@ export interface NexusGenFieldTypes {
     // field return type
     key: string // String!
     message: string // String!
+  }
+  ResetPassword: {
+    // field return type
+    id: string // ID!
+  }
+  ResetPasswordResponse: {
+    // field return type
+    data: NexusGenRootTypes['ResetPassword'] | null // ResetPassword
+    errors: NexusGenRootTypes['RequestError'][] // [RequestError!]!
+    message: string // String!
+    success: boolean // Boolean!
   }
   User: {
     // field return type
@@ -520,6 +570,8 @@ export interface NexusGenFieldTypeNames {
   }
   Mutation: {
     // field return type name
+    createResetPasswordProcessor: 'ResetPasswordResponse'
+    resetPasswordProcessor: 'AuthPayload'
     signin: 'AuthPayload'
     signup: 'AuthPayload'
     singleUpload: 'File'
@@ -539,6 +591,17 @@ export interface NexusGenFieldTypeNames {
     key: 'String'
     message: 'String'
   }
+  ResetPassword: {
+    // field return type name
+    id: 'ID'
+  }
+  ResetPasswordResponse: {
+    // field return type name
+    data: 'ResetPassword'
+    errors: 'RequestError'
+    message: 'String'
+    success: 'Boolean'
+  }
   User: {
     // field return type name
     createdAt: 'DateTime'
@@ -556,6 +619,15 @@ export interface NexusGenFieldTypeNames {
 
 export interface NexusGenArgTypes {
   Mutation: {
+    createResetPasswordProcessor: {
+      // args
+      where: NexusGenInputs['UserWhereUniqueInput'] // UserWhereUniqueInput!
+    }
+    resetPasswordProcessor: {
+      // args
+      data: NexusGenInputs['ResetPasswordInput'] // ResetPasswordInput!
+      where: NexusGenInputs['ResetPasswordWhereUniqueInput'] // ResetPasswordWhereUniqueInput!
+    }
     signin: {
       // args
       data: NexusGenInputs['UserSigninDataInput'] // UserSigninDataInput!
