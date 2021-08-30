@@ -46,12 +46,15 @@ let subscriptionClient: SubscriptionClient | undefined
  * потому что wsLink.subscriptionClient is private.
  * Нам этот клиент нужен, чтобы переподключаться при логине/логауте
  */
-export function getSubscriptionClient() {
+export function getSubscriptionClient(withWs: boolean) {
   if (typeof window === 'undefined') {
     return
   }
 
-  if (!subscriptionClient) {
+  /**
+   * Если клиента нет и указано использовать веб-сокеты, то создаем клиента
+   */
+  if (!subscriptionClient && withWs) {
     const endpoint = getEndpoint()
 
     const wsUri = new URL(endpoint)
@@ -96,7 +99,7 @@ export function getSubscriptionClient() {
  * Хук для получения веб-сокет клиента.
  * Он нужен нам для сброса соединения при логине/логауте
  */
-export function getWsLink() {
+export function getWsLink(withWs: boolean) {
   /**
    * На стороне сервера нам не нужна поддержка веб-сокетов.
    * Подключаем вебсокеты только на стороне браузера.
@@ -113,7 +116,7 @@ export function getWsLink() {
     return wsLink
   }
 
-  const subscriptionClient = getSubscriptionClient()
+  const subscriptionClient = getSubscriptionClient(withWs)
 
   if (subscriptionClient) {
     wsLink = new WebSocketLink(subscriptionClient)
@@ -178,7 +181,7 @@ function createApolloClient({ withWs, appContext }: createApolloClientProps) {
 
   let wsHttpLink: ApolloLink = httpLink
 
-  const wsLink = withWs ? getWsLink() : undefined
+  const wsLink = withWs ? getWsLink(withWs) : undefined
 
   if (wsLink) {
     wsHttpLink = split(
