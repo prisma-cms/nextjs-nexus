@@ -54,7 +54,11 @@ const HeadProvider: React.FC = ({ children }) => {
  */
 const AppProvider: React.FC = ({ children }, pageProps: PageProps) => {
   const Component: Page = useMemo(() => {
-    return () => <>{children}</>
+    const Component: Page = () => <>{children}</>
+    Component.getInitialProps = () => {
+      return {}
+    }
+    return Component
   }, [children])
 
   return (
