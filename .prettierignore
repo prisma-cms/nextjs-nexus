@@ -11,6 +11,7 @@ storybook-static
 /packages
 /public
 /shared
+/prisma/migrations
 
 # cypress
 /cypress

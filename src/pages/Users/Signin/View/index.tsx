@@ -1,16 +1,16 @@
-import React, { useContext, useMemo } from 'react'
+import React, { useMemo } from 'react'
+import { useCurrentUser } from 'src/hooks/useCurrentUser'
 
-import { Context } from 'src/pages/_App/Context'
 import SigninForm from './Form'
 
 const SigninPageView: React.FC = () => {
-  const context = useContext(Context)
+  const currentUser = useCurrentUser()
 
   return useMemo(() => {
     /**
      * Если пользователя нет, то выводим форму регистрации
      */
-    if (!context?.user) {
+    if (!currentUser) {
       return <SigninForm />
     }
 
@@ -19,10 +19,10 @@ const SigninPageView: React.FC = () => {
      */
     return (
       <>
-        <h3>Вы авторизованы как {context?.user.username}</h3>
+        <h3>Вы авторизованы как {currentUser.username}</h3>
       </>
     )
-  }, [context?.user])
+  }, [currentUser])
 }
 
 export default SigninPageView
