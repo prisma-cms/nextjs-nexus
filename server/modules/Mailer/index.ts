@@ -46,17 +46,19 @@ async function sendLetters(ctx: PrismaContext) {
 
   const { delay } = mailerProps
 
-  const letter = await ctx.prisma.letter.findFirst({
-    where: {
-      status: 'Created',
-    },
-    orderBy: {
-      rank: 'desc',
-    },
-  })
-  // .catch((error: Error) => {
-  //   throw error;
-  // });
+  const letter = await ctx.prisma.letter
+    .findFirst({
+      where: {
+        status: 'Created',
+      },
+      orderBy: {
+        rank: 'desc',
+      },
+    })
+    .catch((error: Error) => {
+      // TODO add sentry report
+      console.error(error)
+    })
 
   if (letter) {
     try {
