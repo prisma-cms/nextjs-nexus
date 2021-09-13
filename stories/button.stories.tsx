@@ -16,6 +16,7 @@ import styled from 'styled-components'
 type ButtonProps = {
   text: string
   backgroundColor?: string
+  disabled?: boolean
 }
 
 type ButtonStyledProps = {
@@ -29,12 +30,15 @@ const Button = styled.button<ButtonStyledProps>`
   background-color: ${({ backgroundColor }) => backgroundColor || 'white'};
   color: ${({ color, theme }) => color || theme.colors.primary};
 
-  &:hover {
-    border-color: 1px solid green;
-  }
+  &:enabled {
+    &:hover {
+      cursor: pointer;
+      border-color: green;
+    }
 
-  &:active {
-    border-color: 1px solid red;
+    &:active {
+      border-color: red;
+    }
   }
 `
 
@@ -64,6 +68,7 @@ export const withSomeEmoji: React.FC<ButtonProps> = (props) => (
 
 const args: Partial<ButtonProps> = {
   text: 'Hello Button',
+  disabled: false,
 }
 
 export default {
