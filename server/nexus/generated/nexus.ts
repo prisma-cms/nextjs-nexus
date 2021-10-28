@@ -367,6 +367,7 @@ export interface NexusGenInputs {
   UserOrderByInput: {
     // input type
     active?: NexusGenEnums['SortOrder'] | null // SortOrder
+    blocked?: NexusGenEnums['SortOrder'] | null // SortOrder
     createdAt?: NexusGenEnums['SortOrder'] | null // SortOrder
     email?: NexusGenEnums['SortOrder'] | null // SortOrder
     fullname?: NexusGenEnums['SortOrder'] | null // SortOrder
@@ -387,7 +388,7 @@ export interface NexusGenInputs {
     // input type
     email?: string | null // String
     fullname?: string | null // String
-    password?: string | null // String
+    password: string // String!
     showEmail: boolean // Boolean!
     showFullname: boolean // Boolean!
     username?: string | null // String
@@ -402,6 +403,7 @@ export interface NexusGenInputs {
     ResetPasswords?: NexusGenInputs['ResetPasswordListRelationFilter'] | null // ResetPasswordListRelationFilter
     Tokens?: NexusGenInputs['TokenListRelationFilter'] | null // TokenListRelationFilter
     active?: NexusGenInputs['BoolFilter'] | null // BoolFilter
+    blocked?: NexusGenInputs['BoolFilter'] | null // BoolFilter
     createdAt?: NexusGenInputs['DateTimeFilter'] | null // DateTimeFilter
     email?: NexusGenInputs['StringNullableFilter'] | null // StringNullableFilter
     fullname?: NexusGenInputs['StringNullableFilter'] | null // StringNullableFilter
@@ -500,11 +502,13 @@ export interface NexusGenFieldTypes {
   }
   Mutation: {
     // field return type
+    blockUser: NexusGenRootTypes['User'] // User!
     createResetPasswordProcessor: NexusGenRootTypes['ResetPasswordResponse'] // ResetPasswordResponse!
     resetPasswordProcessor: NexusGenRootTypes['AuthPayload'] // AuthPayload!
     signin: NexusGenRootTypes['AuthPayload'] // AuthPayload!
     signup: NexusGenRootTypes['AuthPayload'] // AuthPayload!
     singleUpload: NexusGenRootTypes['File'] | null // File
+    unblockUser: NexusGenRootTypes['User'] // User!
   }
   Query: {
     // field return type
@@ -535,6 +539,8 @@ export interface NexusGenFieldTypes {
   }
   User: {
     // field return type
+    active: boolean // Boolean!
+    blocked: boolean // Boolean!
     createdAt: NexusGenScalars['DateTime'] // DateTime!
     email: string | null // String
     fullname: string | null // String
@@ -572,11 +578,13 @@ export interface NexusGenFieldTypeNames {
   }
   Mutation: {
     // field return type name
+    blockUser: 'User'
     createResetPasswordProcessor: 'ResetPasswordResponse'
     resetPasswordProcessor: 'AuthPayload'
     signin: 'AuthPayload'
     signup: 'AuthPayload'
     singleUpload: 'File'
+    unblockUser: 'User'
   }
   Query: {
     // field return type name
@@ -607,6 +615,8 @@ export interface NexusGenFieldTypeNames {
   }
   User: {
     // field return type name
+    active: 'Boolean'
+    blocked: 'Boolean'
     createdAt: 'DateTime'
     email: 'String'
     fullname: 'String'
@@ -622,6 +632,10 @@ export interface NexusGenFieldTypeNames {
 
 export interface NexusGenArgTypes {
   Mutation: {
+    blockUser: {
+      // args
+      where: NexusGenInputs['UserWhereUniqueInput'] // UserWhereUniqueInput!
+    }
     createResetPasswordProcessor: {
       // args
       where: NexusGenInputs['UserWhereUniqueInput'] // UserWhereUniqueInput!
@@ -643,6 +657,10 @@ export interface NexusGenArgTypes {
       // args
       data?: NexusGenInputs['SingleUploadInput'] | null // SingleUploadInput
       file?: NexusGenScalars['Upload'] | null // Upload
+    }
+    unblockUser: {
+      // args
+      where: NexusGenInputs['UserWhereUniqueInput'] // UserWhereUniqueInput!
     }
   }
   Query: {

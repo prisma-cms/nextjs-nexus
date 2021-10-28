@@ -20,13 +20,15 @@ export type FileFieldPolicy = {
 	size?: FieldPolicy<any> | FieldReadFunction<any>,
 	updatedAt?: FieldPolicy<any> | FieldReadFunction<any>
 };
-export type MutationKeySpecifier = ('createResetPasswordProcessor' | 'resetPasswordProcessor' | 'signin' | 'signup' | 'singleUpload' | MutationKeySpecifier)[];
+export type MutationKeySpecifier = ('blockUser' | 'createResetPasswordProcessor' | 'resetPasswordProcessor' | 'signin' | 'signup' | 'singleUpload' | 'unblockUser' | MutationKeySpecifier)[];
 export type MutationFieldPolicy = {
+	blockUser?: FieldPolicy<any> | FieldReadFunction<any>,
 	createResetPasswordProcessor?: FieldPolicy<any> | FieldReadFunction<any>,
 	resetPasswordProcessor?: FieldPolicy<any> | FieldReadFunction<any>,
 	signin?: FieldPolicy<any> | FieldReadFunction<any>,
 	signup?: FieldPolicy<any> | FieldReadFunction<any>,
-	singleUpload?: FieldPolicy<any> | FieldReadFunction<any>
+	singleUpload?: FieldPolicy<any> | FieldReadFunction<any>,
+	unblockUser?: FieldPolicy<any> | FieldReadFunction<any>
 };
 export type QueryKeySpecifier = ('file' | 'files' | 'filesCount' | 'me' | 'user' | 'users' | 'usersCount' | QueryKeySpecifier)[];
 export type QueryFieldPolicy = {
@@ -55,8 +57,10 @@ export type ResetPasswordResponseFieldPolicy = {
 	message?: FieldPolicy<any> | FieldReadFunction<any>,
 	success?: FieldPolicy<any> | FieldReadFunction<any>
 };
-export type UserKeySpecifier = ('createdAt' | 'email' | 'fullname' | 'id' | 'image' | 'showEmail' | 'showFullname' | 'sudo' | 'updatedAt' | 'username' | UserKeySpecifier)[];
+export type UserKeySpecifier = ('active' | 'blocked' | 'createdAt' | 'email' | 'fullname' | 'id' | 'image' | 'showEmail' | 'showFullname' | 'sudo' | 'updatedAt' | 'username' | UserKeySpecifier)[];
 export type UserFieldPolicy = {
+	active?: FieldPolicy<any> | FieldReadFunction<any>,
+	blocked?: FieldPolicy<any> | FieldReadFunction<any>,
 	createdAt?: FieldPolicy<any> | FieldReadFunction<any>,
 	email?: FieldPolicy<any> | FieldReadFunction<any>,
 	fullname?: FieldPolicy<any> | FieldReadFunction<any>,

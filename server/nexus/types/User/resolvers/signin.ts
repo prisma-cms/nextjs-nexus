@@ -32,6 +32,8 @@ export const signin: FieldResolver<'Mutation', 'signin'> = async (
 
   if (!user) {
     message = 'Не был получен пользователь'
+  } else if (user.blocked) {
+    throw new Error('User blocked')
   } else if (
     !user.password ||
     !(await bcrypt.compare(password, user.password))

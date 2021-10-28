@@ -52,6 +52,18 @@ mutation signup($data: UserSignupDataInput!) {
   }
 }
 
+mutation blockUser($where: UserWhereUniqueInput!) {
+  blockUser(where: $where) {
+    ...user
+  }
+}
+
+mutation unblockUser($where: UserWhereUniqueInput!) {
+  unblockUser(where: $where) {
+    ...user
+  }
+}
+
 fragment UserNoNesting on User {
   id
   createdAt
@@ -62,6 +74,8 @@ fragment UserNoNesting on User {
   fullname
   showFullname
   image
+  active
+  blocked
 }
 
 fragment user on User {

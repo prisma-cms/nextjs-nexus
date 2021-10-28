@@ -1,7 +1,62 @@
 import { Prisma } from '@prisma/client'
 import { objectType, extendType, inputObjectType, nonNull } from 'nexus'
+import { blockUser } from './resolvers/blockUser'
 import { signin } from './resolvers/signin'
 import { signup } from './resolvers/signup'
+import { unblockUser } from './resolvers/unblockUser'
+
+export const User = objectType({
+  name: 'User',
+  description: 'Пользователь',
+  sourceType: {
+    module: '@prisma/client',
+    export: 'User',
+  },
+  definition(t) {
+    t.nonNull.string('id')
+    t.nonNull.date('createdAt', {
+      description: 'Когда создан',
+    })
+    t.nonNull.date('updatedAt', {
+      description: 'Когда обновлен',
+    })
+    t.string('email', {
+      resolve(parent, _args, ctx) {
+        return parent.showEmail === true ||
+          ctx.currentUser?.sudo === true ||
+          ctx.currentUser?.id === parent.id
+          ? parent.email
+          : null
+      },
+    })
+    t.string('fullname', {
+      resolve(parent, _args, ctx) {
+        return parent.showFullname === true ||
+          ctx.currentUser?.sudo === true ||
+          ctx.currentUser?.id === parent.id
+          ? parent.fullname
+          : null
+      },
+    })
+    t.string('username')
+    t.boolean('sudo')
+    t.nonNull.boolean('showEmail', {
+      description: 'Показывать емейл другим пользователям',
+    })
+    t.nonNull.boolean('showFullname', {
+      description: 'Показывать ФИО другим пользователям',
+    })
+    t.string('image', {
+      description: 'Avatar',
+    })
+    t.nonNull.boolean('active', {
+      description: 'Активирован ли пользователь',
+    })
+    t.nonNull.boolean('blocked', {
+      description: 'Заблокирован ли пользователь',
+    })
+  },
+})
 
 export const UserQuery = extendType({
   type: 'Query',
@@ -58,6 +113,24 @@ export const UserExtendMutation = extendType({
       },
       resolve: signin,
     })
+
+    t.nonNull.field('blockUser', {
+      type: 'User',
+      description: 'Заблокировать пользователя',
+      args: {
+        where: nonNull('UserWhereUniqueInput'),
+      },
+      resolve: blockUser,
+    })
+
+    t.nonNull.field('unblockUser', {
+      type: 'User',
+      description: 'Разблокировать пользователя',
+      args: {
+        where: nonNull('UserWhereUniqueInput'),
+      },
+      resolve: unblockUser,
+    })
   },
 })
 
@@ -67,12 +140,14 @@ export const UserSignupDataInput = inputObjectType({
     t.string('username')
     t.string('email')
     t.string('fullname')
-    t.string('password')
+    t.nonNull.string('password')
     t.nonNull.boolean('showEmail', {
       description: 'Показывать емейл другим пользователям',
+      default: false,
     })
     t.nonNull.boolean('showFullname', {
       description: 'Показывать ФИО другим пользователям',
+      default: true,
     })
   },
 })
@@ -96,53 +171,6 @@ export const AuthPayload = objectType({
     })
     t.field('data', {
       type: 'User',
-    })
-  },
-})
-
-export const User = objectType({
-  name: 'User',
-  description: 'Пользователь',
-  sourceType: {
-    module: '@prisma/client',
-    export: 'User',
-  },
-  definition(t) {
-    t.nonNull.string('id')
-    t.nonNull.date('createdAt', {
-      description: 'Когда создан',
-    })
-    t.nonNull.date('updatedAt', {
-      description: 'Когда обновлен',
-    })
-    t.string('email', {
-      resolve(parent, _args, ctx) {
-        return parent.showEmail === true ||
-          ctx.currentUser?.sudo === true ||
-          ctx.currentUser?.id === parent.id
-          ? parent.email
-          : null
-      },
-    })
-    t.string('fullname', {
-      resolve(parent, _args, ctx) {
-        return parent.showFullname === true ||
-          ctx.currentUser?.sudo === true ||
-          ctx.currentUser?.id === parent.id
-          ? parent.fullname
-          : null
-      },
-    })
-    t.string('username')
-    t.boolean('sudo')
-    t.nonNull.boolean('showEmail', {
-      description: 'Показывать емейл другим пользователям',
-    })
-    t.nonNull.boolean('showFullname', {
-      description: 'Показывать ФИО другим пользователям',
-    })
-    t.string('image', {
-      description: 'Avatar',
     })
   },
 })

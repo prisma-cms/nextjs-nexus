@@ -213,6 +213,10 @@ input LetterWhereInput {
 }
 
 type Mutation {
+  """
+  Заблокировать пользователя
+  """
+  blockUser(where: UserWhereUniqueInput!): User!
   createResetPasswordProcessor(
     where: UserWhereUniqueInput!
   ): ResetPasswordResponse!
@@ -239,6 +243,11 @@ type Mutation {
     """
     file: Upload
   ): File
+
+  """
+  Разблокировать пользователя
+  """
+  unblockUser(where: UserWhereUniqueInput!): User!
 }
 
 input NestedBoolFilter {
@@ -503,6 +512,16 @@ scalar Upload
 """
 type User {
   """
+  Активирован ли пользователь
+  """
+  active: Boolean!
+
+  """
+  Заблокирован ли пользователь
+  """
+  blocked: Boolean!
+
+  """
   Когда создан
   """
   createdAt: DateTime!
@@ -535,6 +554,7 @@ type User {
 
 input UserOrderByInput {
   active: SortOrder
+  blocked: SortOrder
   createdAt: SortOrder
   email: SortOrder
   fullname: SortOrder
@@ -555,17 +575,17 @@ input UserSigninDataInput {
 input UserSignupDataInput {
   email: String
   fullname: String
-  password: String
+  password: String!
 
   """
   Показывать емейл другим пользователям
   """
-  showEmail: Boolean!
+  showEmail: Boolean! = false
 
   """
   Показывать ФИО другим пользователям
   """
-  showFullname: Boolean!
+  showFullname: Boolean! = true
   username: String
 }
 
@@ -578,6 +598,7 @@ input UserWhereInput {
   ResetPasswords: ResetPasswordListRelationFilter
   Tokens: TokenListRelationFilter
   active: BoolFilter
+  blocked: BoolFilter
   createdAt: DateTimeFilter
   email: StringNullableFilter
   fullname: StringNullableFilter

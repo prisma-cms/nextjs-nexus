@@ -1,6 +1,7 @@
 export * from './FileNoNesting';
 export * from './UserNoNesting';
 export * from './UserUnique';
+export * from './blockUser';
 export * from './createResetPasswordProcessor';
 export * from './file';
 export * from './me';
@@ -10,5 +11,6 @@ export * from './resetPasswordProcessor';
 export * from './signin';
 export * from './signup';
 export * from './singleUpload';
+export * from './unblockUser';
 export * from './user';
 export * from './usersConnection';export * from './types';

@@ -11,9 +11,11 @@ export const signup: FieldResolver<'Mutation', 'signup'> = async (
 ) => {
   const { password: passwordProps, ...data } = args.data || {}
 
-  const password = passwordProps
-    ? await createPassword(passwordProps)
-    : passwordProps
+  if (!passwordProps) {
+    throw new Error('Укажите пароль')
+  }
+
+  const password = await createPassword(passwordProps)
 
   const user = await ctx.prisma.user.create({
     data: {

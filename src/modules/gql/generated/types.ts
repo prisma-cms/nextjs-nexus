@@ -204,6 +204,8 @@ export interface LetterWhereInput {
 
 export interface Mutation {
   __typename?: 'Mutation';
+  /** Заблокировать пользователя */
+  blockUser: User;
   createResetPasswordProcessor: ResetPasswordResponse;
   resetPasswordProcessor: AuthPayload;
   /** Авторизация */
@@ -212,7 +214,14 @@ export interface Mutation {
   signup: AuthPayload;
   /** Загрузка файла */
   singleUpload?: Maybe<File>;
+  /** Разблокировать пользователя */
+  unblockUser: User;
 }
+
+
+export type MutationBlockUserArgs = {
+  where: UserWhereUniqueInput;
+};
 
 
 export type MutationCreateResetPasswordProcessorArgs = {
@@ -239,6 +248,11 @@ export type MutationSignupArgs = {
 export type MutationSingleUploadArgs = {
   data?: Maybe<SingleUploadInput>;
   file?: Maybe<Scalars['Upload']>;
+};
+
+
+export type MutationUnblockUserArgs = {
+  where: UserWhereUniqueInput;
 };
 
 export interface NestedBoolFilter {
@@ -503,6 +517,10 @@ export interface TokenWhereInput {
 /** Пользователь */
 export interface User {
   __typename?: 'User';
+  /** Активирован ли пользователь */
+  active: Scalars['Boolean'];
+  /** Заблокирован ли пользователь */
+  blocked: Scalars['Boolean'];
   /** Когда создан */
   createdAt: Scalars['DateTime'];
   email?: Maybe<Scalars['String']>;
@@ -522,6 +540,7 @@ export interface User {
 
 export interface UserOrderByInput {
   active?: Maybe<SortOrder>;
+  blocked?: Maybe<SortOrder>;
   createdAt?: Maybe<SortOrder>;
   email?: Maybe<SortOrder>;
   fullname?: Maybe<SortOrder>;
@@ -542,11 +561,11 @@ export interface UserSigninDataInput {
 export interface UserSignupDataInput {
   email?: Maybe<Scalars['String']>;
   fullname?: Maybe<Scalars['String']>;
-  password?: Maybe<Scalars['String']>;
+  password: Scalars['String'];
   /** Показывать емейл другим пользователям */
-  showEmail: Scalars['Boolean'];
+  showEmail?: Scalars['Boolean'];
   /** Показывать ФИО другим пользователям */
-  showFullname: Scalars['Boolean'];
+  showFullname?: Scalars['Boolean'];
   username?: Maybe<Scalars['String']>;
 }
 
@@ -559,6 +578,7 @@ export interface UserWhereInput {
   ResetPasswords?: Maybe<ResetPasswordListRelationFilter>;
   Tokens?: Maybe<TokenListRelationFilter>;
   active?: Maybe<BoolFilter>;
+  blocked?: Maybe<BoolFilter>;
   createdAt?: Maybe<DateTimeFilter>;
   email?: Maybe<StringNullableFilter>;
   fullname?: Maybe<StringNullableFilter>;
