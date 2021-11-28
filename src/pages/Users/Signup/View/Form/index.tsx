@@ -1,7 +1,7 @@
 import React, { useCallback, useContext, useEffect, useMemo } from 'react'
 
 import { Controller, ControllerProps, useForm } from 'react-hook-form'
-import { yupResolver } from '@hookform/resolvers/yup'
+import { yupResolver } from '@hookform/resolvers/yup/dist/yup'
 import * as yup from 'yup'
 import { SchemaOf } from 'yup'
 import {

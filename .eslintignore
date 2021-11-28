@@ -11,6 +11,7 @@
 /shared
 /prisma/migrations
 generated
+/tsconfig.tsbuildinfo
 
 # cypress
 /cypress
