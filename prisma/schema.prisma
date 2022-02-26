@@ -16,8 +16,8 @@ model User {
   active         Boolean         @default(true)
   blocked        Boolean         @default(false)
   sudo           Boolean         @default(false)
-  createdAt      DateTime        @default(now("0")) @db.DateTime(0)
-  updatedAt      DateTime        @default(now("0")) @updatedAt @db.DateTime(0)
+  createdAt      DateTime        @default(now()) @db.DateTime(0)
+  updatedAt      DateTime        @default(now()) @updatedAt @db.DateTime(0)
   showEmail      Boolean         @default(false)
   showFullname   Boolean         @default(true)
   image          String?
@@ -29,7 +29,7 @@ model User {
 
 model Token {
   id        String    @id @default(cuid()) @db.VarChar(32)
-  createdAt DateTime  @default(now("0")) @db.DateTime(0)
+  createdAt DateTime  @default(now()) @db.DateTime(0)
   expiredAt DateTime? @db.DateTime(0)
   userId    String?   @db.VarChar(32)
 
@@ -42,8 +42,8 @@ model Token {
 
 model File {
   id        String   @id @default(cuid()) @db.VarChar(32)
-  createdAt DateTime @default(now("0")) @db.DateTime(0)
-  updatedAt DateTime @default(now("0")) @updatedAt @db.DateTime(0)
+  createdAt DateTime @default(now()) @db.DateTime(0)
+  updatedAt DateTime @default(now()) @updatedAt @db.DateTime(0)
   path      String   @db.MediumText
   filename  String
   name      String?
@@ -58,8 +58,8 @@ model File {
 
 model Letter {
   id           String       @id @default(cuid()) @db.VarChar(32)
-  createdAt    DateTime     @default(now("0")) @db.DateTime(0)
-  updatedAt    DateTime     @default(now("0")) @updatedAt @db.DateTime(0)
+  createdAt    DateTime     @default(now()) @db.DateTime(0)
+  updatedAt    DateTime     @default(now()) @updatedAt @db.DateTime(0)
   email        String       @db.MediumText
   subject      String       @db.MediumText
   message      String       @db.MediumText
@@ -84,8 +84,8 @@ enum LetterStatus {
 
 model Log {
   id         String   @id @default(cuid()) @db.VarChar(32)
-  createdAt  DateTime @default(now("0")) @db.DateTime(0)
-  updatedAt  DateTime @default(now("0")) @updatedAt @db.DateTime(0)
+  createdAt  DateTime @default(now()) @db.DateTime(0)
+  updatedAt  DateTime @default(now()) @updatedAt @db.DateTime(0)
   level      LogLevel @default(value: Info)
   objectType String?  @db.VarChar(32)
   message    String   @db.MediumText
@@ -102,8 +102,8 @@ enum LogLevel {
 
 model ResetPassword {
   id                       String    @id @default(cuid()) @db.VarChar(32)
-  createdAt                DateTime  @default(now("0")) @db.DateTime(0)
-  updatedAt                DateTime  @default(now("0")) @updatedAt @db.DateTime(0)
+  createdAt                DateTime  @default(now()) @db.DateTime(0)
+  updatedAt                DateTime  @default(now()) @updatedAt @db.DateTime(0)
   code                     String    @db.VarChar(32)
   password                 String
   validTill                DateTime?
