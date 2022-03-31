@@ -37,7 +37,9 @@ export const initMockServer = (props?: initMockServerProps) => {
     }
   }
 
-  cy.readFile('./src/modules/gql/generated/schema.json').then((schema) => {
+  cy.readFile('src/modules/gql/generated/schema.json', {
+    timeout: 15000,
+  }).then((schema) => {
     cy.mockNetwork({
       schema,
       mocks: {
