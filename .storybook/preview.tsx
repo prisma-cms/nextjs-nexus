@@ -5,7 +5,7 @@ import { makeDecorator } from '@storybook/addons';
 import { linkTo } from '@storybook/addon-links'
 
 import { RouterContext } from 'next/dist/shared/lib/router-context'
-import { MittEmitter } from 'next/dist/shared/lib/mitt';
+import { MittEmitter } from 'next/dist/shared/lib/mitt'
 
 export const parameters = {
   options: {

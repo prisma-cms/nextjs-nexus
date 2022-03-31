@@ -21,6 +21,13 @@ export { baseRender }
 // re-export everything
 export * from '@testing-library/react'
 
+// TODO TypeError: require.resolveWeak is not a function
+jest.mock('next/dynamic', () => {
+  return () => {
+    return null
+  }
+})
+
 /**
  * Collect tags from next/head
  * https://github.com/vercel/next.js/discussions/11060
