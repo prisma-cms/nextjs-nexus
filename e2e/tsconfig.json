@@ -1,0 +1,7 @@
+{
+  "extends": "../tsconfig.json",
+  "compilerOptions": {
+    // https://github.com/scottohara/loot/issues/185
+    "target": "ES2019"
+  }
+}

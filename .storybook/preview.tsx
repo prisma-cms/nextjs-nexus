@@ -4,8 +4,8 @@ import { ThemeProvider } from 'styled-components'
 import { makeDecorator } from '@storybook/addons';
 import { linkTo } from '@storybook/addon-links'
 
-import { RouterContext } from 'next/dist/next-server/lib/router-context'
-import { MittEmitter } from 'next/dist/next-server/lib/mitt';
+import { RouterContext } from 'next/dist/shared/lib/router-context'
+import { MittEmitter } from 'next/dist/shared/lib/mitt'
 
 export const parameters = {
   options: {
@@ -60,7 +60,7 @@ addDecorator(makeDecorator({
           back: () => { },
           beforePopState: () => { },
           isFallback: false,
-          events: {} as MittEmitter,
+          events: {} as MittEmitter<any>,
           isReady: true,
           isLocaleDomain: false,
           isPreview: false,
