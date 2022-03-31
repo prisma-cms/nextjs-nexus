@@ -16,6 +16,7 @@
     "types:server": "yarn types -P tsconfig.server.json",
     "format": "prettier --write .",
     "lint": "eslint . --ext ts --ext tsx --ext js",
+    "lint-style": "stylelint 'src/**/*.style.{ts,tsx}' 'src/**/style.{ts,tsx}'",
     "storybook": "start-storybook -p 6006",
     "build:storybook": "build-storybook",
     "cy:open": "cypress open",
@@ -33,6 +34,7 @@
   "lint-staged": {
     "*.@(ts|tsx)": [
       "yarn lint",
+      "yarn lint-style",
       "yarn format"
     ]
   },
