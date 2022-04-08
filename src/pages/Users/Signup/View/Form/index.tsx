@@ -197,7 +197,7 @@ const SignupForm: React.FC = () => {
   return useMemo(() => {
     return (
       <>
-        <SignupFormStyled onSubmit={onSubmit}>
+        <SignupFormStyled onSubmit={onSubmit} layout="inline">
           <h2>Зарегистрироваться</h2>
 
           <Controller

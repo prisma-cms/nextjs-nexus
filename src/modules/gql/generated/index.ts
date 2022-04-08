@@ -12,5 +12,6 @@ export * from './signin';
 export * from './signup';
 export * from './singleUpload';
 export * from './unblockUser';
+export * from './updateCurrentUser';
 export * from './user';
 export * from './usersConnection';export * from './types';

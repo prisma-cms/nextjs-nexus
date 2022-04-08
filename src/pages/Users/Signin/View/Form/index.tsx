@@ -114,7 +114,7 @@ const SigninForm: React.FC = () => {
   return useMemo(() => {
     return (
       <>
-        <SigninFormStyled role="signin" onSubmit={onSubmit}>
+        <SigninFormStyled role="signin" onSubmit={onSubmit} layout="inline">
           <h2>Авторизоваться</h2>
 
           <Controller

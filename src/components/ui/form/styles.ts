@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
 import { ButtonStyled } from '@prisma-cms/ui/dist/Button/styles'
 import {
@@ -6,7 +6,11 @@ import {
   FormControlElementStyled,
 } from '@prisma-cms/ui/dist/form/FormControl/styles'
 
-export const FormStyled = styled.form`
+type FormStyledProps = {
+  layout: 'inline' | 'default'
+}
+
+export const FormStyled = styled.form<FormStyledProps>`
   input[type='checkbox'] {
     cursor: pointer;
   }
@@ -29,4 +33,15 @@ export const FormStyled = styled.form`
       }
     }
   }
+
+  ${({ layout }) => {
+    switch (layout) {
+      case 'inline':
+        return css`
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        `
+    }
+  }}
 `

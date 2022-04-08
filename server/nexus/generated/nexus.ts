@@ -59,6 +59,12 @@ export interface NexusGenInputs {
     equals?: boolean | null // Boolean
     not?: NexusGenInputs['NestedBoolFilter'] | null // NestedBoolFilter
   }
+  CurrentUserUpdateInput: {
+    // input type
+    fullname?: string | null // String
+    password?: string | null // String
+    username?: string | null // String
+  }
   DateTimeFilter: {
     // input type
     equals?: NexusGenScalars['DateTime'] | null // DateTime
@@ -393,6 +399,11 @@ export interface NexusGenInputs {
     showFullname: boolean // Boolean!
     username?: string | null // String
   }
+  UserUpdateInput: {
+    // input type
+    fullname?: string | null // String
+    username?: string | null // String
+  }
   UserWhereInput: {
     // input type
     AND?: NexusGenInputs['UserWhereInput'][] | null // [UserWhereInput!]
@@ -509,6 +520,8 @@ export interface NexusGenFieldTypes {
     signup: NexusGenRootTypes['AuthPayload'] // AuthPayload!
     singleUpload: NexusGenRootTypes['File'] | null // File
     unblockUser: NexusGenRootTypes['User'] // User!
+    updateCurrentUser: NexusGenRootTypes['User'] // User!
+    updateOneUser: NexusGenRootTypes['User'] // User!
   }
   Query: {
     // field return type
@@ -585,6 +598,8 @@ export interface NexusGenFieldTypeNames {
     signup: 'AuthPayload'
     singleUpload: 'File'
     unblockUser: 'User'
+    updateCurrentUser: 'User'
+    updateOneUser: 'User'
   }
   Query: {
     // field return type name
@@ -660,6 +675,15 @@ export interface NexusGenArgTypes {
     }
     unblockUser: {
       // args
+      where: NexusGenInputs['UserWhereUniqueInput'] // UserWhereUniqueInput!
+    }
+    updateCurrentUser: {
+      // args
+      data: NexusGenInputs['CurrentUserUpdateInput'] // CurrentUserUpdateInput!
+    }
+    updateOneUser: {
+      // args
+      data: NexusGenInputs['UserUpdateInput'] // UserUpdateInput!
       where: NexusGenInputs['UserWhereUniqueInput'] // UserWhereUniqueInput!
     }
   }

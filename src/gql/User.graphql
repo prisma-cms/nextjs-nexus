@@ -64,6 +64,12 @@ mutation unblockUser($where: UserWhereUniqueInput!) {
   }
 }
 
+mutation updateCurrentUser($data: CurrentUserUpdateInput!) {
+  updateCurrentUser(data: $data) {
+    ...user
+  }
+}
+
 fragment UserNoNesting on User {
   id
   createdAt

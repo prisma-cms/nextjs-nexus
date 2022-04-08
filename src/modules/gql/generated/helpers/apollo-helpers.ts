@@ -20,7 +20,7 @@ export type FileFieldPolicy = {
 	size?: FieldPolicy<any> | FieldReadFunction<any>,
 	updatedAt?: FieldPolicy<any> | FieldReadFunction<any>
 };
-export type MutationKeySpecifier = ('blockUser' | 'createResetPasswordProcessor' | 'resetPasswordProcessor' | 'signin' | 'signup' | 'singleUpload' | 'unblockUser' | MutationKeySpecifier)[];
+export type MutationKeySpecifier = ('blockUser' | 'createResetPasswordProcessor' | 'resetPasswordProcessor' | 'signin' | 'signup' | 'singleUpload' | 'unblockUser' | 'updateCurrentUser' | 'updateOneUser' | MutationKeySpecifier)[];
 export type MutationFieldPolicy = {
 	blockUser?: FieldPolicy<any> | FieldReadFunction<any>,
 	createResetPasswordProcessor?: FieldPolicy<any> | FieldReadFunction<any>,
@@ -28,7 +28,9 @@ export type MutationFieldPolicy = {
 	signin?: FieldPolicy<any> | FieldReadFunction<any>,
 	signup?: FieldPolicy<any> | FieldReadFunction<any>,
 	singleUpload?: FieldPolicy<any> | FieldReadFunction<any>,
-	unblockUser?: FieldPolicy<any> | FieldReadFunction<any>
+	unblockUser?: FieldPolicy<any> | FieldReadFunction<any>,
+	updateCurrentUser?: FieldPolicy<any> | FieldReadFunction<any>,
+	updateOneUser?: FieldPolicy<any> | FieldReadFunction<any>
 };
 export type QueryKeySpecifier = ('file' | 'files' | 'filesCount' | 'me' | 'user' | 'users' | 'usersCount' | QueryKeySpecifier)[];
 export type QueryFieldPolicy = {

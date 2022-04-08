@@ -39,6 +39,12 @@ export interface BoolFilter {
   not?: Maybe<NestedBoolFilter>;
 }
 
+export interface CurrentUserUpdateInput {
+  fullname?: Maybe<Scalars['String']>;
+  password?: Maybe<Scalars['String']>;
+  username?: Maybe<Scalars['String']>;
+}
+
 
 export interface DateTimeFilter {
   equals?: Maybe<Scalars['DateTime']>;
@@ -216,6 +222,10 @@ export interface Mutation {
   singleUpload?: Maybe<File>;
   /** Разблокировать пользователя */
   unblockUser: User;
+  /** Обновление текущего пользователя */
+  updateCurrentUser: User;
+  /** Обновление пользователя */
+  updateOneUser: User;
 }
 
 
@@ -252,6 +262,17 @@ export type MutationSingleUploadArgs = {
 
 
 export type MutationUnblockUserArgs = {
+  where: UserWhereUniqueInput;
+};
+
+
+export type MutationUpdateCurrentUserArgs = {
+  data: CurrentUserUpdateInput;
+};
+
+
+export type MutationUpdateOneUserArgs = {
+  data: UserUpdateInput;
   where: UserWhereUniqueInput;
 };
 
@@ -566,6 +587,11 @@ export interface UserSignupDataInput {
   showEmail?: Scalars['Boolean'];
   /** Показывать ФИО другим пользователям */
   showFullname?: Scalars['Boolean'];
+  username?: Maybe<Scalars['String']>;
+}
+
+export interface UserUpdateInput {
+  fullname?: Maybe<Scalars['String']>;
   username?: Maybe<Scalars['String']>;
 }
 
