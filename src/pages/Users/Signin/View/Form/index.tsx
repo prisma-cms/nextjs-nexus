@@ -14,6 +14,7 @@ import Button from 'src/components/ui/Button'
 
 import { SigninFormStyled } from './styles'
 import { Context } from 'src/pages/_App/Context'
+import Link from 'next/link'
 
 type FormData = Pick<SigninMutationVariables['where'], 'username'> &
   SigninMutationVariables['data']
@@ -131,9 +132,25 @@ const SigninForm: React.FC = () => {
             render={passwordFieldRender}
           />
 
-          <Button type="submit" disabled={signinLoading} variant="success">
-            Авторизоваться
-          </Button>
+          <div
+            style={{
+              display: 'flex',
+            }}
+          >
+            <Link href="/signup">
+              <Button size="small" type="button" variant="default">
+                Зарегистрироваться
+              </Button>
+            </Link>
+            <Button
+              size="small"
+              type="submit"
+              disabled={signinLoading}
+              variant="success"
+            >
+              Авторизоваться
+            </Button>
+          </div>
         </SigninFormStyled>
       </>
     )
