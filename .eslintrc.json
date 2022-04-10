@@ -20,6 +20,16 @@
     {
       "files": ["src/**/*.{ts,tsx}"],
       "rules": {
+        "no-restricted-imports": [
+          "error",
+          {
+            "patterns": [
+              // TODO Сейчас этот компонент вызывает ошибку styled-components
+              // Prop `className` did not match. Server: "..." Client: "..."
+              "@prisma-cms/ui/dist/Button"
+            ]
+          }
+        ],
         // Deny use require
         "no-restricted-modules": [
           "error",

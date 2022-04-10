@@ -4,7 +4,7 @@ import { useCurrentUser } from 'src/hooks/useCurrentUser'
 import SignupForm from './Form'
 
 const SignupPageView: React.FC = () => {
-  const currentUser = useCurrentUser()
+  const { user: currentUser } = useCurrentUser()
 
   return useMemo(() => {
     /**

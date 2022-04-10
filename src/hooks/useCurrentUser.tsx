@@ -1,4 +1,5 @@
-import { useContext } from 'react'
+import { useApolloClient } from '@apollo/client'
+import { useContext, useCallback } from 'react'
 import { Context } from 'src/pages/_App/Context'
 
 /**
@@ -7,5 +8,16 @@ import { Context } from 'src/pages/_App/Context'
 export const useCurrentUser = () => {
   const context = useContext(Context)
 
-  return context?.user
+  const apolloClient = useApolloClient()
+
+  const logout = useCallback(() => {
+    global.localStorage?.removeItem('token')
+
+    apolloClient.resetStore().catch(console.error)
+  }, [apolloClient])
+
+  return {
+    user: context?.user,
+    logout,
+  }
 }

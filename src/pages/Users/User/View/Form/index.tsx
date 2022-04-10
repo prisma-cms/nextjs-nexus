@@ -7,7 +7,7 @@ import {
 } from 'src/modules/gql/generated'
 import TextField from '@prisma-cms/ui/dist/form/TextField'
 import { FormStyled } from 'src/components/ui/form/styles'
-import Button from '@prisma-cms/ui/dist/Button'
+import Button from 'src/components/ui/Button'
 
 export const UserEditForm: React.FC<UserEditFormProps> = ({ user }) => {
   const [data, dataSetter] = useState<CurrentUserUpdateInput>()

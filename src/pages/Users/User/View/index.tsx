@@ -5,7 +5,7 @@ import { UserPageViewProps } from './interfaces'
 import { UserPageViewStyled } from './styles'
 
 export const UserPageView: React.FC<UserPageViewProps> = ({ user }) => {
-  const currentUser = useCurrentUser()
+  const { user: currentUser } = useCurrentUser()
 
   const editForm = useMemo(() => {
     if (currentUser?.id !== user.id) {
