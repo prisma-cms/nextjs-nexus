@@ -8,6 +8,7 @@ import {
 import TextField from '@prisma-cms/ui/dist/form/TextField'
 import { FormStyled } from 'src/components/ui/form/styles'
 import Button from 'src/components/ui/Button'
+import { NewPassword } from './Password'
 
 export const UserEditForm: React.FC<UserEditFormProps> = ({ user }) => {
   const [data, dataSetter] = useState<CurrentUserUpdateInput>()
@@ -83,21 +84,16 @@ export const UserEditForm: React.FC<UserEditFormProps> = ({ user }) => {
 
   return (
     <>
-      <FormStyled layout="inline" onSubmit={onSubmit}>
+      <FormStyled layout="column" onSubmit={onSubmit}>
         <TextField
           title="ФИО"
           name="fullname"
           value={data?.fullname ?? user.fullname ?? ''}
           onChange={onChange}
+          fullWidth
         />
 
-        <TextField
-          title="Новый пароль"
-          name="password"
-          type="password"
-          value={data?.password ?? ''}
-          onChange={onChange}
-        />
+        <NewPassword value={data?.password ?? ''} onChange={onChange} />
 
         {/* <Uploader name="avatar" onUpload={onUpload} directory="images/" /> */}
 

@@ -8,7 +8,7 @@ import {
 } from '@prisma-cms/ui/dist/form/FormControl/styles'
 
 type FormStyledProps = {
-  layout: 'inline' | 'default'
+  layout: 'column' | 'default'
 }
 
 export const FormStyled = styled.form<FormStyledProps>`
@@ -37,11 +37,14 @@ export const FormStyled = styled.form<FormStyledProps>`
 
   ${({ layout }) => {
     switch (layout) {
-      case 'inline':
+      case 'column':
         return css`
           display: flex;
           flex-direction: column;
           align-items: center;
+          width: 100%;
+          max-width: 300px;
+          margin: 0 auto;
         `
     }
   }}

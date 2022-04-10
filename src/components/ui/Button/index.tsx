@@ -4,10 +4,12 @@
 // export * from '@prisma-cms/ui/dist/Button'
 
 import dynamic from 'next/dynamic'
-const Button = dynamic(import('@prisma-cms/ui/dist/Button'), { ssr: false })
+const ButtonProto = dynamic(import('@prisma-cms/ui/dist/Button'), {
+  ssr: false,
+})
 
-const ButtonLasy: typeof Button = (props) => {
-  return <Button {...props} />
+const Button: typeof ButtonProto = (props) => {
+  return <ButtonProto {...props} />
 }
 
-export default ButtonLasy
+export default Button

@@ -109,6 +109,7 @@ const SignupForm: React.FC = () => {
         {...field}
         value={field.value || ''}
         error={formState.errors[field.name]}
+        fullWidth
       />
     )
   }, [])
@@ -124,6 +125,7 @@ const SignupForm: React.FC = () => {
         {...field}
         value={field.value || ''}
         error={formState.errors[field.name]}
+        fullWidth
       />
     )
   }, [])
@@ -139,6 +141,7 @@ const SignupForm: React.FC = () => {
         {...field}
         value={field.value || ''}
         error={formState.errors[field.name]}
+        fullWidth
       />
     )
   }, [])
@@ -154,6 +157,7 @@ const SignupForm: React.FC = () => {
         {...field}
         value={field.value || ''}
         error={formState.errors[field.name]}
+        fullWidth
       />
     )
   }, [])
@@ -197,7 +201,7 @@ const SignupForm: React.FC = () => {
   return useMemo(() => {
     return (
       <>
-        <SignupFormStyled onSubmit={onSubmit} layout="inline">
+        <SignupFormStyled onSubmit={onSubmit} layout="column">
           <h2>Зарегистрироваться</h2>
 
           <Controller

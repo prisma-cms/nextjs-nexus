@@ -95,6 +95,7 @@ const SigninForm: React.FC = () => {
           error={formState.errors[field.name]}
           {...field}
           value={field.value || ''}
+          fullWidth
         />
       )
     }, [])
@@ -108,6 +109,7 @@ const SigninForm: React.FC = () => {
           {...field}
           value={field.value || ''}
           error={formState.errors[field.name]}
+          fullWidth
         />
       )
     }, [])
@@ -115,7 +117,7 @@ const SigninForm: React.FC = () => {
   return useMemo(() => {
     return (
       <>
-        <SigninFormStyled role="signin" onSubmit={onSubmit} layout="inline">
+        <SigninFormStyled role="signin" onSubmit={onSubmit} layout="column">
           <h2>Авторизоваться</h2>
 
           <Controller
