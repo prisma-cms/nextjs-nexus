@@ -66,7 +66,8 @@ addDecorator(makeDecorator({
           isPreview: false,
         }}
       >
-        {storyFn(context) as JSX.Element}
+        {/* @ts-expect-error */}
+        {storyFn(context)}
       </RouterContext.Provider>
     </ThemeProvider>
   }
