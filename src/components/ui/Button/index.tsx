@@ -9,7 +9,7 @@ const ButtonProto = dynamic(import('@prisma-cms/ui/dist/Button'), {
 })
 
 const Button: typeof ButtonProto = (props) => {
-  return <ButtonProto {...props} />
+  return ButtonProto ? <ButtonProto {...props} /> : null
 }
 
 export default Button
