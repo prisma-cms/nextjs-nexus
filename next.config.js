@@ -83,7 +83,7 @@ module.exports = (phase, defaultConfig) => {
 
     const withPWA = require('next-pwa')
 
-    const config = withBundleAnalyzer(
+    let config = withBundleAnalyzer(
       withPWA({
         pwa: {
           dest: `.next/public`,
@@ -108,6 +108,21 @@ module.exports = (phase, defaultConfig) => {
         },
       })
     )
+
+    /**
+     * Github pages
+     */
+    if (process.env.GITHUB_REPOSITORY && ['phase-production-build', 'phase-export'].includes(phase)) {
+
+      const repositoryName = process.env.GITHUB_REPOSITORY.split('/')[1];
+
+      config = {
+        ...config,
+        assetPrefix: `/${repositoryName}/`,
+        basePath: `/${repositoryName}`,
+      }
+    }
+
     return config
   }
 
