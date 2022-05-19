@@ -112,9 +112,11 @@ module.exports = (phase, defaultConfig) => {
     /**
      * Github pages
      */
-    if (process.env.GITHUB_REPOSITORY && ['phase-production-build', 'phase-export'].includes(phase)) {
-
-      const repositoryName = process.env.GITHUB_REPOSITORY.split('/')[1];
+    if (
+      process.env.GITHUB_REPOSITORY &&
+      ['phase-production-build', 'phase-export'].includes(phase)
+    ) {
+      const repositoryName = process.env.GITHUB_REPOSITORY.split('/')[1]
 
       config = {
         ...config,
