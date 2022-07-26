@@ -100,8 +100,13 @@ export interface NexusGenInputs {
     none?: NexusGenInputs['FileWhereInput'] | null // FileWhereInput
     some?: NexusGenInputs['FileWhereInput'] | null // FileWhereInput
   }
-  FileOrderByInput: {
+  FileOrderByRelationAggregateInput: {
     // input type
+    _count?: NexusGenEnums['SortOrder'] | null // SortOrder
+  }
+  FileOrderByWithRelationInput: {
+    // input type
+    CreatedBy?: NexusGenInputs['UserOrderByWithRelationInput'] | null // UserOrderByWithRelationInput
     createdAt?: NexusGenEnums['SortOrder'] | null // SortOrder
     createdById?: NexusGenEnums['SortOrder'] | null // SortOrder
     encoding?: NexusGenEnums['SortOrder'] | null // SortOrder
@@ -174,6 +179,10 @@ export interface NexusGenInputs {
     every?: NexusGenInputs['LetterWhereInput'] | null // LetterWhereInput
     none?: NexusGenInputs['LetterWhereInput'] | null // LetterWhereInput
     some?: NexusGenInputs['LetterWhereInput'] | null // LetterWhereInput
+  }
+  LetterOrderByRelationAggregateInput: {
+    // input type
+    _count?: NexusGenEnums['SortOrder'] | null // SortOrder
   }
   LetterWhereInput: {
     // input type
@@ -296,6 +305,10 @@ export interface NexusGenInputs {
     none?: NexusGenInputs['ResetPasswordWhereInput'] | null // ResetPasswordWhereInput
     some?: NexusGenInputs['ResetPasswordWhereInput'] | null // ResetPasswordWhereInput
   }
+  ResetPasswordOrderByRelationAggregateInput: {
+    // input type
+    _count?: NexusGenEnums['SortOrder'] | null // SortOrder
+  }
   ResetPasswordProcessorWhereInput: {
     // input type
     User: NexusGenInputs['UserWhereUniqueInput'] // UserWhereUniqueInput!
@@ -359,6 +372,10 @@ export interface NexusGenInputs {
     none?: NexusGenInputs['TokenWhereInput'] | null // TokenWhereInput
     some?: NexusGenInputs['TokenWhereInput'] | null // TokenWhereInput
   }
+  TokenOrderByRelationAggregateInput: {
+    // input type
+    _count?: NexusGenEnums['SortOrder'] | null // SortOrder
+  }
   TokenWhereInput: {
     // input type
     AND?: NexusGenInputs['TokenWhereInput'][] | null // [TokenWhereInput!]
@@ -370,8 +387,14 @@ export interface NexusGenInputs {
     id?: NexusGenInputs['StringFilter'] | null // StringFilter
     userId?: NexusGenInputs['StringNullableFilter'] | null // StringNullableFilter
   }
-  UserOrderByInput: {
+  UserOrderByWithRelationInput: {
     // input type
+    Files?: NexusGenInputs['FileOrderByRelationAggregateInput'] | null // FileOrderByRelationAggregateInput
+    Letters?: NexusGenInputs['LetterOrderByRelationAggregateInput'] | null // LetterOrderByRelationAggregateInput
+    ResetPasswords?:
+      | NexusGenInputs['ResetPasswordOrderByRelationAggregateInput']
+      | null // ResetPasswordOrderByRelationAggregateInput
+    Tokens?: NexusGenInputs['TokenOrderByRelationAggregateInput'] | null // TokenOrderByRelationAggregateInput
     active?: NexusGenEnums['SortOrder'] | null // SortOrder
     blocked?: NexusGenEnums['SortOrder'] | null // SortOrder
     createdAt?: NexusGenEnums['SortOrder'] | null // SortOrder
@@ -695,7 +718,7 @@ export interface NexusGenArgTypes {
     files: {
       // args
       cursor?: NexusGenInputs['FileWhereUniqueInput'] | null // FileWhereUniqueInput
-      orderBy?: NexusGenInputs['FileOrderByInput'][] | null // [FileOrderByInput!]
+      orderBy?: NexusGenInputs['FileOrderByWithRelationInput'][] | null // [FileOrderByWithRelationInput!]
       skip?: number | null // Int
       take?: number | null // Int
       where?: NexusGenInputs['FileWhereInput'] | null // FileWhereInput
@@ -711,7 +734,7 @@ export interface NexusGenArgTypes {
     users: {
       // args
       cursor?: NexusGenInputs['UserWhereUniqueInput'] | null // UserWhereUniqueInput
-      orderBy?: NexusGenInputs['UserOrderByInput'][] | null // [UserOrderByInput!]
+      orderBy?: NexusGenInputs['UserOrderByWithRelationInput'][] | null // [UserOrderByWithRelationInput!]
       skip?: number | null // Int
       take?: number | null // Int
       where?: NexusGenInputs['UserWhereInput'] | null // UserWhereInput

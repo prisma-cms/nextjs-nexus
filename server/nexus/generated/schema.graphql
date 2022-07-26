@@ -114,7 +114,12 @@ input FileListRelationFilter {
   some: FileWhereInput
 }
 
-input FileOrderByInput {
+input FileOrderByRelationAggregateInput {
+  _count: SortOrder
+}
+
+input FileOrderByWithRelationInput {
+  CreatedBy: UserOrderByWithRelationInput
   createdAt: SortOrder
   createdById: SortOrder
   encoding: SortOrder
@@ -189,6 +194,10 @@ input LetterListRelationFilter {
   every: LetterWhereInput
   none: LetterWhereInput
   some: LetterWhereInput
+}
+
+input LetterOrderByRelationAggregateInput {
+  _count: SortOrder
 }
 
 enum LetterStatus {
@@ -372,7 +381,7 @@ type Query {
   """
   files(
     cursor: FileWhereUniqueInput
-    orderBy: [FileOrderByInput!]
+    orderBy: [FileOrderByWithRelationInput!]
     skip: Int
     take: Int
     where: FileWhereInput
@@ -394,7 +403,7 @@ type Query {
   """
   users(
     cursor: UserWhereUniqueInput
-    orderBy: [UserOrderByInput!]
+    orderBy: [UserOrderByWithRelationInput!]
     skip: Int
     take: Int
     where: UserWhereInput
@@ -423,6 +432,10 @@ input ResetPasswordListRelationFilter {
   every: ResetPasswordWhereInput
   none: ResetPasswordWhereInput
   some: ResetPasswordWhereInput
+}
+
+input ResetPasswordOrderByRelationAggregateInput {
+  _count: SortOrder
 }
 
 input ResetPasswordProcessorWhereInput {
@@ -507,6 +520,10 @@ input TokenListRelationFilter {
   some: TokenWhereInput
 }
 
+input TokenOrderByRelationAggregateInput {
+  _count: SortOrder
+}
+
 input TokenWhereInput {
   AND: [TokenWhereInput!]
   NOT: [TokenWhereInput!]
@@ -568,7 +585,11 @@ type User {
   username: String
 }
 
-input UserOrderByInput {
+input UserOrderByWithRelationInput {
+  Files: FileOrderByRelationAggregateInput
+  Letters: LetterOrderByRelationAggregateInput
+  ResetPasswords: ResetPasswordOrderByRelationAggregateInput
+  Tokens: TokenOrderByRelationAggregateInput
   active: SortOrder
   blocked: SortOrder
   createdAt: SortOrder
