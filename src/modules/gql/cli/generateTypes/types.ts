@@ -38,6 +38,8 @@ const prependText = [
   '* Команда для генерирования этого файла: "yarn generate:types" \n',
   '*/',
   '\n',
+  '// @ts-nocheck',
+  '\n',
   '\n',
 ]
 
