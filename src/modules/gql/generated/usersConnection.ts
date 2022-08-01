@@ -15,7 +15,7 @@ import * as Apollo from '@apollo/client';
 const defaultOptions =  {}
 export type UsersConnectionQueryVariables = Types.Exact<{
   where?: Types.Maybe<Types.UserWhereInput>;
-  orderBy?: Types.Maybe<Array<Types.UserOrderByInput> | Types.UserOrderByInput>;
+  orderBy?: Types.Maybe<Array<Types.UserOrderByWithRelationInput> | Types.UserOrderByWithRelationInput>;
   skip?: Types.Maybe<Types.Scalars['Int']>;
   take?: Types.Maybe<Types.Scalars['Int']>;
 }>;
@@ -28,7 +28,7 @@ export type UsersConnectionQuery = { __typename?: 'Query', usersCount: number, u
 
 
 export const UsersConnectionDocument = gql`
-    query usersConnection($where: UserWhereInput, $orderBy: [UserOrderByInput!], $skip: Int, $take: Int) {
+    query usersConnection($where: UserWhereInput, $orderBy: [UserOrderByWithRelationInput!], $skip: Int, $take: Int) {
   users(where: $where, orderBy: $orderBy, skip: $skip, take: $take) {
     ...user
   }

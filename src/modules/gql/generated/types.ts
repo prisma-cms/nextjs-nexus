@@ -105,7 +105,12 @@ export interface FileListRelationFilter {
   some?: Maybe<FileWhereInput>;
 }
 
-export interface FileOrderByInput {
+export interface FileOrderByRelationAggregateInput {
+  _count?: Maybe<SortOrder>;
+}
+
+export interface FileOrderByWithRelationInput {
+  CreatedBy?: Maybe<UserOrderByWithRelationInput>;
   createdAt?: Maybe<SortOrder>;
   createdById?: Maybe<SortOrder>;
   encoding?: Maybe<SortOrder>;
@@ -179,6 +184,10 @@ export interface LetterListRelationFilter {
   every?: Maybe<LetterWhereInput>;
   none?: Maybe<LetterWhereInput>;
   some?: Maybe<LetterWhereInput>;
+}
+
+export interface LetterOrderByRelationAggregateInput {
+  _count?: Maybe<SortOrder>;
 }
 
 export enum LetterStatus {
@@ -396,7 +405,7 @@ export type QueryFileArgs = {
 
 export type QueryFilesArgs = {
   cursor?: Maybe<FileWhereUniqueInput>;
-  orderBy?: Maybe<Array<FileOrderByInput>>;
+  orderBy?: Maybe<Array<FileOrderByWithRelationInput>>;
   skip?: Maybe<Scalars['Int']>;
   take?: Maybe<Scalars['Int']>;
   where?: Maybe<FileWhereInput>;
@@ -415,7 +424,7 @@ export type QueryUserArgs = {
 
 export type QueryUsersArgs = {
   cursor?: Maybe<UserWhereUniqueInput>;
-  orderBy?: Maybe<Array<UserOrderByInput>>;
+  orderBy?: Maybe<Array<UserOrderByWithRelationInput>>;
   skip?: Maybe<Scalars['Int']>;
   take?: Maybe<Scalars['Int']>;
   where?: Maybe<UserWhereInput>;
@@ -443,6 +452,10 @@ export interface ResetPasswordListRelationFilter {
   every?: Maybe<ResetPasswordWhereInput>;
   none?: Maybe<ResetPasswordWhereInput>;
   some?: Maybe<ResetPasswordWhereInput>;
+}
+
+export interface ResetPasswordOrderByRelationAggregateInput {
+  _count?: Maybe<SortOrder>;
 }
 
 export interface ResetPasswordProcessorWhereInput {
@@ -523,6 +536,10 @@ export interface TokenListRelationFilter {
   some?: Maybe<TokenWhereInput>;
 }
 
+export interface TokenOrderByRelationAggregateInput {
+  _count?: Maybe<SortOrder>;
+}
+
 export interface TokenWhereInput {
   AND?: Maybe<Array<TokenWhereInput>>;
   NOT?: Maybe<Array<TokenWhereInput>>;
@@ -559,7 +576,11 @@ export interface User {
   username?: Maybe<Scalars['String']>;
 }
 
-export interface UserOrderByInput {
+export interface UserOrderByWithRelationInput {
+  Files?: Maybe<FileOrderByRelationAggregateInput>;
+  Letters?: Maybe<LetterOrderByRelationAggregateInput>;
+  ResetPasswords?: Maybe<ResetPasswordOrderByRelationAggregateInput>;
+  Tokens?: Maybe<TokenOrderByRelationAggregateInput>;
   active?: Maybe<SortOrder>;
   blocked?: Maybe<SortOrder>;
   createdAt?: Maybe<SortOrder>;

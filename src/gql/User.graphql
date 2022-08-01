@@ -6,7 +6,7 @@ query me {
 
 query usersConnection(
   $where: UserWhereInput
-  $orderBy: [UserOrderByInput!]
+  $orderBy: [UserOrderByWithRelationInput!]
   $skip: Int
   $take: Int
 ) {
