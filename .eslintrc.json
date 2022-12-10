@@ -47,6 +47,7 @@
     "react/display-name": 0,
     "react/prop-types": 0,
     "react/jsx-no-bind": "error", // Запрещаем стрелочные функции
+    "dot-notation": "error",
     "@typescript-eslint/no-empty-interface": "off",
     "@typescript-eslint/explicit-function-return-type": 0,
     "@typescript-eslint/explicit-member-accessibility": 0,
