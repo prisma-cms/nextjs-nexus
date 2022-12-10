@@ -32,7 +32,9 @@ jobs:
       - run: yarn test --updateSnapshot
       - run: yarn build
       # Github pages
-      - run: yarn next export
+      # TODO Restore. Commited due errors on API request when yarn next export
+      # https://github.com/prisma-cms/nextjs-nexus/issues/1
+      # - run: yarn next export
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
