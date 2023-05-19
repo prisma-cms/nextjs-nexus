@@ -45,6 +45,17 @@ const SignupForm: React.FC = () => {
       resolver: yupResolver(schema),
       shouldFocusError: true,
       /**
+       * При скрытии/открытии формы, useForm сохраняет текущий стейт формы
+       * и он просто так не сбрасывается.
+       * В итоге делается как бы промежуточное состояние
+       * и reset() возвращает к нему, но не полностью сбрасывается.
+       *
+       * Но если его использовать, то вообще дичь получается.
+       * Тогда все поля сбрасываются, хотя getValues() возвращает валидный объект.
+       * А если после использовать trigget(), то опять-таки
+       */
+      // shouldUnregister: true,
+      /**
        * Устанавливаем режим ревалидации формы при изменении данных.
        * https://github.com/react-hook-form/react-hook-form/issues/2755#issuecomment-683268595
        */
@@ -60,7 +71,7 @@ const SignupForm: React.FC = () => {
    * чтобы показать обязательные поля
    */
   useEffect(() => {
-    trigger()
+    trigger().catch(console.error)
   }, [trigger])
 
   /**
