@@ -127,12 +127,19 @@ const SigninForm: React.FC = () => {
             render={usernameFieldRender}
           />
 
-          <Controller
-            name="password"
-            control={control}
-            defaultValue={''}
-            render={passwordFieldRender}
-          />
+          <div className="flex-row username">
+            <Controller
+              name="password"
+              control={control}
+              defaultValue={''}
+              render={passwordFieldRender}
+            />
+            <Link href="/reset-password">
+              <Button size="small" type="button" variant="default">
+                Не помню
+              </Button>
+            </Link>
+          </div>
 
           <div
             style={{
