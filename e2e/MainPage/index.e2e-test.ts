@@ -32,12 +32,12 @@ describe('MainPage', () => {
               id: 'test-user-1',
               active: true,
               showEmail: true,
+              showFullname: false,
               createdAt: new Date('2022/03/31'),
               updatedAt: new Date('2022/03/31'),
               username: 'test-user',
               fullname: 'Test User',
               blocked: false,
-              showFullname: true,
             }
           },
         }),
