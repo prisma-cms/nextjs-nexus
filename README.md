@@ -46,7 +46,7 @@ yarn start
 
 1. In root of project create .env file (dot is necessary in start of filename).
 2. Added line with your GraphQL API endpoint address e.g.
-   API_ENDPOINT=https://api.prisma-cms.com
+   API_ENDPOINT=https://freecode.academy/api/
 3. Generate front GraphQL schema and types
 
 ```bash

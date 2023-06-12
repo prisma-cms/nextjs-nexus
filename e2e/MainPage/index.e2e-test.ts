@@ -31,9 +31,11 @@ describe('MainPage', () => {
             return {
               id: 'test-user-1',
               active: true,
+              blocked: false,
               hasEmail: false,
               hasPhone: false,
               showEmail: true,
+              showFullname: false,
               createdAt: new Date('2022/03/31'),
               updatedAt: new Date('2022/03/31'),
               username: 'test-user',
