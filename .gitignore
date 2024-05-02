@@ -50,3 +50,7 @@ storybook-static
 # jest
 __snapshots__
 
+# Generated files
+server/nexus/generated
+src/modules/gql/generated
+

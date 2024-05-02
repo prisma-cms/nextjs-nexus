@@ -1,74 +1,54 @@
-import { addDecorator } from '@storybook/react';
-import theme from 'src/theme'
-import { ThemeProvider } from 'styled-components'
-import { makeDecorator } from '@storybook/addons';
-import { linkTo } from '@storybook/addon-links'
+import React from "react";
+import { Decorator, Preview } from "@storybook/react";
+import { MockedProvider } from "@apollo/client/testing";
+import { MINIMAL_VIEWPORTS, INITIAL_VIEWPORTS } from "@storybook/addon-viewport";
 
-import { RouterContext } from 'next/dist/shared/lib/router-context'
-import { MittEmitter } from 'next/dist/shared/lib/mitt'
+const Layout: React.FC<
+  React.PropsWithChildren  
+> = ({ children }) => {
 
-export const parameters = {
-  options: {
-    storySort: (a: any, b: any) => {
-      // We want the Welcome story at the top
-      if (b[1].kind === 'Welcome') {
-        return 1
-      }
+  return <>{children}</>
+};
 
-      // Sort the other stories by ID
-      // https://github.com/storybookjs/storybook/issues/548#issuecomment-530305279
-      return a[1].kind === b[1].kind
-        ? 0
-        : a[1].id.localeCompare(b[1].id, { numeric: true })
+export const decorators: Decorator[] = [
+  (Story) => (
+    <Layout>
+      <Story />
+    </Layout>
+  ),
+];
+
+export const parameters: Preview["parameters"] = {
+  layout: "fullscreen",
+  viewport: {
+    viewports: {
+      ...MINIMAL_VIEWPORTS,
+      ...INITIAL_VIEWPORTS,
+      galaxyFold: {
+        name: "Galaxy Fold",
+        styles: {
+          width: "653px",
+          height: "280px",
+        },
+      },
+      oculusQuest: {
+        name: "Oculus Quest",
+        styles: {
+          width: "800px",
+          height: "450px",
+        },
+      },
     },
   },
-}
+  options: {
+    storySort: {
+      order: ["UI", "*"],
+    },
+  },
+  apolloClient: {
+    MockedProvider,
+  },
+};
+ 
 
-const startCase = (str: string) => {
-  return str.charAt(0).toUpperCase() + str.slice(1);
-}
-
-addDecorator(makeDecorator({
-  name: 'withSomething',
-  parameterName: 'something',
-  wrapper: (storyFn, context) => {
-    return <ThemeProvider theme={theme}>
-      {/* 
-        https://github.com/vercel/next.js/issues/15543#issuecomment-664955766
-      */}
-      <RouterContext.Provider
-        value={{
-          route: "/",
-          pathname: '/',
-          asPath: '/',
-          query: {},
-          basePath: '',
-          push: (_url, as) => {
-            if (as) {
-              linkTo('Routes', as !== '/' ? startCase(as.toString()) : 'Index')()
-            }
-            return Promise.resolve(true)
-          },
-          replace: (_url, as) => {
-            if (as) {
-              linkTo('Routes', as !== '/' ? startCase(as.toString()) : 'Index')()
-            }
-            return Promise.resolve(true)
-          },
-          reload: () => { },
-          prefetch: async () => { },
-          back: () => { },
-          beforePopState: () => { },
-          isFallback: false,
-          events: {} as MittEmitter<any>,
-          isReady: true,
-          isLocaleDomain: false,
-          isPreview: false,
-        }}
-      >
-        {/* @ts-expect-error */}
-        {storyFn(context)}
-      </RouterContext.Provider>
-    </ThemeProvider>
-  }
-}));
+export const globalTypes = {};

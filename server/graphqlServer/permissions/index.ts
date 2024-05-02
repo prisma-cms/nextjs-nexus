@@ -6,6 +6,7 @@ import { isSudo } from './rules/isSudo'
 // import { isOwner } from './rules/isOwner'
 
 type RuleTree<K extends NexusGenFieldTypes> = {
+  // @ts-expect-error types
   [P in keyof K]?: RuleTreeRule<K[P]> | Rule
 }
 
