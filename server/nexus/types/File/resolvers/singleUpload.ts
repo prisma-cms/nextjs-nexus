@@ -3,7 +3,7 @@ import path from 'path'
 import fs from 'fs'
 import mkdirp from 'mkdirp'
 import { PrismaContext } from 'server/nexus/context'
-import { NexusGenArgTypes, NexusGenObjects } from 'server/nexus/generated/nexus'
+import { NexusGenArgTypes } from 'server/nexus/generated/nexus'
 import { Prisma } from '.prisma/client'
 
 const { createWriteStream, unlink } = fs
@@ -107,7 +107,7 @@ const storeFS = async ({
 export const processUpload = async (
   args: NexusGenArgTypes['Mutation']['singleUpload'],
   ctx: PrismaContext
-): Promise<NexusGenObjects['File']> => {
+): Promise<Prisma.FileCreateInput> => {
   const { currentUser } = ctx
 
   if (!currentUser) {
@@ -154,15 +154,7 @@ export const processUpload = async (
       },
     }
 
-    // return ctx.db.mutation.createFile({
-    //   data: uploaded,
-    // }, info)
-    //   .catch(error => {
-    //     throw error;
-    //   });
-    return await ctx.prisma.file.create({
-      data: uploaded,
-    })
+    return uploaded
   } else {
     throw new Error(`Can not upload file ${filename}`)
   }
@@ -172,7 +164,11 @@ export const singleUploadResolver: FieldResolver<
   'Mutation',
   'singleUpload'
 > = async (_, args, ctx) => {
-  const result = await processUpload(args, ctx)
+  const uploaded = await processUpload(args, ctx)
+
+  const result = await ctx.prisma.file.create({
+    data: uploaded,
+  })
 
   return result
 }
