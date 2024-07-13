@@ -13,7 +13,7 @@ jest.mock('next/router', () => ({
   },
 }))
 
-const Component: React.FC = ({ children }) => {
+const Component: React.FC<React.PropsWithChildren> = ({ children }) => {
   return <div id="test">Text {children}</div>
 }
 

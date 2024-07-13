@@ -7,10 +7,8 @@ import {
   Subtitle,
   Description,
   Primary,
-  ArgsTable,
   Stories,
-  PRIMARY_STORY,
-} from '@storybook/addon-docs/blocks'
+} from '@storybook/addon-docs'
 import styled from 'styled-components'
 
 type ButtonProps = {
@@ -87,7 +85,6 @@ export default {
           <Subtitle></Subtitle>
           <Description></Description>
           <Primary></Primary>
-          <ArgsTable story={PRIMARY_STORY} />
           <Stories />
         </>
       ),

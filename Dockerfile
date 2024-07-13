@@ -1,4 +1,4 @@
-FROM mhart/alpine-node:15 as build
+FROM node:20-bookworm as build
 
 ARG SITE=boilerplate
 
@@ -16,31 +16,24 @@ ENV DATABASE_URL $DATABASE_URL
 ARG SUDO_PASSWORD
 ENV SUDO_PASSWORD $SUDO_PASSWORD
 
-# ARG endpoint
-# ENV endpoint $endpoint
+RUN apt-get update
 
-# ARG PUBLIC_URL
-# ENV PUBLIC_URL $PUBLIC_URL
-
-RUN apk add bash 
-RUN apk add mc 
-RUN apk add curl 
-RUN apk add python2
-RUN apk add python3
-RUN apk add make 
-RUN apk add g++
-RUN apk add git 
-
-# RUN apk add --upgrade --no-cache vips-dev build-base \
-#   --repository https://alpine.global.ssl.fastly.net/alpine/v3.10/community/
+RUN apt-get install -y bash 
+RUN apt-get install -y mc 
+RUN apt-get install -y curl 
+RUN apt-get install -y python3
+RUN apt-get install -y make 
+RUN apt-get install -y g++
+RUN apt-get install -y git 
+RUN apt-get install -y iputils-ping
 
 WORKDIR /www/${SITE}/
 
-COPY ./ .
+COPY ./package.json ./package-lock.json ./
 
-# Установку зависимостей нельзя переносить в entrypoint,
-# потому что тот скрипт срабатывает уже тогда, когда контейнер создан и заменен имеющийся (если уже был запущен)
-RUN yarn install --ignore-engines
+RUN npm ci
+
+COPY ./ .
 
 # Deploy prisma migrations into database
 RUN yarn prisma:deploy

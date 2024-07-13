@@ -17,6 +17,10 @@
 /build
 /dist
 
+# generated
+src/modules/gql/generated
+server/nexus/generated
+
 # misc
 .DS_Store
 *.pem

@@ -1,11 +1,13 @@
 import { shield } from 'graphql-shield'
 import { Rule } from 'graphql-shield/dist/rules'
-import { NexusGenFieldTypes } from 'server/nexus/generated/nexus'
+import { NexusGenFieldTypes } from '../../nexus/generated/nexus'
 import { isAuthenticated } from './rules/isAuthenticated'
 import { isSudo } from './rules/isSudo'
 // import { isOwner } from './rules/isOwner'
 
 type RuleTree<K extends NexusGenFieldTypes> = {
+  // TODO Fix types
+  // @ts-expect-error types
   [P in keyof K]?: RuleTreeRule<K[P]> | Rule
 }
 

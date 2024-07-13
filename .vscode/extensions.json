@@ -3,9 +3,7 @@
     "stpn.vscode-graphql",
     "dbaeumer.vscode-eslint",
     "esbenp.prettier-vscode",
-    "statelyai.stately-vscode",
     "Gruntfuggly.todo-tree",
-    "styled-components.vscode-styled-components",
-    "MarioQueiros.CamelCase",
+    "styled-components.vscode-styled-components"
   ]
 }
