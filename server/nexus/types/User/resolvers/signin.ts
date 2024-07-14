@@ -44,6 +44,9 @@ export const signin: FieldResolver<'Mutation', 'signin'> = async (
     result = user
 
     token = await createToken(user, ctx)
+
+    // Add request's context user for allow access to User object GraphqlShield rule
+    ctx.currentUser = user
   }
 
   return {
