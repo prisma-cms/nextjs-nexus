@@ -56,7 +56,7 @@ if (process.env.Sendmail === 'true') {
    * dev
    */
   if (process.env.SendmailDevHost) {
-    sendmailProps.devHost = process.env.SendmailDevPort
+    sendmailProps.devHost = process.env.SendmailDevHost
   }
 
   if (process.env.SendmailDevPort) {
